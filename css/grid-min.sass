@@ -1,0 +1,24 @@
+/* -------- */
+/*   grid   */
+/* -------- */
+$width: 100%
+$gutter: 1%
+$break1: 720px
+$break2: 1024px
+$break3: 1366px
+$break4: 1920px
+.row,
+.row-gutter
+  width: $width
+=col($num)
+  float: left
+  .row-gutter > &
+    width: ($width / 12) * $num - $gutter
+    margin-right: $gutter
+    &:last-child
+      width: ($width / 12) * $num
+      margin-right: 0
+  .row > &
+    width: ($width / 12) * $num
+=jump($num)
+  margin-left: ($width / 12) * $num

@@ -1,0 +1,93 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css";
+/* --------------- */
+/*   boilerplate   */
+/* --------------- */
+*,
+*::after,
+*::before {
+  box-sizing: border-box; }
+
+body {
+  font-size: 16px; }
+
+ul {
+  list-style: none; }
+
+/* -------- */
+/*   grid   */
+/* -------- */
+.row,
+.row-gutter {
+  width: 100%; }
+
+/* ------- */
+/*   css   */
+/* ------- */
+body {
+  font-family: helvetica, arial, sans-serif;
+  background-color: #444;
+  color: #eee; }
+
+header {
+  width: 100%; }
+  header img {
+    float: left; }
+    .row-gutter > header img {
+      width: 99%;
+      margin-right: 1%; }
+      .row-gutter > header img:last-child {
+        width: 100%;
+        margin-right: 0; }
+    .row > header img {
+      width: 100%; }
+
+article {
+  border: 2px dashed lightblue;
+  background-color: green;
+  text-align: center; }
+
+.col2 {
+  float: left; }
+  .row-gutter > .col2 {
+    width: 15.6666666667%;
+    margin-right: 1%; }
+    .row-gutter > .col2:last-child {
+      width: 16.6666666667%;
+      margin-right: 0; }
+  .row > .col2 {
+    width: 16.6666666667%; }
+
+.col3 {
+  float: left; }
+  .row-gutter > .col3 {
+    width: 24%;
+    margin-right: 1%; }
+    .row-gutter > .col3:last-child {
+      width: 25%;
+      margin-right: 0; }
+  .row > .col3 {
+    width: 25%; }
+
+.col4 {
+  float: left; }
+  .row-gutter > .col4 {
+    width: 32.3333333333%;
+    margin-right: 1%; }
+    .row-gutter > .col4:last-child {
+      width: 33.3333333333%;
+      margin-right: 0; }
+  .row > .col4 {
+    width: 33.3333333333%; }
+
+.col6 {
+  float: left; }
+  .row-gutter > .col6 {
+    width: 49%;
+    margin-right: 1%; }
+    .row-gutter > .col6:last-child {
+      width: 50%;
+      margin-right: 0; }
+  .row > .col6 {
+    width: 50%; }
+
+/*# sourceMappingURL=index.css.map */

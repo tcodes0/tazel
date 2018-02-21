@@ -1,0 +1,270 @@
+/* grid */
+$width: 100%
+$gutter: 1%
+$break1: 720px
+$break2: 1024px
+$break3: 1366px
+$break4: 1920px
+.row,
+.row-gutter
+  width: $width
+  // margin: 0 auto
+  // padding: 0
+=set-width-and-gutter($num)
+  float: left
+  .row-gutter > &
+    width: ($width / 12) * $num - $gutter
+    margin-right: $gutter
+    &:last-child
+      width: ($width / 12) * $num
+      margin-right: 0
+  .row > &
+    width: ($width / 12) * $num
+=set-jump($num)
+  margin-left: ($width / 12) * $num
+=zero-col-action()
+  display: none
+.mobile-0col
+  +zero-col-action()
+.mobile-1col
+  +set-width-and-gutter(1)
+.mobile-2col
+  +set-width-and-gutter(2)
+.mobile-3col
+  +set-width-and-gutter(3)
+.mobile-4col
+  +set-width-and-gutter(4)
+.mobile-5col
+  +set-width-and-gutter(5)
+.mobile-6col
+  +set-width-and-gutter(6)
+.mobile-7col
+  +set-width-and-gutter(7)
+.mobile-8col
+  +set-width-and-gutter(8)
+.mobile-9col
+  +set-width-and-gutter(9)
+.mobile-10col
+  +set-width-and-gutter(10)
+.mobile-11col
+  +set-width-and-gutter(11)
+.mobile-12col
+  +set-width-and-gutter(12)
+.mobile-jump1
+  +set-jump(1)
+.mobile-jump2
+  +set-jump(2)
+.mobile-jump3
+  +set-jump(3)
+.mobile-jump4
+  +set-jump(4)
+.mobile-jump5
+  +set-jump(5)
+.mobile-jump6
+  +set-jump(6)
+.mobile-jump7
+  +set-jump(7)
+.mobile-jump8
+  +set-jump(8)
+.mobile-jump9
+  +set-jump(9)
+.mobile-jump10
+  +set-jump(10)
+.mobile-jump11
+  +set-jump(11)
+@media screen and (min-width: $break1)
+  .phablet-0col
+    +zero-col-action()
+  .phablet-1col
+    +set-width-and-gutter(1)
+  .phablet-2col
+    +set-width-and-gutter(2)
+  .phablet-3col
+    +set-width-and-gutter(3)
+  .phablet-4col
+    +set-width-and-gutter(4)
+  .phablet-5col
+    +set-width-and-gutter(5)
+  .phablet-6col
+    +set-width-and-gutter(6)
+  .phablet-7col
+    +set-width-and-gutter(7)
+  .phablet-8col
+    +set-width-and-gutter(8)
+  .phablet-9col
+    +set-width-and-gutter(9)
+  .phablet-10col
+    +set-width-and-gutter(10)
+  .phablet-11col
+    +set-width-and-gutter(11)
+  .phablet-12col
+    +set-width-and-gutter(12)
+  .phablet-jump1
+    +set-jump(1)
+  .phablet-jump2
+    +set-jump(2)
+  .phablet-jump3
+    +set-jump(3)
+  .phablet-jump4
+    +set-jump(4)
+  .phablet-jump5
+    +set-jump(5)
+  .phablet-jump6
+    +set-jump(6)
+  .phablet-jump7
+    +set-jump(7)
+  .phablet-jump8
+    +set-jump(8)
+  .phablet-jump9
+    +set-jump(9)
+  .phablet-jump10
+    +set-jump(10)
+  .phablet-jump11
+    +set-jump(11)
+@media screen and (min-width: $break2)
+  .tablet-0col
+    +zero-col-action()
+  .tablet-1col
+    +set-width-and-gutter(1)
+  .tablet-2col
+    +set-width-and-gutter(2)
+  .tablet-3col
+    +set-width-and-gutter(3)
+  .tablet-4col
+    +set-width-and-gutter(4)
+  .tablet-5col
+    +set-width-and-gutter(5)
+  .tablet-6col
+    +set-width-and-gutter(6)
+  .tablet-7col
+    +set-width-and-gutter(7)
+  .tablet-8col
+    +set-width-and-gutter(8)
+  .tablet-9col
+    +set-width-and-gutter(9)
+  .tablet-10col
+    +set-width-and-gutter(10)
+  .tablet-11col
+    +set-width-and-gutter(11)
+  .tablet-12col
+    +set-width-and-gutter(12)
+  .tablet-jump1
+    +set-jump(1)
+  .tablet-jump2
+    +set-jump(2)
+  .tablet-jump3
+    +set-jump(3)
+  .tablet-jump4
+    +set-jump(4)
+  .tablet-jump5
+    +set-jump(5)
+  .tablet-jump6
+    +set-jump(6)
+  .tablet-jump7
+    +set-jump(7)
+  .tablet-jump8
+    +set-jump(8)
+  .tablet-jump9
+    +set-jump(9)
+  .tablet-jump10
+    +set-jump(10)
+  .tablet-jump11
+    +set-jump(11)
+@media screen and (min-width: $break3)
+  .laptop-0col
+    +zero-col-action()
+  .laptop-1col
+    +set-width-and-gutter(1)
+  .laptop-2col
+    +set-width-and-gutter(2)
+  .laptop-3col
+    +set-width-and-gutter(3)
+  .laptop-4col
+    +set-width-and-gutter(4)
+  .laptop-5col
+    +set-width-and-gutter(5)
+  .laptop-6col
+    +set-width-and-gutter(6)
+  .laptop-7col
+    +set-width-and-gutter(7)
+  .laptop-8col
+    +set-width-and-gutter(8)
+  .laptop-9col
+    +set-width-and-gutter(9)
+  .laptop-10col
+    +set-width-and-gutter(10)
+  .laptop-11col
+    +set-width-and-gutter(11)
+  .laptop-12col
+    +set-width-and-gutter(12)
+  .laptop-jump1
+    +set-jump(1)
+  .laptop-jump2
+    +set-jump(2)
+  .laptop-jump3
+    +set-jump(3)
+  .laptop-jump4
+    +set-jump(4)
+  .laptop-jump5
+    +set-jump(5)
+  .laptop-jump6
+    +set-jump(6)
+  .laptop-jump7
+    +set-jump(7)
+  .laptop-jump8
+    +set-jump(8)
+  .laptop-jump9
+    +set-jump(9)
+  .laptop-jump10
+    +set-jump(10)
+  .laptop-jump11
+    +set-jump(11)
+@media screen and (min-width: $break4)
+  .fullhd-0col
+    +zero-col-action()
+  .fullhd-1col
+    +set-width-and-gutter(1)
+  .fullhd-2col
+    +set-width-and-gutter(2)
+  .fullhd-3col
+    +set-width-and-gutter(3)
+  .fullhd-4col
+    +set-width-and-gutter(4)
+  .fullhd-5col
+    +set-width-and-gutter(5)
+  .fullhd-6col
+    +set-width-and-gutter(6)
+  .fullhd-7col
+    +set-width-and-gutter(7)
+  .fullhd-8col
+    +set-width-and-gutter(8)
+  .fullhd-9col
+    +set-width-and-gutter(9)
+  .fullhd-10col
+    +set-width-and-gutter(10)
+  .fullhd-11col
+    +set-width-and-gutter(11)
+  .fullhd-12col
+    +set-width-and-gutter(12)
+  .fullhd-jump1
+    +set-jump(1)
+  .fullhd-jump2
+    +set-jump(2)
+  .fullhd-jump3
+    +set-jump(3)
+  .fullhd-jump4
+    +set-jump(4)
+  .fullhd-jump5
+    +set-jump(5)
+  .fullhd-jump6
+    +set-jump(6)
+  .fullhd-jump7
+    +set-jump(7)
+  .fullhd-jump8
+    +set-jump(8)
+  .fullhd-jump9
+    +set-jump(9)
+  .fullhd-jump10
+    +set-jump(10)
+  .fullhd-jump11
+    +set-jump(11)
