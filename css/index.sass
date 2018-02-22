@@ -1,4 +1,5 @@
-@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
+// @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
+@import "normalize.css"
 @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,300"
 @import "boiler.sass"
 @import "grid-min.sass"
@@ -8,18 +9,33 @@
 //============= 360~ "Low-end and old mobiles" ======
 $color-green-as-in-money: #699878
 $color-pink: #db8dbc
+$color-bg: #444
+$color-text: #eee
 body
   font-family: helvetica, arial, sans-serif
-  background-color: #444
-  color: #eee
+  background-color: $color-bg
+  color: $color-text
   font-weight: 300
+  .guide
+      border: 1px solid white
+      width: 50%
+      height: 300%
+      position: absolute
+      display: none
 main
-  width: 95%
-  margin: 3vh auto
-header
+  margin: 3vh auto 0
+header, footer
   +row
   font-family: 'Roboto Mono', monospace
   text-align: center
+header
+  .navigation
+    .links
+      padding-left: 1.6rem
+      .link-container
+        margin-right: 0.4rem
+header
+  +light-width-squeeze
   .thomazella-logo
     +row
     max-width: 85%
@@ -34,23 +50,23 @@ header
       content: "( "
     &::after
       content: " )"
-  .navigation
-    margin-bottom: 2.5rem
-    .links
-      .link-container
-        display: inline
-        text-align: center
-        font-size: 1.1rem
-        margin-right: 0.4rem
-        line-height: 1.7rem
-        &:first-child::before
-            content: "{ "
-        &:last-child::after
-            content: " }"
+.navigation
+  margin-bottom: 2.5rem
+  .links
+    .link-container
+      display: inline
+      font-size: 1.1rem
+      line-height: 1.7rem
+      &:first-child::before
+          content: "{ "
+      &:last-child::after
+          content: " }"
 .quick-description-of-me
+  +light-width-squeeze
   font-weight: 400
   font-size: 2rem
   text-align: center
+  margin-bottom: 1.5rem
   .profit
     font-family: serif
     color: $color-green-as-in-money
@@ -62,6 +78,25 @@ header
     color: $color-pink
     @media screen and (max-width: 360px)
       padding-left: 1rem
+footer
+  background-color: darken($color-bg, 8%)
+  padding: 1rem 0 1rem
+  .navigation
+    margin-bottom: 1.8rem
+    .links
+      .link-container
+        display: block
+        &:first-child::before
+          content: unset
+        &:last-child::after
+          content: unset
+  .social-media-links
+    .link-container
+      display: inline
+      &:nth-child(0n+2)
+        margin: 0 1rem 0
+      .link-image
+        max-width: 7vw
 //============= 720~ "Phablets" =====================
 //@media screen and (min-width: 720px)
 //============= 1024~ "Tablets and modern mobiles" ==

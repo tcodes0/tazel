@@ -1,4 +1,4 @@
-@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css";
+@import url(normalize.css);
 @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,300";
 /* --------------- */
 /*   boilerplate   */
@@ -27,19 +27,33 @@ body {
   background-color: #444;
   color: #eee;
   font-weight: 300; }
+  body .guide {
+    border: 1px solid white;
+    width: 50%;
+    height: 300%;
+    position: absolute;
+    display: none; }
 
 main {
-  width: 95%;
-  margin: 3vh auto; }
+  margin: 3vh auto 0; }
 
-header {
+header, footer {
   width: 100%;
   font-family: "Roboto Mono", monospace;
   text-align: center; }
-  header::after {
+  header::after, footer::after {
     content: "";
     display: block;
     clear: both; }
+
+header .navigation .links {
+  padding-left: 1.6rem; }
+  header .navigation .links .link-container {
+    margin-right: 0.4rem; }
+
+header {
+  width: 95%;
+  margin: 0 auto; }
   header .thomazella-logo {
     width: 100%;
     max-width: 85%;
@@ -58,23 +72,25 @@ header {
       content: "( "; }
     header .professional-title::after {
       content: " )"; }
-  header .navigation {
-    margin-bottom: 2.5rem; }
-    header .navigation .links .link-container {
-      display: inline;
-      text-align: center;
-      font-size: 1.1rem;
-      margin-right: 0.4rem;
-      line-height: 1.7rem; }
-      header .navigation .links .link-container:first-child::before {
-        content: "{ "; }
-      header .navigation .links .link-container:last-child::after {
-        content: " }"; }
+
+.navigation {
+  margin-bottom: 2.5rem; }
+  .navigation .links .link-container {
+    display: inline;
+    font-size: 1.1rem;
+    line-height: 1.7rem; }
+    .navigation .links .link-container:first-child::before {
+      content: "{ "; }
+    .navigation .links .link-container:last-child::after {
+      content: " }"; }
 
 .quick-description-of-me {
+  width: 95%;
+  margin: 0 auto;
   font-weight: 400;
   font-size: 2rem;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 1.5rem; }
   .quick-description-of-me .profit {
     font-family: serif;
     color: #699878;
@@ -87,5 +103,23 @@ header {
     @media screen and (max-width: 360px) {
       .quick-description-of-me .so-fun {
         padding-left: 1rem; } }
+
+footer {
+  background-color: #303030;
+  padding: 1rem 0 1rem; }
+  footer .navigation {
+    margin-bottom: 1.8rem; }
+    footer .navigation .links .link-container {
+      display: block; }
+      footer .navigation .links .link-container:first-child::before {
+        content: unset; }
+      footer .navigation .links .link-container:last-child::after {
+        content: unset; }
+  footer .social-media-links .link-container {
+    display: inline; }
+    footer .social-media-links .link-container:nth-child(0n+2) {
+      margin: 0 1rem 0; }
+    footer .social-media-links .link-container .link-image {
+      max-width: 7vw; }
 
 /*# sourceMappingURL=index.css.map */
