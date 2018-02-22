@@ -10,3 +10,7 @@ const toggleGuide = () => {
     guide.style.display = ''
   }
 }
+const htmlHide = (query) => {
+  let e = document.querySelector(query)
+  e.setAttribute('hidden','')
+}
