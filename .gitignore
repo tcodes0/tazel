@@ -2,3 +2,5 @@
 .sass*
 *old
 .DS*
+css/normalize*
+./public*
