@@ -3,4 +3,4 @@
 *old
 .DS*
 css/normalize*
-./public*
+public/*
