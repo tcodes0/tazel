@@ -1,5 +1,5 @@
 @import url(normalize.css);
-@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,300";
+@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Signika:300,400|Source+Sans+Pro:300,400";
 /* --------------- */
 /*   boilerplate   */
 /* --------------- */
@@ -23,19 +23,45 @@ a {
 /*   css   */
 /* ------- */
 body {
-  font-family: helvetica, arial, sans-serif;
-  background-color: #444;
+  font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+  background-color: #303030;
   color: #eee;
-  font-weight: 300; }
-  body .guide {
-    border: 1px solid white;
-    width: 50%;
-    height: 300%;
-    position: absolute;
-    display: none; }
+  font-weight: 400; }
+  @media screen and (max-width: 720px) {
+    body {
+      min-height: 100vh; } }
 
 main {
-  margin: 3vh auto 0; }
+  margin: 0 auto;
+  padding-top: 3vh;
+  overflow-y: hidden;
+  background-color: #444; }
+
+.guide {
+  border: 1px solid white;
+  height: 300%;
+  position: absolute;
+  display: none;
+  z-index: 100;
+  width: 50%; }
+
+.navigation {
+  margin-bottom: 2.5rem; }
+  .navigation .link-container-group .link-container {
+    display: inline;
+    font-size: 1rem;
+    line-height: 1.7rem;
+    text-transform: capitalize; }
+    .navigation .link-container-group .link-container:first-child::before {
+      content: "{ "; }
+    .navigation .link-container-group .link-container:last-child::after {
+      content: " }"; }
+
+.link:hover {
+  text-decoration: underline; }
+
+.paragraph::after {
+  content: "."; }
 
 header, footer {
   width: 100%;
@@ -46,14 +72,13 @@ header, footer {
     display: block;
     clear: both; }
 
-header .navigation .links {
-  padding-left: 1.6rem; }
-  header .navigation .links .link-container {
-    margin-right: 0.4rem; }
-
 header {
   width: 95%;
   margin: 0 auto; }
+  header .navigation .link-container-group {
+    padding-left: 1.2rem; }
+    header .navigation .link-container-group .link-container {
+      margin-right: 1.05rem; }
   header .thomazella-logo {
     width: 100%;
     max-width: 85%;
@@ -65,55 +90,39 @@ header {
       display: block;
       clear: both; }
   header .professional-title {
-    font-size: 0.75rem;
-    font-style: italic;
-    margin-bottom: 2.5rem; }
+    font-size: 0.65rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    text-transform: capitalize; }
     header .professional-title::before {
       content: "( "; }
     header .professional-title::after {
       content: " )"; }
 
-.navigation {
-  margin-bottom: 2.5rem; }
-  .navigation .links .link-container {
-    display: inline;
-    font-size: 1.1rem;
-    line-height: 1.7rem; }
-    .navigation .links .link-container:first-child::before {
-      content: "{ "; }
-    .navigation .links .link-container:last-child::after {
-      content: " }"; }
-
 .quick-description-of-me {
   width: 95%;
   margin: 0 auto;
-  font-weight: 400;
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: center;
   margin-bottom: 1.5rem; }
-  .quick-description-of-me .profit {
-    font-family: serif;
-    color: #699878;
-    text-transform: capitalize;
-    font-size: 2.2rem; }
-  .quick-description-of-me .so-fun {
-    text-transform: uppercase;
-    line-height: 3rem;
-    color: #db8dbc; }
-    @media screen and (max-width: 360px) {
-      .quick-description-of-me .so-fun {
-        padding-left: 1rem; } }
+  .quick-description-of-me .paragraph::after {
+    content: ""; }
+  .quick-description-of-me .paragraph .so-fun::after {
+    content: "."; }
+  @media screen and (max-width: 360px) {
+    .quick-description-of-me .paragraph .so-fun {
+      display: block; } }
 
 footer {
   background-color: #303030;
   padding: 1rem 0 1rem; }
   footer .navigation {
     margin-bottom: 1.8rem; }
-    footer .navigation .links .link-container {
+    footer .navigation .link-container-group .link-container {
       display: block; }
-      footer .navigation .links .link-container:first-child::before {
+      footer .navigation .link-container-group .link-container:first-child::before {
         content: unset; }
-      footer .navigation .links .link-container:last-child::after {
+      footer .navigation .link-container-group .link-container:last-child::after {
         content: unset; }
   footer .social-media-links .link-container {
     display: inline; }

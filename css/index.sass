@@ -1,6 +1,6 @@
 // @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
 @import "normalize.css"
-@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,300"
+@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Signika:300,400|Source+Sans+Pro:300,400"
 @import "boiler.sass"
 @import "grid-min.sass"
 /* ------- */
@@ -11,31 +11,62 @@ $color-green-as-in-money: #699878
 $color-pink: #db8dbc
 $color-bg: #444
 $color-text: #eee
+
 body
-  font-family: helvetica, arial, sans-serif
-  background-color: $color-bg
+  font-family: 'Source Sans Pro', helvetica, arial, sans-serif
+  background-color: darken($color-bg, 8%)
   color: $color-text
-  font-weight: 300
-  .guide
-      border: 1px solid white
-      width: 50%
-      height: 300%
-      position: absolute
-      display: none
+  font-weight: 400
+  @media screen and (max-width: $break1)
+    min-height: 100vh
+
 main
-  margin: 3vh auto 0
+  margin: 0 auto
+  padding-top: 3vh
+  overflow-y: hidden
+  background-color: $color-bg
+
+.guide
+  border: 1px solid white
+  height: 300%
+  position: absolute
+  display: none
+  z-index: 100
+  width: 50%
+
+.navigation
+  margin-bottom: 2.5rem
+  .link-container-group
+    .link-container
+      display: inline
+      font-size: 1rem
+      line-height: 1.7rem
+      text-transform: capitalize
+      &:first-child::before
+          content: "{ "
+      &:last-child::after
+          content: " }"
+
+.link
+  &:hover
+    text-decoration: underline
+
+.paragraph
+  &::after
+    content: '.'
+
 header, footer
   +row
   font-family: 'Roboto Mono', monospace
   text-align: center
-header
-  .navigation
-    .links
-      padding-left: 1.6rem
-      .link-container
-        margin-right: 0.4rem
+
 header
   +light-width-squeeze
+  .navigation
+    .link-container-group
+      padding-left: 1.2rem
+      .link-container
+        margin-right: 1.05rem
   .thomazella-logo
     +row
     max-width: 85%
@@ -43,47 +74,44 @@ header
     margin-bottom: 0.6rem
     transform: rotate(-3deg)
   .professional-title
-    font-size: 0.75rem
-    font-style: italic
+    font-size: 0.65rem
+    // font-style: italic
+    font-weight: 300
     margin-bottom: 2.5rem
+    text-transform: capitalize
     &::before
       content: "( "
     &::after
       content: " )"
-.navigation
-  margin-bottom: 2.5rem
-  .links
-    .link-container
-      display: inline
-      font-size: 1.1rem
-      line-height: 1.7rem
-      &:first-child::before
-          content: "{ "
-      &:last-child::after
-          content: " }"
+
 .quick-description-of-me
   +light-width-squeeze
-  font-weight: 400
-  font-size: 2rem
+  font-size: 1.8rem
   text-align: center
   margin-bottom: 1.5rem
-  .profit
-    font-family: serif
-    color: $color-green-as-in-money
-    text-transform: capitalize
-    font-size: 2.2rem
-  .so-fun
-    text-transform: uppercase
-    line-height: 3rem
-    color: $color-pink
-    @media screen and (max-width: 360px)
-      padding-left: 1rem
+  // .profit
+  //   font-family: serif
+  //   color: $color-green-as-in-money
+  //   text-transform: capitalize
+  //   font-size: 2.2rem
+  .paragraph
+    &::after
+      content: ''
+    .so-fun
+      &::after
+        content: '.'
+      @media screen and (max-width: 360px)
+        display: block
+    //   text-transform: uppercase
+    //   line-height: 3rem
+    //   color: $color-pink
+
 footer
   background-color: darken($color-bg, 8%)
   padding: 1rem 0 1rem
   .navigation
     margin-bottom: 1.8rem
-    .links
+    .link-container-group
       .link-container
         display: block
         &:first-child::before
