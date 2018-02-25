@@ -10,11 +10,15 @@ $color-bg: #444
 $color-text: #eee
 $color-bg-darker: darken($color-bg, 8%)
 $color-text-darker: darken($color-text, 20%)
+// $color-bg-transparent: transparentize($color-bg-darker, 0.15)
 =light-width-squeeze
   width: 95%
   margin: 0 auto
 =simple-border
   border-bottom: 1px solid $color-bg-darker
+//used to set in css what js is setting
+=bg-image-transparent($how-transparent, $img-behind)
+  background-image: linear-gradient(transparentize($color-bg-darker, $how-transparent),transparentize($color-bg-darker, $how-transparent)), url($img-behind)
 
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
@@ -118,10 +122,6 @@ footer
       .link-image
         max-width: 8vw
 
-// footer.home
-//   .social-media-links
-//     padding-top: 1.6rem
-
 /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
 header.articles
   padding-bottom: 2vh
@@ -133,19 +133,17 @@ header.articles
           content: unset
 
 .background-container
-  background-color: $color-bg-darker
+  // background-color: $color-bg-darker
   .article-container
     +row
     +light-width-squeeze
-    // background-color: $color-bg-darker
     .article
       +col(12)
-      // +simple-border
       background-color: $color-bg-darker
-      // border-radius: 25% 10%
-      // border: 1px solid $color-bg-darker
       border-bottom: 2px solid $color-bg
       padding: 1.6rem 0.5rem 1.6rem 0.5rem
+      background-position: left
+      background-size: cover
       .date-written
         font-weight: 300
         text-transform: capitalize
@@ -183,12 +181,13 @@ header.articles
 
 //============================================================
 
-@media screen and (min-width: $break-mobileM) and (min-height: 600px)
+@media screen and (min-width: $break-mobileM) and (min-height: 650px)
   body
     background-color: $color-bg
   .quick-description-of-me
     min-height: 52vh
   footer.home
+    // fallback useful when no js
     position: absolute
     bottom: 0
 
