@@ -11,7 +11,8 @@ body {
 
 ul {
   list-style: none;
-  padding: unset; }
+  padding: unset;
+  margin: unset; }
 
 a {
   color: inherit;
