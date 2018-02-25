@@ -12,7 +12,7 @@ const htmlHide = (query) => {
 }
 // toggleGuide()
 let resizers = []
-let adjustHeight_QuickDescriptionOfme = () => {
+const adjustHeight_QuickDescriptionOfme = () => {
   let h = (
     document.querySelector('footer').offsetTop
     -
@@ -23,3 +23,9 @@ let adjustHeight_QuickDescriptionOfme = () => {
 resizers.push(adjustHeight_QuickDescriptionOfme)
 window.addEventListener('resize', () => resizers.forEach(resizer => resizer()))
 window.addEventListener('load', () => resizers.forEach(resizer => resizer()))
+const hideFooterNavOnHome = () => {
+  if (document.title === "Thomazella") {
+    document.querySelector('footer .navigation').setAttribute('hidden','')
+  }
+}
+window.addEventListener('load', hideFooterNavOnHome)
