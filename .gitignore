@@ -4,3 +4,4 @@
 .DS*
 css/normalize*
 public/*
+misc/*
