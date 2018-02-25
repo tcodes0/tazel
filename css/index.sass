@@ -22,7 +22,7 @@ main
 
 .guide
   border: 1px solid white
-  height: 300%
+  height: 100%
   position: absolute
   display: none
   z-index: 100
@@ -66,7 +66,6 @@ header
     +row
     margin-top: 2rem
     margin-bottom: 0.6rem
-    transform: rotate(-3deg)
     max-width: calc(100% - 33vw)
   .professional-title
     font-size: calc(0.45rem + 0.6vw)
@@ -94,7 +93,7 @@ footer
   padding: 1rem 0 1rem
   .navigation
     margin-top: 1rem
-    margin-bottom: 1.8rem
+    // margin-bottom: 1.8rem
     .list
       .linebreak-for-mobile-nav
         display: none
@@ -104,12 +103,14 @@ footer
           content: unset
         &:last-child::after
           content: unset
-  .social-media-links .link-container
-    display: inline
-    &:nth-child(0n+2)
-      margin: 0 2rem 0
-    .link-image
-      max-width: 8vw
+  .social-media-links
+    padding-top: 1.8rem
+    .link-container
+      display: inline
+      &:nth-child(0n+2)
+        margin: 0 2rem 0
+      .link-image
+        max-width: 8vw
 
 /*============================================================*/
 
@@ -137,7 +138,7 @@ footer
 
 /*============================================================*/
 
-@media screen and (min-width: $break-mobileL) and (min-height: 600px)
+@media screen and (min-width: $break-mobileM) and (min-height: 600px)
   body
     background-color: $color-bg
   .quick-description-of-me

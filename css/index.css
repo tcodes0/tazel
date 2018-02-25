@@ -36,7 +36,7 @@ main {
 
 .guide {
   border: 1px solid white;
-  height: 300%;
+  height: 100%;
   position: absolute;
   display: none;
   z-index: 100;
@@ -83,7 +83,6 @@ header {
     width: 100%;
     margin-top: 2rem;
     margin-bottom: 0.6rem;
-    transform: rotate(-3deg);
     max-width: calc(100% - 33vw); }
     header .thomazella-logo::after {
       content: "";
@@ -114,8 +113,7 @@ footer {
   background-color: #303030;
   padding: 1rem 0 1rem; }
   footer .navigation {
-    margin-top: 1rem;
-    margin-bottom: 1.8rem; }
+    margin-top: 1rem; }
     footer .navigation .list .linebreak-for-mobile-nav {
       display: none; }
     footer .navigation .list .link-container {
@@ -124,12 +122,14 @@ footer {
         content: unset; }
       footer .navigation .list .link-container:last-child::after {
         content: unset; }
-  footer .social-media-links .link-container {
-    display: inline; }
-    footer .social-media-links .link-container:nth-child(0n+2) {
-      margin: 0 2rem 0; }
-    footer .social-media-links .link-container .link-image {
-      max-width: 8vw; }
+  footer .social-media-links {
+    padding-top: 1.8rem; }
+    footer .social-media-links .link-container {
+      display: inline; }
+      footer .social-media-links .link-container:nth-child(0n+2) {
+        margin: 0 2rem 0; }
+      footer .social-media-links .link-container .link-image {
+        max-width: 8vw; }
 
 /*============================================================ */
 /*============================================================ */
@@ -151,7 +151,7 @@ footer {
     footer .social-media-links .link-container .link-image {
       max-width: 6vw; } }
 /*============================================================ */
-@media screen and (min-width: 425px) and (min-height: 600px) {
+@media screen and (min-width: 375px) and (min-height: 600px) {
   body {
     background-color: #444; }
 
