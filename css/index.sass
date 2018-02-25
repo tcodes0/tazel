@@ -8,12 +8,19 @@
 /* ------- */
 $color-bg: #444
 $color-text: #eee
+$color-bg-darker: darken($color-bg, 8%)
+$color-text-darker: darken($color-text, 20%)
+=light-width-squeeze
+  width: 95%
+  margin: 0 auto
+=simple-border
+  border-bottom: 1px solid $color-bg-darker
 
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
   color: $color-text
   font-weight: 400
-  background-color: darken($color-bg, 8%)
+  background-color: $color-bg-darker
 
 main
   margin: 0 auto
@@ -22,7 +29,6 @@ main
 
 .guide
   border: 1px solid white
-  height: 100%
   position: absolute
   display: none
   z-index: 100
@@ -39,6 +45,9 @@ main
         content: " }"
     .link
       text-transform: capitalize
+    .is-link-to-current-page
+      text-decoration: $color-text wavy underline
+      color: $color-text-darker
 
 .link
   &:hover
@@ -46,8 +55,6 @@ main
 
 .paragraph
   margin: 0
-  &::after
-    content: '.'
 
 header, footer
   +row
@@ -57,7 +64,7 @@ header, footer
 header
   +light-width-squeeze
   padding-bottom: 2.5rem
-  padding-top: 3vh
+  padding-top: 1.1rem
   .navigation .list
     padding-left: 1.2rem
     .link-container
@@ -89,11 +96,10 @@ header
   justify-content: center
 
 footer
-  background-color: darken($color-bg, 8%)
+  background-color: $color-bg-darker
   padding: 1rem 0 1rem
   .navigation
     margin-top: 1rem
-    // margin-bottom: 1.8rem
     .list
       .linebreak-for-mobile-nav
         display: none
@@ -104,7 +110,7 @@ footer
         &:last-child::after
           content: unset
   .social-media-links
-    padding-top: 1.8rem
+    padding-top: 1.4rem
     .link-container
       display: inline
       &:nth-child(0n+2)
@@ -112,11 +118,50 @@ footer
       .link-image
         max-width: 8vw
 
-/*============================================================*/
+// footer.home
+//   .social-media-links
+//     padding-top: 1.6rem
 
+/* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+header.articles
+  padding-bottom: 2vh
+  .navigation-kompakt
+    .list .link-container
+      &:first-child::before
+          content: unset
+      &:last-child::after
+          content: unset
+
+.background-container
+  background-color: $color-bg-darker
+  .article-container
+    +row
+    +light-width-squeeze
+    // background-color: $color-bg-darker
+    .article
+      +col(12)
+      // +simple-border
+      background-color: $color-bg-darker
+      // border-radius: 25% 10%
+      // border: 1px solid $color-bg-darker
+      border-bottom: 2px solid $color-bg
+      padding: 1.6rem 0.5rem 1.6rem 0.5rem
+      .date-written
+        font-weight: 300
+        text-transform: capitalize
+        font-size: 0.7rem
+      .title
+        font-family: 'Roboto Mono', monospace
+        font-weight: 400
+        text-transform: uppercase
+      .intro-text
+        font-weight: 300
+/* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
+/*/=-=-=-=-=-=-=-=-=-=-=\  @medias   /=-=-=-=-=-=-=-=-=-=-=\*/
+/*\=-=-=-=-=-=-=-=-=-=-=/            \=-=-=-=-=-=-=-=-=-=-=/*/
 @media screen and (min-width: $break-mobileM)
 
-/*============================================================*/
+//============================================================
 
 @media screen and (min-width: $break-mobileL)
   header
@@ -136,18 +181,18 @@ footer
     .social-media-links .link-container .link-image
         max-width: 6vw
 
-/*============================================================*/
+//============================================================
 
 @media screen and (min-width: $break-mobileM) and (min-height: 600px)
   body
     background-color: $color-bg
   .quick-description-of-me
     min-height: 52vh
-  footer
+  footer.home
     position: absolute
     bottom: 0
 
-/*============================================================*/
+//============================================================
 
 @media screen and (min-width: $break-tabletS)
   header
@@ -169,7 +214,7 @@ footer
     font-size: 2.5rem
   footer
     .navigation
-      margin-bottom: 2rem
+      margin-bottom: 0.5rem
       .list
         padding-right: 1rem
         padding-left: 0
@@ -184,7 +229,7 @@ footer
       .link-image
         max-width: 3vw
 
-/*============================================================*/
+//============================================================
 
 @media screen and (min-width: $break-tabletM)
   header
@@ -204,7 +249,7 @@ footer
     .social-media-links .link-container .link-image
       max-width: 2.2vw
 
-/*============================================================*/
+//============================================================
 
 @media screen and (min-width: $break-desktopS)
   header
@@ -215,11 +260,8 @@ footer
       margin-bottom: 3.8rem
   .quick-description-of-me
     max-width: 45%
-  footer
-    .navigation
-      margin-bottom: 2rem
 
-/*============================================================*/
+//============================================================
 
 @media screen and (min-width: $break-desktopM)
   header

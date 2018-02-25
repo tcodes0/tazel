@@ -36,7 +36,6 @@ main {
 
 .guide {
   border: 1px solid white;
-  height: 100%;
   position: absolute;
   display: none;
   z-index: 100;
@@ -52,14 +51,15 @@ main {
     content: " }"; }
   .navigation .list .link-container .link {
     text-transform: capitalize; }
+  .navigation .list .link-container .is-link-to-current-page {
+    text-decoration: #eee wavy underline;
+    color: #bbbbbb; }
 
 .link:hover {
   text-decoration: underline; }
 
 .paragraph {
   margin: 0; }
-  .paragraph::after {
-    content: "."; }
 
 header, footer {
   width: 100%;
@@ -74,7 +74,7 @@ header {
   width: 95%;
   margin: 0 auto;
   padding-bottom: 2.5rem;
-  padding-top: 3vh; }
+  padding-top: 1.1rem; }
   header .navigation .list {
     padding-left: 1.2rem; }
     header .navigation .list .link-container {
@@ -123,7 +123,7 @@ footer {
       footer .navigation .list .link-container:last-child::after {
         content: unset; }
   footer .social-media-links {
-    padding-top: 1.8rem; }
+    padding-top: 1.4rem; }
     footer .social-media-links .link-container {
       display: inline; }
       footer .social-media-links .link-container:nth-child(0n+2) {
@@ -131,8 +131,44 @@ footer {
       footer .social-media-links .link-container .link-image {
         max-width: 8vw; }
 
-/*============================================================ */
-/*============================================================ */
+/* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+header.articles {
+  padding-bottom: 2vh; }
+  header.articles .navigation-kompakt .list .link-container:first-child::before {
+    content: unset; }
+  header.articles .navigation-kompakt .list .link-container:last-child::after {
+    content: unset; }
+
+.background-container {
+  background-color: #303030; }
+  .background-container .article-container {
+    width: 100%;
+    width: 95%;
+    margin: 0 auto; }
+    .background-container .article-container::after {
+      content: "";
+      display: block;
+      clear: both; }
+    .background-container .article-container .article {
+      float: left;
+      width: 100%;
+      background-color: #303030;
+      border-bottom: 2px solid #444;
+      padding: 1.6rem 0.5rem 1.6rem 0.5rem; }
+      .background-container .article-container .article .date-written {
+        font-weight: 300;
+        text-transform: capitalize;
+        font-size: 0.7rem; }
+      .background-container .article-container .article .title {
+        font-family: "Roboto Mono", monospace;
+        font-weight: 400;
+        text-transform: uppercase; }
+      .background-container .article-container .article .intro-text {
+        font-weight: 300; }
+
+/* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
+/*/=-=-=-=-=-=-=-=-=-=-=\  @medias   /=-=-=-=-=-=-=-=-=-=-=\ */
+/*\=-=-=-=-=-=-=-=-=-=-=/            \=-=-=-=-=-=-=-=-=-=-=/ */
 @media screen and (min-width: 425px) {
   header .navigation .linebreak-for-mobile-nav {
     display: none; }
@@ -150,7 +186,6 @@ footer {
         display: block; }
     footer .social-media-links .link-container .link-image {
       max-width: 6vw; } }
-/*============================================================ */
 @media screen and (min-width: 375px) and (min-height: 600px) {
   body {
     background-color: #444; }
@@ -158,10 +193,9 @@ footer {
   .quick-description-of-me {
     min-height: 52vh; }
 
-  footer {
+  footer.home {
     position: absolute;
     bottom: 0; } }
-/*============================================================ */
 @media screen and (min-width: 768px) {
   header .navigation .list {
     padding-left: 2.6rem; }
@@ -181,7 +215,7 @@ footer {
     font-size: 2.5rem; }
 
   footer .navigation {
-    margin-bottom: 2rem; }
+    margin-bottom: 0.5rem; }
     footer .navigation .list {
       padding-right: 1rem;
       padding-left: 0; }
@@ -194,7 +228,6 @@ footer {
     margin: 0 4.5rem 0; }
   footer .social-media-links .link-container .link-image {
     max-width: 3vw; } }
-/*============================================================ */
 @media screen and (min-width: 1024px) {
   header .navigation .list {
     padding-left: 5rem; }
@@ -212,7 +245,6 @@ footer {
 
   footer .social-media-links .link-container .link-image {
     max-width: 2.2vw; } }
-/*============================================================ */
 @media screen and (min-width: 1366px) {
   header .thomazella-logo {
     max-width: calc(100% - 72vw);
@@ -221,11 +253,7 @@ footer {
     margin-bottom: 3.8rem; }
 
   .quick-description-of-me {
-    max-width: 45%; }
-
-  footer .navigation {
-    margin-bottom: 2rem; } }
-/*============================================================ */
+    max-width: 45%; } }
 @media screen and (min-width: 1920px) {
   header .thomazella-logo {
     max-width: calc(100% - 77vw); }
