@@ -6,23 +6,17 @@
 /* ------- */
 /*   css   */
 /* ------- */
-//============= 360~ "Low-end and old mobiles" ======
-$color-green-as-in-money: #699878
-$color-pink: #db8dbc
 $color-bg: #444
 $color-text: #eee
 
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
-  background-color: darken($color-bg, 8%)
   color: $color-text
   font-weight: 400
-  @media screen and (max-width: $break1)
-    min-height: 100vh
+  background-color: darken($color-bg, 8%)
 
 main
   margin: 0 auto
-  padding-top: 3vh
   overflow-y: hidden
   background-color: $color-bg
 
@@ -35,23 +29,23 @@ main
   width: 50%
 
 .navigation
-  margin-bottom: 2.5rem
-  .link-container-group
-    .link-container
-      display: inline
-      font-size: 1rem
-      line-height: 1.7rem
+  .list .link-container
+    display: inline
+    font-size: 1rem
+    line-height: 1.7rem
+    &:first-child::before
+        content: "{ "
+    &:last-child::after
+        content: " }"
+    .link
       text-transform: capitalize
-      &:first-child::before
-          content: "{ "
-      &:last-child::after
-          content: " }"
 
 .link
   &:hover
     text-decoration: underline
 
 .paragraph
+  margin: 0
   &::after
     content: '.'
 
@@ -62,20 +56,20 @@ header, footer
 
 header
   +light-width-squeeze
-  .navigation
-    .link-container-group
-      padding-left: 1.2rem
-      .link-container
-        margin-right: 1.05rem
+  padding-bottom: 2.5rem
+  padding-top: 3vh
+  .navigation .list
+    padding-left: 1.2rem
+    .link-container
+      margin-right: 1.05rem
   .thomazella-logo
     +row
-    max-width: 85%
     margin-top: 2rem
     margin-bottom: 0.6rem
     transform: rotate(-3deg)
+    max-width: calc(100% - 33vw)
   .professional-title
-    font-size: 0.65rem
-    // font-style: italic
+    font-size: calc(0.45rem + 0.6vw)
     font-weight: 300
     margin-bottom: 2.5rem
     text-transform: capitalize
@@ -85,51 +79,153 @@ header
       content: " )"
 
 .quick-description-of-me
-  +light-width-squeeze
+  margin: 0 auto
   font-size: 1.8rem
   text-align: center
-  margin-bottom: 1.5rem
-  // .profit
-  //   font-family: serif
-  //   color: $color-green-as-in-money
-  //   text-transform: capitalize
-  //   font-size: 2.2rem
-  .paragraph
-    &::after
-      content: ''
-    .so-fun
-      &::after
-        content: '.'
-      @media screen and (max-width: 360px)
-        display: block
-    //   text-transform: uppercase
-    //   line-height: 3rem
-    //   color: $color-pink
+  padding-bottom: 2.5rem
+  line-height: 2rem
+  max-width: 85%
+  display: flex
+  flex-direction: column
+  justify-content: center
 
 footer
   background-color: darken($color-bg, 8%)
   padding: 1rem 0 1rem
   .navigation
+    margin-top: 1rem
     margin-bottom: 1.8rem
-    .link-container-group
+    .list
+      .linebreak-for-mobile-nav
+        display: none
       .link-container
         display: block
         &:first-child::before
           content: unset
         &:last-child::after
           content: unset
-  .social-media-links
-    .link-container
-      display: inline
+  .social-media-links .link-container
+    display: inline
+    &:nth-child(0n+2)
+      margin: 0 2rem 0
+    .link-image
+      max-width: 8vw
+
+/*============================================================*/
+
+@media screen and (min-width: $break-mobileM)
+
+/*============================================================*/
+
+@media screen and (min-width: $break-mobileL)
+  header
+    .navigation .linebreak-for-mobile-nav
+      display: none
+    .thomazella-logo
+      max-width: calc(100% - 45vw)
+  footer
+    padding: 0.6rem 0 1rem
+    .navigation .list
+      padding-left: 1rem
+      .link-container
+        display: inline-block
+        margin-right: 1.05rem
+      .linebreak-for-mobile-nav
+        display: block
+    .social-media-links .link-container .link-image
+        max-width: 6vw
+
+/*============================================================*/
+
+@media screen and (min-width: $break-mobileL) and (min-height: 600px)
+  body
+    background-color: $color-bg
+  .quick-description-of-me
+    min-height: 52vh
+  footer
+    position: absolute
+    bottom: 0
+
+/*============================================================*/
+
+@media screen and (min-width: $break-tabletS)
+  header
+    .navigation
+      .list
+        padding-left: 2.6rem
+        .link-container
+          font-size: 1rem
+          margin-right: 2.6rem
+    .thomazella-logo
+      max-width: calc(100% - 48vw)
+      margin-bottom: 2rem
+    .professional-title
+      font-size: calc(0.47rem + 0.4vw)
+      margin-bottom: 4rem
+  .quick-description-of-me
+    max-width: 65%
+    line-height: 2.7rem
+    font-size: 2.5rem
+  footer
+    .navigation
+      margin-bottom: 2rem
+      .list
+        padding-right: 1rem
+        padding-left: 0
+        .link-container
+          padding-left: 1.9rem
+          font-size: 0.9rem
+        .linebreak-for-mobile-nav
+          display: none
+    .social-media-links .link-container
       &:nth-child(0n+2)
-        margin: 0 1rem 0
+        margin: 0 4.5rem 0
       .link-image
-        max-width: 7vw
-//============= 720~ "Phablets" =====================
-//@media screen and (min-width: 720px)
-//============= 1024~ "Tablets and modern mobiles" ==
-//@media screen and (min-width: 1024px)
-//============= 1366~ "Old laptops and hi-res mobiles"
-//@media screen and (min-width: 1366px)
-//============= 1920x1080 "Full HD devices" =========
-//@media screen and (min-width: 1920px)
+        max-width: 3vw
+
+/*============================================================*/
+
+@media screen and (min-width: $break-tabletM)
+  header
+    .navigation .list
+      padding-left: 5rem
+      .link-container
+        font-size: 1rem
+        margin-right: 5rem
+    .thomazella-logo
+      max-width: calc(100% - 68vw)
+      margin-bottom: 1rem
+    .professional-title
+      margin-bottom: 3.4rem
+  .quick-description-of-me
+    line-height: 3rem
+  footer
+    .social-media-links .link-container .link-image
+      max-width: 2.2vw
+
+/*============================================================*/
+
+@media screen and (min-width: $break-desktopS)
+  header
+    .thomazella-logo
+      max-width: calc(100% - 72vw)
+      margin-bottom: 1.4rem
+    .professional-title
+      margin-bottom: 3.8rem
+  .quick-description-of-me
+    max-width: 45%
+  footer
+    .navigation
+      margin-bottom: 2rem
+
+/*============================================================*/
+
+@media screen and (min-width: $break-desktopM)
+  header
+    .thomazella-logo
+      max-width: calc(100% - 77vw)
+  .quick-description-of-me
+    max-width: 40%
+  footer
+    .social-media-links .link-container .link-image
+      max-width: 1.2vw

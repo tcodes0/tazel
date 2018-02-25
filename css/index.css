@@ -13,7 +13,8 @@ body {
 
 ul {
   list-style: none;
-  padding: unset; }
+  padding: unset;
+  margin: unset; }
 
 a {
   color: inherit;
@@ -24,16 +25,12 @@ a {
 /* ------- */
 body {
   font-family: "Source Sans Pro", helvetica, arial, sans-serif;
-  background-color: #303030;
   color: #eee;
-  font-weight: 400; }
-  @media screen and (max-width: 720px) {
-    body {
-      min-height: 100vh; } }
+  font-weight: 400;
+  background-color: #303030; }
 
 main {
   margin: 0 auto;
-  padding-top: 3vh;
   overflow-y: hidden;
   background-color: #444; }
 
@@ -45,23 +42,24 @@ main {
   z-index: 100;
   width: 50%; }
 
-.navigation {
-  margin-bottom: 2.5rem; }
-  .navigation .link-container-group .link-container {
-    display: inline;
-    font-size: 1rem;
-    line-height: 1.7rem;
+.navigation .list .link-container {
+  display: inline;
+  font-size: 1rem;
+  line-height: 1.7rem; }
+  .navigation .list .link-container:first-child::before {
+    content: "{ "; }
+  .navigation .list .link-container:last-child::after {
+    content: " }"; }
+  .navigation .list .link-container .link {
     text-transform: capitalize; }
-    .navigation .link-container-group .link-container:first-child::before {
-      content: "{ "; }
-    .navigation .link-container-group .link-container:last-child::after {
-      content: " }"; }
 
 .link:hover {
   text-decoration: underline; }
 
-.paragraph::after {
-  content: "."; }
+.paragraph {
+  margin: 0; }
+  .paragraph::after {
+    content: "."; }
 
 header, footer {
   width: 100%;
@@ -74,23 +72,25 @@ header, footer {
 
 header {
   width: 95%;
-  margin: 0 auto; }
-  header .navigation .link-container-group {
+  margin: 0 auto;
+  padding-bottom: 2.5rem;
+  padding-top: 3vh; }
+  header .navigation .list {
     padding-left: 1.2rem; }
-    header .navigation .link-container-group .link-container {
+    header .navigation .list .link-container {
       margin-right: 1.05rem; }
   header .thomazella-logo {
     width: 100%;
-    max-width: 85%;
     margin-top: 2rem;
     margin-bottom: 0.6rem;
-    transform: rotate(-3deg); }
+    transform: rotate(-3deg);
+    max-width: calc(100% - 33vw); }
     header .thomazella-logo::after {
       content: "";
       display: block;
       clear: both; }
   header .professional-title {
-    font-size: 0.65rem;
+    font-size: calc(0.45rem + 0.6vw);
     font-weight: 300;
     margin-bottom: 2.5rem;
     text-transform: capitalize; }
@@ -100,35 +100,140 @@ header {
       content: " )"; }
 
 .quick-description-of-me {
-  width: 95%;
   margin: 0 auto;
   font-size: 1.8rem;
   text-align: center;
-  margin-bottom: 1.5rem; }
-  .quick-description-of-me .paragraph::after {
-    content: ""; }
-  .quick-description-of-me .paragraph .so-fun::after {
-    content: "."; }
-  @media screen and (max-width: 360px) {
-    .quick-description-of-me .paragraph .so-fun {
-      display: block; } }
+  padding-bottom: 2.5rem;
+  line-height: 2rem;
+  max-width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
 
 footer {
   background-color: #303030;
   padding: 1rem 0 1rem; }
   footer .navigation {
+    margin-top: 1rem;
     margin-bottom: 1.8rem; }
-    footer .navigation .link-container-group .link-container {
+    footer .navigation .list .linebreak-for-mobile-nav {
+      display: none; }
+    footer .navigation .list .link-container {
       display: block; }
-      footer .navigation .link-container-group .link-container:first-child::before {
+      footer .navigation .list .link-container:first-child::before {
         content: unset; }
-      footer .navigation .link-container-group .link-container:last-child::after {
+      footer .navigation .list .link-container:last-child::after {
         content: unset; }
   footer .social-media-links .link-container {
     display: inline; }
     footer .social-media-links .link-container:nth-child(0n+2) {
-      margin: 0 1rem 0; }
+      margin: 0 2rem 0; }
     footer .social-media-links .link-container .link-image {
-      max-width: 7vw; }
+      max-width: 8vw; }
+
+/*============================================================ */
+/*============================================================ */
+@media screen and (min-width: 425px) {
+  header .navigation .linebreak-for-mobile-nav {
+    display: none; }
+  header .thomazella-logo {
+    max-width: calc(100% - 45vw); }
+
+  footer {
+    padding: 0.6rem 0 1rem; }
+    footer .navigation .list {
+      padding-left: 1rem; }
+      footer .navigation .list .link-container {
+        display: inline-block;
+        margin-right: 1.05rem; }
+      footer .navigation .list .linebreak-for-mobile-nav {
+        display: block; }
+    footer .social-media-links .link-container .link-image {
+      max-width: 6vw; } }
+/*============================================================ */
+@media screen and (min-width: 425px) and (min-height: 600px) {
+  body {
+    background-color: #444; }
+
+  .quick-description-of-me {
+    min-height: 52vh; }
+
+  footer {
+    position: absolute;
+    bottom: 0; } }
+/*============================================================ */
+@media screen and (min-width: 768px) {
+  header .navigation .list {
+    padding-left: 2.6rem; }
+    header .navigation .list .link-container {
+      font-size: 1rem;
+      margin-right: 2.6rem; }
+  header .thomazella-logo {
+    max-width: calc(100% - 48vw);
+    margin-bottom: 2rem; }
+  header .professional-title {
+    font-size: calc(0.47rem + 0.4vw);
+    margin-bottom: 4rem; }
+
+  .quick-description-of-me {
+    max-width: 65%;
+    line-height: 2.7rem;
+    font-size: 2.5rem; }
+
+  footer .navigation {
+    margin-bottom: 2rem; }
+    footer .navigation .list {
+      padding-right: 1rem;
+      padding-left: 0; }
+      footer .navigation .list .link-container {
+        padding-left: 1.9rem;
+        font-size: 0.9rem; }
+      footer .navigation .list .linebreak-for-mobile-nav {
+        display: none; }
+  footer .social-media-links .link-container:nth-child(0n+2) {
+    margin: 0 4.5rem 0; }
+  footer .social-media-links .link-container .link-image {
+    max-width: 3vw; } }
+/*============================================================ */
+@media screen and (min-width: 1024px) {
+  header .navigation .list {
+    padding-left: 5rem; }
+    header .navigation .list .link-container {
+      font-size: 1rem;
+      margin-right: 5rem; }
+  header .thomazella-logo {
+    max-width: calc(100% - 68vw);
+    margin-bottom: 1rem; }
+  header .professional-title {
+    margin-bottom: 3.4rem; }
+
+  .quick-description-of-me {
+    line-height: 3rem; }
+
+  footer .social-media-links .link-container .link-image {
+    max-width: 2.2vw; } }
+/*============================================================ */
+@media screen and (min-width: 1366px) {
+  header .thomazella-logo {
+    max-width: calc(100% - 72vw);
+    margin-bottom: 1.4rem; }
+  header .professional-title {
+    margin-bottom: 3.8rem; }
+
+  .quick-description-of-me {
+    max-width: 45%; }
+
+  footer .navigation {
+    margin-bottom: 2rem; } }
+/*============================================================ */
+@media screen and (min-width: 1920px) {
+  header .thomazella-logo {
+    max-width: calc(100% - 77vw); }
+
+  .quick-description-of-me {
+    max-width: 40%; }
+
+  footer .social-media-links .link-container .link-image {
+    max-width: 1.2vw; } }
 
 /*# sourceMappingURL=index.css.map */
