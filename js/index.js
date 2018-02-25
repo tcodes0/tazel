@@ -1,7 +1,3 @@
-// let arts = [...document.querySelectorAll('article')]
-// arts.forEach(art => art.innerText === '' ? art.classList.toString() : undefined)
-// let lis = [... document.querySelectorAll('.link-container')]
-// lis.forEach(li => li.style.border = '1px solid white')
 const toggleGuide = () => {
   let guide = document.querySelector('.guide')
   if (guide.style.display === "") {
@@ -14,3 +10,16 @@ const htmlHide = (query) => {
   let e = document.querySelector(query)
   e.setAttribute('hidden','')
 }
+// toggleGuide()
+let resizers = []
+let adjustHeight_QuickDescriptionOfme = () => {
+  let h = (
+    document.querySelector('footer').offsetTop
+    -
+    Number.parseInt(getComputedStyle(document.querySelector('header')).height.replace('px',''))
+  )
+  document.querySelector('.quick-description-of-me').style.height = `${h}px`
+}
+resizers.push(adjustHeight_QuickDescriptionOfme)
+window.addEventListener('resize', () => resizers.forEach(resizer => resizer()))
+window.addEventListener('load', () => resizers.forEach(resizer => resizer()))
