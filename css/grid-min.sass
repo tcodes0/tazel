@@ -10,8 +10,10 @@ $break-desktopM: 1920px
     content: ""
     display: block
     clear: both
-=col($num)
+=col($num, $max: 12)
   float: left
-  width: (100% / 12) * $num
-=jump($num)
-  margin-left: (100% / 12) * $num
+  width: (100% / $max) * $num
+=jump($num, $max: 12)
+  margin-left: (100% / $max) * $num
+=gutter($num, $max: 12)
+  margin-right: (100% / $max) * $num
