@@ -79,14 +79,15 @@ const articles_placeholderText = () => {
     return
   }
   let ars = [...document.querySelectorAll('article')]
+  let bodyRGB = getComputedStyle(document.body).backgroundColor.match(/rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})/)
   ars.forEach((ar, i) => {
     if (i % 2 === 0) {
-      ar.style.backgroundImage = 'linear-gradient(rgba(48, 48, 48, 0.7), rgba(48, 48, 48, 0.97)), url("../css/img/coffee.svg")'
+      ar.style.backgroundImage = `linear-gradient(rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.7), rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.97)), url("../css/img/coffee.svg")`
       ar.querySelector('.date-written').textContent = "december 2017"
       ar.querySelector('.title').textContent = "my how to wash a dog f"
       ar.querySelector('.intro-text').textContent = "To properly wash a dog there are several tricky spots you need to rinse, soap and rub properly. This article breaks it down to you and even pets you a little bit."
     } else {
-      ar.style.backgroundImage = 'linear-gradient(rgba(48, 48, 48, 0.7), rgba(48, 48, 48, 0.97)), url("../css/img/bg1.jpg")'
+      ar.style.backgroundImage = `linear-gradient(rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.7), rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.97)), url("../css/img/bg1.jpg")`
       ar.querySelector('.date-written').textContent = "january 2018"
       ar.querySelector('.title').textContent = "how to do a steak on ice"
       ar.querySelector('.intro-text').textContent = "I bet you thought impossible to cook good meat on ice, but turns out is it possible, not just possible, DELISH!"
