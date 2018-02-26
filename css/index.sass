@@ -6,11 +6,10 @@
 /* ------- */
 /*   css   */
 /* ------- */
-$color-bg: #444
-$color-text: #eee
-$color-bg-darker: darken($color-bg, 8%)
+$color-bg: #2e2d30
+$color-bg-darker: darken($color-bg, 6%)
+$color-text: invert(adjust-hue($color-bg-darker, -60))
 $color-text-darker: darken($color-text, 20%)
-// $color-bg-transparent: transparentize($color-bg-darker, 0.15)
 =light-width-squeeze
   width: 95%
   margin: 0 auto

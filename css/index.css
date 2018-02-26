@@ -25,14 +25,14 @@ a {
 /* ------- */
 body {
   font-family: "Source Sans Pro", helvetica, arial, sans-serif;
-  color: #eee;
+  color: #e1dfdf;
   font-weight: 400;
-  background-color: #303030; }
+  background-color: #1f1e20; }
 
 main {
   margin: 0 auto;
   overflow-y: hidden;
-  background-color: #444; }
+  background-color: #2e2d30; }
 
 .guide {
   border: 1px solid white;
@@ -52,8 +52,8 @@ main {
   .navigation .list .link-container .link {
     text-transform: capitalize; }
   .navigation .list .link-container .is-link-to-current-page {
-    text-decoration: #eee wavy underline;
-    color: #bbbbbb; }
+    text-decoration: #e1dfdf wavy underline;
+    color: #b0aaaa; }
 
 .link:hover {
   text-decoration: underline; }
@@ -110,7 +110,7 @@ header {
   justify-content: center; }
 
 footer {
-  background-color: #303030;
+  background-color: #1f1e20;
   padding: 1rem 0 1rem; }
   footer .navigation {
     margin-top: 1rem; }
@@ -150,8 +150,8 @@ section.articles .article-container {
   section.articles .article-container .article {
     float: left;
     width: 100%;
-    background-color: #303030;
-    border-bottom: 2px solid #444;
+    background-color: #1f1e20;
+    border-bottom: 2px solid #2e2d30;
     padding: 1.6rem 0.5rem 1.6rem 0.5rem;
     background-position: left;
     background-size: cover; }
@@ -190,7 +190,7 @@ section.articles .article-container {
       max-width: 6vw; } }
 @media screen and (min-width: 375px) and (min-height: 650px) {
   body {
-    background-color: #444; }
+    background-color: #2e2d30; }
 
   .quick-description-of-me {
     min-height: 52vh; }
