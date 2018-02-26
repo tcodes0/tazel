@@ -113,4 +113,24 @@ const footer_SmartAbsolutePosition = () => {
 }
 onLoaders.push(footer_SmartAbsolutePosition)
 resizers.push(footer_SmartAbsolutePosition)
+const requestData_FromJSON = (path) => {
+  return new Promise((resolve, reject) => {
+    let req = new XMLHttpRequest()
+    req.open('GET', path)
+    req.onreadystatechange = () => {
+      // console.log(`ready: ${req.readyState}, status: ${req.status}`)
+      if (req.readyState === XMLHttpRequest.DONE) {
+        if (req.status === 200) {
+          resolve(JSON.parse(req.responseText))
+        } else {
+          reject(req)
+        }
+      }
+    }
+    req.send()
+  })
+}
+requestData_FromJSON('js/articles.json')
+  .catch(err => console.error(`${err.status} - ${err.statusText} - ${err.responseURL}`))
+  .then(data => console.log(data))
 // onLoaders.push(toggleGuide)
