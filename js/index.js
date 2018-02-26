@@ -4,7 +4,11 @@ const toggleGuide = () => {
   let guide = document.querySelector('.guide')
   if (guide.style.display === "") {
     guide.style.display = 'block'
-    guide.style.height = `${document.body.offsetHeight}px`
+    if (window.innerHeight > document.body.offsetHeight) {
+      guide.style.height = `${window.innerHeight}px`
+    } else {
+      guide.style.height = `${document.body.offsetHeight}px`
+    }
   } else {
     guide.style.display = 'none'
   }
@@ -13,7 +17,6 @@ const htmlHide = (query) => {
   let e = document.querySelector(query)
   e.setAttribute('hidden','')
 }
-// toggleGuide()
 const ThisPageIsNot = name => document.title !== name
 const ThisPageIs = name => document.title === name
 const home = 'Thomazella'
@@ -109,3 +112,4 @@ const footer_SmartAbsolutePosition = () => {
 }
 onLoaders.push(footer_SmartAbsolutePosition)
 resizers.push(footer_SmartAbsolutePosition)
+// onLoaders.push(toggleGuide)
