@@ -132,7 +132,7 @@ header.articles
       &:last-child::after
           content: unset
 
-.background-container
+section.articles
   // background-color: $color-bg-darker
   .article-container
     +row
@@ -148,12 +148,14 @@ header.articles
         font-weight: 300
         text-transform: capitalize
         font-size: 0.7rem
-      .title
+      .title-container .title
         font-family: 'Roboto Mono', monospace
         font-weight: 400
         text-transform: uppercase
+        line-height: 1.6rem
       .intro-text
         font-weight: 300
+        line-height: 1.15rem
 /* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
 /*/=-=-=-=-=-=-=-=-=-=-=\  @medias   /=-=-=-=-=-=-=-=-=-=-=\*/
 /*\=-=-=-=-=-=-=-=-=-=-=/            \=-=-=-=-=-=-=-=-=-=-=/*/
@@ -227,6 +229,28 @@ header.articles
         margin: 0 4.5rem 0
       .link-image
         max-width: 3vw
+  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+  section.articles
+    .article-container
+      width: 88%
+      .article
+        +row
+        .date-written
+          +col(2)
+          text-align: right
+          padding-top: 0.15rem
+          padding-right: 1rem
+          font-size: 0.8rem
+        .title-container
+          +col(4)
+          .title
+            font-size: 1.25rem
+            margin-top: unset
+            padding-right: 1rem
+        .intro-text
+          +col(6)
+          padding-right: 1rem
+          padding-top: 0.05rem
 
 //============================================================
 
@@ -247,6 +271,10 @@ header.articles
   footer
     .social-media-links .link-container .link-image
       max-width: 2.2vw
+  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+  section.articles
+    .article-container
+      width: 73%
 
 //============================================================
 
@@ -259,7 +287,14 @@ header.articles
       margin-bottom: 3.8rem
   .quick-description-of-me
     max-width: 45%
-
+  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+  section.articles
+    +row
+    +light-width-squeeze
+    .article-container
+      +col(50, 101)
+      &:first-child
+        +gutter(1, 101)
 //============================================================
 
 @media screen and (min-width: $break-desktopM)
@@ -271,3 +306,9 @@ header.articles
   footer
     .social-media-links .link-container .link-image
       max-width: 1.2vw
+  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+  section.articles
+    width: 83%
+    .article-container .article .intro-text
+      font-size: 1.1rem
+      line-height: 1.3rem

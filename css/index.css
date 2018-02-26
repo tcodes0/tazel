@@ -139,15 +139,15 @@ header.articles {
   header.articles .navigation-kompakt .list .link-container:last-child::after {
     content: unset; }
 
-.background-container .article-container {
+section.articles .article-container {
   width: 100%;
   width: 95%;
   margin: 0 auto; }
-  .background-container .article-container::after {
+  section.articles .article-container::after {
     content: "";
     display: block;
     clear: both; }
-  .background-container .article-container .article {
+  section.articles .article-container .article {
     float: left;
     width: 100%;
     background-color: #303030;
@@ -155,16 +155,18 @@ header.articles {
     padding: 1.6rem 0.5rem 1.6rem 0.5rem;
     background-position: left;
     background-size: cover; }
-    .background-container .article-container .article .date-written {
+    section.articles .article-container .article .date-written {
       font-weight: 300;
       text-transform: capitalize;
       font-size: 0.7rem; }
-    .background-container .article-container .article .title {
+    section.articles .article-container .article .title-container .title {
       font-family: "Roboto Mono", monospace;
       font-weight: 400;
-      text-transform: uppercase; }
-    .background-container .article-container .article .intro-text {
-      font-weight: 300; }
+      text-transform: uppercase;
+      line-height: 1.6rem; }
+    section.articles .article-container .article .intro-text {
+      font-weight: 300;
+      line-height: 1.15rem; }
 
 /* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
 /*/=-=-=-=-=-=-=-=-=-=-=\  @medias   /=-=-=-=-=-=-=-=-=-=-=\ */
@@ -227,7 +229,36 @@ header.articles {
   footer .social-media-links .link-container:nth-child(0n+2) {
     margin: 0 4.5rem 0; }
   footer .social-media-links .link-container .link-image {
-    max-width: 3vw; } }
+    max-width: 3vw; }
+
+  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+  section.articles .article-container {
+    width: 88%; }
+    section.articles .article-container .article {
+      width: 100%; }
+      section.articles .article-container .article::after {
+        content: "";
+        display: block;
+        clear: both; }
+      section.articles .article-container .article .date-written {
+        float: left;
+        width: 16.6666666667%;
+        text-align: right;
+        padding-top: 0.15rem;
+        padding-right: 1rem;
+        font-size: 0.8rem; }
+      section.articles .article-container .article .title-container {
+        float: left;
+        width: 33.3333333333%; }
+        section.articles .article-container .article .title-container .title {
+          font-size: 1.25rem;
+          margin-top: unset;
+          padding-right: 1rem; }
+      section.articles .article-container .article .intro-text {
+        float: left;
+        width: 50%;
+        padding-right: 1rem;
+        padding-top: 0.05rem; } }
 @media screen and (min-width: 1024px) {
   header .navigation .list {
     padding-left: 5rem; }
@@ -244,7 +275,11 @@ header.articles {
     line-height: 3rem; }
 
   footer .social-media-links .link-container .link-image {
-    max-width: 2.2vw; } }
+    max-width: 2.2vw; }
+
+  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+  section.articles .article-container {
+    width: 73%; } }
 @media screen and (min-width: 1366px) {
   header .thomazella-logo {
     max-width: calc(100% - 72vw);
@@ -253,7 +288,22 @@ header.articles {
     margin-bottom: 3.8rem; }
 
   .quick-description-of-me {
-    max-width: 45%; } }
+    max-width: 45%; }
+
+  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+  section.articles {
+    width: 100%;
+    width: 95%;
+    margin: 0 auto; }
+    section.articles::after {
+      content: "";
+      display: block;
+      clear: both; }
+    section.articles .article-container {
+      float: left;
+      width: 49.504950495%; }
+      section.articles .article-container:first-child {
+        margin-right: 0.9900990099%; } }
 @media screen and (min-width: 1920px) {
   header .thomazella-logo {
     max-width: calc(100% - 77vw); }
@@ -262,6 +312,13 @@ header.articles {
     max-width: 40%; }
 
   footer .social-media-links .link-container .link-image {
-    max-width: 1.2vw; } }
+    max-width: 1.2vw; }
+
+  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+  section.articles {
+    width: 83%; }
+    section.articles .article-container .article .intro-text {
+      font-size: 1.1rem;
+      line-height: 1.3rem; } }
 
 /*# sourceMappingURL=index.css.map */
