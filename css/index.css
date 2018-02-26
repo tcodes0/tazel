@@ -25,7 +25,7 @@ a {
 /* ------- */
 body {
   font-family: "Source Sans Pro", helvetica, arial, sans-serif;
-  color: #e1dfdf;
+  color: #e5e6e4;
   font-weight: 400;
   background-color: #1f1e20; }
 
@@ -52,8 +52,8 @@ main {
   .navigation .list .link-container .link {
     text-transform: capitalize; }
   .navigation .list .link-container .is-link-to-current-page {
-    text-decoration: #e1dfdf wavy underline;
-    color: #b0aaaa; }
+    text-decoration: #e5e6e4 wavy underline;
+    color: #b2b5b0; }
 
 .link:hover {
   text-decoration: underline; }
@@ -280,7 +280,7 @@ section.articles .article-container {
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
   section.articles .article-container {
     width: 73%; } }
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: 1280px) {
   header .thomazella-logo {
     max-width: calc(100% - 72vw);
     margin-bottom: 1.4rem; }
