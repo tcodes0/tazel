@@ -73,7 +73,7 @@ const navKompakt_HighlightCurrentPageLink = () => {
       .classList.add('is-link-to-current-page')
   }
 }
-onLoaders.push(navKompakt_HighlightCurrentPageLink)
+// onLoaders.push(navKompakt_HighlightCurrentPageLink)
 const articles_placeholderText = () => {
   if (ThisPageIsNot(articles)) {
     return
@@ -111,20 +111,15 @@ const footer_SmartAbsolutePosition = () => {
     }
   }
 }
-onLoaders.push(footer_SmartAbsolutePosition)
-resizers.push(footer_SmartAbsolutePosition)
+// onLoaders.push(footer_SmartAbsolutePosition)
+// resizers.push(footer_SmartAbsolutePosition)
 const requestData_FromJSON = (path) => {
   return new Promise((resolve, reject) => {
     let req = new XMLHttpRequest()
     req.open('GET', path)
     req.onreadystatechange = () => {
-      // console.log(`ready: ${req.readyState}, status: ${req.status}`)
       if (req.readyState === XMLHttpRequest.DONE) {
-        if (req.status === 200) {
-          resolve(JSON.parse(req.responseText))
-        } else {
-          reject(req)
-        }
+        req.status === 200 ? resolve(JSON.parse(req.responseText)) : reject(req)
       }
     }
     req.send()
@@ -132,5 +127,137 @@ const requestData_FromJSON = (path) => {
 }
 requestData_FromJSON('js/articles.json')
   .catch(err => console.error(`${err.status} - ${err.statusText} - ${err.responseURL}`))
-  .then(data => console.log(data))
+  .then(data => data ? console.log(data) : undefined)
+const floatingArticle_Inserter = () => {
+  if (ThisPageIsNot(articles)) {
+    return
+  }
+  const html = `
+  <article class="floating-article">
+    <div class="background-container">
+      <span class="date-written">March 2010</span>
+      <div class="title-container"><h3 class="title">The flying sourceror lives! All hail goddammit now hail yuupppppyy</h3></div>
+      <img class="full-width" src="css/img/bg1.jpg" alt="">
+      <p class="paragraph intro-text">All their equipment and instruments are alive. I watched the storm, so beautiful yet terrific. Almost before we knew it, we had left the ground. It was going to be a lonely trip back.</p>
+      <p class="paragraph intro-text">All their equipment and instruments are alive. I watched the storm, so beautiful yet terrific. Almost before we knew it, we had left the ground. It was going to be a lonely trip back.</p>
+      <img class="half-width " src="css/img/bg1.jpg" alt="">
+      <p class="paragraph intro-text">All their equipment and instruments are alive. I watched the storm, so beautiful yet terrific. Almost before we knew it, we had left the ground. It was going to be a lonely trip back.</p>
+      <p class="paragraph intro-text">All their equipment and instruments are alive. I watched the storm, so beautiful yet terrific. Almost before we knew it, we had left the ground. It was going to be a lonely trip back.</p>
+    </div>
+  </article>`
+  let main = document.querySelector('main')
+  let el = document.createElement('section')
+  let tail = document.createElement('div')
+  const floatingArticle_destroyer = () =>{
+    main.removeChild(el)
+    window.removeEventListener('wheel', scrollHandler)
+    window.removeEventListener('touchmove', scrollHandler)
+    window.removeEventListener('keydown', keyHandler)
+    previewArticles_LinkEnabler()
+    togglePositionFixed(false)
+    // this call makes it seem smoother cancelling some scrolling
+    window.scroll(0, Number.parseInt(el.dataset.top))
+  }
+  const scrollHandler = e => {
+    if (e.deltaY < 0) {
+      return
+    }
+    if (window.scrollY >= el.offsetHeight + Number.parseInt(el.dataset.top) - 175) {
+      floatingArticle_destroyer()
+    }
+  }
+  const keyHandler = e => {
+    if (
+      e.keyCode !== 33 &&
+      e.keyCode !== 34 &&
+      e.keyCode !== 38 &&
+      e.keyCode !== 27 &&
+      e.keyCode !== 40) {
+        return
+      } else {
+        e.keyCode === 27 ? floatingArticle_destroyer() : scrollHandler()
+      }
+  }
+  const togglePositionFixed = set => {
+    let mchildren = [...main.childNodes].filter(child => child.nodeName !== "#text")
+    if (set) {
+      // pop out the last element, el, so it stays scrollable
+      mchildren.pop()
+      // start from bottom, bc elements tend to collapse upwards
+      mchildren.reverse()
+      mchildren.forEach(child => {
+        child.style.top = child.offsetTop - Number.parseInt(el.dataset.top) + 'px'
+        child.style.position = 'fixed'
+      })
+    } else {
+      mchildren.forEach(child => child.removeAttribute('style'))
+    }
+  }
+  const transitionRemover = () => {
+    el.style.transition = ''
+    el.removeEventListener('transitionend', transitionRemover)
+  }
+  const headPrepender=  e => {
+    let head = document.createElement('div')
+    head.classList.add('empty-transparency')
+    head.style.height = el.dataset.top + 'px'
+    head.style.top = -1 * Number.parseInt(el.dataset.top) + 'px'
+    el.prepend(head)
+    el.removeEventListener('transitionend', headPrepender)
+  }
+  el.classList.add('article-container')
+  el.classList.add('added-by-js')
+  el.style.position = 'absolute'
+  el.style.transition = 'all 1.1s ease-in-out'
+  el.style.top = window.innerHeight + window.scrollY + "px"
+  el.innerHTML = html
+  tail.classList.add('empty-transparency')
+  main.appendChild(el)
+  tail.style.top = el.offsetHeight + 'px'
+  el.appendChild(tail)
+  el.setAttribute("data-top", window.scrollY)
+  el.style.top = window.scrollY + "px"
+  el.addEventListener('transitionend', togglePositionFixed, true)
+  el.addEventListener('transitionend', transitionRemover)
+  el.addEventListener('transitionend', headPrepender)
+  window.addEventListener('wheel', scrollHandler)
+  window.addEventListener('touchmove', scrollHandler)
+  window.addEventListener('keydown', keyHandler)
+}
+// onLoaders.push(floatingArticle_Inserter)
+const previewArticles_LinkHooker = () => {
+  if (ThisPageIsNot(articles)) {
+    return
+  }
+  document.querySelectorAll('.link.intro-container, .link.title-container')
+    .forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault()
+        if (document.querySelector('.floating-article')) {
+          return
+        } else {
+          floatingArticle_Inserter()
+          previewArticles_LinkDisabler()
+        }
+      })
+    })
+}
+onLoaders.push(previewArticles_LinkHooker)
+const previewArticles_LinkDisabler = () => {
+  document.querySelectorAll('.link.intro-container, .link.title-container')
+    .forEach(link => {
+      link.classList.add('disabled')
+      link.removeAttribute('href')
+    })
+}
+const previewArticles_LinkEnabler = () => {
+  document.querySelectorAll('.link.intro-container, .link.title-container')
+    .forEach(link => {
+      link.classList.remove('disabled')
+      link.setAttribute('href','')
+    })
+}
+const $ = q => document.querySelector(q)
+const f = document.querySelector('footer')
+const m = document.querySelector('main')
 // onLoaders.push(toggleGuide)
