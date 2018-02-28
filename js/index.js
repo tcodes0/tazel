@@ -74,7 +74,7 @@ const navKompakt_HighlightCurrentPageLink = () => {
   }
 }
 // onLoaders.push(navKompakt_HighlightCurrentPageLink)
-const Articles_PlaceholderText = () => {
+const articles_PlaceholderText = () => {
   if (ThisPageIsNot(articles)) {
     return
   }
@@ -94,7 +94,7 @@ const Articles_PlaceholderText = () => {
     }
   })
 }
-onLoaders.push(Articles_PlaceholderText)
+onLoaders.push(articles_PlaceholderText)
 const footer_SmartAbsolutePosition = () => {
   let h = document.querySelector('footer').offsetHeight
   let offset = document.querySelector('footer').offsetTop
@@ -113,21 +113,9 @@ const footer_SmartAbsolutePosition = () => {
 }
 // onLoaders.push(footer_SmartAbsolutePosition)
 // resizers.push(footer_SmartAbsolutePosition)
-const requestData_FromJSON = (path) => {
-  return new Promise((resolve, reject) => {
-    let req = new XMLHttpRequest()
-    req.open('GET', path)
-    req.onreadystatechange = () => {
-      if (req.readyState === XMLHttpRequest.DONE) {
-        req.status === 200 ? resolve(JSON.parse(req.responseText)) : reject(req)
-      }
-    }
-    req.send()
-  })
-}
-requestData_FromJSON('js/articles.json')
-  .catch(err => console.error(`${err.status} - ${err.statusText} - ${err.responseURL}`))
-  .then(data => data ? console.log(data) : undefined)
+// requestData_FromJSON('js/articles.json')
+//   .catch(err => console.error(`${err.status} - ${err.statusText} - ${err.responseURL}`))
+//   .then(data => data ? console.log(data) : undefined)
 const floatingArticle_Inserter = () => {
   if (ThisPageIsNot(articles)) {
     return
@@ -283,5 +271,17 @@ const positionFixed_Apply = e => {
 const positionFixed_Remove = () => {
   let mchildren = [...$('main').childNodes].filter(child => child.nodeName !== "#text")
   mchildren.forEach(child => child.removeAttribute('style'))
+}
+const requestData_Raw = (path) => {
+  return new Promise((resolve, reject) => {
+    let req = new XMLHttpRequest()
+    req.open('GET', path)
+    req.onreadystatechange = () => {
+      if (req.readyState === XMLHttpRequest.DONE) {
+        req.status === 200 ? resolve(req.responseText) : reject(req)
+      }
+    }
+    req.send()
+  })
 }
 // onLoaders.push(toggleGuide)
