@@ -74,7 +74,7 @@ const navKompakt_HighlightCurrentPageLink = () => {
   }
 }
 // onLoaders.push(navKompakt_HighlightCurrentPageLink)
-const articles_placeholderText = () => {
+const Articles_PlaceholderText = () => {
   if (ThisPageIsNot(articles)) {
     return
   }
@@ -94,7 +94,7 @@ const articles_placeholderText = () => {
     }
   })
 }
-onLoaders.push(articles_placeholderText)
+onLoaders.push(Articles_PlaceholderText)
 const footer_SmartAbsolutePosition = () => {
   let h = document.querySelector('footer').offsetHeight
   let offset = document.querySelector('footer').offsetTop
@@ -136,6 +136,12 @@ const floatingArticle_Inserter = () => {
   <article class="floating-article">
     <div class="background-container">
       <span class="date-written">March 2010</span>
+      <svg version="1.1" id="button-close" x="0px" y="0px" viewBox="0 0 74 89.8" xml:space="preserve">
+        <g id="X">
+          <path id="componentA" d="M1.5,78.8l33-35.5c0.3-0.3,0.5-0.6,0.7-0.9L61.7,1.9c1.7-2.2,4.5,0.9,6.6,2.6l0,0c2.2,1.7,6,4.3,4.2,6.5L40.1,46c-0.6,0.6-1.1,1.3-1.6,2l-26.2,40c-1.7,2.2-4.7-1-6.8-2.7h0C3.3,83.5-0.3,81,1.5,78.8z"/>
+          <path id="componentB" d="M72.5,78.8l-33-35.5c-0.3-0.3-0.5-0.6-0.7-0.9L12.3,1.9c-1.7-2.2-4.5,0.9-6.6,2.6l0,0c-2.2,1.7-6,4.3-4.2,6.5L33.9,46c0.6,0.6,1.1,1.3,1.6,2l26.2,40c1.7,2.2,4.7-1,6.8-2.7l0,0C70.7,83.5,74.3,81,72.5,78.8z"/>
+        </g>
+      </svg>
       <div class="title-container"><h3 class="title">The flying sourceror lives! All hail goddammit now hail yuupppppyy</h3></div>
       <img class="full-width" src="css/img/bg1.jpg" alt="">
       <p class="paragraph intro-text">All their equipment and instruments are alive. I watched the storm, so beautiful yet terrific. Almost before we knew it, we had left the ground. It was going to be a lonely trip back.</p>
@@ -148,19 +154,25 @@ const floatingArticle_Inserter = () => {
   let main = document.querySelector('main')
   let el = document.createElement('section')
   let tail = document.createElement('div')
-  const transitionRemover = () => {
+  const transitionRemover = e => {
+    if (e.propertyName !== "top") {
+      return
+    }
     el.style.transition = ''
     el.removeEventListener('transitionend', transitionRemover)
   }
-  const headPrepender=  e => {
+  const headPrepender =  e => {
+    if (e.propertyName !== "top") {
+      return
+    }
     let head = document.createElement('div')
     head.classList.add('empty-transparency')
     head.style.height = el.dataset.top + 'px'
     head.style.top = -1 * Number.parseInt(el.dataset.top) + 'px'
     el.prepend(head)
     el.removeEventListener('transitionend', headPrepender)
-    head.addEventListener('click', floatingArticle_destroyer)
-    head.addEventListener('touchend', floatingArticle_destroyer)
+    head.addEventListener('click', floatingArticle_Destroyer)
+    head.addEventListener('touchend', floatingArticle_Destroyer)
   }
   el.classList.add('article-container')
   el.classList.add('added-by-js')
@@ -174,14 +186,14 @@ const floatingArticle_Inserter = () => {
   el.appendChild(tail)
   el.setAttribute("data-top", window.scrollY)
   el.style.top = window.scrollY + "px"
-  el.addEventListener('transitionend', togglePositionFixed, true)
+  el.addEventListener('transitionend', positionFixed_Apply)
   el.addEventListener('transitionend', transitionRemover)
   el.addEventListener('transitionend', headPrepender)
   window.addEventListener('wheel', scrollHandler)
   window.addEventListener('touchmove', scrollHandler)
   window.addEventListener('keydown', keyHandler)
-  tail.addEventListener('click', floatingArticle_destroyer)
-  tail.addEventListener('touchend', floatingArticle_destroyer)
+  tail.addEventListener('click', floatingArticle_Destroyer)
+  tail.addEventListener('touchend', floatingArticle_Destroyer)
 }
 // onLoaders.push(floatingArticle_Inserter)
 const previewArticles_LinkHooker = () => {
@@ -219,7 +231,7 @@ const previewArticles_LinkEnabler = () => {
 const $ = q => document.querySelector(q)
 const f = document.querySelector('footer')
 const m = document.querySelector('main')
-const floatingArticle_destroyer = () =>{
+const floatingArticle_Destroyer = () =>{
   let el = $('.added-by-js')
   el ? undefined : console.error("is there a floatingArticle to remove?")
   $('main').removeChild(el)
@@ -227,7 +239,7 @@ const floatingArticle_destroyer = () =>{
   window.removeEventListener('touchmove', scrollHandler)
   window.removeEventListener('keydown', keyHandler)
   previewArticles_LinkEnabler()
-  togglePositionFixed(false)
+  positionFixed_Remove()
   // this call makes it seem smoother cancelling some scrolling
   window.scroll(0, Number.parseInt(el.dataset.top))
 }
@@ -237,7 +249,7 @@ const scrollHandler = e => {
   }
   let el = $('.added-by-js')
   if (window.scrollY >= el.offsetHeight + Number.parseInt(el.dataset.top) - 120) {
-    floatingArticle_destroyer()
+    floatingArticle_Destroyer()
   }
 }
 const keyHandler = e => {
@@ -249,24 +261,27 @@ const keyHandler = e => {
     e.keyCode !== 40) {
       return
     } else {
-      e.keyCode === 27 ? floatingArticle_destroyer() : scrollHandler()
+      e.keyCode === 27 ? floatingArticle_Destroyer() : scrollHandler()
     }
 }
-const togglePositionFixed = bool => {
-  let mchildren = [...$('main').childNodes].filter(child => child.nodeName !== "#text")
-  if (bool) {
-    let el = $('.added-by-js')
-    el ? undefined : console.error("is there a floatingArticle to get dataset.top from?");
-    // pop out the last element, el, so it stays scrollable
-    mchildren.pop()
-    // start from bottom, bc elements tend to collapse upwards
-    mchildren.reverse()
-    mchildren.forEach(child => {
-      child.style.top = child.offsetTop - Number.parseInt(el.dataset.top) + 'px'
-      child.style.position = 'fixed'
-    })
-  } else {
-    mchildren.forEach(child => child.removeAttribute('style'))
+const positionFixed_Apply = e => {
+  if (e.propertyName !== "top") {
+    return
   }
+  let mchildren = [...$('main').childNodes].filter(child => child.nodeName !== "#text")
+  let el = $('.added-by-js')
+  el ? undefined : console.error("is there a floatingArticle to get dataset.top from?");
+  // pop out the last element, el, so it stays scrollable
+  mchildren.pop()
+  // start from bottom, bc elements tend to collapse upwards
+  mchildren.reverse()
+  mchildren.forEach(child => {
+    child.style.top = child.offsetTop - Number.parseInt(el.dataset.top) + 'px'
+    child.style.position = 'fixed'
+  })
+}
+const positionFixed_Remove = () => {
+  let mchildren = [...$('main').childNodes].filter(child => child.nodeName !== "#text")
+  mchildren.forEach(child => child.removeAttribute('style'))
 }
 // onLoaders.push(toggleGuide)
