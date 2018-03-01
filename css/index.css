@@ -8,7 +8,8 @@
   box-sizing: border-box; }
 
 body {
-  font-size: 16px; }
+  font-size: 16px;
+  line-height: 1.25; }
 
 ul {
   list-style: none;
@@ -44,6 +45,15 @@ main {
   z-index: 100;
   width: 50%; }
 
+.row {
+  width: 100%;
+  margin: 0 auto;
+  display: block; }
+  .row::after {
+    content: "";
+    display: block;
+    clear: both; }
+
 .navigation .list .link-container {
   display: inline;
   font-size: 1rem;
@@ -63,6 +73,8 @@ main {
 
 header, footer {
   width: 100%;
+  margin: 0 auto;
+  display: block;
   font-family: "Roboto Mono", monospace;
   text-align: center; }
   header::after, footer::after {
@@ -81,6 +93,8 @@ header {
       margin-right: 1.05rem; }
   header .thomazella-logo {
     width: 100%;
+    margin: 0 auto;
+    display: block;
     margin-top: 2rem;
     margin-bottom: 0.6rem;
     max-width: calc(100% - 33vw); }
@@ -103,7 +117,6 @@ header {
   font-size: 1.8rem;
   text-align: center;
   padding-bottom: 2.5rem;
-  line-height: 2rem;
   max-width: 85%;
   display: flex;
   flex-direction: column;
@@ -145,6 +158,8 @@ header.not-home {
 
 .article-container {
   width: 100%;
+  margin: 0 auto;
+  display: block;
   padding: 0 2.5% 0 2.5%;
   margin: 0 auto; }
   .article-container::after {
@@ -163,66 +178,77 @@ header.not-home {
       .article-container .article-preview .link.disabled:hover {
         text-decoration: none; }
 
-.article-container .article-preview,
-.article-container .floating-article {
+.article-preview,
+.floating-article {
   float: left;
   width: 100%;
   padding: 1.6rem 0.5rem 1.6rem 0.5rem; }
-  .article-container .article-preview .date-written,
-  .article-container .floating-article .date-written {
+  .article-preview .date-written,
+  .floating-article .date-written {
     font-weight: 300;
     text-transform: capitalize;
     font-size: 0.7rem; }
-  .article-container .article-preview .title-container .title,
-  .article-container .floating-article .title-container .title {
+  .article-preview .title,
+  .floating-article .title {
     font-family: "Roboto Mono", monospace;
     font-weight: 400;
-    text-transform: uppercase;
-    line-height: 1.6rem; }
-  .article-container .article-preview .intro-text,
-  .article-container .floating-article .intro-text {
-    font-weight: 300;
-    line-height: 1.15rem; }
+    text-transform: uppercase; }
+  .article-preview .intro-text,
+  .floating-article .intro-text {
+    font-weight: 300; }
 
-.article-container .floating-article {
-  background-color: rgba(46, 45, 48, 0.75); }
-  .article-container .floating-article .background-container {
-    background-color: #2e2d30;
-    padding: 0.65rem; }
-    .article-container .floating-article .background-container svg#button-close {
-      fill: #848880;
-      width: 0.7rem;
-      height: 1rem;
-      float: right;
-      margin: 0.3rem;
-      position: relative;
-      z-index: 100;
-      transition: fill 0.2s ease; }
-      .article-container .floating-article .background-container svg#button-close:hover {
-        fill: #eaebea; }
-    .article-container .floating-article .background-container .title-container .title {
-      font-size: 1.4em; }
-    .article-container .floating-article .background-container .paragraph {
-      margin-bottom: 0.7rem; }
-    .article-container .floating-article .background-container img.full-width {
-      width: 100%;
-      margin-bottom: 0.6rem; }
-    .article-container .floating-article .background-container img.half-width {
-      float: left;
-      width: 50%;
-      padding-right: 0.9rem;
-      margin-bottom: 0.6rem;
-      margin-top: 0.25rem; }
-    .article-container .floating-article .background-container img.half-width.right {
-      padding-left: 0.7rem;
-      padding-right: unset;
-      float: right; }
+.floating-article .background-container {
+  background-color: #2e2d30;
+  padding: 0.65rem; }
+
+.floating-article svg#button-close {
+  fill: #848880;
+  width: 0.7rem;
+  height: 0.8rem;
+  float: right;
+  margin: 0.2rem;
+  position: relative;
+  z-index: 100;
+  transition: fill 0.2s ease; }
+  .floating-article svg#button-close:hover {
+    fill: #eaebea; }
+.floating-article .title {
+  font-size: 1.9rem;
+  padding: 3rem 0; }
+.floating-article .paragraph {
+  margin-bottom: 0.7rem; }
+.floating-article img {
+  display: block; }
+.floating-article img.full-width {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-bottom: 0.6rem; }
+.floating-article img.half-width {
+  float: left;
+  width: 50%;
+  padding-right: 0.45rem;
+  margin-right: 0.45rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.6rem; }
+.floating-article img.half-width.right {
+  padding-left: 0.7rem;
+  margin-left: 0.7rem;
+  padding-right: unset;
+  margin-right: unset;
+  float: right; }
 
 .empty-transparency {
   position: absolute;
   height: 100vh;
   width: 100vw;
   left: 0px;
+  background-color: rgba(46, 45, 48, 0.75); }
+
+.articles.added-by-js {
+  position: absolute;
+  width: 100%;
   background-color: rgba(46, 45, 48, 0.75); }
 
 /* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
@@ -276,7 +302,6 @@ header.not-home {
 
   .quick-description-of-me {
     max-width: 65%;
-    line-height: 2.7rem;
     font-size: 2.5rem; }
 
   footer .navigation {
@@ -316,7 +341,31 @@ header.not-home {
       width: 50%;
       padding-left: 1rem;
       padding-right: 1rem;
-      padding-top: 0.05rem; } }
+      padding-top: 0.05rem; }
+
+  .floating-article .background-container {
+    padding: 1.65rem; }
+    .floating-article .background-container .paragraph {
+      padding: 0 1rem 0;
+      text-align: justify;
+      margin-bottom: 0.9rem; }
+    .floating-article .background-container .title {
+      font-size: 2.3rem;
+      padding: 7rem 0; }
+    .floating-article .background-container .date-written {
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      line-height: 1.5rem; }
+    .floating-article .background-container svg#button-close {
+      width: 0.9rem; }
+    .floating-article .background-container img.full-width {
+      margin-bottom: 0.8rem;
+      margin-top: 0.3rem; }
+    .floating-article .background-container img.half-width {
+      padding-right: 0.7rem;
+      margin-right: 0.7rem;
+      margin-bottom: 0.3rem;
+      margin-top: 0.35rem; } }
 @media screen and (min-width: 1024px) {
   header .navigation .list {
     padding-left: 5rem; }
@@ -329,15 +378,15 @@ header.not-home {
   header .professional-title {
     margin-bottom: 3.4rem; }
 
-  .quick-description-of-me {
-    line-height: 3rem; }
-
   footer .social-media-links .link-container .link-image {
     max-width: 2.2vw; }
 
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
   .article-container {
-    width: 73%; } }
+    width: 73%; }
+
+  .articles.added-by-js .article-container {
+    width: 85%; } }
 @media screen and (min-width: 1280px) {
   header .thomazella-logo {
     max-width: calc(100% - 72vw);
@@ -350,17 +399,50 @@ header.not-home {
 
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
   section.articles {
-    width: 100%; }
+    width: 100%;
+    margin: 0 auto;
+    display: block; }
     section.articles::after {
       content: "";
       display: block;
       clear: both; }
-    section.articles .article-container {
+    section.articles .article-container.tileable {
       float: left;
       width: 46.5346534653%; }
-      section.articles .article-container:first-child {
+      section.articles .article-container.tileable:first-child {
         margin-right: 0.9900990099%;
-        margin-left: 2.9702970297%; } }
+        margin-left: 2.9702970297%; }
+
+  .floating-article .background-container {
+    padding: 3.65rem; }
+    .floating-article .background-container .paragraph {
+      margin-bottom: 1.3rem;
+      padding: unset;
+      font-size: 1.1rem; }
+    .floating-article .background-container .title {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 3rem;
+      max-width: 90%; }
+    .floating-article .background-container .date-written {
+      line-height: 1.9rem; }
+    .floating-article .background-container svg#button-close {
+      height: 1.3rem;
+      width: 1.1rem; }
+    .floating-article .background-container img.full-width {
+      max-width: 90%;
+      margin-top: 2.2rem;
+      margin-bottom: 2.2rem; }
+    .floating-article .background-container img.half-width {
+      margin-bottom: 1rem;
+      padding-right: 1.1rem;
+      margin-right: 1.1rem; }
+    .floating-article .background-container img.half-width.right {
+      padding-left: 1.1rem;
+      margin-left: 1.1rem;
+      padding-right: unset;
+      margin-right: unset; } }
 @media screen and (min-width: 1920px) {
   header .thomazella-logo {
     max-width: calc(100% - 77vw); }
@@ -372,14 +454,18 @@ header.not-home {
     max-width: 1.2vw; }
 
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container {
+  .article-container.tileable {
     float: left;
-    width: 40.5940594059%; }
-    .article-container:first-child {
+    width: 36.6336633663%; }
+    .article-container.tileable:first-child {
       margin-right: 0.9900990099%;
-      margin-left: 8.9108910891%; }
-    .article-container .article-preview .intro-container .intro-text {
-      font-size: 1.1rem;
-      line-height: 1.3rem; } }
+      margin-left: 12.8712871287%; }
+    .article-container.tileable .article-preview .intro-container .intro-text {
+      font-size: 1.1rem; }
+
+  .articles.added-by-js .article-container {
+    width: 66%; }
+    .articles.added-by-js .article-container .floating-article .paragraph {
+      font-size: 1.25rem; } }
 
 /*# sourceMappingURL=index.css.map */

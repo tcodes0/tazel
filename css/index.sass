@@ -17,10 +17,10 @@ $color-text-darker-darker: darken($color-text-darker, 20%)
   margin: 0 auto
 =simple-border
   border-bottom: 1px solid $color-bg-darker
-//used to set in css what js is setting
-=bg-image-transparent($how-transparent, $img-behind)
-  background-image: linear-gradient(transparentize($color-bg-darker, $how-transparent),transparentize($color-bg-darker, $how-transparent)), url($img-behind)
-
+=block-and-H-align
+  display: block
+  margin-left: auto
+  margin-right: auto
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
   color: $color-text
@@ -39,6 +39,9 @@ main
   display: none
   z-index: 100
   width: 50%
+
+.row
+  +row
 
 .navigation
   .list .link-container
@@ -92,7 +95,6 @@ header
   font-size: 1.8rem
   text-align: center
   padding-bottom: 2.5rem
-  line-height: 2rem
   max-width: 85%
   display: flex
   flex-direction: column
@@ -150,57 +152,61 @@ header.not-home
       &:hover
         text-decoration: none
 
-.article-container
-  .article-preview,
-  .floating-article
-    +col(12)
-    padding: 1.6rem 0.5rem 1.6rem 0.5rem
-    .date-written
-      font-weight: 300
-      text-transform: capitalize
-      font-size: 0.7rem
-    .title-container .title
-      font-family: 'Roboto Mono', monospace
-      font-weight: 400
-      text-transform: uppercase
-      line-height: 1.6rem
-    .intro-text
-      font-weight: 300
-      line-height: 1.15rem
+.article-preview,
+.floating-article
+  +col(12)
+  padding: 1.6rem 0.5rem 1.6rem 0.5rem
+  .date-written
+    font-weight: 300
+    text-transform: capitalize
+    font-size: 0.7rem
+  .title
+    font-family: 'Roboto Mono', monospace
+    font-weight: 400
+    text-transform: uppercase
+  .intro-text
+    font-weight: 300
 
-.article-container
-  .floating-article
-    background-color: $color-bg-transparent
-    .background-container
-      background-color: $color-bg
-      padding: 0.65rem
-      svg#button-close
-        fill: $color-text-darker-darker
-        width: 0.7rem
-        height: 1rem
-        float: right
-        margin: 0.3rem
-        position: relative
-        z-index: 100
-        transition: fill 0.2s ease
-        &:hover
-          fill: $color-text
-      .title-container .title
-        font-size: 1.4em
-      .paragraph
-        margin-bottom: 0.7rem
-      img.full-width
-        width: 100%
-        margin-bottom: 0.6rem
-      img.half-width
-        +col(6)
-        padding-right: 0.9rem
-        margin-bottom: 0.6rem
-        margin-top: 0.25rem
-      img.half-width.right
-        padding-left: 0.7rem
-        padding-right: unset
-        float: right
+.floating-article
+  .background-container
+    background-color: $color-bg
+    padding: 0.65rem
+
+.floating-article
+  svg#button-close
+    fill: $color-text-darker-darker
+    width: 0.7rem
+    height: 0.8rem
+    float: right
+    margin: 0.2rem
+    position: relative
+    z-index: 100
+    transition: fill 0.2s ease
+    &:hover
+      fill: $color-text
+  .title
+    font-size: 1.9rem
+    padding: 3rem 0
+  .paragraph
+    margin-bottom: 0.7rem
+  img
+    display: block
+  img.full-width
+    +block-and-H-align
+    width: 100%
+    margin-bottom: 0.6rem
+  img.half-width
+    +col(6)
+    padding-right: 0.45rem
+    margin-right: 0.45rem
+    margin-top: 0.25rem
+    margin-bottom: 0.6rem
+  img.half-width.right
+    padding-left: 0.7rem
+    margin-left: 0.7rem
+    padding-right: unset
+    margin-right: unset
+    float: right
 
 .empty-transparency
   position: absolute
@@ -209,6 +215,10 @@ header.not-home
   left: 0px
   background-color: $color-bg-transparent
 
+.articles.added-by-js
+  position: absolute
+  width: 100%
+  background-color: $color-bg-transparent
 /* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
 /*/=-=-=-=-=-=-=-=-=-=-=\  @medias   /=-=-=-=-=-=-=-=-=-=-=\*/
 /*\=-=-=-=-=-=-=-=-=-=-=/            \=-=-=-=-=-=-=-=-=-=-=/*/
@@ -268,7 +278,6 @@ header.not-home
       margin-bottom: 4rem
   .quick-description-of-me
     max-width: 65%
-    line-height: 2.7rem
     font-size: 2.5rem
   footer
     .navigation
@@ -308,6 +317,31 @@ header.not-home
         padding-right: 1rem
         padding-top: 0.05rem
 
+  .floating-article
+    .background-container
+      padding: 1.65rem
+      .paragraph
+        padding: 0 1rem 0
+        text-align: justify
+        margin-bottom: 0.9rem
+      .title
+        font-size: 2.3rem
+        padding: 7rem 0
+      .date-written
+        font-size: 1rem
+        margin-top: 0.3rem
+        line-height: 1.5rem
+      svg#button-close
+        width: 0.9rem
+      img.full-width
+        margin-bottom: 0.8rem
+        margin-top: 0.3rem
+      img.half-width
+        padding-right: 0.7rem
+        margin-right: 0.7rem
+        margin-bottom: 0.3rem
+        margin-top: 0.35rem
+
 //============================================================
 
 @media screen and (min-width: $break-tabletM)
@@ -322,14 +356,15 @@ header.not-home
       margin-bottom: 1rem
     .professional-title
       margin-bottom: 3.4rem
-  .quick-description-of-me
-    line-height: 3rem
   footer
     .social-media-links .link-container .link-image
       max-width: 2.2vw
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
   .article-container
     width: 73%
+  .articles.added-by-js
+    .article-container
+      width: 85%
 
 //============================================================
 
@@ -345,11 +380,40 @@ header.not-home
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
   section.articles
     +row
-    .article-container
+    .article-container.tileable
       +col(47, 101)
       &:first-child
         +gutter(1, 101)
         +jump(3,101)
+  .floating-article
+    .background-container
+      padding: 3.65rem
+      .paragraph
+        margin-bottom: 1.3rem
+        padding: unset
+        font-size: 1.1rem
+      .title
+        +block-and-H-align
+        font-size: 3rem
+        max-width: 90%
+      .date-written
+        line-height: 1.9rem
+      svg#button-close
+        height: 1.3rem
+        width: 1.1rem
+      img.full-width
+        max-width: 90%
+        margin-top: 2.2rem
+        margin-bottom: 2.2rem
+      img.half-width
+        margin-bottom: 1rem
+        padding-right: 1.1rem
+        margin-right: 1.1rem
+      img.half-width.right
+        padding-left: 1.1rem
+        margin-left: 1.1rem
+        padding-right: unset
+        margin-right: unset
 //============================================================
 
 @media screen and (min-width: $break-desktopM)
@@ -362,11 +426,17 @@ header.not-home
     .social-media-links .link-container .link-image
       max-width: 1.2vw
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container
-    +col(41, 101)
+  .article-container.tileable
+    +col(37, 101)
     &:first-child
       +gutter(1, 101)
-      +jump(9,101)
+      +jump(13,101)
     .article-preview .intro-container .intro-text
       font-size: 1.1rem
-      line-height: 1.3rem
+
+  .articles.added-by-js
+    .article-container
+      width: 66%
+      .floating-article
+        .paragraph
+          font-size: 1.25rem
