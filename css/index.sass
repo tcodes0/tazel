@@ -1,6 +1,6 @@
 // @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
 @import "normalize.css"
-@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Signika:300,400|Source+Sans+Pro:300,400"
+// @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
 @import "boiler.sass"
 @import "grid-min.sass"
 /* ------- */
@@ -8,8 +8,10 @@
 /* ------- */
 $color-bg: #2e2d30
 $color-bg-darker: darken($color-bg, 6%)
-$color-text: lighten(invert($color-bg-darker), 2%)
+$color-bg-transparent: fade-out($color-bg, 0.25)
+$color-text: lighten(invert($color-bg-darker), 4%)
 $color-text-darker: darken($color-text, 20%)
+$color-text-darker-darker: darken($color-text-darker, 20%)
 =light-width-squeeze
   width: 95%
   margin: 0 auto
@@ -24,6 +26,7 @@ body
   color: $color-text
   font-weight: 400
   background-color: $color-bg-darker
+  overflow-x: hidden
 
 main
   margin: 0 auto
@@ -55,9 +58,6 @@ main
 .link
   &:hover
     text-decoration: underline
-
-.paragraph
-  margin: 0
 
 header, footer
   +row
@@ -122,39 +122,92 @@ footer
         max-width: 8vw
 
 /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-header.articles
+header.not-home
+  width: 100%
   padding-bottom: 2vh
   .navigation-kompakt
+    +light-width-squeeze
     .list .link-container
       &:first-child::before
           content: unset
       &:last-child::after
           content: unset
 
-section.articles
-  // background-color: $color-bg-darker
-  .article-container
-    +row
-    +light-width-squeeze
-    .article
-      +col(12)
-      background-color: $color-bg-darker
-      border-bottom: 2px solid $color-bg
-      padding: 1.6rem 0.5rem 1.6rem 0.5rem
-      background-position: left
-      background-size: cover
-      .date-written
-        font-weight: 300
-        text-transform: capitalize
-        font-size: 0.7rem
+.article-container
+  +row
+  padding-left: 2.5%
+  padding-right: 2.5%
+  .article-preview
+    background-color: $color-bg-darker
+    border-bottom: 2px solid $color-bg
+    background-position: left
+    background-size: cover
+    .intro-container.link
+      &:hover
+        text-decoration: none
+    .link.disabled
+      cursor: default
+      &:hover
+        text-decoration: none
+
+.article-container
+  .article-preview,
+  .floating-article
+    +col(12)
+    padding: 1.6rem 0.5rem 1.6rem 0.5rem
+    .date-written
+      font-weight: 300
+      text-transform: capitalize
+      font-size: 0.7rem
+    .title-container .title
+      font-family: 'Roboto Mono', monospace
+      font-weight: 400
+      text-transform: uppercase
+      line-height: 1.6rem
+    .intro-text
+      font-weight: 300
+      line-height: 1.15rem
+
+.article-container
+  .floating-article
+    background-color: $color-bg-transparent
+    .background-container
+      background-color: $color-bg
+      padding: 0.25rem
+      svg#button-close
+        fill: $color-text-darker-darker
+        width: 0.7rem
+        height: 1rem
+        float: right
+        margin: 0.3rem
+        position: relative
+        z-index: 100
+        &:hover
+          fill: $color-text
       .title-container .title
-        font-family: 'Roboto Mono', monospace
-        font-weight: 400
-        text-transform: uppercase
-        line-height: 1.6rem
-      .intro-text
-        font-weight: 300
-        line-height: 1.15rem
+        font-size: 1.4em
+      .paragraph
+        margin-bottom: 0.7rem
+      img.full-width
+        width: 100%
+        margin-bottom: 0.6rem
+      img.half-width
+        +col(6)
+        padding-right: 0.7rem
+        margin-bottom: 0.6rem
+        margin-top: 0.25rem
+      img.half-width.right
+        padding-left: 0.7rem
+        padding-right: unset
+        float: right
+
+.empty-transparency
+  position: absolute
+  height: 100vh
+  width: 100vw
+  left: 0px
+  background-color: $color-bg-transparent
+
 /* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
 /*/=-=-=-=-=-=-=-=-=-=-=\  @medias   /=-=-=-=-=-=-=-=-=-=-=\*/
 /*\=-=-=-=-=-=-=-=-=-=-=/            \=-=-=-=-=-=-=-=-=-=-=/*/
@@ -232,7 +285,7 @@ section.articles
   section.articles
     .article-container
       width: 88%
-      .article
+      .article-preview
         +row
         .date-written
           +col(2)
@@ -246,7 +299,7 @@ section.articles
             font-size: 1.25rem
             margin-top: unset
             padding-right: 1rem
-        .intro-text
+        .intro-container .intro-text
           +col(6)
           padding-right: 1rem
           padding-top: 0.05rem
@@ -308,6 +361,6 @@ section.articles
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
   section.articles
     width: 83%
-    .article-container .article .intro-text
+    .article-container .article-preview .intro-container .intro-text
       font-size: 1.1rem
       line-height: 1.3rem
