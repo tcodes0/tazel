@@ -182,6 +182,8 @@ const floatingArticle_Inserter = () => {
   window.addEventListener('keydown', keyHandler)
   tail.addEventListener('click', floatingArticle_Destroyer)
   tail.addEventListener('touchend', floatingArticle_Destroyer)
+  el.querySelector('svg#button-close').addEventListener('click', floatingArticle_Destroyer)
+  el.querySelector('svg#button-close').addEventListener('touchstart', floatingArticle_Destroyer)
 }
 // onLoaders.push(floatingArticle_Inserter)
 const previewArticles_LinkHooker = () => {
