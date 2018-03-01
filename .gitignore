@@ -5,3 +5,5 @@ node_modules/*
 css/normalize*
 public/*
 misc/*
+test*
+fk*
