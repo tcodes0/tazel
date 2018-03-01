@@ -1,7 +1,7 @@
 {
-  "name": "zero",
+  "name": "tazel-home",
   "version": "1.0.0",
-  "description": "",
+  "description": "Thomazella's homepage",
   "main": "./js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
