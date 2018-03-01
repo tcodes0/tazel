@@ -145,8 +145,8 @@ header.not-home {
 
 .article-container {
   width: 100%;
-  padding-left: 2.5%;
-  padding-right: 2.5%; }
+  padding-left: 0 2.5% 0 2.5%;
+  margin: 0 auto; }
   .article-container::after {
     content: "";
     display: block;
@@ -196,7 +196,8 @@ header.not-home {
       float: right;
       margin: 0.3rem;
       position: relative;
-      z-index: 100; }
+      z-index: 100;
+      transition: fill 0.2s ease; }
       .article-container .floating-article .background-container svg#button-close:hover {
         fill: #eaebea; }
     .article-container .floating-article .background-container .title-container .title {
@@ -243,7 +244,13 @@ header.not-home {
       footer .navigation .list .linebreak-for-mobile-nav {
         display: block; }
     footer .social-media-links .link-container .link-image {
-      max-width: 6vw; } }
+      max-width: 6vw; }
+
+  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+  section.articles .article-container {
+    padding: 0;
+    width: 95%;
+    margin: 0 auto; } }
 @media screen and (min-width: 375px) and (min-height: 650px) {
   body {
     background-color: #2e2d30; }
@@ -290,31 +297,26 @@ header.not-home {
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
   section.articles .article-container {
     width: 88%; }
-    section.articles .article-container .article-preview {
-      width: 100%; }
-      section.articles .article-container .article-preview::after {
-        content: "";
-        display: block;
-        clear: both; }
-      section.articles .article-container .article-preview .date-written {
-        float: left;
-        width: 16.6666666667%;
-        text-align: right;
-        padding-top: 0.15rem;
-        padding-right: 1rem;
-        font-size: 0.8rem; }
-      section.articles .article-container .article-preview .title-container {
-        float: left;
-        width: 33.3333333333%; }
-        section.articles .article-container .article-preview .title-container .title {
-          font-size: 1.25rem;
-          margin-top: unset;
-          padding-right: 1rem; }
-      section.articles .article-container .article-preview .intro-container .intro-text {
-        float: left;
-        width: 50%;
-        padding-right: 1rem;
-        padding-top: 0.05rem; } }
+    section.articles .article-container .article-preview .date-written {
+      float: left;
+      width: 16.6666666667%;
+      text-align: right;
+      padding-top: 0.15rem;
+      padding-right: 1rem;
+      font-size: 0.8rem; }
+    section.articles .article-container .article-preview .title-container {
+      float: left;
+      width: 33.3333333333%; }
+      section.articles .article-container .article-preview .title-container .title {
+        font-size: 1.25rem;
+        margin-top: unset;
+        padding-right: 1rem; }
+    section.articles .article-container .article-preview .intro-container .intro-text {
+      float: left;
+      width: 50%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.05rem; } }
 @media screen and (min-width: 1024px) {
   header .navigation .list {
     padding-left: 5rem; }
@@ -348,18 +350,17 @@ header.not-home {
 
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
   section.articles {
-    width: 100%;
-    width: 95%;
-    margin: 0 auto; }
+    width: 100%; }
     section.articles::after {
       content: "";
       display: block;
       clear: both; }
     section.articles .article-container {
       float: left;
-      width: 49.504950495%; }
+      width: 46.5346534653%; }
       section.articles .article-container:first-child {
-        margin-right: 0.9900990099%; } }
+        margin-right: 0.9900990099%;
+        margin-left: 2.9702970297%; } }
 @media screen and (min-width: 1920px) {
   header .thomazella-logo {
     max-width: calc(100% - 77vw); }
@@ -371,10 +372,14 @@ header.not-home {
     max-width: 1.2vw; }
 
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  section.articles {
-    width: 83%; }
-    section.articles .article-container .article-preview .intro-container .intro-text {
-      font-size: 1.1rem;
-      line-height: 1.3rem; } }
+  section.articles .article-container {
+    float: left;
+    width: 40.5940594059%; }
+    section.articles .article-container:first-child {
+      margin-right: 0.9900990099%;
+      margin-left: 8.9108910891%; }
+  section.articles .article-container .article-preview .intro-container .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.3rem; } }
 
 /*# sourceMappingURL=index.css.map */

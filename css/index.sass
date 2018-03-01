@@ -135,8 +135,8 @@ header.not-home
 
 .article-container
   +row
-  padding-left: 2.5%
-  padding-right: 2.5%
+  padding-left: 0 2.5% 0 2.5%
+  margin: 0 auto
   .article-preview
     background-color: $color-bg-darker
     border-bottom: 2px solid $color-bg
@@ -182,6 +182,7 @@ header.not-home
         margin: 0.3rem
         position: relative
         z-index: 100
+        transition: fill 0.2s ease
         &:hover
           fill: $color-text
       .title-container .title
@@ -211,6 +212,7 @@ header.not-home
 /* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
 /*/=-=-=-=-=-=-=-=-=-=-=\  @medias   /=-=-=-=-=-=-=-=-=-=-=\*/
 /*\=-=-=-=-=-=-=-=-=-=-=/            \=-=-=-=-=-=-=-=-=-=-=/*/
+
 @media screen and (min-width: $break-mobileM)
 
 //============================================================
@@ -232,7 +234,11 @@ header.not-home
         display: block
     .social-media-links .link-container .link-image
         max-width: 6vw
-
+  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
+  section.articles
+    .article-container
+      padding: 0
+      +light-width-squeeze
 //============================================================
 
 @media screen and (min-width: $break-mobileM) and (min-height: 650px)
@@ -286,7 +292,6 @@ header.not-home
     .article-container
       width: 88%
       .article-preview
-        +row
         .date-written
           +col(2)
           text-align: right
@@ -301,6 +306,7 @@ header.not-home
             padding-right: 1rem
         .intro-container .intro-text
           +col(6)
+          padding-left: 1rem
           padding-right: 1rem
           padding-top: 0.05rem
 
@@ -342,11 +348,11 @@ header.not-home
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
   section.articles
     +row
-    +light-width-squeeze
     .article-container
-      +col(50, 101)
+      +col(47, 101)
       &:first-child
         +gutter(1, 101)
+        +jump(3,101)
 //============================================================
 
 @media screen and (min-width: $break-desktopM)
@@ -360,7 +366,11 @@ header.not-home
       max-width: 1.2vw
   /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
   section.articles
-    width: 83%
+    .article-container
+      +col(41, 101)
+      &:first-child
+        +gutter(1, 101)
+        +jump(9,101)
     .article-container .article-preview .intro-container .intro-text
       font-size: 1.1rem
       line-height: 1.3rem
