@@ -73,7 +73,7 @@ const navKompakt_HighlightCurrentPageLink = () => {
       .classList.add('is-link-to-current-page')
   }
 }
-// onLoaders.push(navKompakt_HighlightCurrentPageLink)
+onLoaders.push(navKompakt_HighlightCurrentPageLink)
 const articles_PlaceholderText = () => {
   if (ThisPageIsNot(articles)) {
     return
@@ -103,7 +103,7 @@ const footer_SmartAbsolutePosition = () => {
     f.style.position = "absolute"
     f.style.bottom = "0"
     if (ThisPageIs(articles)) {
-      document.querySelector('.article:last-child').style.border = 'unset'
+      document.querySelector('.article-preview:last-child').style.border = 'unset'
     }
     if (ThisPageIs(about)) {
     }
@@ -111,8 +111,8 @@ const footer_SmartAbsolutePosition = () => {
     }
   }
 }
-// onLoaders.push(footer_SmartAbsolutePosition)
-// resizers.push(footer_SmartAbsolutePosition)
+onLoaders.push(footer_SmartAbsolutePosition)
+resizers.push(footer_SmartAbsolutePosition)
 // requestData_FromJSON('js/articles.json')
 //   .catch(err => console.error(`${err.status} - ${err.statusText} - ${err.responseURL}`))
 //   .then(data => data ? console.log(data) : undefined)
@@ -185,7 +185,6 @@ const floatingArticle_Inserter = () => {
   el.querySelector('svg#button-close').addEventListener('click', floatingArticle_Destroyer)
   el.querySelector('svg#button-close').addEventListener('touchstart', floatingArticle_Destroyer)
 }
-// onLoaders.push(floatingArticle_Inserter)
 const previewArticles_LinkHooker = () => {
   if (ThisPageIsNot(articles)) {
     return
@@ -273,6 +272,7 @@ const positionFixed_Apply = e => {
 const positionFixed_Remove = () => {
   let mchildren = [...$('main').childNodes].filter(child => child.nodeName !== "#text")
   mchildren.forEach(child => child.removeAttribute('style'))
+  resizers.forEach(resizer => resizer())
 }
 const requestData_Raw = (path) => {
   return new Promise((resolve, reject) => {
