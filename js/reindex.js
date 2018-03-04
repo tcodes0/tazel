@@ -18,7 +18,7 @@ window.addEventListener('load', () => onLoaders.forEach(onLoader => onLoader()))
 
 const toggleGuide = () => {
   let guide = $('.guide')
-  if (guide.style.display === "") {
+  if (guide.style.display === '' || guide.style.display === 'none' ) {
     guide.style.display = 'block'
     if (window.innerHeight > document.body.offsetHeight) {
       guide.style.height = `${window.innerHeight}px`
