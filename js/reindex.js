@@ -1,12 +1,13 @@
 const ThisPageIsNot = name => document.title !== name
 const ThisPageIs = name => document.title === name
-const home = 'Thomazella'
+const home = 'Thomazella\'s homepage'
 const articles = 'Thomazella\'s articles'
 const projects = 'Thomazella\'s projects'
 const about = 'About Thomazella'
 const $ = q => document.querySelector(q)
-const f = document.querySelector('footer')
-const m = document.querySelector('main')
+const $$ = q => document.querySelectorAll(q)
+const f = document.querySelector('.footer')
+const m = document.querySelector('.main')
 let resizers = []
 let onLoaders = []
 
@@ -16,7 +17,7 @@ window.addEventListener('resize', () => resizers.forEach(resizer => resizer()))
 window.addEventListener('load', () => onLoaders.forEach(onLoader => onLoader()))
 
 const toggleGuide = () => {
-  let guide = document.querySelector('.guide')
+  let guide = $('.guide')
   if (guide.style.display === "") {
     guide.style.display = 'block'
     if (window.innerHeight > document.body.offsetHeight) {
@@ -30,12 +31,12 @@ const toggleGuide = () => {
 }
 
 const htmlHide = (query) => {
-  let e = document.querySelector(query)
+  let e = $(query)
   e.setAttribute('hidden','')
 }
 
 const whiteIcons = () => {
-  let icons = [...document.querySelectorAll('svg image')]
+  let icons = [...$$('svg image')]
   let xlink = 'xlink:href'
   let src = 'src'
   icons.forEach(icon => {
@@ -46,7 +47,7 @@ const whiteIcons = () => {
 onLoaders.push(whiteIcons)
 
 const blackIcons = () => {
-  let icons = [...document.querySelectorAll('svg image')]
+  let icons = [...$$('svg image')]
   let xlink = 'xlink:href'
   let src = 'src'
   icons.forEach(icon => {
@@ -54,6 +55,14 @@ const blackIcons = () => {
     icon.setAttribute(src, icon.attributes[src].value.replace('-white.png','.png'))
   })
 }
+
+const homeHide_FooterNav = () => {
+  if (ThisPageIsNot(home)) {
+    return
+  }
+  $('.footer .nav').setAttribute('hidden','')
+}
+onLoaders.push(homeHide_FooterNav)
 
 // - - - - - - - - - HOME
 // - - - - - - - - - - - - - - -
