@@ -45,7 +45,7 @@ body {
   z-index: 100;
   width: 50%; }
 
-#professional-title, .nav {
+#professional-title, .nav, .nav-fancy, .nav-footer {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
 
@@ -96,41 +96,45 @@ a {
     text-decoration: #eaebea wavy underline;
     color: #b7bab5; }
 
-.nav {
+.nav, .nav-fancy, .nav-footer {
   padding-top: 2vh; }
-  .nav ul {
+  .nav ul, .nav-fancy ul, .nav-footer ul {
     padding-left: 0.6em; }
-    .nav ul li {
+    .nav ul li, .nav-fancy ul li, .nav-footer ul li {
       display: inline;
       line-height: 1.7em;
       margin-right: 1.05em; }
-      .nav ul li a:hover {
+      .nav ul li a:hover, .nav-fancy ul li a:hover, .nav-footer ul li a:hover {
         text-decoration: underline; }
   @media screen and (min-width: 414px) {
-    .nav .linebreak-for-mobile-nav {
+    .nav .linebreak-for-mobile-nav, .nav-fancy .linebreak-for-mobile-nav, .nav-footer .linebreak-for-mobile-nav {
       display: none; } }
   @media screen and (min-width: 768px) {
-    .nav ul {
+    .nav ul, .nav-fancy ul, .nav-footer ul {
       padding-left: 2.6em; }
-      .nav ul li {
+      .nav ul li, .nav-fancy ul li, .nav-footer ul li {
         margin-right: 2.6em; } }
   @media screen and (min-width: 1024px) {
-    .nav ul {
+    .nav ul, .nav-fancy ul, .nav-footer ul {
       padding-left: 5em; }
-      .nav ul li {
+      .nav ul li, .nav-fancy ul li, .nav-footer ul li {
         margin-right: 5em; } }
   @media screen and (min-width: 1280px) {
-    .nav ul {
+    .nav ul, .nav-fancy ul, .nav-footer ul {
       padding-left: 7.6em; }
-      .nav ul li {
+      .nav ul li, .nav-fancy ul li, .nav-footer ul li {
         margin-right: 8em; } }
 
-header.fancy > .nav {
+.nav-fancy {
   padding-top: unset; }
-  header.fancy > .nav li:first-child::before {
+  .nav-fancy li:first-child::before {
     content: "{ "; }
-  header.fancy > .nav li:last-child::after {
+  .nav-fancy li:last-child::after {
     content: " }"; }
+
+.nav-footer {
+  padding-bottom: 26px;
+  padding-bottom: 4vh; }
 
 @media screen and (min-width: 360px) {
   #professional-description {
@@ -188,7 +192,7 @@ header.fancy > .nav {
     @media screen and (min-width: 1024px) {
       .social-media-links li svg {
         max-width: 35px;
-        max-width: 3.4vw; } }
+        max-width: 2.9vw; } }
     @media screen and (min-width: 1600px) {
       .social-media-links li svg {
         max-width: 35px;

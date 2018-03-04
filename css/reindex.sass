@@ -126,12 +126,18 @@ a
       li
         margin-right: 8em
 
-header.fancy > .nav
+.nav-fancy
+  @extend .nav
   padding-top: unset
   li:first-child::before
     content: "{ "
   li:last-child::after
     content: " }"
+
+.nav-footer
+  @extend .nav
+  padding-bottom: 26px
+  padding-bottom: 4vh
 
 #professional-description
   @media screen and (min-width: $break-mobileM)
@@ -179,7 +185,7 @@ header.fancy > .nav
         max-width: 5vw
       @media screen and (min-width: $break-tabletM)
         max-width: 35px
-        max-width: 3.4vw
+        max-width: 2.9vw
       @media screen and (min-width: $break-desktopM)
         max-width: 35px
         max-width: 1.8vw
