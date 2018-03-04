@@ -33,7 +33,7 @@ body {
   background-color: #1f1e20;
   overflow-x: hidden; }
 
-body > div[role="main"] {
+.main {
   margin: 0 auto;
   overflow-y: hidden;
   background-color: #2e2d30; }
@@ -45,32 +45,32 @@ body > div[role="main"] {
   z-index: 100;
   width: 50%; }
 
-#professional-title, div[role="navigation"] {
+#professional-title, .nav {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
 
 header {
   padding-bottom: 3vh; }
 
-svg {
+.thomazella-logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
   max-width: 214px;
   max-width: calc(100% - 33vw); }
   @media screen and (min-width: 414px) {
-    svg {
+    .thomazella-logo {
       max-width: 227px;
       max-width: calc(100% - 45vw);
       margin-bottom: 0.3rem; } }
   @media screen and (min-width: 768px) {
-    svg {
+    .thomazella-logo {
       max-width: 400px;
       max-width: calc(100% - 48vw);
       margin-top: 2rem;
       margin-bottom: 1.8rem; } }
   @media screen and (min-width: 1280px) {
-    svg {
+    .thomazella-logo {
       max-width: 358px;
       max-width: calc(100% - 72vw); } }
 
@@ -96,69 +96,102 @@ a {
     text-decoration: #eaebea wavy underline;
     color: #b7bab5; }
 
-div[role="navigation"] {
+.nav {
   padding-top: 2vh; }
-  div[role="navigation"] ul {
+  .nav ul {
     padding-left: 0.6em; }
-    div[role="navigation"] ul li {
+    .nav ul li {
       display: inline;
       line-height: 1.7em;
       margin-right: 1.05em; }
-      div[role="navigation"] ul li a:hover {
+      .nav ul li a:hover {
         text-decoration: underline; }
   @media screen and (min-width: 414px) {
-    div[role="navigation"] .linebreak-for-mobile-nav {
+    .nav .linebreak-for-mobile-nav {
       display: none; } }
   @media screen and (min-width: 768px) {
-    div[role="navigation"] ul {
+    .nav ul {
       padding-left: 2.6em; }
-      div[role="navigation"] ul li {
+      .nav ul li {
         margin-right: 2.6em; } }
   @media screen and (min-width: 1024px) {
-    div[role="navigation"] ul {
+    .nav ul {
       padding-left: 5em; }
-      div[role="navigation"] ul li {
+      .nav ul li {
         margin-right: 5em; } }
   @media screen and (min-width: 1280px) {
-    div[role="navigation"] ul {
+    .nav ul {
       padding-left: 7.6em; }
-      div[role="navigation"] ul li {
+      .nav ul li {
         margin-right: 8em; } }
 
-header.fancy > div[role="navigation"] {
+header.fancy > .nav {
   padding-top: unset; }
-  header.fancy > div[role="navigation"] li:first-child::before {
+  header.fancy > .nav li:first-child::before {
     content: "{ "; }
-  header.fancy > div[role="navigation"] li:last-child::after {
+  header.fancy > .nav li:last-child::after {
     content: " }"; }
 
 @media screen and (min-width: 360px) {
-  .quick-description-of-me {
+  #professional-description {
     min-height: 345px; } }
 @media screen and (min-width: 1600px) {
-  .quick-description-of-me {
+  #professional-description {
     min-height: 510px; } }
-.quick-description-of-me h2 {
+#professional-description h2 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  font-weight: 400;
   max-width: 85%;
   font-size: 1.8rem;
   text-align: center;
   padding-bottom: 1.4em;
   margin-top: 65px; }
   @media screen and (min-width: 768px) {
-    .quick-description-of-me h2 {
+    #professional-description h2 {
       max-width: 65%;
       font-size: 2.5rem; } }
   @media screen and (min-width: 1280px) {
-    .quick-description-of-me h2 {
+    #professional-description h2 {
       max-width: 45%; } }
   @media screen and (min-width: 1600px) {
-    .quick-description-of-me h2 {
+    #professional-description h2 {
       max-width: 40%; } }
   @media screen and (min-width: 1600px) {
-    .quick-description-of-me h2 {
+    #professional-description h2 {
       margin-top: 190px; } }
+
+.footer {
+  background-color: #1f1e20;
+  padding: 1em 0 2em;
+  text-align: center; }
+
+@media screen and (min-width: 414px) {
+  .social-media-links {
+    padding-top: 0.8em; } }
+.social-media-links li {
+  display: inline; }
+  .social-media-links li:nth-child(0n+2) {
+    margin: 0 3.6em 0; }
+    @media screen and (min-width: 768px) {
+      .social-media-links li:nth-child(0n+2) {
+        margin: 0 5em 0; } }
+  .social-media-links li svg {
+    display: inline;
+    max-width: 30px;
+    max-width: 8vw; }
+    @media screen and (min-width: 768px) {
+      .social-media-links li svg {
+        max-width: 31px;
+        max-width: 5vw; } }
+    @media screen and (min-width: 1024px) {
+      .social-media-links li svg {
+        max-width: 35px;
+        max-width: 3.4vw; } }
+    @media screen and (min-width: 1600px) {
+      .social-media-links li svg {
+        max-width: 35px;
+        max-width: 1.8vw; } }
 
 /*# sourceMappingURL=reindex.css.map */

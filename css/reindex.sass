@@ -31,7 +31,7 @@ body
   background-color: $color-bg-darker
   overflow-x: hidden
 
-body > div[role="main"]
+.main
   margin: 0 auto
   overflow-y: hidden
   background-color: $color-bg
@@ -57,7 +57,7 @@ body > div[role="main"]
 header
   padding-bottom: 3vh
 
-svg
+.thomazella-logo
   +block-and-H-align
   max-width: 214px
   max-width: calc(100% - 33vw)
@@ -96,7 +96,7 @@ a
     text-decoration: $color-text wavy underline
     color: $color-text-darker
 
-div[role="navigation"]
+.nav
   @extend %mono-spaced
   padding-top: 2vh
   ul
@@ -126,20 +126,21 @@ div[role="navigation"]
       li
         margin-right: 8em
 
-header.fancy > div[role="navigation"]
+header.fancy > .nav
   padding-top: unset
   li:first-child::before
     content: "{ "
   li:last-child::after
     content: " }"
 
-.quick-description-of-me
+#professional-description
   @media screen and (min-width: $break-mobileM)
     min-height: 345px
   @media screen and (min-width: $break-desktopM)
     min-height: 510px
   h2
     +block-and-H-align
+    font-weight: 400
     max-width: 85%
     font-size: 1.8rem
     text-align: center
@@ -154,6 +155,34 @@ header.fancy > div[role="navigation"]
       max-width: 40%
     @media screen and (min-width: $break-desktopM)
       margin-top: 190px
+
+.footer
+  background-color: $color-bg-darker
+  padding: 1em 0 2em
+  text-align: center
+
+.social-media-links
+  @media screen and (min-width: $break-mobileL)
+    padding-top: 0.8em
+  li
+    display: inline
+    &:nth-child(0n+2)
+      margin: 0 3.6em 0
+      @media screen and (min-width: $break-tabletS)
+        margin: 0 5em 0
+    svg
+      display: inline
+      max-width: 30px
+      max-width: 8vw
+      @media screen and (min-width: $break-tabletS)
+        max-width: 31px
+        max-width: 5vw
+      @media screen and (min-width: $break-tabletM)
+        max-width: 35px
+        max-width: 3.4vw
+      @media screen and (min-width: $break-desktopM)
+        max-width: 35px
+        max-width: 1.8vw
 
 
   // @media screen and (min-width: $break-mobileM)
