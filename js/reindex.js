@@ -60,7 +60,7 @@ const homeHide_FooterNav = () => {
   if (ThisPageIsNot(home)) {
     return
   }
-  $('.footer .nav').setAttribute('hidden','')
+  $('.nav-footer').setAttribute('hidden','')
 }
 onLoaders.push(homeHide_FooterNav)
 
