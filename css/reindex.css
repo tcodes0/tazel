@@ -114,7 +114,7 @@ a {
       margin-right: 1.05em; }
       .nav ul li a:hover, .nav-fancy ul li a:hover, .nav-footer ul li a:hover {
         text-decoration: underline; }
-  @media screen and (min-width: 414px) {
+  @media screen and (min-width: 360px) {
     .nav .linebreak-for-mobile-nav, .nav-fancy .linebreak-for-mobile-nav, .nav-footer .linebreak-for-mobile-nav {
       display: none; } }
   @media screen and (min-width: 768px) {
