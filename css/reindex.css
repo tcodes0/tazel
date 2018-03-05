@@ -38,6 +38,14 @@ body {
   overflow-y: hidden;
   background-color: #2e2d30; }
 
+.container-100vh {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+  @supports (display: flex) {
+    .container-100vh {
+      min-height: 100vh; } }
+
 .guide {
   border: 1px solid white;
   position: absolute;
@@ -136,35 +144,40 @@ a {
   padding-bottom: 26px;
   padding-bottom: 4vh; }
 
-@media screen and (min-width: 360px) {
-  #professional-description {
-    min-height: 345px; } }
-@media screen and (min-width: 1600px) {
-  #professional-description {
-    min-height: 510px; } }
-#professional-description h2 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 400;
-  max-width: 85%;
-  font-size: 1.8rem;
-  text-align: center;
-  padding-bottom: 1.4em;
-  margin-top: 65px; }
-  @media screen and (min-width: 768px) {
-    #professional-description h2 {
-      max-width: 65%;
-      font-size: 2.5rem; } }
-  @media screen and (min-width: 1280px) {
-    #professional-description h2 {
-      max-width: 45%; } }
+#professional-description {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center; }
+  @media screen and (min-width: 360px) {
+    #professional-description {
+      min-height: 280px; } }
   @media screen and (min-width: 1600px) {
-    #professional-description h2 {
-      max-width: 40%; } }
-  @media screen and (min-width: 1600px) {
-    #professional-description h2 {
-      margin-top: 190px; } }
+    #professional-description {
+      min-height: 510px; } }
+  #professional-description h2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+    max-width: 85%;
+    font-size: 1.8rem;
+    text-align: center;
+    padding-bottom: 1.4em;
+    margin-top: 65px; }
+    @media screen and (min-width: 768px) {
+      #professional-description h2 {
+        max-width: 65%;
+        font-size: 2.5rem; } }
+    @media screen and (min-width: 1280px) {
+      #professional-description h2 {
+        max-width: 45%; } }
+    @media screen and (min-width: 1600px) {
+      #professional-description h2 {
+        max-width: 40%; } }
+    @media screen and (min-width: 1600px) {
+      #professional-description h2 {
+        margin-top: 190px; } }
 
 .footer {
   background-color: #1f1e20;
