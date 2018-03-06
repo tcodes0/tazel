@@ -33,10 +33,18 @@ body {
   background-color: #1f1e20;
   overflow-x: hidden; }
 
-main {
+.main {
   margin: 0 auto;
   overflow-y: hidden;
   background-color: #2e2d30; }
+
+.container-100vh {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+  @supports (display: flex) {
+    .container-100vh {
+      min-height: 100vh; } }
 
 .guide {
   border: 1px solid white;
@@ -45,427 +53,169 @@ main {
   z-index: 100;
   width: 50%; }
 
-.row {
-  width: 100%;
-  margin: 0 auto;
-  display: block; }
-  .row::after {
-    content: "";
-    display: block;
-    clear: both; }
-
-.navigation .list .link-container {
-  display: inline;
-  font-size: 1rem;
-  line-height: 1.7rem; }
-  .navigation .list .link-container:first-child::before {
-    content: "{ "; }
-  .navigation .list .link-container:last-child::after {
-    content: " }"; }
-  .navigation .list .link-container .link {
-    text-transform: capitalize; }
-  .navigation .list .link-container .is-link-to-current-page {
-    text-decoration: #eaebea wavy underline;
-    color: #b7bab5; }
-
-.link:hover {
-  text-decoration: underline; }
-
-header, footer {
-  width: 100%;
-  margin: 0 auto;
-  display: block;
+#professional-title, .nav, .nav-fancy, .nav-footer {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
-  header::after, footer::after {
-    content: "";
-    display: block;
-    clear: both; }
+
+.img, .thomazella-logo {
+  display: inline-block; }
 
 header {
-  width: 95%;
-  margin: 0 auto;
-  padding-bottom: 2.5rem;
-  padding-top: 1.1rem; }
-  header .navigation .list {
-    padding-left: 1.2rem; }
-    header .navigation .list .link-container {
-      margin-right: 1.05rem; }
-  header .thomazella-logo {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    margin-top: 2rem;
-    margin-bottom: 0.6rem;
-    max-width: calc(100% - 33vw); }
-    header .thomazella-logo::after {
-      content: "";
-      display: block;
-      clear: both; }
-  header .professional-title {
-    font-size: calc(0.45rem + 0.6vw);
-    font-weight: 300;
-    margin-bottom: 2.5rem;
-    text-transform: capitalize; }
-    header .professional-title::before {
-      content: "( "; }
-    header .professional-title::after {
-      content: " )"; }
+  padding-bottom: 3vh; }
 
-.quick-description-of-me {
-  margin: 0 auto;
-  font-size: 1.8rem;
-  text-align: center;
-  padding-bottom: 2.5rem;
-  max-width: 85%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
-
-footer {
-  background-color: #1f1e20;
-  padding: 1rem 0 1rem; }
-  footer .navigation {
-    margin-top: 1rem; }
-    footer .navigation .list .linebreak-for-mobile-nav {
-      display: none; }
-    footer .navigation .list .link-container {
-      display: block; }
-      footer .navigation .list .link-container:first-child::before {
-        content: unset; }
-      footer .navigation .list .link-container:last-child::after {
-        content: unset; }
-  footer .social-media-links {
-    padding-top: 1.4rem; }
-    footer .social-media-links .link-container {
-      display: inline; }
-      footer .social-media-links .link-container:nth-child(0n+2) {
-        margin: 0 2rem 0; }
-      footer .social-media-links .link-container .link-image {
-        max-width: 8vw; }
-
-/* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-header.not-home {
-  width: 100%;
-  padding-bottom: 2vh; }
-  header.not-home .navigation-kompakt {
-    width: 95%;
-    margin: 0 auto; }
-    header.not-home .navigation-kompakt .list .link-container:first-child::before {
-      content: unset; }
-    header.not-home .navigation-kompakt .list .link-container:last-child::after {
-      content: unset; }
-
-.article-container {
-  width: 100%;
-  margin: 0 auto;
-  display: block;
-  padding: 0 2.5% 0 2.5%;
-  margin: 0 auto; }
-  .article-container::after {
-    content: "";
-    display: block;
-    clear: both; }
-  .article-container .article-preview {
-    background-color: #1f1e20;
-    border-bottom: 2px solid #2e2d30;
-    background-position: left;
-    background-size: cover; }
-    .article-container .article-preview .intro-container.link:hover {
-      text-decoration: none; }
-    .article-container .article-preview .link.disabled {
-      cursor: default; }
-      .article-container .article-preview .link.disabled:hover {
-        text-decoration: none; }
-
-.article-preview,
-.floating-article {
-  float: left;
-  width: 100%;
-  padding: 1.6rem 0.5rem 1.6rem 0.5rem; }
-  .article-preview .date-written,
-  .floating-article .date-written {
-    font-weight: 300;
-    text-transform: capitalize;
-    font-size: 0.7rem; }
-  .article-preview .title,
-  .floating-article .title {
-    font-family: "Roboto Mono", monospace;
-    font-weight: 400;
-    text-transform: uppercase; }
-  .article-preview .intro-text,
-  .floating-article .intro-text {
-    font-weight: 300; }
-
-.floating-article .background-container {
-  background-color: #2e2d30;
-  padding: 0.65rem; }
-
-.floating-article svg#button-close {
-  fill: #848880;
-  width: 0.7rem;
-  height: 0.8rem;
-  float: right;
-  margin: 0.2rem;
-  position: relative;
-  z-index: 100;
-  transition: fill 0.2s ease; }
-  .floating-article svg#button-close:hover {
-    fill: #eaebea; }
-.floating-article .title {
-  font-size: 1.9rem;
-  padding: 3rem 0; }
-.floating-article .paragraph {
-  margin-bottom: 0.7rem; }
-.floating-article img {
-  display: block; }
-.floating-article img.full-width {
+.thomazella-logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  margin-bottom: 0.6rem; }
-.floating-article img.half-width {
-  float: left;
-  width: 50%;
-  padding-right: 0.45rem;
-  margin-right: 0.45rem;
-  margin-top: 0.25rem;
-  margin-bottom: 0.6rem; }
-.floating-article img.half-width.right {
-  padding-left: 0.7rem;
-  margin-left: 0.7rem;
-  padding-right: unset;
-  margin-right: unset;
-  float: right; }
+  max-width: 214px;
+  max-width: calc(100% - 33vw); }
+  @media screen and (min-width: 414px) {
+    .thomazella-logo {
+      max-width: 227px;
+      max-width: calc(100% - 45vw);
+      margin-bottom: 5px;
+      margin-bottom: 0.3rem; } }
+  @media screen and (min-width: 768px) {
+    .thomazella-logo {
+      max-width: 400px;
+      max-width: calc(100% - 48vw);
+      margin-top: 32px;
+      margin-top: 2rem;
+      margin-bottom: 29px;
+      margin-bottom: 1.8rem; } }
+  @media screen and (min-width: 1280px) {
+    .thomazella-logo {
+      max-width: 358px;
+      max-width: calc(100% - 72vw); } }
 
-.empty-transparency {
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  left: 0px;
-  background-color: rgba(46, 45, 48, 0.75); }
+#professional-title {
+  font-size: 9.35px;
+  font-size: calc(0.45rem + 0.6vw);
+  font-weight: 300;
+  margin-bottom: 6.5em;
+  margin-top: unset;
+  text-transform: capitalize; }
+  #professional-title::before {
+    content: "( "; }
+  #professional-title::after {
+    content: " )"; }
+  @media screen and (min-width: 768px) {
+    #professional-title {
+      font-size: 10.6px;
+      font-size: calc(0.47rem + 0.4vw); } }
 
-.articles.added-by-js {
-  position: absolute;
-  width: 100%;
-  background-color: rgba(46, 45, 48, 0.75); }
+a {
+  text-transform: capitalize; }
+  a .is-link-to-current-page {
+    text-decoration: #eaebea wavy underline;
+    color: #b7bab5; }
 
-/* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
-/*/=-=-=-=-=-=-=-=-=-=-=\  @medias   /=-=-=-=-=-=-=-=-=-=-=\ */
-/*\=-=-=-=-=-=-=-=-=-=-=/            \=-=-=-=-=-=-=-=-=-=-=/ */
-@media screen and (min-width: 425px) {
-  header .navigation .linebreak-for-mobile-nav {
-    display: none; }
-  header .thomazella-logo {
-    max-width: calc(100% - 45vw); }
+.nav, .nav-fancy, .nav-footer {
+  padding-top: 2vh; }
+  .nav ul, .nav-fancy ul, .nav-footer ul {
+    padding-left: 0.6em; }
+    .nav ul li, .nav-fancy ul li, .nav-footer ul li {
+      display: inline;
+      line-height: 1.7em;
+      margin-right: 1.05em; }
+      .nav ul li a:hover, .nav-fancy ul li a:hover, .nav-footer ul li a:hover {
+        text-decoration: underline; }
+  @media screen and (min-width: 360px) {
+    .nav .linebreak-for-mobile-nav, .nav-fancy .linebreak-for-mobile-nav, .nav-footer .linebreak-for-mobile-nav {
+      display: none; } }
+  @media screen and (min-width: 768px) {
+    .nav ul, .nav-fancy ul, .nav-footer ul {
+      padding-left: 2.6em; }
+      .nav ul li, .nav-fancy ul li, .nav-footer ul li {
+        margin-right: 2.6em; } }
+  @media screen and (min-width: 1024px) {
+    .nav ul, .nav-fancy ul, .nav-footer ul {
+      padding-left: 5em; }
+      .nav ul li, .nav-fancy ul li, .nav-footer ul li {
+        margin-right: 5em; } }
+  @media screen and (min-width: 1280px) {
+    .nav ul, .nav-fancy ul, .nav-footer ul {
+      padding-left: 7.6em; }
+      .nav ul li, .nav-fancy ul li, .nav-footer ul li {
+        margin-right: 8em; } }
 
-  footer {
-    padding: 0.6rem 0 1rem; }
-    footer .navigation .list {
-      padding-left: 1rem; }
-      footer .navigation .list .link-container {
-        display: inline-block;
-        margin-right: 1.05rem; }
-      footer .navigation .list .linebreak-for-mobile-nav {
-        display: block; }
-    footer .social-media-links .link-container .link-image {
-      max-width: 6vw; }
+.nav-fancy {
+  padding-top: unset; }
+  .nav-fancy li:first-child::before {
+    content: "{ "; }
+  .nav-fancy li:last-child::after {
+    content: " }"; }
 
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container {
-    padding: 0;
-    width: 95%;
-    margin: 0 auto; } }
-@media screen and (min-width: 375px) and (min-height: 650px) {
-  body {
-    background-color: #2e2d30; }
+.nav-footer {
+  padding-bottom: 26px;
+  padding-bottom: 4vh; }
 
-  .quick-description-of-me {
-    min-height: 52vh; }
+#professional-description {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center; }
+  @media screen and (min-width: 360px) {
+    #professional-description {
+      min-height: 280px; } }
+  @media screen and (min-width: 1600px) {
+    #professional-description {
+      min-height: 510px; } }
+  #professional-description h2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+    max-width: 85%;
+    font-size: 28.8px;
+    font-size: 1.8rem;
+    text-align: center;
+    padding-bottom: 1.4em;
+    margin-top: 65px; }
+    @media screen and (min-width: 768px) {
+      #professional-description h2 {
+        max-width: 65%;
+        font-size: 45px;
+        font-size: 2.5rem; } }
+    @media screen and (min-width: 1280px) {
+      #professional-description h2 {
+        max-width: 45%; } }
+    @media screen and (min-width: 1600px) {
+      #professional-description h2 {
+        max-width: 40%; } }
+    @media screen and (min-width: 1600px) {
+      #professional-description h2 {
+        margin-top: 190px; } }
 
-  footer.home {
-    position: absolute;
-    bottom: 0; } }
-@media screen and (min-width: 768px) {
-  header .navigation .list {
-    padding-left: 2.6rem; }
-    header .navigation .list .link-container {
-      font-size: 1rem;
-      margin-right: 2.6rem; }
-  header .thomazella-logo {
-    max-width: calc(100% - 48vw);
-    margin-bottom: 2rem; }
-  header .professional-title {
-    font-size: calc(0.47rem + 0.4vw);
-    margin-bottom: 4rem; }
+.footer {
+  background-color: #1f1e20;
+  padding: 1em 0 2em;
+  text-align: center; }
 
-  .quick-description-of-me {
-    max-width: 65%;
-    font-size: 2.5rem; }
-
-  footer .navigation {
-    margin-bottom: 0.5rem; }
-    footer .navigation .list {
-      padding-right: 1rem;
-      padding-left: 0; }
-      footer .navigation .list .link-container {
-        padding-left: 1.9rem;
-        font-size: 0.9rem; }
-      footer .navigation .list .linebreak-for-mobile-nav {
-        display: none; }
-  footer .social-media-links .link-container:nth-child(0n+2) {
-    margin: 0 4.5rem 0; }
-  footer .social-media-links .link-container .link-image {
-    max-width: 3vw; }
-
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container {
-    width: 88%; }
-    .article-container .article-preview .date-written {
-      float: left;
-      width: 16.6666666667%;
-      text-align: right;
-      padding-top: 0.15rem;
-      padding-right: 1rem;
-      font-size: 0.8rem; }
-    .article-container .article-preview .title-container {
-      float: left;
-      width: 33.3333333333%; }
-      .article-container .article-preview .title-container .title {
-        font-size: 1.25rem;
-        margin-top: unset;
-        padding-right: 1rem; }
-    .article-container .article-preview .intro-container .intro-text {
-      float: left;
-      width: 50%;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      padding-top: 0.05rem; }
-
-  .floating-article .background-container {
-    padding: 1.65rem; }
-    .floating-article .background-container .paragraph {
-      padding: 0 1rem 0;
-      text-align: justify;
-      margin-bottom: 0.9rem; }
-    .floating-article .background-container .title {
-      font-size: 2.3rem;
-      padding: 7rem 0; }
-    .floating-article .background-container .date-written {
-      font-size: 1rem;
-      margin-top: 0.3rem;
-      line-height: 1.5rem; }
-    .floating-article .background-container svg#button-close {
-      width: 0.9rem; }
-    .floating-article .background-container img.full-width {
-      margin-bottom: 0.8rem;
-      margin-top: 0.3rem; }
-    .floating-article .background-container img.half-width {
-      padding-right: 0.7rem;
-      margin-right: 0.7rem;
-      margin-bottom: 0.3rem;
-      margin-top: 0.35rem; } }
-@media screen and (min-width: 1024px) {
-  header .navigation .list {
-    padding-left: 5rem; }
-    header .navigation .list .link-container {
-      font-size: 1rem;
-      margin-right: 5rem; }
-  header .thomazella-logo {
-    max-width: calc(100% - 68vw);
-    margin-bottom: 1rem; }
-  header .professional-title {
-    margin-bottom: 3.4rem; }
-
-  footer .social-media-links .link-container .link-image {
-    max-width: 2.2vw; }
-
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container {
-    width: 73%; }
-
-  .articles.added-by-js .article-container {
-    width: 85%; } }
-@media screen and (min-width: 1280px) {
-  header .thomazella-logo {
-    max-width: calc(100% - 72vw);
-    margin-bottom: 1.4rem; }
-  header .professional-title {
-    margin-bottom: 3.8rem; }
-
-  .quick-description-of-me {
-    max-width: 45%; }
-
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  section.articles {
-    width: 100%;
-    margin: 0 auto;
-    display: block; }
-    section.articles::after {
-      content: "";
-      display: block;
-      clear: both; }
-    section.articles .article-container.tileable {
-      float: left;
-      width: 46.5346534653%; }
-      section.articles .article-container.tileable:first-child {
-        margin-right: 0.9900990099%;
-        margin-left: 2.9702970297%; }
-
-  .floating-article .background-container {
-    padding: 3.65rem; }
-    .floating-article .background-container .paragraph {
-      margin-bottom: 1.3rem;
-      padding: unset;
-      font-size: 1.1rem; }
-    .floating-article .background-container .title {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 3rem;
-      max-width: 90%; }
-    .floating-article .background-container .date-written {
-      line-height: 1.9rem; }
-    .floating-article .background-container svg#button-close {
-      height: 1.3rem;
-      width: 1.1rem; }
-    .floating-article .background-container img.full-width {
-      max-width: 90%;
-      margin-top: 2.2rem;
-      margin-bottom: 2.2rem; }
-    .floating-article .background-container img.half-width {
-      margin-bottom: 1rem;
-      padding-right: 1.1rem;
-      margin-right: 1.1rem; }
-    .floating-article .background-container img.half-width.right {
-      padding-left: 1.1rem;
-      margin-left: 1.1rem;
-      padding-right: unset;
-      margin-right: unset; } }
-@media screen and (min-width: 1920px) {
-  header .thomazella-logo {
-    max-width: calc(100% - 77vw); }
-
-  .quick-description-of-me {
-    max-width: 40%; }
-
-  footer .social-media-links .link-container .link-image {
-    max-width: 1.2vw; }
-
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container.tileable {
-    float: left;
-    width: 36.6336633663%; }
-    .article-container.tileable:first-child {
-      margin-right: 0.9900990099%;
-      margin-left: 12.8712871287%; }
-    .article-container.tileable .article-preview .intro-container .intro-text {
-      font-size: 1.1rem; }
-
-  .articles.added-by-js .article-container {
-    width: 66%; }
-    .articles.added-by-js .article-container .floating-article .paragraph {
-      font-size: 1.25rem; } }
+@media screen and (min-width: 414px) {
+  .social-media-links {
+    padding-top: 0.8em; } }
+.social-media-links li {
+  display: inline; }
+  .social-media-links li:nth-child(0n+2) {
+    margin: 0 3.6em 0; }
+    @media screen and (min-width: 768px) {
+      .social-media-links li:nth-child(0n+2) {
+        margin: 0 5em 0; } }
+  .social-media-links li .img, .social-media-links li .thomazella-logo {
+    max-width: 30px;
+    max-width: 8vw; }
+    @media screen and (min-width: 768px) {
+      .social-media-links li .img, .social-media-links li .thomazella-logo {
+        max-width: 31px;
+        max-width: 5vw; } }
+    @media screen and (min-width: 1024px) {
+      .social-media-links li .img, .social-media-links li .thomazella-logo {
+        max-width: 35px;
+        max-width: 2.9vw; } }
+    @media screen and (min-width: 1600px) {
+      .social-media-links li .img, .social-media-links li .thomazella-logo {
+        max-width: 35px;
+        max-width: 1.8vw; } }
 
 /*# sourceMappingURL=index.css.map */

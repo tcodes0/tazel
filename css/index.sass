@@ -14,13 +14,16 @@ $color-text-darker: darken($color-text, 20%)
 $color-text-darker-darker: darken($color-text-darker, 20%)
 =light-width-squeeze
   width: 95%
-  margin: 0 auto
+  margin-left: auto
+  margin-right: auto
+  display: block
 =simple-border
   border-bottom: 1px solid $color-bg-darker
 =block-and-H-align
   display: block
   margin-left: auto
   margin-right: auto
+
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
   color: $color-text
@@ -28,10 +31,17 @@ body
   background-color: $color-bg-darker
   overflow-x: hidden
 
-main
+.main
   margin: 0 auto
   overflow-y: hidden
   background-color: $color-bg
+
+.container-100vh
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  @supports (display: flex)
+    min-height: 100vh
 
 .guide
   border: 1px solid white
@@ -40,403 +50,170 @@ main
   z-index: 100
   width: 50%
 
-.row
-  +row
-
-.navigation
-  .list .link-container
-    display: inline
-    font-size: 1rem
-    line-height: 1.7rem
-    &:first-child::before
-        content: "{ "
-    &:last-child::after
-        content: " }"
-    .link
-      text-transform: capitalize
-    .is-link-to-current-page
-      text-decoration: $color-text wavy underline
-      color: $color-text-darker
-
-.link
-  &:hover
-    text-decoration: underline
-
-header, footer
-  +row
+%mono-spaced
   font-family: 'Roboto Mono', monospace
   text-align: center
 
-header
-  +light-width-squeeze
-  padding-bottom: 2.5rem
-  padding-top: 1.1rem
-  .navigation .list
-    padding-left: 1.2rem
-    .link-container
-      margin-right: 1.05rem
-  .thomazella-logo
-    +row
-    margin-top: 2rem
-    margin-bottom: 0.6rem
-    max-width: calc(100% - 33vw)
-  .professional-title
-    font-size: calc(0.45rem + 0.6vw)
-    font-weight: 300
-    margin-bottom: 2.5rem
-    text-transform: capitalize
-    &::before
-      content: "( "
-    &::after
-      content: " )"
+.img
+  // max-width: 120px
+  display: inline-block
 
-.quick-description-of-me
-  margin: 0 auto
-  font-size: 1.8rem
-  text-align: center
-  padding-bottom: 2.5rem
-  max-width: 85%
+header
+  padding-bottom: 3vh
+
+.thomazella-logo
+  @extend .img
+  +block-and-H-align
+  max-width: 214px
+  max-width: calc(100% - 33vw)
+  @media screen and (min-width: $break-mobileL)
+    max-width: 227px
+    max-width: calc(100% - 45vw)
+    margin-bottom: 5px
+    margin-bottom: 0.3rem
+  @media screen and (min-width: $break-tabletS)
+    max-width: 400px
+    max-width: calc(100% - 48vw)
+    margin-top: 32px
+    margin-top: 2rem
+    margin-bottom: 29px
+    margin-bottom: 1.8rem
+  @media screen and (min-width: $break-desktopS)
+    max-width: 358px
+    max-width: calc(100% - 72vw)
+
+#professional-title
+  @extend %mono-spaced
+  font-size: 9.35px
+  font-size: calc(0.45rem + 0.6vw)
+  font-weight: 300
+  margin-bottom: 6.5em
+  margin-top: unset
+  text-transform: capitalize
+  &::before
+    content: "( "
+  &::after
+    content: " )"
+  @media screen and (min-width: $break-tabletS)
+    font-size: 10.6px
+    font-size: calc(0.47rem + 0.4vw)
+
+a
+  text-transform: capitalize
+  .is-link-to-current-page
+    text-decoration: $color-text wavy underline
+    color: $color-text-darker
+
+.nav
+  @extend %mono-spaced
+  padding-top: 2vh
+  ul
+    padding-left: 0.6em
+    li
+      display: inline
+      line-height: 1.7em
+      margin-right: 1.05em
+      a:hover
+        text-decoration: underline
+  @media screen and (min-width: $break-mobileM)
+    .linebreak-for-mobile-nav
+      display: none
+  @media screen and (min-width: $break-tabletS)
+    ul
+      padding-left: 2.6em
+      li
+        margin-right: 2.6em
+  @media screen and (min-width: $break-tabletM)
+    ul
+      padding-left: 5em
+      li
+        margin-right: 5em
+  @media screen and (min-width: $break-desktopS)
+    ul
+      padding-left: 7.6em
+      li
+        margin-right: 8em
+
+.nav-fancy
+  @extend .nav
+  padding-top: unset
+  li:first-child::before
+    content: "{ "
+  li:last-child::after
+    content: " }"
+
+.nav-footer
+  @extend .nav
+  padding-bottom: 26px
+  padding-bottom: 4vh
+
+#professional-description
+  @media screen and (min-width: $break-mobileM)
+    min-height: 280px
+  @media screen and (min-width: $break-desktopM)
+    min-height: 510px
   display: flex
+  flex-grow: 1
   flex-direction: column
   justify-content: center
-
-footer
-  background-color: $color-bg-darker
-  padding: 1rem 0 1rem
-  .navigation
-    margin-top: 1rem
-    .list
-      .linebreak-for-mobile-nav
-        display: none
-      .link-container
-        display: block
-        &:first-child::before
-          content: unset
-        &:last-child::after
-          content: unset
-  .social-media-links
-    padding-top: 1.4rem
-    .link-container
-      display: inline
-      &:nth-child(0n+2)
-        margin: 0 2rem 0
-      .link-image
-        max-width: 8vw
-
-/* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-header.not-home
-  width: 100%
-  padding-bottom: 2vh
-  .navigation-kompakt
-    +light-width-squeeze
-    .list .link-container
-      &:first-child::before
-          content: unset
-      &:last-child::after
-          content: unset
-
-.article-container
-  +row
-  padding: 0 2.5% 0 2.5%
-  margin: 0 auto
-  .article-preview
-    background-color: $color-bg-darker
-    border-bottom: 2px solid $color-bg
-    background-position: left
-    background-size: cover
-    .intro-container.link
-      &:hover
-        text-decoration: none
-    .link.disabled
-      cursor: default
-      &:hover
-        text-decoration: none
-
-.article-preview,
-.floating-article
-  +col(12)
-  padding: 1.6rem 0.5rem 1.6rem 0.5rem
-  .date-written
-    font-weight: 300
-    text-transform: capitalize
-    font-size: 0.7rem
-  .title
-    font-family: 'Roboto Mono', monospace
-    font-weight: 400
-    text-transform: uppercase
-  .intro-text
-    font-weight: 300
-
-.floating-article
-  .background-container
-    background-color: $color-bg
-    padding: 0.65rem
-
-.floating-article
-  svg#button-close
-    fill: $color-text-darker-darker
-    width: 0.7rem
-    height: 0.8rem
-    float: right
-    margin: 0.2rem
-    position: relative
-    z-index: 100
-    transition: fill 0.2s ease
-    &:hover
-      fill: $color-text
-  .title
-    font-size: 1.9rem
-    padding: 3rem 0
-  .paragraph
-    margin-bottom: 0.7rem
-  img
-    display: block
-  img.full-width
+  h2
     +block-and-H-align
-    width: 100%
-    margin-bottom: 0.6rem
-  img.half-width
-    +col(6)
-    padding-right: 0.45rem
-    margin-right: 0.45rem
-    margin-top: 0.25rem
-    margin-bottom: 0.6rem
-  img.half-width.right
-    padding-left: 0.7rem
-    margin-left: 0.7rem
-    padding-right: unset
-    margin-right: unset
-    float: right
+    font-weight: 400
+    max-width: 85%
+    font-size: 28.8px
+    font-size: 1.8rem
+    text-align: center
+    padding-bottom: 1.4em
+    margin-top: 65px
+    @media screen and (min-width: $break-tabletS)
+      max-width: 65%
+      font-size: 45px
+      font-size: 2.5rem
+    @media screen and (min-width: $break-desktopS)
+      max-width: 45%
+    @media screen and (min-width: $break-desktopM)
+      max-width: 40%
+    @media screen and (min-width: $break-desktopM)
+      margin-top: 190px
 
-.empty-transparency
-  position: absolute
-  height: 100vh
-  width: 100vw
-  left: 0px
-  background-color: $color-bg-transparent
+.footer
+  background-color: $color-bg-darker
+  padding: 1em 0 2em
+  text-align: center
 
-.articles.added-by-js
-  position: absolute
-  width: 100%
-  background-color: $color-bg-transparent
-/* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
-/*/=-=-=-=-=-=-=-=-=-=-=\  @medias   /=-=-=-=-=-=-=-=-=-=-=\*/
-/*\=-=-=-=-=-=-=-=-=-=-=/            \=-=-=-=-=-=-=-=-=-=-=/*/
+.social-media-links
+  @media screen and (min-width: $break-mobileL)
+    padding-top: 0.8em
+  li
+    display: inline
+    &:nth-child(0n+2)
+      margin: 0 3.6em 0
+      @media screen and (min-width: $break-tabletS)
+        margin: 0 5em 0
+    .img
+      // display: inline-block
+      max-width: 30px
+      max-width: 8vw
+      @media screen and (min-width: $break-tabletS)
+        max-width: 31px
+        max-width: 5vw
+      @media screen and (min-width: $break-tabletM)
+        max-width: 35px
+        max-width: 2.9vw
+      @media screen and (min-width: $break-desktopM)
+        max-width: 35px
+        max-width: 1.8vw
 
-@media screen and (min-width: $break-mobileM)
 
-//============================================================
 
-@media screen and (min-width: $break-mobileL)
-  header
-    .navigation .linebreak-for-mobile-nav
-      display: none
-    .thomazella-logo
-      max-width: calc(100% - 45vw)
-  footer
-    padding: 0.6rem 0 1rem
-    .navigation .list
-      padding-left: 1rem
-      .link-container
-        display: inline-block
-        margin-right: 1.05rem
-      .linebreak-for-mobile-nav
-        display: block
-    .social-media-links .link-container .link-image
-        max-width: 6vw
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container
-    padding: 0
-    +light-width-squeeze
-//============================================================
-
-@media screen and (min-width: $break-mobileM) and (min-height: 650px)
-  body
-    background-color: $color-bg
-  .quick-description-of-me
-    min-height: 52vh
-  footer.home
-    // fallback useful when no js
-    position: absolute
-    bottom: 0
-
-//============================================================
-
-@media screen and (min-width: $break-tabletS)
-  header
-    .navigation
-      .list
-        padding-left: 2.6rem
-        .link-container
-          font-size: 1rem
-          margin-right: 2.6rem
-    .thomazella-logo
-      max-width: calc(100% - 48vw)
-      margin-bottom: 2rem
-    .professional-title
-      font-size: calc(0.47rem + 0.4vw)
-      margin-bottom: 4rem
-  .quick-description-of-me
-    max-width: 65%
-    font-size: 2.5rem
-  footer
-    .navigation
-      margin-bottom: 0.5rem
-      .list
-        padding-right: 1rem
-        padding-left: 0
-        .link-container
-          padding-left: 1.9rem
-          font-size: 0.9rem
-        .linebreak-for-mobile-nav
-          display: none
-    .social-media-links .link-container
-      &:nth-child(0n+2)
-        margin: 0 4.5rem 0
-      .link-image
-        max-width: 3vw
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container
-    width: 88%
-    .article-preview
-      .date-written
-        +col(2)
-        text-align: right
-        padding-top: 0.15rem
-        padding-right: 1rem
-        font-size: 0.8rem
-      .title-container
-        +col(4)
-        .title
-          font-size: 1.25rem
-          margin-top: unset
-          padding-right: 1rem
-      .intro-container .intro-text
-        +col(6)
-        padding-left: 1rem
-        padding-right: 1rem
-        padding-top: 0.05rem
-
-  .floating-article
-    .background-container
-      padding: 1.65rem
-      .paragraph
-        padding: 0 1rem 0
-        text-align: justify
-        margin-bottom: 0.9rem
-      .title
-        font-size: 2.3rem
-        padding: 7rem 0
-      .date-written
-        font-size: 1rem
-        margin-top: 0.3rem
-        line-height: 1.5rem
-      svg#button-close
-        width: 0.9rem
-      img.full-width
-        margin-bottom: 0.8rem
-        margin-top: 0.3rem
-      img.half-width
-        padding-right: 0.7rem
-        margin-right: 0.7rem
-        margin-bottom: 0.3rem
-        margin-top: 0.35rem
-
-//============================================================
-
-@media screen and (min-width: $break-tabletM)
-  header
-    .navigation .list
-      padding-left: 5rem
-      .link-container
-        font-size: 1rem
-        margin-right: 5rem
-    .thomazella-logo
-      max-width: calc(100% - 68vw)
-      margin-bottom: 1rem
-    .professional-title
-      margin-bottom: 3.4rem
-  footer
-    .social-media-links .link-container .link-image
-      max-width: 2.2vw
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container
-    width: 73%
-  .articles.added-by-js
-    .article-container
-      width: 85%
-
-//============================================================
-
-@media screen and (min-width: $break-desktopS)
-  header
-    .thomazella-logo
-      max-width: calc(100% - 72vw)
-      margin-bottom: 1.4rem
-    .professional-title
-      margin-bottom: 3.8rem
-  .quick-description-of-me
-    max-width: 45%
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  section.articles
-    +row
-    .article-container.tileable
-      +col(47, 101)
-      &:first-child
-        +gutter(1, 101)
-        +jump(3,101)
-  .floating-article
-    .background-container
-      padding: 3.65rem
-      .paragraph
-        margin-bottom: 1.3rem
-        padding: unset
-        font-size: 1.1rem
-      .title
-        +block-and-H-align
-        font-size: 3rem
-        max-width: 90%
-      .date-written
-        line-height: 1.9rem
-      svg#button-close
-        height: 1.3rem
-        width: 1.1rem
-      img.full-width
-        max-width: 90%
-        margin-top: 2.2rem
-        margin-bottom: 2.2rem
-      img.half-width
-        margin-bottom: 1rem
-        padding-right: 1.1rem
-        margin-right: 1.1rem
-      img.half-width.right
-        padding-left: 1.1rem
-        margin-left: 1.1rem
-        padding-right: unset
-        margin-right: unset
-//============================================================
-
-@media screen and (min-width: $break-desktopM)
-  header
-    .thomazella-logo
-      max-width: calc(100% - 77vw)
-  .quick-description-of-me
-    max-width: 40%
-  footer
-    .social-media-links .link-container .link-image
-      max-width: 1.2vw
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container.tileable
-    +col(37, 101)
-    &:first-child
-      +gutter(1, 101)
-      +jump(13,101)
-    .article-preview .intro-container .intro-text
-      font-size: 1.1rem
-
-  .articles.added-by-js
-    .article-container
-      width: 66%
-      .floating-article
-        .paragraph
-          font-size: 1.25rem
+  // @media screen and (min-width: $break-mobileM)
+  //
+  // @media screen and (min-width: $break-mobileL)
+  //
+  // @media screen and (min-width: $break-tabletS)
+  //
+  // @media screen and (min-width: $break-tabletM)
+  //
+  // @media screen and (min-width: $break-desktopS)
+  //
+  // @media screen and (min-width: $break-desktopM)
