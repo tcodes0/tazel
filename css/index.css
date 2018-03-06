@@ -114,30 +114,33 @@ a {
   padding-top: 2vh; }
   .nav ul, .nav-fancy ul, .nav-footer ul {
     padding-left: 0.6em; }
+    @media screen and (min-width: 360px) {
+      .nav ul .linebreak-for-mobile-nav, .nav-fancy ul .linebreak-for-mobile-nav, .nav-footer ul .linebreak-for-mobile-nav {
+        display: none; } }
+    @media screen and (min-width: 768px) {
+      .nav ul, .nav-fancy ul, .nav-footer ul {
+        padding-left: 2.6em; } }
+    @media screen and (min-width: 1024px) {
+      .nav ul, .nav-fancy ul, .nav-footer ul {
+        padding-left: 5em; } }
+    @media screen and (min-width: 1280px) {
+      .nav ul, .nav-fancy ul, .nav-footer ul {
+        padding-left: 7.6em; } }
     .nav ul li, .nav-fancy ul li, .nav-footer ul li {
       display: inline;
       line-height: 1.7em;
       margin-right: 1.05em; }
+      @media screen and (min-width: 768px) {
+        .nav ul li, .nav-fancy ul li, .nav-footer ul li {
+          margin-right: 2.6em; } }
+      @media screen and (min-width: 1024px) {
+        .nav ul li, .nav-fancy ul li, .nav-footer ul li {
+          margin-right: 5em; } }
+      @media screen and (min-width: 1280px) {
+        .nav ul li, .nav-fancy ul li, .nav-footer ul li {
+          margin-right: 8em; } }
       .nav ul li a:hover, .nav-fancy ul li a:hover, .nav-footer ul li a:hover {
         text-decoration: underline; }
-  @media screen and (min-width: 360px) {
-    .nav .linebreak-for-mobile-nav, .nav-fancy .linebreak-for-mobile-nav, .nav-footer .linebreak-for-mobile-nav {
-      display: none; } }
-  @media screen and (min-width: 768px) {
-    .nav ul, .nav-fancy ul, .nav-footer ul {
-      padding-left: 2.6em; }
-      .nav ul li, .nav-fancy ul li, .nav-footer ul li {
-        margin-right: 2.6em; } }
-  @media screen and (min-width: 1024px) {
-    .nav ul, .nav-fancy ul, .nav-footer ul {
-      padding-left: 5em; }
-      .nav ul li, .nav-fancy ul li, .nav-footer ul li {
-        margin-right: 5em; } }
-  @media screen and (min-width: 1280px) {
-    .nav ul, .nav-fancy ul, .nav-footer ul {
-      padding-left: 7.6em; }
-      .nav ul li, .nav-fancy ul li, .nav-footer ul li {
-        margin-right: 8em; } }
 
 .nav-fancy {
   padding-top: 0; }

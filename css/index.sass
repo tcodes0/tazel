@@ -108,30 +108,27 @@ a
   padding-top: 2vh
   ul
     padding-left: 0.6em
+    @media screen and (min-width: $break-mobileM)
+      .linebreak-for-mobile-nav
+        display: none
+    @media screen and (min-width: $break-tabletS)
+      padding-left: 2.6em
+    @media screen and (min-width: $break-tabletM)
+      padding-left: 5em
+    @media screen and (min-width: $break-desktopS)
+      padding-left: 7.6em
     li
       display: inline
       line-height: 1.7em
       margin-right: 1.05em
+      @media screen and (min-width: $break-tabletS)
+        margin-right: 2.6em
+      @media screen and (min-width: $break-tabletM)
+        margin-right: 5em
+      @media screen and (min-width: $break-desktopS)
+        margin-right: 8em
       a:hover
         text-decoration: underline
-  @media screen and (min-width: $break-mobileM)
-    .linebreak-for-mobile-nav
-      display: none
-  @media screen and (min-width: $break-tabletS)
-    ul
-      padding-left: 2.6em
-      li
-        margin-right: 2.6em
-  @media screen and (min-width: $break-tabletM)
-    ul
-      padding-left: 5em
-      li
-        margin-right: 5em
-  @media screen and (min-width: $break-desktopS)
-    ul
-      padding-left: 7.6em
-      li
-        margin-right: 8em
 
 .nav-fancy
   @extend .nav
