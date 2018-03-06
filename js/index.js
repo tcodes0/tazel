@@ -47,7 +47,7 @@ const whiteIcons = () => {
     icon.setAttribute(src, icon.attributes[src].value.replace('.png','-white.png'))
   })
 }
-onLoaders.push(whiteIcons)
+// onLoaders.push(whiteIcons)
 
 const blackIcons = () => {
   let icons = [...$$('svg image')]
@@ -69,6 +69,28 @@ const homeHide_FooterNav = () => {
   $('.nav-footer').setAttribute('hidden','')
 }
 onLoaders.push(homeHide_FooterNav)
+
+const articles_PlaceholderText = () => {
+  if (ThisPageIsNot(articles)) {
+    return
+  }
+  let rps = [...document.querySelectorAll('.read-preview')]
+  let bodyRGB = getComputedStyle(document.body).backgroundColor.match(/rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})/)
+  rps.forEach((rp, i) => {
+    if (i % 2 === 0) {
+      rp.style.backgroundImage = `linear-gradient(rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.7), rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.97)), url("../css/img/coffee.svg")`
+      // rp.querySelector('.date-written').textContent = "december 2017"
+      // rp.querySelector('.title').textContent = "my how to wash a dog f"
+      // rp.querySelector('.intro-text').textContent = "To properly wash a dog there are several tricky spots you need to rinse, soap and rub properly. This article breaks it down to you and even pets you a little bit."
+    } else {
+      rp.style.backgroundImage = `linear-gradient(rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.7), rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.97)), url("../css/img/bg1.jpg")`
+      // rp.querySelector('.date-written').textContent = "january 2018"
+      // rp.querySelector('.title').textContent = "how to do a steak on ice"
+      // rp.querySelector('.intro-text').textContent = "I bet you thought impossible to cook good meat on ice, but turns out is it possible, not just possible, DELISH!"
+    }
+  })
+}
+// onLoaders.push(articles_PlaceholderText)
 
 // - - - - - - - - - HOME
 // - - - - - - - - - - - - - - -
