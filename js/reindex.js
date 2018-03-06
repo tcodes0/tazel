@@ -40,6 +40,9 @@ const whiteIcons = () => {
   let xlink = 'xlink:href'
   let src = 'src'
   icons.forEach(icon => {
+    if (icon.attributes[xlink].value.match(/-white/)) {
+      return
+    }
     icon.setAttribute(xlink, icon.attributes[xlink].value.replace('.svg','-white.svg'))
     icon.setAttribute(src, icon.attributes[src].value.replace('.png','-white.png'))
   })
@@ -51,6 +54,9 @@ const blackIcons = () => {
   let xlink = 'xlink:href'
   let src = 'src'
   icons.forEach(icon => {
+    if (! icon.attributes[xlink].value.match(/-white/)) {
+      return
+    }
     icon.setAttribute(xlink, icon.attributes[xlink].value.replace('-white.svg','.svg'))
     icon.setAttribute(src, icon.attributes[src].value.replace('-white.png','.png'))
   })
