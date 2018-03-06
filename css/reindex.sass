@@ -54,10 +54,15 @@ body
   font-family: 'Roboto Mono', monospace
   text-align: center
 
+.img
+  // max-width: 120px
+  display: inline-block
+
 header
   padding-bottom: 3vh
 
 .thomazella-logo
+  @extend .img
   +block-and-H-align
   max-width: 214px
   max-width: calc(100% - 33vw)
@@ -180,8 +185,8 @@ a
       margin: 0 3.6em 0
       @media screen and (min-width: $break-tabletS)
         margin: 0 5em 0
-    svg
-      display: inline
+    .img
+      // display: inline-block
       max-width: 30px
       max-width: 8vw
       @media screen and (min-width: $break-tabletS)

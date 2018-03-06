@@ -57,6 +57,9 @@ body {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
 
+.img, .thomazella-logo {
+  display: inline-block; }
+
 header {
   padding-bottom: 3vh; }
 
@@ -194,20 +197,19 @@ a {
     @media screen and (min-width: 768px) {
       .social-media-links li:nth-child(0n+2) {
         margin: 0 5em 0; } }
-  .social-media-links li svg {
-    display: inline;
+  .social-media-links li .img, .social-media-links li .thomazella-logo {
     max-width: 30px;
     max-width: 8vw; }
     @media screen and (min-width: 768px) {
-      .social-media-links li svg {
+      .social-media-links li .img, .social-media-links li .thomazella-logo {
         max-width: 31px;
         max-width: 5vw; } }
     @media screen and (min-width: 1024px) {
-      .social-media-links li svg {
+      .social-media-links li .img, .social-media-links li .thomazella-logo {
         max-width: 35px;
         max-width: 2.9vw; } }
     @media screen and (min-width: 1600px) {
-      .social-media-links li svg {
+      .social-media-links li .img, .social-media-links li .thomazella-logo {
         max-width: 35px;
         max-width: 1.8vw; } }
 
