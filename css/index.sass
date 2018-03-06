@@ -55,7 +55,6 @@ body
   text-align: center
 
 .img
-  // max-width: 120px
   display: inline-block
 
 header
@@ -64,16 +63,16 @@ header
 .thomazella-logo
   @extend .img
   +block-and-H-align
-  max-width: 214px
-  max-width: calc(100% - 33vw)
+  max-width: 250px
+  max-width: calc(100% - 22vw)
   @media screen and (min-width: $break-mobileL)
-    max-width: 227px
-    max-width: calc(100% - 45vw)
+    max-width: 270px
+    max-width: calc(100% - 37vw)
     margin-bottom: 5px
     margin-bottom: 0.3rem
   @media screen and (min-width: $break-tabletS)
-    max-width: 400px
-    max-width: calc(100% - 48vw)
+    max-width: 355px
+    max-width: calc(100% - 54vw)
     margin-top: 32px
     margin-top: 2rem
     margin-bottom: 29px
@@ -84,19 +83,19 @@ header
 
 #professional-title
   @extend %mono-spaced
-  font-size: 9.35px
-  font-size: calc(0.45rem + 0.6vw)
+  font-size: 11px
+  font-size: calc(0.55rem + 0.6vw)
   font-weight: 300
   margin-bottom: 6.5em
-  margin-top: unset
+  margin-top: 0
   text-transform: capitalize
   &::before
     content: "( "
   &::after
     content: " )"
   @media screen and (min-width: $break-tabletS)
-    font-size: 10.6px
-    font-size: calc(0.47rem + 0.4vw)
+    font-size: 13.8px
+    font-size: calc(0.67rem + 0.4vw)
 
 a
   text-transform: capitalize
@@ -136,7 +135,7 @@ a
 
 .nav-fancy
   @extend .nav
-  padding-top: unset
+  padding-top: 0
   li:first-child::before
     content: "{ "
   li:last-child::after
@@ -186,12 +185,10 @@ a
     padding-top: 0.8em
   li
     display: inline
-    &:nth-child(0n+2)
-      margin: 0 3.6em 0
-      @media screen and (min-width: $break-tabletS)
-        margin: 0 5em 0
+    margin: 0 1.8em 0
+    @media screen and (min-width: $break-tabletS)
+      margin: 0 2.5em 0
     .img
-      // display: inline-block
       max-width: 30px
       max-width: 8vw
       @media screen and (min-width: $break-tabletS)
