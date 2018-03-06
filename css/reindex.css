@@ -73,12 +73,15 @@ header {
     .thomazella-logo {
       max-width: 227px;
       max-width: calc(100% - 45vw);
+      margin-bottom: 5px;
       margin-bottom: 0.3rem; } }
   @media screen and (min-width: 768px) {
     .thomazella-logo {
       max-width: 400px;
       max-width: calc(100% - 48vw);
+      margin-top: 32px;
       margin-top: 2rem;
+      margin-bottom: 29px;
       margin-bottom: 1.8rem; } }
   @media screen and (min-width: 1280px) {
     .thomazella-logo {
@@ -86,7 +89,7 @@ header {
       max-width: calc(100% - 72vw); } }
 
 #professional-title {
-  font-size: 0.9rem;
+  font-size: 9.35px;
   font-size: calc(0.45rem + 0.6vw);
   font-weight: 300;
   margin-bottom: 6.5em;
@@ -164,6 +167,7 @@ a {
     margin-right: auto;
     font-weight: 400;
     max-width: 85%;
+    font-size: 28.8px;
     font-size: 1.8rem;
     text-align: center;
     padding-bottom: 1.4em;
@@ -171,6 +175,7 @@ a {
     @media screen and (min-width: 768px) {
       #professional-description h2 {
         max-width: 65%;
+        font-size: 45px;
         font-size: 2.5rem; } }
     @media screen and (min-width: 1280px) {
       #professional-description h2 {
