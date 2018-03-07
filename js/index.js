@@ -47,7 +47,7 @@ const whiteIcons = () => {
     icon.setAttribute(src, icon.attributes[src].value.replace('.png','-white.png'))
   })
 }
-// onLoaders.push(whiteIcons)
+onLoaders.push(whiteIcons)
 
 const blackIcons = () => {
   let icons = [...$$('svg image')]
