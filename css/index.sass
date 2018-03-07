@@ -1,5 +1,5 @@
-// @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
-@import "normalize.css"
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
+// @import "normalize.css"
 @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
 @import "boiler.sass"
 @import "grid-min.sass"
@@ -10,7 +10,7 @@ $color-bg: #2e2d30
 $color-bg-darker: darken($color-bg, 6%)
 $color-bg-transparent: fade-out($color-bg, 0.25)
 $color-text: lighten(invert($color-bg-darker), 4%)
-$color-text-darker: darken($color-text, 20%)
+$color-text-darker: darken($color-text, 25%)
 $color-text-darker-darker: darken($color-text-darker, 20%)
 //                     ⬇R⬇G⬇B (of color-bg)
 $gradient-start: rgba(46,45,48,0.7)
@@ -29,6 +29,13 @@ $gradient-end: rgba(46,45,48,0.97)
 =horizontal-padding-squeeze($percent)
   padding-left: $percent
   padding-right: $percent
+=opacity($n)
+  @if $n > 1
+    @error "$n must be between 0 and 1"
+  zoom: 1
+  filter: alpha(opacity=$n*100)
+  opacity: $n
+
 
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
@@ -111,11 +118,28 @@ header
 
 a
   text-transform: capitalize
-  .is-link-to-current-page
+  transition: opacity 0.2s ease
+  &.is-link-to-current-page
     text-decoration: $color-text wavy underline
     color: $color-text-darker
   &.disabled
     cursor: default
+  &.close
+    float: right
+    margin-right: 0.2rem
+    position: relative
+    z-index: 100
+    .img
+      max-width: 13px
+    &:hover
+      +opacity(0.45)
+  &.back
+    text-transform: none
+    display: block
+    margin-bottom: 0.5em
+    &:hover
+      +opacity(0.55)
+      text-decoration: underline
 
 .span-date
   @extend %small-text
@@ -216,18 +240,30 @@ a
         max-width: 35px
         max-width: 1.8vw
 
-%read
-  color: inherit
-
-%title
-  @extend %monospaced
-  text-align: left
-  text-transform: uppercase
-  &:hover
-    text-decoration: underline
-
 %container
   color: inherit
+
+%container-read
+  @extend %container
+  +horizontal-padding-squeeze(2.5%)
+
+%preview
+  padding: 1em 0.75em 1em 0.75em
+  margin-bottom: 0.25em
+  @media screen and (min-width: $break-tabletS)
+    margin-bottom: 0.4em
+
+%read-common-children
+  p
+    text-transform: none
+    font-weight: 300
+    line-height: 1.35
+  h1
+    @extend %monospaced
+    text-align: left
+    text-transform: uppercase
+  hr
+    border: none
 
 .container-background
   @extend %container
@@ -242,35 +278,23 @@ a
     +horizontal-padding-squeeze(3%)
 
 .container-tileable
-  @extend %container
-  +horizontal-padding-squeeze(2.5%)
+  @extend %container-read
   @media screen and (min-width: $break-tabletS)
     +horizontal-padding-squeeze(7%)
   @media screen and (min-width: $break-desktopS)
     +horizontal-padding-squeeze(0.75%)
     +col(6)
 
-%preview
-  padding: 1em 0.75em 1em 0.75em
-  margin-bottom: 0.25em
-  @media screen and (min-width: $break-tabletS)
-    margin-bottom: 0.4em
-  p
-    text-transform: none
-    font-weight: 300
-    line-height: 1.35
-  h1
-    @extend %title
-  hr
-    border: none
-
 .read-preview
-  @extend %read
   @extend %preview
+  @extend %read-common-children
   @extend .container-background
   background-color: $color-bg-darker
   border-bottom: 3px solid $color-bg
   background-image: url('img/coffee.svg'), url('img/coffee.png')
+  h1
+    &:hover
+      text-decoration: underline
   @media screen and (min-width: $break-tabletM)
     +row
     span
@@ -299,6 +323,71 @@ a
   @media screen and (min-width: $break-tabletM)
     span
       padding-top: 0.3em
+
+#reads
+  // position: relative
+  // top: -400px
+
+.container-nontileable
+  background-color: $color-bg-transparent
+
+.read
+  @extend %read-common-children
+  +row
+  padding: 12% 3%
+  h1
+    padding: 1.5em 0
+  p
+    margin-bottom: 0.7em
+    color: pink
+
+.container-background
+  background-color: $color-bg
+  padding: 0 2%
+
+.container-read-text
+  margin-bottom: 2em
+
+img
+  width: 100%
+
+.container-image
+  display: inline
+  img
+    margin-top: 0.5em
+    margin-bottom: 0.5em
+
+.container-image-full-width
+  +row
+  margin-bottom: 2em
+  margin-top: 1.5em
+  img
+    +block-and-H-align
+
+.half-width
+  +col(8)
+  padding-right: 0.85em
+
+.half-width-right
+  +col(8)
+  float: right
+  padding-left: 0.85em
+
+.empty-transparency
+  position: absolute
+  height: 768px
+  height: 100vh
+  width: 768px
+  width: 100vw
+  left: 0px
+  background-color: $color-bg
+  background-color: $color-bg-transparent
+
+.added-by-js
+  position: absolute
+  width: 100%
+  background-color: $color-bg
+  background-color: $color-bg-transparent
 
 
   // @media screen and (min-width: $break-mobileM)
