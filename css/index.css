@@ -1,4 +1,4 @@
-@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css";
+@import url(normalize.css);
 @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400";
 /* --------------- */
 /*   boilerplate   */
@@ -371,8 +371,7 @@ a {
   .read h1 {
     padding: 1.5em 0; }
   .read p {
-    margin-bottom: 0.7em;
-    color: pink; }
+    margin-bottom: 0.7em; }
 
 .container-background, .read-preview {
   background-color: #2e2d30;
