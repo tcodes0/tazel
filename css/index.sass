@@ -13,8 +13,8 @@ $color-text: lighten(invert($color-bg-darker), 4%)
 $color-text-darker: darken($color-text, 25%)
 $color-text-darker-darker: darken($color-text-darker, 20%)
 //                     ⬇R⬇G⬇B (of color-bg)
-$gradient-start: rgba(46,45,48,0.7)
-$gradient-end: rgba(46,45,48,0.97)
+// $gradient-start: rgba(46,45,48,0.7)
+// $gradient-end: rgba(46,45,48,0.97)
 =light-width-squeeze
   width: 95%
   margin-left: auto
@@ -36,7 +36,6 @@ $gradient-end: rgba(46,45,48,0.97)
   filter: alpha(opacity=$n*100)
   opacity: $n
 
-
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
   color: $color-text
@@ -48,6 +47,10 @@ body
   margin: 0 auto
   overflow-y: hidden
   background-color: $color-bg
+
+/*________________________________________________________________
+  -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
+  ________________________________________________________________
 
 .container-100vh
   display: flex
@@ -240,6 +243,10 @@ a
         max-width: 35px
         max-width: 1.8vw
 
+/*________________________________________________________________
+  -  -  -  -  -  -  -  -  -  -  Reads  -  -  -  -  -  -  -  -  -  -
+  ________________________________________________________________
+
 %container
   color: inherit
 
@@ -248,7 +255,7 @@ a
   +horizontal-padding-squeeze(2.5%)
 
 %preview
-  padding: 1em 0.75em 1em 0.75em
+  // padding: 1em 0.75em 1em 0.75em
   margin-bottom: 0.25em
   @media screen and (min-width: $break-tabletS)
     margin-bottom: 0.4em
@@ -257,7 +264,7 @@ a
   p
     text-transform: none
     font-weight: 300
-    line-height: 1.35
+    line-height: 1.45
   h1
     @extend %monospaced
     text-align: left
@@ -285,10 +292,15 @@ a
     +horizontal-padding-squeeze(0.75%)
     +col(6)
 
+.container-background
+  background-color: $color-bg
+  padding: 0 2%
+
 .read-preview
   @extend %preview
   @extend %read-common-children
   @extend .container-background
+  padding-top: 1.5%
   background-color: $color-bg-darker
   border-bottom: 3px solid $color-bg
   background-image: url('img/coffee.svg'), url('img/coffee.png')
@@ -324,6 +336,10 @@ a
     span
       padding-top: 0.3em
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 #reads
   // position: relative
   // top: -400px
@@ -339,10 +355,6 @@ a
     padding: 1.5em 0
   p
     margin-bottom: 0.7em
-
-.container-background
-  background-color: $color-bg
-  padding: 0 2%
 
 .container-read-text
   margin-bottom: 2em
@@ -364,13 +376,13 @@ img
     +block-and-H-align
 
 .half-width
-  +col(8)
-  padding-right: 0.85em
+  +col(6)
+  padding-right: 1em
 
 .half-width-right
-  +col(8)
+  +col(6)
   float: right
-  padding-left: 0.85em
+  padding-left: 1em
 
 .empty-transparency
   position: absolute
@@ -379,13 +391,13 @@ img
   width: 768px
   width: 100vw
   left: 0px
-  background-color: $color-bg
+  background-color: none
   background-color: $color-bg-transparent
 
 .added-by-js
   position: absolute
   width: 100%
-  background-color: $color-bg
+  background-color: none
   background-color: $color-bg-transparent
 
 

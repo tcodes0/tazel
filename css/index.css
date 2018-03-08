@@ -39,6 +39,9 @@ body {
   overflow-y: hidden;
   background-color: #2e2d30; }
 
+/*________________________________________________________________
+ * -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
+ * ________________________________________________________________ */
 .container-100vh {
   display: flex;
   flex-direction: column;
@@ -253,6 +256,9 @@ a {
         max-width: 35px;
         max-width: 1.8vw; } }
 
+/*________________________________________________________________
+ * -  -  -  -  -  -  -  -  -  -  Reads  -  -  -  -  -  -  -  -  -  -
+ * ________________________________________________________________ */
 .container-tileable, .container-background, .read-preview {
   color: inherit; }
 
@@ -261,7 +267,6 @@ a {
   padding-right: 2.5%; }
 
 .read-preview {
-  padding: 1em 0.75em 1em 0.75em;
   margin-bottom: 0.25em; }
   @media screen and (min-width: 768px) {
     .read-preview {
@@ -270,7 +275,7 @@ a {
 .read-preview p, .read p {
   text-transform: none;
   font-weight: 300;
-  line-height: 1.35; }
+  line-height: 1.45; }
 .read-preview h1, .read h1 {
   text-align: left;
   text-transform: uppercase; }
@@ -309,7 +314,12 @@ a {
     float: left;
     width: 50%; } }
 
+.container-background, .read-preview {
+  background-color: #2e2d30;
+  padding: 0 2%; }
+
 .read-preview {
+  padding-top: 1.5%;
   background-color: #1f1e20;
   border-bottom: 3px solid #2e2d30;
   background-image: url("img/coffee.svg"), url("img/coffee.png"); }
@@ -373,10 +383,6 @@ a {
   .read p {
     margin-bottom: 0.7em; }
 
-.container-background, .read-preview {
-  background-color: #2e2d30;
-  padding: 0 2%; }
-
 .container-read-text {
   margin-bottom: 2em; }
 
@@ -407,14 +413,14 @@ img {
 
 .half-width {
   float: left;
-  width: 66.6666666667%;
-  padding-right: 0.85em; }
+  width: 50%;
+  padding-right: 1em; }
 
 .half-width-right {
   float: left;
-  width: 66.6666666667%;
+  width: 50%;
   float: right;
-  padding-left: 0.85em; }
+  padding-left: 1em; }
 
 .empty-transparency {
   position: absolute;
@@ -423,13 +429,13 @@ img {
   width: 768px;
   width: 100vw;
   left: 0px;
-  background-color: #2e2d30;
+  background-color: none;
   background-color: rgba(46, 45, 48, 0.75); }
 
 .added-by-js {
   position: absolute;
   width: 100%;
-  background-color: #2e2d30;
+  background-color: none;
   background-color: rgba(46, 45, 48, 0.75); }
 
 /*# sourceMappingURL=index.css.map */
