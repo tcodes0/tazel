@@ -1,6 +1,6 @@
 // @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
 @import "normalize.css"
-@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
+// @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
 @import "boiler.sass"
 @import "grid-min.sass"
 /* ------- */
@@ -75,6 +75,7 @@ body
   display: inline-block
 
 header
+  padding-bottom: 20px
   padding-bottom: 3vh
 
 .thomazella-logo
@@ -129,13 +130,17 @@ a
     margin-right: 0.2rem
     position: relative
     z-index: 100
-    .img-svg
-      max-width: 13px
   &.back
     display: block
     text-align: center
     text-transform: none
     margin-bottom: 0.5em
+  &.other-site
+    text-transform: lowercase
+    font-size: 12.8px
+    font-size: 0.8rem
+    &:hover
+      text-decoration: underline
 
 .span-date
   @extend %small-text
@@ -428,6 +433,84 @@ a
   width: 100%
   background-color: none
   background-color: $color-bg-transparent
+
+/*________________________________________________________________
+  -  -  -  -  -  -  -  -  -  -  Projects  -  -  -  -  -  -  -  -  -  -
+  ________________________________________________________________
+
+#project-previews
+  @extend #previews
+  padding-bottom: 20px
+  padding-bottom: 3vh
+
+.container-project-previews
+  @extend %container-read
+  +aligned-block
+  /* ---- fallback ----
+  @media screen and (min-width: $break-tabletS)
+    +row
+  @media screen and (min-width: $break-desktopM)
+    +padding-squeeze(12.5%)
+  /* ---- fallback ----
+  @supports (display: grid)
+    @media screen and (min-width: $break-tabletS)
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: auto
+    @media screen and (min-width: $break-tabletM)
+      +padding-squeeze(10%)
+    @media screen and (min-width: $break-desktopS)
+      grid-template-columns: 1fr 1fr 1fr
+    @media screen and (min-width: $break-desktopM)
+      grid-template-columns: 1fr 1fr 1fr 1fr
+
+.project-preview
+  @extend %preview
+  @extend %read-common-children
+  @extend %background
+  +width-squeeze
+  padding: 5% 7%
+  border: 3px solid $color-bg-darker
+  background-image: url('img/pat1.svg')
+  p
+    padding: 1.5em 0
+  .span-date
+    display: none
+  /* ---- fallback ----
+  @media screen and (min-width: $break-tabletS)
+    +col(49,100)
+    &:nth-child(2n+1)
+      +gutter(2,100)
+  @media screen and (min-width: $break-desktopS)
+    +col(33,103)
+    padding-left: 3%
+    padding-right: 3%
+    &:nth-child(n)
+      margin-right: 0
+    &:nth-child(3n+1)
+      +gutter(2,103)
+    &:nth-child(3n+2)
+      +gutter(2,103)
+  @supports (display: grid)
+    @media screen and (min-width: $break-tabletS)
+      width: 95%
+      float: none
+      padding-left: 5%
+      padding-right: 5%
+  /* ---- fallback ----
+
+.container-project-logo
+  background-color: $color-bg
+  border: 3px solid $color-bg-darker
+  padding-top: 6.4px
+  padding-top: 0.4rem
+  .img-svg
+    +aligned-block
+    max-width: 20%
+
+#projects
+  display: none
+
 
 
   // @media screen and (min-width: $break-mobileM)
