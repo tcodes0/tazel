@@ -68,7 +68,7 @@ body {
 #professional-title, .span-date {
   font-size: 12.8px;
   font-size: 0.8rem;
-  font-weight: 300; }
+  font-weight: 400; }
   @media screen and (min-width: 1280px) {
     #professional-title, .span-date {
       font-size: 14.7px;
@@ -119,14 +119,18 @@ header {
       font-size: 13.8px;
       font-size: calc(0.67rem + 0.4vw); } }
 
+a.back:hover, a.other-site:hover, .nav ul li a:hover, .nav-fancy ul li a:hover, .nav-footer ul li a:hover {
+  color: #e5e5cf;
+  border-color: inherit; }
+
 a {
   text-transform: capitalize;
-  transition: opacity 0.2s ease;
-  transition: color 0.2s ease;
+  border-bottom: 1px solid #131323;
+  transition-duration: 1.15s;
+  transition-timing-function: ease-out;
+  transition-property: color, opacity;
   z-index: 100;
   position: relative; }
-  a:hover {
-    color: black; }
   a.is-link-to-current-page {
     text-decoration: #131323 wavy underline;
     color: black; }
@@ -134,8 +138,10 @@ a {
     cursor: default; }
   a.close {
     float: right;
-    margin-right: 0.2rem; }
+    margin-right: 0.2rem;
+    border-width: 0; }
   a.back {
+    border-width: 0;
     display: block;
     text-align: center;
     text-transform: none;
@@ -145,8 +151,6 @@ a {
     font-size: 12.8px;
     font-size: 0.8rem;
     margin-bottom: 1em; }
-    a.other-site:hover {
-      text-decoration: underline; }
 
 .span-date {
   text-transform: capitalize; }
@@ -154,7 +158,8 @@ a {
 .nav, .nav-fancy, .nav-footer {
   padding-top: 2vh;
   padding-bottom: 1vh;
-  background-color: #f3f3e9; }
+  background-color: #f3f3e9;
+  font-weight: 600; }
   .nav ul, .nav-fancy ul, .nav-footer ul {
     padding-left: 0.6em; }
     @media screen and (min-width: 360px) {
@@ -182,8 +187,6 @@ a {
       @media screen and (min-width: 1280px) {
         .nav ul li, .nav-fancy ul li, .nav-footer ul li {
           margin-right: 8em; } }
-      .nav ul li a:hover, .nav-fancy ul li a:hover, .nav-footer ul li a:hover {
-        text-decoration: underline; }
 
 .nav-fancy {
   padding-top: 0;
@@ -212,7 +215,7 @@ a {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    font-weight: 400;
+    font-weight: 600;
     max-width: 85%;
     font-size: 28.8px;
     font-size: 1.8rem;
@@ -242,6 +245,12 @@ a {
 @media screen and (min-width: 414px) {
   .social-media-links {
     padding-top: 0.8em; } }
+.social-media-links a {
+  border-width: 0; }
+  .social-media-links a:hover {
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5; }
 .social-media-links li {
   display: inline;
   margin: 0 1.8em 0; }
@@ -279,7 +288,7 @@ a {
 
 .read-preview p, .read p, .project p, .project-preview p {
   text-transform: none;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.45; }
   @media screen and (min-width: 1024px) {
     .read-preview p, .read p, .project p, .project-preview p {
@@ -287,7 +296,8 @@ a {
       font-size: 1.17rem; } }
 .read-preview h1, .read h1, .project h1, .project-preview h1 {
   text-align: left;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-size: 2.5em; }
 .read-preview hr, .read hr, .project hr, .project-preview hr {
   border: none; }
 
@@ -327,7 +337,7 @@ a {
   padding: 1.5% 2% 1% 2%;
   background-color: #f3f3e9;
   border-bottom: 3px solid #fffffc;
-  background-image: url("img/coffee.svg"), url("img/coffee.png"); }
+  background-image: url("img/coffee-white.svg"), url("img/coffee-white.png"); }
   .read-preview h1:hover {
     text-decoration: underline; }
   @media screen and (min-width: 1024px) {
@@ -491,6 +501,12 @@ a {
   background-color: white;
   background-color: rgba(255, 255, 252, 0.75); }
 
+.container-backlinks {
+  width: 14%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  Projects  -  -  -  -  -  -  -  -  -  -
  * ________________________________________________________________ */
@@ -502,16 +518,8 @@ a {
   border-color: #f3f3e9;
   border-width: 2px; }
 
-.container-project-logo {
-  border-style: solid; }
-
-.project-preview hr {
-  border-bottom-style: solid; }
-
 .project-absolute-separator {
-  border-right-style: solid; }
-
-.project-absolute-separator {
+  border-right-style: solid;
   position: absolute;
   display: none;
   height: 100%;
@@ -576,10 +584,18 @@ a {
   margin-left: auto;
   margin-right: auto;
   padding: 5% 7%;
+  transition: background-color 0.5s ease;
   /* ---- grid fallback ---- */
   /* ---- fallback override ---- */ }
   .project-preview p {
     padding: 1.5em 0; }
+  .project-preview hr {
+    border-bottom-style: solid; }
+  .project-preview h1 {
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 2.67em; }
   .project-preview:hover {
     background-color: #f3f3e9; }
   @media screen and (min-width: 768px) {
@@ -609,6 +625,7 @@ a {
         padding-right: 5%; } } }
 
 .container-project-logo {
+  border-style: solid;
   padding-top: 6.4px;
   padding-top: 0.4rem; }
   .container-project-logo .img-svg, .container-project-logo .thomazella-logo {
