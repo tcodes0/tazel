@@ -384,6 +384,9 @@ a {
     .read-preview span {
       padding-top: 0.3em; } }
 
+#reads, #projects {
+  z-index: 200; }
+
 .container-nontileable {
   background-color: rgba(255, 255, 252, 0.75); }
 
@@ -423,7 +426,7 @@ a {
         line-height: 1.55; } }
 
 .read-background, .project-background {
-  background-color: #fffffc;
+  background-color: #f3f3e9;
   padding: 1% 2%; }
   @media screen and (min-width: 1024px) {
     .read-background, .project-background {

@@ -369,6 +369,11 @@ a
 //                           Article
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+#reads
+  // position: relative
+  // top: -400px
+  z-index: 200
+
 .container-nontileable
   background-color: $color-bg-transparent
 
@@ -397,7 +402,7 @@ a
       line-height: 1.55
 
 .read-background
-  background-color: $color-bg
+  background-color: $color-bg-darker
   padding: 1% 2%
   @media screen and (min-width: $break-tabletM)
     padding: 3% 4%
@@ -595,6 +600,7 @@ a
     max-width: 20%
 
 #projects
+  @extend #reads
   // position: relative
   // top: -400px
 
