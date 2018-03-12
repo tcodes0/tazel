@@ -29,6 +29,7 @@ const toggleGuide = () => {
     guide.style.display = 'none'
   }
 }
+// onLoaders.push(toggleGuide)
 
 const htmlHide = (query) => {
   let e = $(query)
@@ -47,7 +48,7 @@ const whiteIcons = () => {
     icon.setAttribute(src, icon.attributes[src].value.replace('.png','-white.png'))
   })
 }
-onLoaders.push(whiteIcons)
+// onLoaders.push(whiteIcons)
 
 const blackIcons = () => {
   let icons = [...$$('svg image')]
@@ -92,5 +93,11 @@ const articles_PlaceholderText = () => {
 }
 // onLoaders.push(articles_PlaceholderText)
 
+const light_Colors = () => {
+  let color = 'rgb(255,255,252)'
+  $('.main').style.backgroundColor = color
+  $('body').style.color = 'rgb(19,19,35)'
+}
+// onLoaders.push(light_Colors)
 // - - - - - - - - - HOME
 // - - - - - - - - - - - - - - -
