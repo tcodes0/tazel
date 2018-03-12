@@ -139,6 +139,7 @@ a
     text-transform: lowercase
     font-size: 12.8px
     font-size: 0.8rem
+    margin-bottom: 1em
     &:hover
       text-decoration: underline
 
@@ -350,6 +351,7 @@ a
       font-size: 3rem
   p
     margin-bottom: 1.3em
+    margin-top: 1.3em
     @media screen and (min-width: $break-tabletM)
       text-align: justify
     @media screen and (min-width: $break-desktopS)
@@ -464,18 +466,21 @@ a
     @media screen and (min-width: $break-desktopM)
       grid-template-columns: 1fr 1fr 1fr 1fr
 
+%no-date
+  .span-date
+    display: none
+
 .project-preview
   @extend %preview
   @extend %read-common-children
   @extend %background
+  @extend %no-date
   +width-squeeze
   padding: 5% 7%
   border: 3px solid $color-bg-darker
   background-image: url('img/pat1.svg')
   p
     padding: 1.5em 0
-  .span-date
-    display: none
   /* ---- fallback ----
   @media screen and (min-width: $break-tabletS)
     +col(49,100)
@@ -491,13 +496,13 @@ a
       +gutter(2,103)
     &:nth-child(3n+2)
       +gutter(2,103)
+  /* ---- fallback override ----
   @supports (display: grid)
     @media screen and (min-width: $break-tabletS)
       width: 95%
       float: none
       padding-left: 5%
       padding-right: 5%
-  /* ---- fallback ----
 
 .container-project-logo
   background-color: $color-bg
@@ -509,9 +514,21 @@ a
     max-width: 20%
 
 #projects
-  display: none
+  // position: relative
+  // top: -400px
 
+.project
+  @extend .read
 
+.project-header
+  @extend %full-width-object
+  margin-bottom: 2em
+
+.project-background
+  @extend .read-background
+
+.project-text
+  @extend .read-text
 
   // @media screen and (min-width: $break-mobileM)
   //
