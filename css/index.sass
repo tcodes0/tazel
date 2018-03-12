@@ -126,11 +126,14 @@ header
     color: $color-bg-darker-darker
     border-color: inherit
 
+%transition-duration-and-timing-standard
+    transition-duration: 1.15s
+    transition-timing-function: ease-out
+
 a
+  @extend %transition-duration-and-timing-standard
   text-transform: capitalize
   border-bottom: 1px solid $color-text
-  transition-duration: 1.15s
-  transition-timing-function: ease-out
   transition-property: color, opacity
   z-index: 100
   position: relative
@@ -302,6 +305,13 @@ a
   background-position: center
   background-size: cover
 
+%hover-underline
+  @extend %transition-duration-and-timing-standard
+  border-bottom: 2px solid transparent
+  transition-property: border-color
+  &:hover
+    border-color: $color-text
+
 #previews
   @media screen and (min-width: $break-desktopS)
     +row
@@ -317,6 +327,7 @@ a
     +padding-squeeze(0.75%)
     +col(6)
 
+
 .read-preview
   @extend %preview
   @extend %read-common-children
@@ -325,9 +336,8 @@ a
   background-color: $color-bg-darker
   border-bottom: 3px solid $color-bg
   background-image: url('img/coffee-white.svg'), url('img/coffee-white.png')
-  h1
-    &:hover
-      text-decoration: underline
+  h1 span
+    @extend %hover-underline
   @media screen and (min-width: $break-tabletM)
     +row
     span
@@ -486,7 +496,7 @@ a
   +border-stylus(right)
   position: absolute
   display: none
-  height: 100%
+  height: 50%
   z-index: 1
   // %'s on this element look weird in code, 36.3, 27...
     but look right on screen. Probably compounded paddings on parents.
@@ -548,6 +558,8 @@ a
     font-size: 1rem
     font-weight: 400
     margin-top: 2.67em
+    span
+      @extend %hover-underline
   &:hover
     background-color: $color-bg-darker
   /* ---- grid fallback ----
