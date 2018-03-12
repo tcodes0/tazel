@@ -6,8 +6,10 @@
 /* ------- */
 /*   css   */
 /* ------- */
-$color-bg: #2e2d30
-$color-bg-darker: darken($color-bg, 6%)
+$color-w-bg: rgb(255,255,252)
+$color-bg: $color-w-bg
+// $color-bg: rgb(46,45,48)
+$color-bg-darker: desaturate(darken($color-bg, 6%), 70%)
 $color-bg-transparent: fade-out($color-bg, 0.25)
 $color-text: lighten(invert($color-bg-darker), 4%)
 $color-text-darker: darken($color-text, 16%)
@@ -19,7 +21,7 @@ $color-text-darker-darker: darken($color-text-darker, 20%)
 =width-squeeze($percent: 95%)
   width: $percent
   +aligned-block
-=padding-squeeze($percent)
+=padding-squeeze($percent: 95%)
   padding-left: $percent
   padding-right: $percent
 =opacity($n)
@@ -28,6 +30,10 @@ $color-text-darker-darker: darken($color-text-darker, 20%)
   zoom: 1
   filter: alpha(opacity=$n*100)
   opacity: $n
+=border-stylus($option: null, $style: solid)
+  @if $option != null
+    $option: -$option
+  border#{$option}-style: $style
 
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
@@ -53,7 +59,7 @@ body
     min-height: 100vh
 
 .guide
-  border: 1px solid white
+  border: 1px solid black
   position: absolute
   display: none
   z-index: 100
@@ -117,6 +123,8 @@ a
   text-transform: capitalize
   transition: opacity 0.2s ease
   transition: color 0.2s ease
+  z-index: 100
+  position: relative
   &:hover
     // +opacity(0.70)
     color: $color-text-darker
@@ -128,8 +136,6 @@ a
   &.close
     float: right
     margin-right: 0.2rem
-    position: relative
-    z-index: 100
   &.back
     display: block
     text-align: center
@@ -150,6 +156,8 @@ a
 .nav
   @extend %monospaced
   padding-top: 2vh
+  padding-bottom: 1vh
+  background-color: $color-bg-darker
   ul
     padding-left: 0.6em
     @media screen and (min-width: $break-mobileM)
@@ -177,6 +185,7 @@ a
 .nav-fancy
   @extend .nav
   padding-top: 0
+  background-color: inherit
   li:first-child::before
     content: "{ "
   li:last-child::after
@@ -427,13 +436,13 @@ a
   width: 768px
   width: 100vw
   left: 0px
-  background-color: none
+  background-color: white
   background-color: $color-bg-transparent
 
 .added-by-js
   position: absolute
   width: 100%
-  background-color: none
+  background-color: white
   background-color: $color-bg-transparent
 
 /*________________________________________________________________
@@ -445,26 +454,62 @@ a
   padding-bottom: 20px
   padding-bottom: 3vh
 
+%project-border-common
+  border-color: $color-bg-darker
+  border-width: 2px
+
+%project-border-all
+  +border-stylus
+
+%project-border-bottom
+  +border-stylus(bottom)
+
+%project-border-right
+  +border-stylus(right)
+
+.project-absolute-separator
+  @extend %project-border-common
+  @extend %project-border-right
+  position: absolute
+  display: none
+  height: 100%
+  z-index: 1
+  // %'s on this element look weird in code, 36.3, 27...
+    but look right on screen. Probably compounded paddings on parents.
+
 .container-project-previews
   @extend %container-read
   +aligned-block
-  /* ---- fallback ----
+  /* ---- grid fallback ----
   @media screen and (min-width: $break-tabletS)
     +row
   @media screen and (min-width: $break-desktopM)
     +padding-squeeze(12.5%)
-  /* ---- fallback ----
+  /* ---- end ----
   @supports (display: grid)
     @media screen and (min-width: $break-tabletS)
       display: grid
       grid-template-columns: 1fr 1fr
       grid-template-rows: auto
+      .project-absolute-separator
+        display: block
+        width: 50.2%
     @media screen and (min-width: $break-tabletM)
       +padding-squeeze(10%)
     @media screen and (min-width: $break-desktopS)
       grid-template-columns: 1fr 1fr 1fr
+      .project-absolute-separator
+        width: 36.2%
+        &:nth-child(2)
+          left: 27.35%
     @media screen and (min-width: $break-desktopM)
       grid-template-columns: 1fr 1fr 1fr 1fr
+      .project-absolute-separator
+        width: 28.4%
+        &:nth-child(2)
+          left: 21.953%
+        &:nth-child(3)
+          left: 40.8%
 
 %no-date
   .span-date
@@ -477,11 +522,17 @@ a
   @extend %no-date
   +width-squeeze
   padding: 5% 7%
-  border: 3px solid $color-bg-darker
-  background-image: url('img/pat1.svg')
+  // border-right: 1px solid $color-bg-darker
+  // background-image: url('img/pat1.svg')
   p
     padding: 1.5em 0
-  /* ---- fallback ----
+  hr
+    @extend %project-border-common
+    @extend %project-border-bottom
+  &:hover
+    background-color: $color-bg-darker
+
+  /* ---- grid fallback ----
   @media screen and (min-width: $break-tabletS)
     +col(49,100)
     &:nth-child(2n+1)
@@ -505,8 +556,9 @@ a
       padding-right: 5%
 
 .container-project-logo
-  background-color: $color-bg
-  border: 3px solid $color-bg-darker
+  @extend %project-border-common
+  @extend %project-border-all
+  // background-color: $color-bg
   padding-top: 6.4px
   padding-top: 0.4rem
   .img-svg
