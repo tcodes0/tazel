@@ -13,7 +13,7 @@
   <div class="guide" role="presentation"></div>
 
   <div class="main" role="main">
-    <header role="banner">
+    <header role="banner" id="header">
       <div class="nav" role="navigation">
         <ul>
           <li><a href="index.html">This</a></li><li><a href="projects.html">Projects</a></li><br class="linebreak-for-mobile-nav" role="presentation"><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
@@ -56,7 +56,13 @@
           <div class="read-background" role="presentation">
             <div class="read-header">
               <span class="span-date" role="note">December 2017</span>
-              <a class="close" href="#previews" title="back to preview browsing">𝗫</a>
+              <a class="close" href="#previews" title="back to preview browsing">
+                <div class="img-svg">
+                  <svg width="100%" height="13" role="presentation">
+                    <image xlink:href="css/img/x.svg" src="css/img/x.png" width="100%" height="100%" role="presentation"/>
+                  </svg>
+                </div>
+              </a>
               <h1>The staggering bullshit of the secret and similar self-help</h1>
             </div>
             <div class="read-text" role="main">
@@ -71,9 +77,32 @@
               </p>
               <div class="container-image-wide"><img src="css/img/bg1.jpg" alt="a sweet placeholder image"></div>
             </div>
-            <a href="#previews" class="back" title="back to top">⬆ Back to top</a>
-            <a href="#reads" class="back" title="reads again">↩ Read again</a>
-            <a href="index.html" class="back" title="back home">⬅ Back Home</a>
+            <div class="container-backlinks">
+              <a href="#header" class="back" title="back to top">
+                <div class="img-svg">
+                  <svg width="100%" height="14" role="presentation">
+                    <image xlink:href="css/img/arrow-up.svg" src="css/img/arrow-up.png" width="100%" height="100%" role="presentation"/>
+                  </svg>
+                </div>
+                <span>Back to top</span>
+              </a>
+              <a href="#reads" class="back" title="reads again">
+                <div class="img-svg">
+                  <svg width="100%" height="12" role="presentation">
+                    <image xlink:href="css/img/arrow-twist.svg" src="css/img/arrow-twist.png" width="100%" height="100%" role="presentation"/>
+                  </svg>
+                </div>
+                <span>Read again</span>
+              </a>
+              <a href="index.html" class="back" title="back home">
+                <div class="img-svg">
+                  <svg width="100%" height="12" role="presentation">
+                    <image xlink:href="css/img/arrow-left.svg" src="css/img/arrow-left.png" width="100%" height="100%" role="presentation"/>
+                  </svg>
+                </div>
+                <span>Back Home</span>
+              </a>
+            </div>
           </div>
           <hr>
         </div>
