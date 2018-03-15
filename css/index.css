@@ -84,13 +84,15 @@ header {
   margin-left: auto;
   margin-right: auto;
   max-width: 250px;
-  max-width: calc(100% - 22vw); }
+  max-width: calc(100% - 22vw);
+  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
+  margin-top: 5px;
+  margin-top: 0.3rem; }
   @media screen and (min-width: 414px) {
     .thomazella-logo {
       max-width: 270px;
-      max-width: calc(100% - 37vw);
-      margin-bottom: 5px;
-      margin-bottom: 0.3rem; } }
+      max-width: calc(100% - 37vw); } }
   @media screen and (min-width: 768px) {
     .thomazella-logo {
       max-width: 355px;
@@ -121,7 +123,7 @@ a.back:hover, a.other-site:hover, .nav ul li a:hover, .nav-fancy ul li a:hover, 
   color: #e5e5cf;
   border-color: inherit; }
 
-a, .read-preview h1 span, .project-preview h1 span {
+a, a.back .img-svg, a.back .thomazella-logo, .read-preview h1 span, .project-preview h1 span {
   transition-duration: 1.15s;
   transition-timing-function: ease-out; }
 
@@ -138,14 +140,32 @@ a {
     cursor: default; }
   a.close {
     float: right;
+    margin-right: 3.2px;
     margin-right: 0.2rem;
-    border-width: 0; }
+    margin-right: 1.6px;
+    margin-right: 0.1rem;
+    border-width: 0;
+    max-width: 13px; }
   a.back {
     border-width: 0;
     display: block;
     text-align: center;
     text-transform: none;
     margin-bottom: 0.5em; }
+    a.back:hover .img-svg, a.back:hover .thomazella-logo {
+      zoom: 1;
+      filter: alpha(opacity=15);
+      opacity: 0.15; }
+    a.back span {
+      position: relative;
+      top: -2px;
+      top: -0.125rem; }
+    a.back .img-svg, a.back .thomazella-logo {
+      transition-property: inherit;
+      max-width: 15px;
+      max-width: 1rem;
+      margin-right: 4.8px;
+      margin-right: 0.3rem; }
   a.other-site {
     text-transform: lowercase;
     margin-bottom: 1em; }
@@ -242,6 +262,8 @@ a {
 
 .footer-home {
   background-color: #fffffc; }
+  .footer-home .nav-footer {
+    display: none; }
 
 @media screen and (min-width: 414px) {
   .social-media-links {
@@ -366,11 +388,8 @@ a {
         float: left;
         width: 50%;
         margin-top: 0;
-        padding-top: 0.1em;
-        padding-right: 8px;
-        padding-right: 0.5rem;
-        padding-left: 8px;
-        padding-left: 0.5rem; }
+        padding: 1.6px 8px 8px 8px;
+        padding: 0.1rem 0.5rem 0.5rem 0.5rem; }
       .read-preview h1 {
         float: left;
         width: 37.5%;
@@ -510,7 +529,7 @@ a {
   background-color: rgba(255, 255, 252, 0.75); }
 
 .container-backlinks {
-  margin-top: 2em; }
+  margin-top: 6em; }
 
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  Projects  -  -  -  -  -  -  -  -  -  -
