@@ -49,10 +49,8 @@ body {
 .container-100vh {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; }
-  @supports (display: flex) {
-    .container-100vh {
-      min-height: 100vh; } }
+  justify-content: flex-start;
+  min-height: 100vh; }
 
 .guide {
   border: 1px solid black;
@@ -240,7 +238,7 @@ a {
         margin-top: 190px; } }
 
 .footer {
-  background-color: #f3f3e9;
+  background-color: #fffffc;
   padding: 1em 0 2em;
   text-align: center; }
 
