@@ -63,12 +63,12 @@ body {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
 
-#professional-title, .span-date {
+#professional-title, a.back, a.other-site, .span-date {
   font-size: 12.8px;
   font-size: 0.8rem;
   font-weight: 400; }
   @media screen and (min-width: 1280px) {
-    #professional-title, .span-date {
+    #professional-title, a.back, a.other-site, .span-date {
       font-size: 14.7px;
       font-size: 0.92rem; } }
 
@@ -148,8 +148,6 @@ a {
     margin-bottom: 0.5em; }
   a.other-site {
     text-transform: lowercase;
-    font-size: 12.8px;
-    font-size: 0.8rem;
     margin-bottom: 1em; }
 
 .span-date {
@@ -237,10 +235,13 @@ a {
       #professional-description h2 {
         margin-top: 190px; } }
 
-.footer {
-  background-color: #fffffc;
+.footer, .footer-home {
+  background-color: #f3f3e9;
   padding: 1em 0 2em;
   text-align: center; }
+
+.footer-home {
+  background-color: #fffffc; }
 
 @media screen and (min-width: 414px) {
   .social-media-links {
@@ -425,8 +426,8 @@ a {
 
 .read-background, .project-background {
   background-color: #f3f3e9;
-  padding: 1% 2%; }
-  @media screen and (min-width: 1024px) {
+  padding: 2% 4%; }
+  @media screen and (min-width: 768px) {
     .read-background, .project-background {
       padding: 3% 4%; } }
   @media screen and (min-width: 1280px) {
@@ -509,10 +510,7 @@ a {
   background-color: rgba(255, 255, 252, 0.75); }
 
 .container-backlinks {
-  width: 14%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
+  margin-top: 2em; }
 
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  Projects  -  -  -  -  -  -  -  -  -  -
@@ -643,5 +641,15 @@ a {
 
 .project-header {
   margin-bottom: 2em; }
+
+.project-text {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+  .project-text::after {
+    content: "";
+    display: block;
+    clear: both; }
 
 /*# sourceMappingURL=index.css.map */

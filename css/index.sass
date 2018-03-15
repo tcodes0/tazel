@@ -150,6 +150,7 @@ a
     border-width: 0
   &.back
     @extend %hover-fade-color
+    @extend %small-text
     border-width: 0
     display: block
     text-align: center
@@ -157,9 +158,8 @@ a
     margin-bottom: 0.5em
   &.other-site
     @extend %hover-fade-color
+    @extend %small-text
     text-transform: lowercase
-    font-size: 12.8px
-    font-size: 0.8rem
     margin-bottom: 1em
 
 .span-date
@@ -241,9 +241,13 @@ a
       margin-top: 190px
 
 .footer
-  background-color: $color-bg
+  background-color: $color-bg-darker
   padding: 1em 0 2em
   text-align: center
+
+.footer-home
+  @extend .footer
+  background-color: $color-bg
 
 .social-media-links
   @media screen and (min-width: $break-mobileL)
@@ -402,8 +406,8 @@ a
 
 .read-background
   background-color: $color-bg-darker
-  padding: 1% 2%
-  @media screen and (min-width: $break-tabletM)
+  padding: 2% 4%
+  @media screen and (min-width: $break-tabletS)
     padding: 3% 4%
   @media screen and (min-width: $break-desktopS)
     padding-left: 6%
@@ -480,7 +484,8 @@ a
   background-color: $color-bg-transparent
 
 .container-backlinks
-  +width-squeeze(14%)
+  // +width-squeeze(14%)
+  margin-top: 2em
 
 /*________________________________________________________________
   -  -  -  -  -  -  -  -  -  -  Projects  -  -  -  -  -  -  -  -  -  -
@@ -614,6 +619,7 @@ a
   @extend .read-background
 
 .project-text
+  +row
   @extend .read-text
 
   // @media screen and (min-width: $break-mobileM)
