@@ -6,21 +6,36 @@
 /* ------- */
 /*   css   */
 /* ------- */
-$color-bg: #2e2d30
-$color-bg-darker: darken($color-bg, 6%)
+$color-w-bg: rgb(255,255,252)
+$color-bg: $color-w-bg
+// $color-bg: rgb(46,45,48)
+$color-bg-darker: desaturate(darken($color-bg, 6%), 70%)
+$color-bg-darker-darker: darken($color-bg-darker, 8%)
 $color-bg-transparent: fade-out($color-bg, 0.25)
 $color-text: lighten(invert($color-bg-darker), 4%)
-$color-text-darker: darken($color-text, 20%)
+$color-text-darker: darken($color-text, 16%)
 $color-text-darker-darker: darken($color-text-darker, 20%)
-=light-width-squeeze
-  width: 95%
-  margin: 0 auto
-=simple-border
-  border-bottom: 1px solid $color-bg-darker
-=block-and-H-align
+=aligned-block
   display: block
   margin-left: auto
   margin-right: auto
+=width-squeeze($percent: 95%)
+  width: $percent
+  +aligned-block
+=padding-squeeze($percent: 95%)
+  padding-left: $percent
+  padding-right: $percent
+=opacity($n)
+  @if $n > 1
+    @error "$n must be between 0 and 1"
+  zoom: 1
+  filter: alpha(opacity=$n*100)
+  opacity: $n
+=border-stylus($option: null, $style: solid)
+  @if $option != null
+    $option: -$option
+  border#{$option}-style: $style
+
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
   color: $color-text
@@ -28,415 +43,608 @@ body
   background-color: $color-bg-darker
   overflow-x: hidden
 
-main
+.main
   margin: 0 auto
   overflow-y: hidden
   background-color: $color-bg
 
+/*________________________________________________________________
+  -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
+  ________________________________________________________________
+
+.container-100vh
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  min-height: 100vh
+
 .guide
-  border: 1px solid white
+  border: 1px solid black
   position: absolute
   display: none
   z-index: 100
   width: 50%
 
-.row
-  +row
-
-.navigation
-  .list .link-container
-    display: inline
-    font-size: 1rem
-    line-height: 1.7rem
-    &:first-child::before
-        content: "{ "
-    &:last-child::after
-        content: " }"
-    .link
-      text-transform: capitalize
-    .is-link-to-current-page
-      text-decoration: $color-text wavy underline
-      color: $color-text-darker
-
-.link
-  &:hover
-    text-decoration: underline
-
-header, footer
-  +row
+%monospaced
   font-family: 'Roboto Mono', monospace
   text-align: center
 
+%small-text
+  font-size: 12.8px
+  font-size: 0.8rem
+  // font-weight: 300 darkmode
+  font-weight: 400
+  @media screen and (min-width: $break-desktopS)
+    font-size: 14.7px
+    font-size: 0.92rem
+
+.img-svg
+  display: inline-block
+
 header
-  +light-width-squeeze
-  padding-bottom: 2.5rem
-  padding-top: 1.1rem
-  .navigation .list
-    padding-left: 1.2rem
-    .link-container
-      margin-right: 1.05rem
-  .thomazella-logo
-    +row
+  padding-bottom: 20px
+  padding-bottom: 3vh
+
+.thomazella-logo
+  @extend .img-svg
+  +aligned-block
+  max-width: 250px
+  max-width: calc(100% - 22vw)
+  margin-bottom: 5px
+  margin-bottom: 0.3rem
+  margin-top: 5px
+  margin-top: 0.3rem
+  @media screen and (min-width: $break-mobileL)
+    max-width: 270px
+    max-width: calc(100% - 37vw)
+  @media screen and (min-width: $break-tabletS)
+    max-width: 355px
+    max-width: calc(100% - 54vw)
+    margin-top: 32px
     margin-top: 2rem
-    margin-bottom: 0.6rem
-    max-width: calc(100% - 33vw)
-  .professional-title
-    font-size: calc(0.45rem + 0.6vw)
-    font-weight: 300
-    margin-bottom: 2.5rem
-    text-transform: capitalize
-    &::before
-      content: "( "
-    &::after
-      content: " )"
+    margin-bottom: 29px
+    margin-bottom: 1.8rem
+  @media screen and (min-width: $break-desktopS)
+    max-width: 358px
+    max-width: calc(100% - 72vw)
 
-.quick-description-of-me
-  margin: 0 auto
-  font-size: 1.8rem
-  text-align: center
-  padding-bottom: 2.5rem
-  max-width: 85%
-  display: flex
-  flex-direction: column
-  justify-content: center
+#professional-title
+  @extend %monospaced
+  @extend %small-text
+  margin-bottom: 6.5em
+  margin-top: 0
+  text-transform: capitalize
+  &::before
+    content: "( "
+  &::after
+    content: " )"
+  @media screen and (min-width: $break-tabletS)
+    font-size: 13.8px
+    font-size: calc(0.67rem + 0.4vw)
 
-footer
+%hover-fade-color
+  &:hover
+    color: $color-bg-darker-darker
+    border-color: inherit
+
+%transition-duration-and-timing-standard
+    transition-duration: 1.15s
+    transition-timing-function: ease-out
+
+a
+  @extend %transition-duration-and-timing-standard
+  text-transform: capitalize
+  border-bottom: 1px solid $color-text
+  transition-property: color, opacity
+  z-index: 100
+  position: relative
+  &.is-link-to-current-page
+    text-decoration: $color-text wavy underline
+    color: $color-text-darker
+  &.disabled
+    cursor: default
+  &.close
+    float: right
+    margin-right: 3.2px
+    margin-right: 0.2rem
+    margin-right: 1.6px
+    margin-right: 0.1rem
+    border-width: 0
+    max-width: 13px
+  &.back
+    @extend %hover-fade-color
+    @extend %small-text
+    border-width: 0
+    display: block
+    text-align: center
+    text-transform: none
+    margin-bottom: 0.5em
+    &:hover .img-svg
+      +opacity(0.15)
+    span
+      position: relative
+      top: -2px
+      top: -0.125rem
+    .img-svg
+      @extend %transition-duration-and-timing-standard
+      transition-property: inherit
+      max-width: 15px
+      max-width: 1rem
+      margin-right: 4.8px
+      margin-right: 0.3rem
+  &.other-site
+    @extend %hover-fade-color
+    @extend %small-text
+    text-transform: lowercase
+    margin-bottom: 1em
+
+.span-date
+  @extend %small-text
+  text-transform: capitalize
+
+.nav
+  @extend %monospaced
+  padding-top: 2vh
+  padding-bottom: 1vh
   background-color: $color-bg-darker
-  padding: 1rem 0 1rem
-  .navigation
-    margin-top: 1rem
-    .list
+  font-weight: 600
+  ul
+    padding-left: 0.6em
+    @media screen and (min-width: $break-mobileM)
       .linebreak-for-mobile-nav
         display: none
-      .link-container
-        display: block
-        &:first-child::before
-          content: unset
-        &:last-child::after
-          content: unset
-  .social-media-links
-    padding-top: 1.4rem
-    .link-container
+    @media screen and (min-width: $break-tabletS)
+      padding-left: 2.6em
+    @media screen and (min-width: $break-tabletM)
+      padding-left: 5em
+    @media screen and (min-width: $break-desktopS)
+      padding-left: 7.6em
+    li
       display: inline
-      &:nth-child(0n+2)
-        margin: 0 2rem 0
-      .link-image
-        max-width: 8vw
+      line-height: 1.7em
+      margin-right: 1.05em
+      @media screen and (min-width: $break-tabletS)
+        margin-right: 2.6em
+      @media screen and (min-width: $break-tabletM)
+        margin-right: 5em
+      @media screen and (min-width: $break-desktopS)
+        margin-right: 8em
+      a
+        @extend %hover-fade-color
 
-/* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-header.not-home
-  width: 100%
-  padding-bottom: 2vh
-  .navigation-kompakt
-    +light-width-squeeze
-    .list .link-container
-      &:first-child::before
-          content: unset
-      &:last-child::after
-          content: unset
+.nav-fancy
+  @extend .nav
+  padding-top: 0
+  background-color: inherit
+  li:first-child::before
+    content: "{ "
+  li:last-child::after
+    content: " }"
 
-.article-container
-  +row
-  padding: 0 2.5% 0 2.5%
-  margin: 0 auto
-  .article-preview
-    background-color: $color-bg-darker
-    border-bottom: 2px solid $color-bg
-    background-position: left
-    background-size: cover
-    .intro-container.link
-      &:hover
-        text-decoration: none
-    .link.disabled
-      cursor: default
-      &:hover
-        text-decoration: none
+.nav-footer
+  @extend .nav
+  padding-bottom: 26px
+  padding-bottom: 4vh
 
-.article-preview,
-.floating-article
-  +col(12)
-  padding: 1.6rem 0.5rem 1.6rem 0.5rem
-  .date-written
-    font-weight: 300
-    text-transform: capitalize
-    font-size: 0.7rem
-  .title
-    font-family: 'Roboto Mono', monospace
-    font-weight: 400
-    text-transform: uppercase
-  .intro-text
-    font-weight: 300
+#professional-description
+  @media screen and (min-width: $break-mobileM)
+    min-height: 280px
+  @media screen and (min-width: $break-desktopM)
+    min-height: 510px
+  display: flex
+  flex-grow: 1
+  flex-direction: column
+  justify-content: center
+  h2
+    +aligned-block
+    // font-weight: 400 darkmode
+    font-weight: 600
+    max-width: 85%
+    font-size: 28.8px
+    font-size: 1.8rem
+    text-align: center
+    padding-bottom: 1.4em
+    margin-top: 65px
+    @media screen and (min-width: $break-tabletS)
+      max-width: 65%
+      font-size: 45px
+      font-size: 2.5rem
+    @media screen and (min-width: $break-desktopS)
+      max-width: 45%
+    @media screen and (min-width: $break-desktopM)
+      max-width: 40%
+    @media screen and (min-width: $break-desktopM)
+      margin-top: 190px
 
-.floating-article
-  .background-container
-    background-color: $color-bg
-    padding: 0.65rem
+.footer
+  background-color: $color-bg-darker
+  padding: 1em 0 2em
+  text-align: center
 
-.floating-article
-  svg#button-close
-    fill: $color-text-darker-darker
-    width: 0.7rem
-    height: 0.8rem
-    float: right
-    margin: 0.2rem
-    position: relative
-    z-index: 100
-    transition: fill 0.2s ease
+.footer-home
+  @extend .footer
+  background-color: $color-bg
+  .nav-footer
+    display: none
+
+.social-media-links
+  @media screen and (min-width: $break-mobileL)
+    padding-top: 0.8em
+  a
+    border-width: 0
     &:hover
-      fill: $color-text
-  .title
-    font-size: 1.9rem
-    padding: 3rem 0
-  .paragraph
-    margin-bottom: 0.7rem
-  img
-    display: block
-  img.full-width
-    +block-and-H-align
-    width: 100%
-    margin-bottom: 0.6rem
-  img.half-width
+      +opacity(0.5)
+  li
+    display: inline
+    margin: 0 1.8em 0
+    @media screen and (min-width: $break-tabletS)
+      margin: 0 2.5em 0
+    .img-svg
+      max-width: 30px
+      max-width: 8vw
+      @media screen and (min-width: $break-tabletS)
+        max-width: 31px
+        max-width: 5vw
+      @media screen and (min-width: $break-tabletM)
+        max-width: 35px
+        max-width: 2.9vw
+      @media screen and (min-width: $break-desktopM)
+        max-width: 35px
+        max-width: 1.8vw
+
+
+/*________________________________________________________________
+  -  -  -  -  -  -  -  -  -  -  Reads  -  -  -  -  -  -  -  -  -  -
+  ________________________________________________________________
+
+%container-read
+  +padding-squeeze(2.5%)
+
+%preview
+  margin-bottom: 0.25em
+  @media screen and (min-width: $break-tabletS)
+    margin-bottom: 0.4em
+
+%read-common-children
+  p
+    text-transform: none
+    // font-weight: 300 darkmode
+    font-weight: 400
+    line-height: 1.45
+    @media screen and (min-width: $break-tabletM)
+      font-size: 18.7px
+      font-size: 1.17rem
+  h1
+    @extend %monospaced
+    text-align: left
+    text-transform: uppercase
+    font-size: 2.5em
+  hr
+    border: none
+
+%background
+  background-position: center
+  background-size: cover
+
+%hover-underline
+  @extend %transition-duration-and-timing-standard
+  border-bottom: 2px solid transparent
+  transition-property: border-color
+  &:hover
+    border-color: $color-text
+
+#previews
+  @media screen and (min-width: $break-desktopS)
+    +row
+    +padding-squeeze(1%)
+  @media screen and (min-width: $break-desktopM)
+    +padding-squeeze(3%)
+
+.container-tileable
+  @extend %container-read
+  @media screen and (min-width: $break-tabletS)
+    +padding-squeeze(7%)
+  @media screen and (min-width: $break-desktopS)
+    +padding-squeeze(0.75%)
     +col(6)
-    padding-right: 0.45rem
-    margin-right: 0.45rem
-    margin-top: 0.25rem
-    margin-bottom: 0.6rem
-  img.half-width.right
-    padding-left: 0.7rem
-    margin-left: 0.7rem
-    padding-right: unset
-    margin-right: unset
+
+
+.read-preview
+  @extend %preview
+  @extend %read-common-children
+  @extend %background
+  padding: 1.5% 2% 1% 2%
+  background-color: $color-bg-darker
+  border-bottom: 3px solid $color-bg
+  background-image: url('img/coffee-white.svg'), url('img/coffee-white.png')
+  h1 span
+    @extend %hover-underline
+  @media screen and (min-width: $break-tabletM)
+    +row
+    .span-date
+      +col(3,24)
+      text-align: right
+      padding-top: 0.6em
+      padding-right: 8px
+      padding-right: 0.5rem
+    p
+      +col(12,24)
+      margin-top: 0
+      padding: 1.6px 8px 8px 8px
+      padding: 0.1rem 0.5rem 0.5rem 0.5rem
+    h1
+      +col(9,24)
+      margin-top: 0
+      padding-right: 8px
+      padding-right: 0.5rem
+      padding-left: 8px
+      padding-left: 0.5rem
+  @media screen and (min-width: $break-desktopS)
+    .span-date
+      padding-top: 0.4em
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                           Article
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#reads
+  // position: relative
+  // top: -400px
+  z-index: 200
+
+.container-nontileable
+  background-color: $color-bg-transparent
+
+.read
+  @extend %read-common-children
+  +row
+  padding: 12% 3%
+  @media screen and (min-width: $break-tabletS)
+    padding-right: 7%
+    padding-left: 7%
+  h1
+    text-align: center
+    padding: 1.5em 0
+    @media screen and (min-width: $break-tabletM)
+      font-size: 40px
+      font-size: 2.5rem
+    @media screen and (min-width: $break-desktopS)
+      font-size: 48px
+      font-size: 3rem
+  p
+    margin-bottom: 1.3em
+    margin-top: 1.3em
+    @media screen and (min-width: $break-tabletM)
+      text-align: justify
+    @media screen and (min-width: $break-desktopS)
+      line-height: 1.55
+
+.read-background
+  background-color: $color-bg-darker
+  padding: 2% 4%
+  @media screen and (min-width: $break-tabletS)
+    padding: 3% 4%
+  @media screen and (min-width: $break-desktopS)
+    padding-left: 6%
+    padding-right: 6%
+  @media screen and (min-width: $break-desktopM)
+    padding-left: 9%
+    padding-right: 9%
+
+%full-width-object
+  +width-squeeze
+  @media screen and (min-width: $break-desktopS)
+    width: 84%
+
+.read-header
+  @extend %full-width-object
+
+.read-text
+  margin-bottom: 2em
+
+%container-image-block
+  +row
+  margin-top: 1.5em
+  margin-bottom: 2em
+  @media screen and (min-width: $break-tabletS)
+    margin-top: 0.4em
+
+.container-image-wide
+  @extend %container-image-block
+  img
+    @extend %full-width-object
+
+%container-image-inline
+  @extend %container-image-block
+  img
+    +width-squeeze
+  @media screen and (min-width: $break-tabletS)
+    +col(7)
+    display: inline
+    // any value conflicts with our width based margin
+    margin-bottom: 0
+
+.container-image-right
+  @extend %container-image-inline
+  @media screen and (min-width: $break-tabletM)
     float: right
+  img
+    @media screen and (min-width: $break-tabletS)
+      // almost snap to right side, creating margin-left with remaining space (is on auto).
+      margin-left: 0
+    @media screen and (min-width: $break-tabletM)
+      margin-left: auto
+      margin-right: 0
+
+.container-image-left
+  @extend %container-image-inline
+  img
+    @media screen and (min-width: $break-tabletS)
+      margin-left: 0
 
 .empty-transparency
   position: absolute
+  height: 768px
   height: 100vh
+  width: 768px
   width: 100vw
   left: 0px
+  background-color: white
   background-color: $color-bg-transparent
 
-.articles.added-by-js
+.added-by-js
   position: absolute
   width: 100%
+  background-color: white
   background-color: $color-bg-transparent
-/* /=-=-=-=-=-=-=-=-=-=\              /=-=-=-=-=-=-=-=-=-=\ */
-/*/=-=-=-=-=-=-=-=-=-=-=\  @medias   /=-=-=-=-=-=-=-=-=-=-=\*/
-/*\=-=-=-=-=-=-=-=-=-=-=/            \=-=-=-=-=-=-=-=-=-=-=/*/
 
-@media screen and (min-width: $break-mobileM)
+.container-backlinks
+  // +width-squeeze(14%)
+  margin-top: 6em
 
-//============================================================
+/*________________________________________________________________
+  -  -  -  -  -  -  -  -  -  -  Projects  -  -  -  -  -  -  -  -  -  -
+  ________________________________________________________________
 
-@media screen and (min-width: $break-mobileL)
-  header
-    .navigation .linebreak-for-mobile-nav
-      display: none
-    .thomazella-logo
-      max-width: calc(100% - 45vw)
-  footer
-    padding: 0.6rem 0 1rem
-    .navigation .list
-      padding-left: 1rem
-      .link-container
-        display: inline-block
-        margin-right: 1.05rem
-      .linebreak-for-mobile-nav
-        display: block
-    .social-media-links .link-container .link-image
-        max-width: 6vw
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container
-    padding: 0
-    +light-width-squeeze
-//============================================================
+#project-previews
+  @extend #previews
+  padding-bottom: 20px
+  padding-bottom: 3vh
 
-@media screen and (min-width: $break-mobileM) and (min-height: 650px)
-  body
-    background-color: $color-bg
-  .quick-description-of-me
-    min-height: 52vh
-  footer.home
-    // fallback useful when no js
-    position: absolute
-    bottom: 0
+%project-border-common
+  border-color: $color-bg-darker
+  border-width: 2px
 
-//============================================================
+.project-absolute-separator
+  @extend %project-border-common
+  +border-stylus(right)
+  position: absolute
+  display: none
+  height: 50%
+  z-index: 1
+  // %'s on this element look weird in code, 36.3, 27...
+    but look right on screen. Probably compounded paddings on parents.
 
-@media screen and (min-width: $break-tabletS)
-  header
-    .navigation
-      .list
-        padding-left: 2.6rem
-        .link-container
-          font-size: 1rem
-          margin-right: 2.6rem
-    .thomazella-logo
-      max-width: calc(100% - 48vw)
-      margin-bottom: 2rem
-    .professional-title
-      font-size: calc(0.47rem + 0.4vw)
-      margin-bottom: 4rem
-  .quick-description-of-me
-    max-width: 65%
-    font-size: 2.5rem
-  footer
-    .navigation
-      margin-bottom: 0.5rem
-      .list
-        padding-right: 1rem
-        padding-left: 0
-        .link-container
-          padding-left: 1.9rem
-          font-size: 0.9rem
-        .linebreak-for-mobile-nav
-          display: none
-    .social-media-links .link-container
-      &:nth-child(0n+2)
-        margin: 0 4.5rem 0
-      .link-image
-        max-width: 3vw
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container
-    width: 88%
-    .article-preview
-      .date-written
-        +col(2)
-        text-align: right
-        padding-top: 0.15rem
-        padding-right: 1rem
-        font-size: 0.8rem
-      .title-container
-        +col(4)
-        .title
-          font-size: 1.25rem
-          margin-top: unset
-          padding-right: 1rem
-      .intro-container .intro-text
-        +col(6)
-        padding-left: 1rem
-        padding-right: 1rem
-        padding-top: 0.05rem
-
-  .floating-article
-    .background-container
-      padding: 1.65rem
-      .paragraph
-        padding: 0 1rem 0
-        text-align: justify
-        margin-bottom: 0.9rem
-      .title
-        font-size: 2.3rem
-        padding: 7rem 0
-      .date-written
-        font-size: 1rem
-        margin-top: 0.3rem
-        line-height: 1.5rem
-      svg#button-close
-        width: 0.9rem
-      img.full-width
-        margin-bottom: 0.8rem
-        margin-top: 0.3rem
-      img.half-width
-        padding-right: 0.7rem
-        margin-right: 0.7rem
-        margin-bottom: 0.3rem
-        margin-top: 0.35rem
-
-//============================================================
-
-@media screen and (min-width: $break-tabletM)
-  header
-    .navigation .list
-      padding-left: 5rem
-      .link-container
-        font-size: 1rem
-        margin-right: 5rem
-    .thomazella-logo
-      max-width: calc(100% - 68vw)
-      margin-bottom: 1rem
-    .professional-title
-      margin-bottom: 3.4rem
-  footer
-    .social-media-links .link-container .link-image
-      max-width: 2.2vw
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container
-    width: 73%
-  .articles.added-by-js
-    .article-container
-      width: 85%
-
-//============================================================
-
-@media screen and (min-width: $break-desktopS)
-  header
-    .thomazella-logo
-      max-width: calc(100% - 72vw)
-      margin-bottom: 1.4rem
-    .professional-title
-      margin-bottom: 3.8rem
-  .quick-description-of-me
-    max-width: 45%
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  section.articles
+.container-project-previews
+  @extend %container-read
+  +aligned-block
+  /* ---- grid fallback ----
+  @media screen and (min-width: $break-tabletS)
     +row
-    .article-container.tileable
-      +col(47, 101)
-      &:first-child
-        +gutter(1, 101)
-        +jump(3,101)
-  .floating-article
-    .background-container
-      padding: 3.65rem
-      .paragraph
-        margin-bottom: 1.3rem
-        padding: unset
-        font-size: 1.1rem
-      .title
-        +block-and-H-align
-        font-size: 3rem
-        max-width: 90%
-      .date-written
-        line-height: 1.9rem
-      svg#button-close
-        height: 1.3rem
-        width: 1.1rem
-      img.full-width
-        max-width: 90%
-        margin-top: 2.2rem
-        margin-bottom: 2.2rem
-      img.half-width
-        margin-bottom: 1rem
-        padding-right: 1.1rem
-        margin-right: 1.1rem
-      img.half-width.right
-        padding-left: 1.1rem
-        margin-left: 1.1rem
-        padding-right: unset
-        margin-right: unset
-//============================================================
+  @media screen and (min-width: $break-desktopM)
+    +padding-squeeze(12.5%)
+  /* ---- end ----
+  @supports (display: grid)
+    @media screen and (min-width: $break-tabletS)
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: auto
+      .project-absolute-separator
+        display: block
+        width: 50.2%
+    @media screen and (min-width: $break-tabletM)
+      +padding-squeeze(10%)
+    @media screen and (min-width: $break-desktopS)
+      grid-template-columns: 1fr 1fr 1fr
+      .project-absolute-separator
+        width: 36.2%
+        &:nth-child(2)
+          left: 27.35%
+    @media screen and (min-width: $break-desktopM)
+      grid-template-columns: 1fr 1fr 1fr 1fr
+      .project-absolute-separator
+        width: 28.4%
+        &:nth-child(2)
+          left: 21.953%
+        &:nth-child(3)
+          left: 40.8%
 
-@media screen and (min-width: $break-desktopM)
-  header
-    .thomazella-logo
-      max-width: calc(100% - 77vw)
-  .quick-description-of-me
-    max-width: 40%
-  footer
-    .social-media-links .link-container .link-image
-      max-width: 1.2vw
-  /* ++++++++++++++++++++++  articles   ++++++++++++++++++++++ */
-  .article-container.tileable
-    +col(37, 101)
-    &:first-child
-      +gutter(1, 101)
-      +jump(13,101)
-    .article-preview .intro-container .intro-text
-      font-size: 1.1rem
+%no-date
+  .span-date
+    display: none
 
-  .articles.added-by-js
-    .article-container
-      width: 66%
-      .floating-article
-        .paragraph
-          font-size: 1.25rem
+.project-preview
+  @extend %preview
+  @extend %read-common-children
+  @extend %background
+  @extend %no-date
+  +width-squeeze
+  padding: 5% 7%
+  transition: background-color 0.5s ease
+  // background-image: url('img/pat1.svg')
+  p
+    padding: 1.5em 0
+  hr
+    @extend %project-border-common
+    +border-stylus(bottom)
+  h1
+    font-size: 16px
+    font-size: 1rem
+    font-weight: 400
+    margin-top: 2.67em
+    span
+      @extend %hover-underline
+  &:hover
+    background-color: $color-bg-darker
+  /* ---- grid fallback ----
+  @media screen and (min-width: $break-tabletS)
+    +col(49,100)
+    &:nth-child(2n+1)
+      +gutter(2,100)
+  @media screen and (min-width: $break-desktopS)
+    +col(33,103)
+    padding-left: 3%
+    padding-right: 3%
+    &:nth-child(n)
+      margin-right: 0
+    &:nth-child(3n+1)
+      +gutter(2,103)
+    &:nth-child(3n+2)
+      +gutter(2,103)
+  /* ---- fallback override ----
+  @supports (display: grid)
+    @media screen and (min-width: $break-tabletS)
+      width: 95%
+      float: none
+      padding-left: 5%
+      padding-right: 5%
+
+.container-project-logo
+  @extend %project-border-common
+  +border-stylus
+  padding-top: 6.4px
+  padding-top: 0.4rem
+  .img-svg
+    +aligned-block
+    max-width: 20%
+
+#projects
+  @extend #reads
+  // position: relative
+  // top: -400px
+
+.project
+  @extend .read
+
+.project-header
+  @extend %full-width-object
+  margin-bottom: 2em
+
+.project-background
+  @extend .read-background
+
+.project-text
+  +row
+  @extend .read-text
+
+  // @media screen and (min-width: $break-mobileM)
+  //
+  // @media screen and (min-width: $break-mobileL)
+  //
+  // @media screen and (min-width: $break-tabletS)
+  //
+  // @media screen and (min-width: $break-tabletM)
+  //
+  // @media screen and (min-width: $break-desktopS)
+  //
+  // @media screen and (min-width: $break-desktopM)
