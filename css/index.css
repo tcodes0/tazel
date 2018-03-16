@@ -297,7 +297,7 @@ a {
         max-width: 1.8vw; } }
 
 /*________________________________________________________________
- * -  -  -  -  -  -  -  -  -  -  Reads  -  -  -  -  -  -  -  -  -  -
+ * -  -  -  -  -  -  -  -  -  -  Read  -  -  -  -  -  -  -  -  -  -
  * ________________________________________________________________ */
 .container-tileable, .container-project-previews {
   padding-left: 2.5%;
@@ -470,28 +470,28 @@ a {
 .read-text, .project-text {
   margin-bottom: 2em; }
 
-.container-image-wide, .container-image-right, .container-image-left {
+.container-image-wide, .container-image-right, .container-image-left, .container-thomazella-pic {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: block;
   margin-top: 1.5em;
   margin-bottom: 2em; }
-  .container-image-wide::after, .container-image-right::after, .container-image-left::after {
+  .container-image-wide::after, .container-image-right::after, .container-image-left::after, .container-thomazella-pic::after {
     content: "";
     display: block;
     clear: both; }
   @media screen and (min-width: 768px) {
-    .container-image-wide, .container-image-right, .container-image-left {
+    .container-image-wide, .container-image-right, .container-image-left, .container-thomazella-pic {
       margin-top: 0.4em; } }
 
-.container-image-right img, .container-image-left img {
+.container-image-right img, .container-image-left img, .container-thomazella-pic img {
   width: 95%;
   display: block;
   margin-left: auto;
   margin-right: auto; }
 @media screen and (min-width: 768px) {
-  .container-image-right, .container-image-left {
+  .container-image-right, .container-image-left, .container-thomazella-pic {
     float: left;
     width: 58.3333333333%;
     display: inline;
@@ -509,7 +509,7 @@ a {
     margin-right: 0; } }
 
 @media screen and (min-width: 768px) {
-  .container-image-left img {
+  .container-image-left img, .container-thomazella-pic img {
     margin-left: 0; } }
 
 .empty-transparency {
@@ -670,5 +670,9 @@ a {
     content: "";
     display: block;
     clear: both; }
+
+/*________________________________________________________________
+ * -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
+ * ________________________________________________________________ */
 
 /*# sourceMappingURL=index.css.map */
