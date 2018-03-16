@@ -28,6 +28,9 @@ p {
 img {
   width: 100%; }
 
+button {
+  background-color: inherit; }
+
 /* ------- */
 /*   css   */
 /* ------- */
@@ -43,6 +46,64 @@ body {
   overflow-y: hidden;
   background-color: #fffffc; }
 
+.guide {
+  border: 1px solid black;
+  position: absolute;
+  display: none;
+  z-index: 100;
+  width: 50%; }
+
+a {
+  text-transform: capitalize;
+  border-bottom: 1px solid #131323;
+  transition-property: color, opacity;
+  z-index: 100;
+  position: relative; }
+  a.is-link-to-current-page {
+    text-decoration: #131323 wavy underline;
+    color: black; }
+  a.disabled {
+    cursor: default; }
+  a.close {
+    float: right;
+    margin-right: 3.2px;
+    margin-right: 0.2rem;
+    margin-right: 1.6px;
+    margin-right: 0.1rem;
+    border-width: 0;
+    max-width: 13px; }
+  a.back {
+    border-width: 0;
+    display: block;
+    text-align: center;
+    text-transform: none;
+    margin-bottom: 0.5em; }
+    a.back:hover .img-svg, a.back:hover .thomazella-logo {
+      zoom: 1;
+      filter: alpha(opacity=15);
+      opacity: 0.15; }
+    a.back span {
+      position: relative;
+      top: -2px;
+      top: -0.125rem; }
+    a.back .img-svg, a.back .thomazella-logo {
+      transition-property: inherit;
+      max-width: 15px;
+      max-width: 1rem;
+      margin-right: 4.8px;
+      margin-right: 0.3rem; }
+  a.other-site {
+    text-transform: lowercase;
+    margin-bottom: 1em; }
+
+.img-svg, .thomazella-logo {
+  display: inline-block; }
+
+button {
+  border-style: none; }
+  button:hover {
+    cursor: pointer; }
+
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
  * ________________________________________________________________ */
@@ -52,32 +113,28 @@ body {
   justify-content: flex-start;
   min-height: 100vh; }
 
-.guide {
-  border: 1px solid black;
-  position: absolute;
-  display: none;
-  z-index: 100;
-  width: 50%; }
-
-#professional-title, .nav, .nav-fancy, .nav-footer, .read-preview h1, .read h1, .project h1, .project-preview h1 {
+#professional-title, .nav, .nav-fancy, .nav-footer, .read-preview h1, .read h1, .project h1, #about h1, .project-preview h1,
+.read-preview h2,
+.read h2,
+.project h2,
+#about h2,
+.project-preview h2 {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
 
-#professional-title, a.back, a.other-site, .span-date {
+a.back, a.other-site, #professional-title, .span-date {
   font-size: 12.8px;
   font-size: 0.8rem;
   font-weight: 400; }
   @media screen and (min-width: 1280px) {
-    #professional-title, a.back, a.other-site, .span-date {
+    a.back, a.other-site, #professional-title, .span-date {
       font-size: 14.7px;
       font-size: 0.92rem; } }
 
-.img-svg, .thomazella-logo {
-  display: inline-block; }
-
 header {
   padding-bottom: 20px;
-  padding-bottom: 3vh; }
+  padding-bottom: 3vh;
+  text-align: center; }
 
 .thomazella-logo {
   display: block;
@@ -123,52 +180,9 @@ a.back:hover, a.other-site:hover, .nav ul li a:hover, .nav-fancy ul li a:hover, 
   color: #e5e5cf;
   border-color: inherit; }
 
-a, a.back .img-svg, a.back .thomazella-logo, .read-preview h1 span, .project-preview h1 span {
+a, a.back .img-svg, a.back .thomazella-logo, .read-preview h1 span, .project-preview h1 span, .language-switch button {
   transition-duration: 1.15s;
   transition-timing-function: ease-out; }
-
-a {
-  text-transform: capitalize;
-  border-bottom: 1px solid #131323;
-  transition-property: color, opacity;
-  z-index: 100;
-  position: relative; }
-  a.is-link-to-current-page {
-    text-decoration: #131323 wavy underline;
-    color: black; }
-  a.disabled {
-    cursor: default; }
-  a.close {
-    float: right;
-    margin-right: 3.2px;
-    margin-right: 0.2rem;
-    margin-right: 1.6px;
-    margin-right: 0.1rem;
-    border-width: 0;
-    max-width: 13px; }
-  a.back {
-    border-width: 0;
-    display: block;
-    text-align: center;
-    text-transform: none;
-    margin-bottom: 0.5em; }
-    a.back:hover .img-svg, a.back:hover .thomazella-logo {
-      zoom: 1;
-      filter: alpha(opacity=15);
-      opacity: 0.15; }
-    a.back span {
-      position: relative;
-      top: -2px;
-      top: -0.125rem; }
-    a.back .img-svg, a.back .thomazella-logo {
-      transition-property: inherit;
-      max-width: 15px;
-      max-width: 1rem;
-      margin-right: 4.8px;
-      margin-right: 0.3rem; }
-  a.other-site {
-    text-transform: lowercase;
-    margin-bottom: 1em; }
 
 .span-date {
   text-transform: capitalize; }
@@ -309,19 +323,25 @@ a {
     .read-preview, .project-preview {
       margin-bottom: 0.4em; } }
 
-.read-preview p, .read p, .project p, .project-preview p {
+.read-preview p, .read p, .project p, #about p, .project-preview p {
   text-transform: none;
   font-weight: 400;
   line-height: 1.45; }
   @media screen and (min-width: 1024px) {
-    .read-preview p, .read p, .project p, .project-preview p {
+    .read-preview p, .read p, .project p, #about p, .project-preview p {
       font-size: 18.7px;
       font-size: 1.17rem; } }
-.read-preview h1, .read h1, .project h1, .project-preview h1 {
+.read-preview h1, .read h1, .project h1, #about h1, .project-preview h1,
+.read-preview h2,
+.read h2,
+.project h2,
+#about h2,
+.project-preview h2 {
   text-align: left;
-  text-transform: uppercase;
+  text-transform: uppercase; }
+.read-preview h1, .read h1, .project h1, #about h1, .project-preview h1 {
   font-size: 2.5em; }
-.read-preview hr, .read hr, .project hr, .project-preview hr {
+.read-preview hr, .read hr, .project hr, #about hr, .project-preview hr {
   border: none; }
 
 .read-preview, .project-preview {
@@ -408,40 +428,44 @@ a {
 .container-nontileable {
   background-color: rgba(255, 255, 252, 0.75); }
 
-.read, .project {
+.read, .project, #about {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: block;
   padding: 12% 3%; }
-  .read::after, .project::after {
+  .read::after, .project::after, #about::after {
     content: "";
     display: block;
     clear: both; }
   @media screen and (min-width: 768px) {
-    .read, .project {
+    .read, .project, #about {
       padding-right: 7%;
       padding-left: 7%; } }
-  .read h1, .project h1 {
+  .read h1, .project h1, #about h1 {
     text-align: center;
     padding: 1.5em 0; }
     @media screen and (min-width: 1024px) {
-      .read h1, .project h1 {
+      .read h1, .project h1, #about h1 {
         font-size: 40px;
         font-size: 2.5rem; } }
     @media screen and (min-width: 1280px) {
-      .read h1, .project h1 {
+      .read h1, .project h1, #about h1 {
         font-size: 48px;
         font-size: 3rem; } }
-  .read p, .project p {
+  .read p, .project p, #about p {
     margin-bottom: 1.3em;
     margin-top: 1.3em; }
     @media screen and (min-width: 1024px) {
-      .read p, .project p {
+      .read p, .project p, #about p {
         text-align: justify; } }
     @media screen and (min-width: 1280px) {
-      .read p, .project p {
+      .read p, .project p, #about p {
         line-height: 1.55; } }
+  .read h2, .project h2, #about h2 {
+    font-size: 32px;
+    font-size: 2rem;
+    margin: 1.5em 0; }
 
 .read-background, .project-background {
   background-color: #f3f3e9;
@@ -458,16 +482,16 @@ a {
       padding-left: 9%;
       padding-right: 9%; } }
 
-.read-header, .container-image-wide img, .project-header {
+.read-header, .container-image-wide img, .project-header, .about-header {
   width: 95%;
   display: block;
   margin-left: auto;
   margin-right: auto; }
   @media screen and (min-width: 1280px) {
-    .read-header, .container-image-wide img, .project-header {
+    .read-header, .container-image-wide img, .project-header, .about-header {
       width: 84%; } }
 
-.read-text, .project-text {
+.read-text, .project-text, .about-text {
   margin-bottom: 2em; }
 
 .container-image-wide, .container-image-right, .container-image-left, .container-thomazella-pic {
@@ -485,7 +509,13 @@ a {
     .container-image-wide, .container-image-right, .container-image-left, .container-thomazella-pic {
       margin-top: 0.4em; } }
 
-.container-image-right img, .container-image-left img, .container-thomazella-pic img {
+.container-image-right img, .container-image-left img, .container-thomazella-pic img,
+.container-image-right .img-svg,
+.container-image-left .img-svg,
+.container-thomazella-pic .img-svg,
+.container-image-right .thomazella-logo,
+.container-image-left .thomazella-logo,
+.container-thomazella-pic .thomazella-logo {
   width: 95%;
   display: block;
   margin-left: auto;
@@ -674,5 +704,72 @@ a {
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
  * ________________________________________________________________ */
+.language-switch {
+  margin-top: 1em;
+  background-color: #f3f3e9;
+  padding: 1%;
+  padding-left: 7px;
+  display: inline-block;
+  position: relative;
+  left: -4px; }
+  .language-switch .img-svg, .language-switch .thomazella-logo {
+    max-width: 50px;
+    padding-top: 3.2px;
+    padding-top: 0.2rem; }
+  .language-switch button {
+    transition-property: opacity;
+    padding: 0;
+    zoom: 1;
+    filter: alpha(opacity=30);
+    opacity: 0.3; }
+    .language-switch button:hover {
+      zoom: 1;
+      filter: alpha(opacity=100);
+      opacity: 1; }
+    .language-switch button.active {
+      zoom: 1;
+      filter: alpha(opacity=100);
+      opacity: 1; }
+
+button[name="choose-portuguese"] {
+  zoom: 1;
+  filter: alpha(opacity=100);
+  opacity: 1; }
+
+#about {
+  padding-top: 0; }
+
+.about-header {
+  margin-bottom: 2em; }
+
+.thomazella-pics {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+  .thomazella-pics::after {
+    content: "";
+    display: block;
+    clear: both; }
+
+.container-thomazella-pic {
+  margin: 1em 0; }
+  .container-thomazella-pic:nth-child(2n -1) {
+    transform: rotate(5deg);
+    filter: drop-shadow(7px 8px 0px #131323); }
+  .container-thomazella-pic:nth-child(2n) {
+    transform: rotate(-5deg);
+    filter: drop-shadow(-7px 8px 0px #131323); }
+  .container-thomazella-pic > * {
+    border: 2px solid #131323; }
+  @media screen and (min-width: 768px) {
+    .container-thomazella-pic {
+      max-width: 200px; } }
+
+#pic-cartoon {
+  background-color: #f3f3e9; }
+  @media screen and (min-width: 768px) {
+    #pic-cartoon svg {
+      max-height: 190px; } }
 
 /*# sourceMappingURL=index.css.map */

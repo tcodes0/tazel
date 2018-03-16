@@ -48,88 +48,12 @@ body
   overflow-y: hidden
   background-color: $color-bg
 
-/*________________________________________________________________
-  -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
-  ________________________________________________________________
-
-.container-100vh
-  display: flex
-  flex-direction: column
-  justify-content: flex-start
-  min-height: 100vh
-
 .guide
   border: 1px solid black
   position: absolute
   display: none
   z-index: 100
   width: 50%
-
-%monospaced
-  font-family: 'Roboto Mono', monospace
-  text-align: center
-
-%small-text
-  font-size: 12.8px
-  font-size: 0.8rem
-  // font-weight: 300 darkmode
-  font-weight: 400
-  @media screen and (min-width: $break-desktopS)
-    font-size: 14.7px
-    font-size: 0.92rem
-
-.img-svg
-  display: inline-block
-
-header
-  padding-bottom: 20px
-  padding-bottom: 3vh
-
-.thomazella-logo
-  @extend .img-svg
-  +aligned-block
-  max-width: 250px
-  max-width: calc(100% - 22vw)
-  margin-bottom: 5px
-  margin-bottom: 0.3rem
-  margin-top: 5px
-  margin-top: 0.3rem
-  @media screen and (min-width: $break-mobileL)
-    max-width: 270px
-    max-width: calc(100% - 37vw)
-  @media screen and (min-width: $break-tabletS)
-    max-width: 355px
-    max-width: calc(100% - 54vw)
-    margin-top: 32px
-    margin-top: 2rem
-    margin-bottom: 29px
-    margin-bottom: 1.8rem
-  @media screen and (min-width: $break-desktopS)
-    max-width: 358px
-    max-width: calc(100% - 72vw)
-
-#professional-title
-  @extend %monospaced
-  @extend %small-text
-  margin-bottom: 6.5em
-  margin-top: 0
-  text-transform: capitalize
-  &::before
-    content: "( "
-  &::after
-    content: " )"
-  @media screen and (min-width: $break-tabletS)
-    font-size: 13.8px
-    font-size: calc(0.67rem + 0.4vw)
-
-%hover-fade-color
-  &:hover
-    color: $color-bg-darker-darker
-    border-color: inherit
-
-%transition-duration-and-timing-standard
-    transition-duration: 1.15s
-    transition-timing-function: ease-out
 
 a
   @extend %transition-duration-and-timing-standard
@@ -177,6 +101,88 @@ a
     @extend %small-text
     text-transform: lowercase
     margin-bottom: 1em
+
+.img-svg
+  display: inline-block
+
+button
+  border-style: none
+  &:hover
+    cursor: pointer
+
+/*________________________________________________________________
+  -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
+  ________________________________________________________________
+
+.container-100vh
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  min-height: 100vh
+
+%monospaced
+  font-family: 'Roboto Mono', monospace
+  text-align: center
+
+%small-text
+  font-size: 12.8px
+  font-size: 0.8rem
+  // font-weight: 300 darkmode
+  font-weight: 400
+  @media screen and (min-width: $break-desktopS)
+    font-size: 14.7px
+    font-size: 0.92rem
+
+header
+  padding-bottom: 20px
+  padding-bottom: 3vh
+  text-align: center
+
+.thomazella-logo
+  @extend .img-svg
+  +aligned-block
+  max-width: 250px
+  max-width: calc(100% - 22vw)
+  margin-bottom: 5px
+  margin-bottom: 0.3rem
+  margin-top: 5px
+  margin-top: 0.3rem
+  @media screen and (min-width: $break-mobileL)
+    max-width: 270px
+    max-width: calc(100% - 37vw)
+  @media screen and (min-width: $break-tabletS)
+    max-width: 355px
+    max-width: calc(100% - 54vw)
+    margin-top: 32px
+    margin-top: 2rem
+    margin-bottom: 29px
+    margin-bottom: 1.8rem
+  @media screen and (min-width: $break-desktopS)
+    max-width: 358px
+    max-width: calc(100% - 72vw)
+
+#professional-title
+  @extend %monospaced
+  @extend %small-text
+  margin-bottom: 6.5em
+  margin-top: 0
+  text-transform: capitalize
+  &::before
+    content: "( "
+  &::after
+    content: " )"
+  @media screen and (min-width: $break-tabletS)
+    font-size: 13.8px
+    font-size: calc(0.67rem + 0.4vw)
+
+%hover-fade-color
+  &:hover
+    color: $color-bg-darker-darker
+    border-color: inherit
+
+%transition-duration-and-timing-standard
+    transition-duration: 1.15s
+    transition-timing-function: ease-out
 
 .span-date
   @extend %small-text
@@ -314,10 +320,12 @@ a
     @media screen and (min-width: $break-tabletM)
       font-size: 18.7px
       font-size: 1.17rem
-  h1
+  h1,
+  h2
     @extend %monospaced
     text-align: left
     text-transform: uppercase
+  h1
     font-size: 2.5em
   hr
     border: none
@@ -418,6 +426,10 @@ a
       text-align: justify
     @media screen and (min-width: $break-desktopS)
       line-height: 1.55
+  h2
+    font-size: 32px
+    font-size: 2rem
+    margin: 1.5em 0
 
 .read-background
   background-color: $color-bg-darker
@@ -456,7 +468,8 @@ a
 
 %container-image-inline
   @extend %container-image-block
-  img
+  img,
+  .img-svg
     +width-squeeze
   @media screen and (min-width: $break-tabletS)
     +col(7)
@@ -620,8 +633,6 @@ a
 
 #projects
   @extend #reads
-  // position: relative
-  // top: -400px
 
 .project
   @extend .read
@@ -641,14 +652,66 @@ a
   -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
   ________________________________________________________________
 
+.language-switch
+  margin-top: 1em
+  background-color: $color-bg-darker
+  padding: 1%
+  padding-left: 7px
+  display: inline-block
+  position: relative
+  left: -4px
+  .img-svg
+    max-width: 50px
+    padding-top: 3.2px
+    padding-top: 0.2rem
+  button
+    @extend %transition-duration-and-timing-standard
+    transition-property: opacity
+    padding: 0
+    +opacity(0.3)
+    &:hover
+      +opacity(1)
+    &.active
+      +opacity(1)
+
+button[name="choose-portuguese"]
+  +opacity(1)
+
 #about
+  @extend .read
+  padding-top: 0
 
 .about-header
+  @extend %full-width-object
+  margin-bottom: 2em
 
 .about-text
+  @extend .read-text
+
+.thomazella-pics
+  +row
+  // text-align: center
 
 .container-thomazella-pic
   @extend .container-image-left
+  margin: 1em 0
+  // display: inline-block
+  &:nth-child(2n -1)
+    transform: rotate(5deg)
+    filter: drop-shadow(7px 8px 0px $color-text)
+  &:nth-child(2n)
+    transform: rotate(-5deg)
+    filter: drop-shadow(-7px 8px 0px $color-text)
+  & > *
+    border: 2px solid $color-text
+  @media screen and (min-width: $break-tabletS)
+    max-width: 200px
+
+#pic-cartoon
+  background-color: $color-bg-darker
+  @media screen and (min-width: $break-tabletS)
+    svg
+      max-height: 190px
 
   // @media screen and (min-width: $break-mobileM)
   //
