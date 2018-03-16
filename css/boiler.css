@@ -27,4 +27,7 @@ p {
 img {
   width: 100%; }
 
+button {
+  background-color: inherit; }
+
 /*# sourceMappingURL=boiler.css.map */
