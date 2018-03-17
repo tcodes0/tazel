@@ -43,7 +43,7 @@ body
   background-color: $color-bg-darker
   overflow-x: hidden
 
-.main
+#main
   margin: 0 auto
   overflow-y: hidden
   background-color: $color-bg
@@ -55,8 +55,13 @@ body
   z-index: 100
   width: 50%
 
+#header
+  padding-bottom: 20px
+  padding-bottom: 3vh
+  text-align: center
+
 a
-  @extend %transition-duration-and-timing-standard
+  @extend %transition-standard
   text-transform: capitalize
   border-bottom: 1px solid $color-text
   transition-property: color, opacity
@@ -90,7 +95,7 @@ a
       top: -2px
       top: -0.125rem
     .img-svg
-      @extend %transition-duration-and-timing-standard
+      @extend %transition-standard
       transition-property: inherit
       max-width: 15px
       max-width: 1rem
@@ -110,6 +115,10 @@ button
   &:hover
     cursor: pointer
 
+#footer
+  background-color: $color-bg-darker
+  padding: 1em 0 2em
+  text-align: center
 /*________________________________________________________________
   -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
   ________________________________________________________________
@@ -132,11 +141,6 @@ button
   @media screen and (min-width: $break-desktopS)
     font-size: 14.7px
     font-size: 0.92rem
-
-header
-  padding-bottom: 20px
-  padding-bottom: 3vh
-  text-align: center
 
 .thomazella-logo
   @extend .img-svg
@@ -180,9 +184,13 @@ header
     color: $color-bg-darker-darker
     border-color: inherit
 
-%transition-duration-and-timing-standard
+%transition-standard
     transition-duration: 1.15s
     transition-timing-function: ease-out
+
+%transition-fast
+    transition-duration: 0.57s
+    transition-timing-function: ease-in-out
 
 .span-date
   @extend %small-text
@@ -262,13 +270,8 @@ header
     @media screen and (min-width: $break-desktopM)
       margin-top: 190px
 
-.footer
-  background-color: $color-bg-darker
-  padding: 1em 0 2em
-  text-align: center
-
 .footer-home
-  @extend .footer
+  @extend #footer
   background-color: $color-bg
   .nav-footer
     display: none
@@ -335,7 +338,7 @@ header
   background-size: cover
 
 %hover-underline
-  @extend %transition-duration-and-timing-standard
+  @extend %transition-standard
   border-bottom: 2px solid transparent
   transition-property: border-color
   &:hover
@@ -512,7 +515,6 @@ header
   background-color: $color-bg-transparent
 
 .container-backlinks
-  // +width-squeeze(14%)
   margin-top: 6em
 
 /*________________________________________________________________
@@ -652,6 +654,10 @@ header
   -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
   ________________________________________________________________
 
+// - - - - - - - - - - - - - - - -
+// - - - - - - -Language switcher
+// - - - - - - - - - - - - - - - -
+
 .language-switch
   margin-top: 1em
   background-color: $color-bg-darker
@@ -659,13 +665,13 @@ header
   padding-left: 7px
   display: inline-block
   position: relative
-  left: -4px
+  left: -2px
   .img-svg
     max-width: 50px
     padding-top: 3.2px
     padding-top: 0.2rem
   button
-    @extend %transition-duration-and-timing-standard
+    @extend %transition-standard
     transition-property: opacity
     padding: 0
     +opacity(0.3)
@@ -694,8 +700,9 @@ button[name="choose-portuguese"]
 
 .container-thomazella-pic
   @extend .container-image-left
-  margin: 1em 0
+  padding-top: 1em
   // display: inline-block
+  max-width: 400px
   &:nth-child(2n -1)
     transform: rotate(5deg)
     filter: drop-shadow(7px 8px 0px $color-text)
@@ -712,6 +719,74 @@ button[name="choose-portuguese"]
   @media screen and (min-width: $break-tabletS)
     svg
       max-height: 190px
+
+#what-does-tazel-mean
+  span
+    @extend %transition-fast
+    transition-property: color
+  &:hover
+    span
+      color: $color-bg-darker
+
+// - - - - - - - - - - - - -
+// - - - - - - - Email Form
+// - - - - - - - - - - - - -
+%form-common
+  padding: 2%
+
+#email-me
+  @extend #about
+  label
+    +col(4)
+    @media screen and (min-width: $break-tabletS)
+      +col(2)
+  input[type="email"],
+  input[type="text"]
+    +col(8)
+    @media screen and (min-width: $break-tabletS)
+      +col(10)
+  label[for="email-body"]
+    display: none
+
+form
+  @media screen and (min-width: $break-tabletS)
+    +aligned-block
+    max-width: 37.5rem
+
+.container-labelAndInput
+  +row
+  margin-bottom: 0.5em
+
+label
+  @extend %form-common
+
+input,
+textarea
+  @extend %form-common
+  border-style: none
+  background-color: $color-bg-darker-darker
+
+textarea
+  width: 100%
+  margin-bottom: 0.5em
+
+fieldset
+  border-style: none
+  legend
+    display: none
+
+input[type="submit"]
+  @extend %transition-standard
+  font-weight: 600
+  width: auto
+  transition-property: border-color
+  border-width: 2px
+  border-color: transparent
+  border-style: solid
+  background-color: $color-bg-darker-darker
+  &:hover
+    cursor: pointer
+    border-color: $color-text
 
   // @media screen and (min-width: $break-mobileM)
   //
