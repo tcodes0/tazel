@@ -12,14 +12,14 @@
 <body>
   <div class="guide" role="presentation"></div>
 
-  <div class="main" role="main">
-    <header role="banner" id="header">
+  <div id="main" role="main">
+    <div role="banner" id="header">
       <div class="nav" role="navigation">
         <ul>
           <li><a href="index.html">This</a></li><li><a href="projects.html">Projects</a></li><br class="linebreak-for-mobile-nav" role="presentation"><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
         </ul>
       </div>
-    </header>
+    </div>
 
     <div id="project-previews" role="region" aria-label="Previews of all projects Thomazella has worked on">
       <div class="container-project-previews" role="presentation">
@@ -76,7 +76,13 @@
           <div class="project-background" role="presentation">
             <div class="project-header">
               <span class="span-date" role="note">December 2017</span>
-              <a class="close" href="#project-previews" title="back to preview browsing">𝗫</a>
+              <a class="close" href="#header" title="back to preview browsing">
+                <div class="img-svg">
+                  <svg width="100%" height="13" role="presentation">
+                    <image xlink:href="css/img/x.svg" src="css/img/x.png" width="100%" height="100%" role="presentation"/>
+                  </svg>
+                </div>
+              </a>
             </div>
             <div class="project-text">
               <div class="container-image-wide"><img src="css/img/bg1.png" alt="a sweet placeholder image"></div>
@@ -97,7 +103,7 @@
                 </div>
                 <span>Back to top</span>
               </a>
-              <a href="#reads" class="back" title="reads again">
+              <a href="#projects" class="back" title="read again">
                 <div class="img-svg">
                   <svg width="100%" height="12" role="presentation">
                     <image xlink:href="css/img/arrow-twist.svg" src="css/img/arrow-twist.png" width="100%" height="100%" role="presentation"/>
@@ -120,7 +126,7 @@
       </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div id="footer" role="contentinfo">
       <div class="nav-footer" role="navigation">
         <ul>
           <li><a href="index.html">This</a></li><li><a href="projects.html">Projects</a></li><br class="linebreak-for-mobile-nav" role="presentation"><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
