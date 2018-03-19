@@ -12,8 +12,8 @@
 <body>
   <div class="guide" role="presentation"></div>
 
-  <div id="main" role="main">
-    <div role="banner" id="header">
+  <div id="main" class="main" role="main">
+    <div role="banner" id="header" class="header">
       <div class="nav" role="navigation">
         <ul>
           <li><a href="index.html">This</a></li><li><a href="projects.html">Projects</a></li><br class="linebreak-for-mobile-nav" role="presentation"><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
@@ -38,37 +38,117 @@
       </div>
     </div>
 
-    <div id="about" role="region" aria-label="A description of Thomazella and his work">
+    <div id="about" class="about" role="region" aria-label="A description of Thomazella and his work">
       <div class="container-about" role="presentation">
         <div class="about-header">
-          <h1>Welcome to my site!</h1>
-
-          <div class="thomazella-pics">
-            <div class="container-thomazella-pic">
-              <img src="css/img/pic-pro.png" alt="a picture of thomazella lookin like an ''''adult''''" role="img">
-            </div>
-            <div class="container-thomazella-pic">
-              <img src="css/img/pic-surprise.png" alt="a casual picture of thomazella" role="img">
-            </div>
-            <div class="container-thomazella-pic">
-              <div class="img-svg" id="pic-cartoon">
-                <svg width="100%" height="400" role="presentation">
-                  <image xlink:href="css/img/pic-cartoon.svg" src="css/img/pic-cartoon.png" width="100%" height="100%" role="img" title="A cartoon of thomazella"/>
-                </svg>
-              </div>
-            </div>
-          </div>
+          <h1 class="heading1">Bem vindo ao meu site!</h1>
         </div>
 
         <div class="about-text">
-          <h2><span id="what-does-tazel-mean">I'm Raphael T<span>hom</span>azel<span>la</span></span></h2>
+          <div class="container-rotated-right" role="presentation">
+            <h2>
+              <span id="what-does-tazel-mean">Eu chamo
 
-          <p>
-            All their equipment and instruments are alive. I watched the storm, so beautiful yet terrific. Almost before we knew it, we had left the ground. It was going to be a lonely trip back. The litre (SI spelling) or liter (American spelling) (SI symbols L or l,[1] commonly, but incorrectly, abbreviated as ltr) is an SI accepted metric system unit of volume equal to 1 cubic decimetre (dm3), 1,000 cubic centimetres (cm3) or 1/1,000 cubic metre. A cubic decimetre (or litre) occupies a volume of 10×10×10 centimetres (see figure) and is thus equal to one-thousandth of a cubic metre.The original French metric system used the litre as a base unit. The word litre is derived from an older French unit, the litron, whose name came from Greek — where it was a unit of weight, not volume [2] — via Latin, and which equalled approximately 0.831 litres. The litre was also used in several subsequent versions of the metric system and is accepted for use with the SI,[3] although not an official SI unit — the SI unit of volume is the cubic metre (m3).
-          </p>
-          <p>The spelling used by the International Bureau of Weights and Measures is "litre",[3] a spelling which is shared by almost all English-speaking countries. The spelling "liter" is predominantly used in American English.[a]One litre of liquid water has a mass of almost exactly one kilogram, because the kilogram was originally defined in 1795 as one cubic decimetre of water at the temperature of melting ice. Subsequent redefinitions of the metre and kilogram mean that this relationship is no longer exact.[4] Although minor armed clashes had occurred previously between supporters of York and Lancaster, the first open fighting broke out in 1455 at the First Battle of St Albans. Several prominent Lancastrians died at the hands of the Yorkists. Although peace was temporarily restored, the Lancastrians were inspired by Margaret of Anjou to contest York's influence, and a deadly feud between the two branches of the royal family ensued.Fighting resumed more violently in 1459.
-            <a class="other-site" href="#external-site">http://www.tazel.website</a>
-          </p>
+                <span class="with-a-box-around fade-to-background">Raphael</span>
+
+                <span class="with-a-box-around" aria-label="A graphic showing that Tazel is a word derived from Thomazella">
+                  T<span class="fade-to-background">hom</span>azel<span class="fade-to-background">la</span>
+                </span>
+              </span>
+            </h2>
+
+            <div class="container-thomazella-pic">
+              <img src="css/img/pic-surprise.png" alt="a casual picture of thomazella" role="img">
+            </div>
+          </div>
+
+          <div class="who-i-am" role="article">
+            <h3 class="heading3">Quem eu sou</h3>
+
+            <p>Eu sou um desenvolvedor e também sou designer, me interesso por quase tudo dentro de tecnologia. Eu gosto muito de aprender qualquer coisa e aprendo tudo sozinho. Aliás, hoje em dia dá pra aprender qualquer coisa no Youtube, né non?</p>
+
+            <p>Na verdade, eu me vejo como um cara igualmente interessado em todas as partes do software. Eu gosto de layouts, tipografia e das coisas visuais, bem, eu formei em Design, daí fiquei uns anos na faculdade fazendo design gráfico. Já como desenvolvedor, gosto de entender o mecanismo interno que faz o programa funcionar. Minhas primeiras experiências com programação foram linguagens imperativas, onde você tem que escrever código pra fazer tudo, e eu acho que apesar de todo o trabalho existe uma simplicidade ali. Hoje em dia eu trabalho mais com Javascript, e adoro o estilo funcional/declarativo. É bem legal deixar as coisas mais repetitivas pro computador e focar no que é mais => importante. Tenho planos de aprender uma linguagem Orientada a Objetos, “pra ter uma de cada paradigma,” então isso tá na lista já.
+            </p>
+          </div>
+
+          <div class="what-i-do" role="article">
+            <strong>Eu faço produtos digitais pras pessoas usarem. Meu forte é frontend. Gosto muito de fazer coisas e ser criativo. procuro fazer todo mundo sentir bem, sempre.</strong>
+          </div>
+
+          <ul class="skills">
+            <li class="dev-skills">
+              <h3 class="heading3">Habilidades de Desenvolvedor</h3>
+
+              <ul>
+                <li><b>HTML</b><br> Semântica e estrutura pensando na acessibilidade.</li>
+                <li><b>SASS</b><br> Comunicar a identidade visual e oferecer uma boa experiência independente de navegador.</li>
+                <li><b>JS</b><br> Funcionalidades e interações, e também a parte visual mais elaborada, como AJAX.</li>
+                <li><b>Bootstrap</b><br> Sou familiar.</li>
+                <li><b>OS</b><br> Sei usar qualquer um, mas prefiro unices. i.e. Mac, linux.</li>
+                <li><b>BASH</b><br> Escrevo scripts pra automatizar as coisas. Tenho planos de trocar por uma linguagem mais poderosa. e.g. Python, Ruby.</li>
+                <li><b>C++</b><br> Não sou leigo.</li>
+                <li><b>Node.js e HTTP</b><br> Atualmente praticando.</li>
+                <li><b>React</b><br> Atualmente praticando.</li>
+                <li><b>4 anos</b><br> Programando.</li>
+              </ul>
+            </li>
+
+            <li class="design-skills">
+              <h3 class="heading3">Habilidades de Designer</h3>
+
+              <ul>
+                <li><b>Photoshop</b><br> 10+ anos usando. (Eu fiz curso aos 13.)</li>
+                <li><b>Illustrator e Indesign</b><br> 5 anos usando.</li>
+                <li><b>Premier, Audition e Lightroom Classic</b><br> Sei usar.</li>
+              </ul>
+            </li>
+
+            <li class="other-skills">
+              <h3 class="heading3">E também</h3>
+
+              <ul>
+                <li>Tenho noções de modelagem de negócios e <b>empreendedorismo</b>. Falo <b>inglês</b> desde os 16 anos, morei nos EUA 1 ano de intercâmbio. Estranhamente nunca dei aula. Trabalho bem em <b>grupo</b>. Conduzo <b>apresentações</b> bem.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="opinions" role="article">
+            <h2>Eu acho o seguinte</h2>
+
+            <div class="container-thomazella-pic">
+              <img src="css/img/pic-pro.png" alt="a picture of thomazella lookin like an ''''adult''''" role="img">
+            </div>
+
+            <ul>
+              <li>
+                <h3 class="heading3">Desenvolvimento</h3>
+
+                <p>Fazer, construir produtos é a essência de ser um desenvolvedor. Eu sou cuidadoso com meu software porque eu entendo que aquilo vai ser usado por alguém. A experiência da pessoa é o objetivo final e é isso que eu busco entregar.</p>
+
+                <blockquote>Você pode não testar seu software, mas seu usuário sempre vai.</blockquote>
+
+                <p>Eu procuro aprender os frameworks, práticas e linguagens do momento, com plena consciência que eles vão e vem, e também invisto em uma base sólida de teoria e metodologia, que é o que fica. Me motiva fazer coisas úteis pras pessoas e me diverte o processo de fazer.</p>
+              </li>
+
+              <li>
+                <h3 class="heading3">Design</h3>
+
+                <p>Design é o processo de tirar uma idéia do abstrato e esquematizar a realização dela. É a cartola mágica de onde saem os coelhos. A etapa de concepção é a base de um bom produto. Assim como no desenvolvimento, o design pra mim é centrado na experiência do usuário. Por isso eu tenho afinidade com frontend, por ser algo importante, criativo e vital pro usuário que precisa ser construído com cuidado. UI, Web e Interação são minhas principais ferramentas, mas eu também pratico UX e Gráfico. Na verdade, eles são interdependentes e se confundem. Meu pensamento tendo pro diferente, pro inusitado, pro inesperado, pro engraçado.</p>
+              </li>
+
+              <li>
+                <h3 class="heading3">Pessoas</h3>
+
+                <p>Eu acredito que é importante trabalhar com pessoas estimulantes. Passando pela faculdade e tendo trabalhado em grupo com vários tipos de pessoas, eu aprendi bastante coisa. Eu até liderei alguns grupos, mas acho que não tenho a melhor capacidade de lidar com situações desagradáveis. No fim, eu gosto de fazer as pessoas sentirem bem, sejam os usuários ou colegas.</p>
+              </li>
+
+              <li>
+                <h3 class="heading3">Diversão</h3>
+
+                <p>Eu me divirto bastante trabalhando. Mas também gosto de ler mangás, eu acompanho vários. Gosto de música, e tenho tentado produzir também, e jogos. Jogos estiveram comigo desde sempre e eu me mantenho informado sobre. Quem sabe eu não faço meu primeiro jogo no futuro?</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -76,28 +156,40 @@
     <div id="email-me" class="email-me" role="region" aria-label="Send an e-mail to Thomazella using this formulary">
       <form action="email.php" method="post" target="_self" name="Send Thomazella an email" aria-labelledby="lgn">
         <fieldset role="presentation">
-          <h2>Send me an e-mail!</h2>
+          <h2>Me manda um e-mail!</h2>
           <legend title="Send me an e-mail" id="lgn">Send me an e-mail!</legend>
 
           <div class="container-labelAndInput">
-            <label for="sender-name">Your name</label>
+            <label for="sender-name">Seu nome</label>
             <input type="text" id="sender-name" name="sender name" autocomplete="name" inputmode="text" placeholder="Sir FooBar" title="Please provide your name" required>
           </div>
 
           <div class="container-labelAndInput">
-            <label for="sender-email">Your email</label>
+            <label for="sender-email">Seu e-mail</label>
             <input type="email" id="sender-email" name="sender email" autocomplete="email" title="Please provide an email address containing an 'at' and a 'dot'" inputmode="text" placeholder="yourname@provider.com" pattern=".+@.+[.].+">
           </div>
 
           <label for="email-body">Your message</label>
           <textarea name="email body" id="email-body" rows="15" cols="30" title="Please provide a message with at least 10 characters" required maxlength="499" minlength="10"></textarea>
 
-          <input type="submit" id="submit-button" value="send e-mail" name="send e-mail">
+          <input type="submit" id="submit-button" value="Enviar" name="send e-mail">
         </fieldset>
       </form>
     </div>
 
-    <div id="footer" role="contentinfo">
+    <div class="thanks-for-reading" role="note">
+      <em>Obrigado pela visita</em>
+
+      <div class="container-thomazella-pic">
+        <div class="img-svg" id="pic-cartoon">
+          <svg width="100%" height="400" role="presentation">
+            <image xlink:href="css/img/pic-cartoon.svg" src="css/img/pic-cartoon.png" width="100%" height="100%" role="img" title="A cartoon of thomazella"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer" class="footer" role="contentinfo">
       <div class="nav-footer" role="navigation">
         <ul>
           <li><a href="index.html">This</a></li><li><a href="projects.html">Projects</a></li><br class="linebreak-for-mobile-nav" role="presentation"><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
