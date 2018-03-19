@@ -127,6 +127,7 @@ button
   display: flex
   flex-direction: column
   justify-content: flex-start
+  min-height: 768px
   min-height: 100vh
 
 %monospaced
@@ -198,8 +199,8 @@ button
 
 .nav
   @extend %monospaced
-  padding-top: 2vh
-  padding-bottom: 1vh
+  padding: 20px 0
+  padding: 2vh 0
   background-color: $color-bg-darker
   font-weight: 600
   ul
@@ -423,8 +424,8 @@ button
       font-size: 48px
       font-size: 3rem
   p
-    margin-bottom: 1.3em
-    margin-top: 1.3em
+    margin-top: 2em
+    margin-bottom: 2em
     @media screen and (min-width: $break-tabletM)
       text-align: justify
     @media screen and (min-width: $break-desktopS)
@@ -683,54 +684,10 @@ button
 button[name="choose-portuguese"]
   +opacity(1)
 
-#about
-  @extend .read
-  padding-top: 0
-
-.about-header
-  @extend %full-width-object
-  margin-bottom: 2em
-
-.about-text
-  @extend .read-text
-
-.thomazella-pics
-  +row
-  // text-align: center
-
-.container-thomazella-pic
-  @extend .container-image-left
-  padding-top: 1em
-  // display: inline-block
-  max-width: 400px
-  &:nth-child(2n -1)
-    transform: rotate(5deg)
-    filter: drop-shadow(7px 8px 0px $color-text)
-  &:nth-child(2n)
-    transform: rotate(-5deg)
-    filter: drop-shadow(-7px 8px 0px $color-text)
-  & > *
-    border: 2px solid $color-text
-  @media screen and (min-width: $break-tabletS)
-    max-width: 200px
-
-#pic-cartoon
-  background-color: $color-bg-darker
-  @media screen and (min-width: $break-tabletS)
-    svg
-      max-height: 190px
-
-#what-does-tazel-mean
-  span
-    @extend %transition-fast
-    transition-property: color
-  &:hover
-    span
-      color: $color-bg-darker
-
 // - - - - - - - - - - - - -
 // - - - - - - - Email Form
 // - - - - - - - - - - - - -
+
 %form-common
   padding: 2%
 
@@ -739,12 +696,12 @@ button[name="choose-portuguese"]
   label
     +col(4)
     @media screen and (min-width: $break-tabletS)
-      +col(2)
+      +col(2.5)
   input[type="email"],
   input[type="text"]
     +col(8)
     @media screen and (min-width: $break-tabletS)
-      +col(10)
+      +col(9.5)
   label[for="email-body"]
     display: none
 
@@ -787,6 +744,77 @@ input[type="submit"]
   &:hover
     cursor: pointer
     border-color: $color-text
+
+// - - - - - - - - - - - - -
+// - - - - - - - About
+// - - - - - - - - - - - - -
+
+#about
+  @extend .read
+  padding-top: 0
+
+.container-about
+  @media screen and (min-width: $break-tabletM)
+    +row
+
+.about-header
+  @extend %full-width-object
+  margin-bottom: 2em
+
+.about-text
+  @extend .read-text
+  @media screen and (min-width: $break-tabletM)
+    p
+      +col(3)
+      +gutter(0.15)
+      text-align: left
+
+.thomazella-pics
+  +row
+  text-align: center
+  @media screen and (min-width: $break-tabletS)
+    margin: 30px 0
+    margin: 3vh 0
+  @media screen and (min-width: $break-tabletM)
+    +col(3)
+    +gutter(0.7)
+    padding-top: 4em
+
+.container-thomazella-pic
+  display: inline-block
+  padding-top: 1em
+  max-width: 400px
+  margin-bottom: 1.5em
+  &:nth-child(2n -1)
+    transform: rotate(5deg)
+    filter: drop-shadow(7px 8px 0px $color-text)
+  &:nth-child(2n)
+    transform: rotate(-5deg)
+    filter: drop-shadow(-7px 8px 0px $color-text)
+  & > *
+    border: 2px solid $color-text
+  @media screen and (min-width: $break-tabletS)
+    max-width: 200px
+  @media screen and (min-width: $break-tabletM)
+    margin-bottom: 0
+
+
+#pic-cartoon
+  background-color: $color-bg-darker
+  svg
+    max-height: 310px
+    @media screen and (min-width: $break-mobileL)
+      max-height: 370px
+    @media screen and (min-width: $break-tabletS)
+      max-height: 190px
+
+#what-does-tazel-mean
+  span
+    @extend %transition-fast
+    transition-property: color
+  &:hover
+    span
+      color: $color-bg-darker
 
   // @media screen and (min-width: $break-mobileM)
   //
