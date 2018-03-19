@@ -43,7 +43,7 @@ body
   background-color: $color-bg-darker
   overflow-x: hidden
 
-#main
+.main
   margin: 0 auto
   overflow-y: hidden
   background-color: $color-bg
@@ -55,7 +55,7 @@ body
   z-index: 100
   width: 50%
 
-#header
+.header
   padding-bottom: 20px
   padding-bottom: 3vh
   text-align: center
@@ -115,7 +115,7 @@ button
   &:hover
     cursor: pointer
 
-#footer
+.footer
   background-color: $color-bg-darker
   padding: 1em 0 2em
   text-align: center
@@ -272,7 +272,7 @@ button
       margin-top: 190px
 
 .footer-home
-  @extend #footer
+  @extend .footer
   background-color: $color-bg
   .nav-footer
     display: none
@@ -324,12 +324,12 @@ button
     @media screen and (min-width: $break-tabletM)
       font-size: 18.7px
       font-size: 1.17rem
-  h1,
+  .heading1,
   h2
     @extend %monospaced
     text-align: left
     text-transform: uppercase
-  h1
+  .heading1
     font-size: 2.5em
   hr
     border: none
@@ -384,7 +384,7 @@ button
       margin-top: 0
       padding: 1.6px 8px 8px 8px
       padding: 0.1rem 0.5rem 0.5rem 0.5rem
-    h1
+    .heading1
       +col(9,24)
       margin-top: 0
       padding-right: 8px
@@ -414,9 +414,9 @@ button
   @media screen and (min-width: $break-tabletS)
     padding-right: 7%
     padding-left: 7%
-  h1
+  .heading1
     text-align: center
-    padding: 1.5em 0
+    padding: 2.5em 0
     @media screen and (min-width: $break-tabletM)
       font-size: 40px
       font-size: 2.5rem
@@ -433,7 +433,7 @@ button
   h2
     font-size: 32px
     font-size: 2rem
-    margin: 1.5em 0
+    padding: 1.5em 0
 
 .read-background
   background-color: $color-bg-darker
@@ -593,7 +593,7 @@ button
   hr
     @extend %project-border-common
     +border-stylus(bottom)
-  h1
+  .heading1
     font-size: 16px
     font-size: 1rem
     font-weight: 400
@@ -769,16 +769,31 @@ input[type="submit"]
       +gutter(0.15)
       text-align: left
 
-.thomazella-pics
-  +row
-  text-align: center
-  @media screen and (min-width: $break-tabletS)
-    margin: 30px 0
-    margin: 3vh 0
-  @media screen and (min-width: $break-tabletM)
-    +col(3)
-    +gutter(0.7)
-    padding-top: 4em
+// .thomazella-pics
+//   +row
+//   text-align: center
+//   @media screen and (min-width: $break-tabletS)
+//     margin: 30px 0
+//     margin: 3vh 0
+//   @media screen and (min-width: $break-tabletM)
+//     +col(3)
+//     +gutter(0.7)
+//     padding-top: 4em
+
+.container-rotated-right
+
+#what-does-tazel-mean
+  span
+    @extend %transition-fast
+    transition-property: color
+    line-height: 1.60
+  &:hover
+    span.fade-to-background
+      color: $color-bg-darker
+
+.with-a-box-around
+  background-color: $color-bg-darker
+  border: 3px solid $color-text
 
 .container-thomazella-pic
   display: inline-block
@@ -798,6 +813,45 @@ input[type="submit"]
   @media screen and (min-width: $break-tabletM)
     margin-bottom: 0
 
+// .who-i-am
+
+.heading3
+  @extend %monospaced
+  text-align: left
+  font-size: 1.5rem
+  margin: 2em 0
+
+// .what-i-do
+strong
+  @extend .heading1
+  display: inline-block
+
+.skills
+  b
+    text-transform: uppercase
+  li
+    line-height: 1.45
+    margin-bottom: 1.5em
+    @media screen and (min-width: $break-desktopS)
+      line-height: 1.55
+
+// .dev-skills
+//
+// .design-skills
+//
+// .other-skills
+
+// .opinions
+
+blockquote
+  font-style: italic
+  padding: 1em 2em
+  margin-left: 0
+
+.thanks-for-reading
+  margin: 9em 2em
+  .img-svg
+    margin-top: 4.5em
 
 #pic-cartoon
   background-color: $color-bg-darker
@@ -807,23 +861,3 @@ input[type="submit"]
       max-height: 370px
     @media screen and (min-width: $break-tabletS)
       max-height: 190px
-
-#what-does-tazel-mean
-  span
-    @extend %transition-fast
-    transition-property: color
-  &:hover
-    span
-      color: $color-bg-darker
-
-  // @media screen and (min-width: $break-mobileM)
-  //
-  // @media screen and (min-width: $break-mobileL)
-  //
-  // @media screen and (min-width: $break-tabletS)
-  //
-  // @media screen and (min-width: $break-tabletM)
-  //
-  // @media screen and (min-width: $break-desktopS)
-  //
-  // @media screen and (min-width: $break-desktopM)
