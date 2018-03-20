@@ -124,12 +124,13 @@ button {
   min-height: 768px;
   min-height: 100vh; }
 
-#professional-title, .nav, .nav-fancy, .nav-footer, .read-preview .heading1, .read .heading1, .project .heading1, #about .heading1, #email-me .heading1, .project-preview .heading1, .read-preview strong, .read strong, .project strong, #about strong, #email-me strong, .project-preview strong,
+#professional-title, .nav, .nav-fancy, .nav-footer, .read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong,
 .read-preview h2,
 .read h2,
 .project h2,
-#about h2,
+.about h2,
 #email-me h2,
+.thanks-for-reading h2,
 .project-preview h2, .heading3 {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
@@ -187,11 +188,12 @@ a.back:hover, a.other-site:hover, .nav ul li a:hover, .nav-fancy ul li a:hover, 
   color: #e5e5cf;
   border-color: inherit; }
 
-a, a.back .img-svg, a.back .thomazella-logo, .read-preview h1 span, .project-preview .heading1 span, .project-preview strong span, .language-switch button, input[type="submit"] {
+a, a.back .img-svg, a.back .thomazella-logo, .read-preview h1 span, .project-preview .heading1 span, .project-preview .what-i-do strong span, .what-i-do .project-preview strong span, .language-switch button, input,
+textarea {
   transition-duration: 1.15s;
   transition-timing-function: ease-out; }
 
-#what-does-tazel-mean span {
+.what-does-tazel-mean span {
   transition-duration: 0.57s;
   transition-timing-function: ease-in-out; }
 
@@ -329,36 +331,37 @@ a, a.back .img-svg, a.back .thomazella-logo, .read-preview h1 span, .project-pre
     .read-preview, .project-preview {
       margin-bottom: 0.4em; } }
 
-.read-preview p, .read p, .project p, #about p, #email-me p, .project-preview p {
+.read-preview p, .read p, .project p, .about p, #email-me p, .thanks-for-reading p, .project-preview p {
   text-transform: none;
   font-weight: 400;
   line-height: 1.45; }
   @media screen and (min-width: 1024px) {
-    .read-preview p, .read p, .project p, #about p, #email-me p, .project-preview p {
+    .read-preview p, .read p, .project p, .about p, #email-me p, .thanks-for-reading p, .project-preview p {
       font-size: 18.7px;
       font-size: 1.17rem; } }
-.read-preview .heading1, .read .heading1, .project .heading1, #about .heading1, #email-me .heading1, .project-preview .heading1, .read-preview strong, .read strong, .project strong, #about strong, #email-me strong, .project-preview strong,
+.read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong,
 .read-preview h2,
 .read h2,
 .project h2,
-#about h2,
+.about h2,
 #email-me h2,
+.thanks-for-reading h2,
 .project-preview h2 {
   text-align: left;
   text-transform: uppercase; }
-.read-preview .heading1, .read .heading1, .project .heading1, #about .heading1, #email-me .heading1, .project-preview .heading1, .read-preview strong, .read strong, .project strong, #about strong, #email-me strong, .project-preview strong {
+.read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong {
   font-size: 2.5em; }
-.read-preview hr, .read hr, .project hr, #about hr, #email-me hr, .project-preview hr {
+.read-preview hr, .read hr, .project hr, .about hr, #email-me hr, .thanks-for-reading hr, .project-preview hr {
   border: none; }
 
 .read-preview, .project-preview {
   background-position: center;
   background-size: cover; }
 
-.read-preview h1 span, .project-preview .heading1 span, .project-preview strong span {
+.read-preview h1 span, .project-preview .heading1 span, .project-preview .what-i-do strong span, .what-i-do .project-preview strong span {
   border-bottom: 2px solid transparent;
   transition-property: border-color; }
-  .read-preview h1 span:hover, .project-preview .heading1 span:hover, .project-preview strong span:hover {
+  .read-preview h1 span:hover, .project-preview .heading1 span:hover, .project-preview .what-i-do strong span:hover, .what-i-do .project-preview strong span:hover {
     border-color: #131323; }
 
 @media screen and (min-width: 1280px) {
@@ -419,7 +422,7 @@ a, a.back .img-svg, a.back .thomazella-logo, .read-preview h1 span, .project-pre
         margin-top: 0;
         padding: 1.6px 8px 8px 8px;
         padding: 0.1rem 0.5rem 0.5rem 0.5rem; }
-      .read-preview .heading1, .read-preview strong {
+      .read-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong {
         float: left;
         width: 37.5%;
         margin-top: 0;
@@ -437,42 +440,39 @@ a, a.back .img-svg, a.back .thomazella-logo, .read-preview h1 span, .project-pre
 .container-nontileable {
   background-color: rgba(255, 255, 252, 0.75); }
 
-.read, .project, #about, #email-me {
+.read, .project, .about, #email-me, .thanks-for-reading {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: block;
   display: inline-block;
   padding: 12% 3%; }
-  .read::after, .project::after, #about::after, #email-me::after {
+  .read::after, .project::after, .about::after, #email-me::after, .thanks-for-reading::after {
     content: "";
     display: block;
     clear: both; }
   @media screen and (min-width: 768px) {
-    .read, .project, #about, #email-me {
+    .read, .project, .about, #email-me, .thanks-for-reading {
       padding-right: 7%;
       padding-left: 7%; } }
-  .read .heading1, .project .heading1, #about .heading1, #email-me .heading1, .read strong, .project strong, #about strong, #email-me strong {
+  .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong {
     text-align: center;
     padding: 2.5em 0; }
     @media screen and (min-width: 1024px) {
-      .read .heading1, .project .heading1, #about .heading1, #email-me .heading1, .read strong, .project strong, #about strong, #email-me strong {
+      .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong {
         font-size: 40px;
         font-size: 2.5rem; } }
     @media screen and (min-width: 1280px) {
-      .read .heading1, .project .heading1, #about .heading1, #email-me .heading1, .read strong, .project strong, #about strong, #email-me strong {
+      .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong {
         font-size: 48px;
         font-size: 3rem; } }
-  .read p, .project p, #about p, #email-me p {
+  .read p, .project p, .about p, #email-me p, .thanks-for-reading p {
     margin-top: 2em;
     margin-bottom: 2em; }
-    @media screen and (min-width: 1024px) {
-      .read p, .project p, #about p, #email-me p {
-        text-align: justify; } }
     @media screen and (min-width: 1280px) {
-      .read p, .project p, #about p, #email-me p {
+      .read p, .project p, .about p, #email-me p, .thanks-for-reading p {
         line-height: 1.55; } }
-  .read h2, .project h2, #about h2, #email-me h2 {
+  .read h2, .project h2, .about h2, #email-me h2, .thanks-for-reading h2 {
     font-size: 32px;
     font-size: 2rem;
     padding: 1.5em 0; }
@@ -655,7 +655,7 @@ a, a.back .img-svg, a.back .thomazella-logo, .read-preview h1 span, .project-pre
     padding: 1.5em 0; }
   .project-preview hr {
     border-bottom-style: solid; }
-  .project-preview .heading1, .project-preview strong {
+  .project-preview .heading1, .project-preview .what-i-do strong, .what-i-do .project-preview strong {
     font-size: 16px;
     font-size: 1rem;
     font-weight: 400;
@@ -792,7 +792,12 @@ textarea {
 input,
 textarea {
   border-style: none;
-  background-color: #e5e5cf; }
+  background-color: #e5e5cf;
+  transition-property: border-color;
+  border: 2px solid transparent; }
+  input:focus,
+  textarea:focus {
+    border-color: #131323; }
 
 textarea {
   width: 100%;
@@ -805,46 +810,43 @@ fieldset {
 
 input[type="submit"] {
   font-weight: 600;
-  width: auto;
-  transition-property: border-color;
-  border-width: 2px;
-  border-color: transparent;
-  border-style: solid;
-  background-color: #e5e5cf; }
+  width: auto; }
   input[type="submit"]:hover {
     cursor: pointer;
     border-color: #131323; }
 
-#about, #email-me {
+.about, #email-me, .thanks-for-reading {
   padding-top: 0; }
 
-@media screen and (min-width: 1024px) {
-  .container-about {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    display: inline-block; }
-    .container-about::after {
-      content: "";
+.container-about {
+  padding: 0 4%; }
+  @media screen and (min-width: 768px) {
+    .container-about {
+      padding: 0; } }
+  @media screen and (min-width: 1024px) {
+    .container-about {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
       display: block;
-      clear: both; } }
+      display: inline-block; }
+      .container-about::after {
+        content: "";
+        display: block;
+        clear: both; } }
+  @media screen and (min-width: 1280px) {
+    .container-about {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1175px; } }
 
 .about-header {
   margin-bottom: 2em; }
-
-@media screen and (min-width: 1024px) {
-  .about-text p {
-    float: left;
-    width: 25%;
-    margin-right: 1.25%;
-    text-align: left; } }
-
-#what-does-tazel-mean span {
-  transition-property: color;
-  line-height: 1.6; }
-#what-does-tazel-mean:hover span.fade-to-background {
-  color: #f3f3e9; }
+  @media screen and (min-width: 1280px) {
+    .about-header {
+      margin-bottom: 15em;
+      margin-top: 5em; } }
 
 .with-a-box-around {
   background-color: #f3f3e9;
@@ -853,14 +855,10 @@ input[type="submit"] {
 .container-thomazella-pic {
   display: inline-block;
   padding-top: 1em;
-  max-width: 400px;
-  margin-bottom: 1.5em; }
-  .container-thomazella-pic:nth-child(2n -1) {
-    transform: rotate(5deg);
-    filter: drop-shadow(7px 8px 0px #131323); }
-  .container-thomazella-pic:nth-child(2n) {
-    transform: rotate(-5deg);
-    filter: drop-shadow(-7px 8px 0px #131323); }
+  max-width: 300px;
+  margin-bottom: 1.5em;
+  transform: rotate(5deg);
+  filter: drop-shadow(7px 8px 0px #131323); }
   .container-thomazella-pic > * {
     border: 2px solid #131323; }
   @media screen and (min-width: 768px) {
@@ -870,13 +868,77 @@ input[type="submit"] {
     .container-thomazella-pic {
       margin-bottom: 0; } }
 
+@media screen and (min-width: 768px) {
+  .about-text {
+    display: grid;
+    grid: repeat(4, auto)/repeat(8, 1fr); } }
+
+.what-does-tazel-mean h2 {
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.2em;
+  display: block;
+  transform: rotate(5deg); }
+  .what-does-tazel-mean h2:hover span.fade-to-background {
+    color: #f3f3e9; }
+.what-does-tazel-mean span {
+  transition-property: color;
+  line-height: 1.4; }
+@media screen and (min-width: 768px) {
+  .what-does-tazel-mean {
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    grid-area: 1/8;
+    position: relative;
+    top: -25px;
+    left: -25px; }
+    .what-does-tazel-mean h2 {
+      padding: 0;
+      width: 100%;
+      position: relative;
+      left: 14px;
+      margin-bottom: 0; } }
+@media screen and (min-width: 1280px) {
+  .what-does-tazel-mean {
+    grid-area: 1/5;
+    left: -76px;
+    top: -145px; } }
+
+@media screen and (min-width: 768px) {
+  .who-i-am {
+    grid-area: 1/1/auto/7; } }
+@media screen and (min-width: 1280px) {
+  .who-i-am {
+    grid-area: 1/1/auto/9;
+    display: grid;
+    grid: repeat(6, 5rem)/repeat(8, 1fr); }
+    .who-i-am p {
+      margin-top: 0; }
+    .who-i-am .heading3 {
+      grid-area: 1/1/auto/span 2;
+      align-self: end; }
+    .who-i-am p:nth-child(2) {
+      grid-area: 2/1/auto/span 3; }
+    .who-i-am p:nth-child(3) {
+      grid-area: 4/1/auto/span 3; }
+    .who-i-am p:nth-child(4) {
+      grid-area: 2/6/auto/span 3; } }
+
 .heading3 {
   text-align: left;
   font-size: 1.5rem;
   margin: 2em 0; }
 
-strong {
-  display: inline-block; }
+.what-i-do strong {
+  display: inline-block;
+  line-height: 1.35; }
+@media screen and (min-width: 768px) {
+  .what-i-do {
+    grid-area: 2/1/auto/9; } }
 
 .skills b {
   text-transform: uppercase; }
@@ -886,16 +948,73 @@ strong {
   @media screen and (min-width: 1280px) {
     .skills li {
       line-height: 1.55; } }
+@media screen and (min-width: 768px) {
+  .skills {
+    grid-area: 3/1/auto/9;
+    display: grid;
+    grid: repeat(3, 20.6rem)/repeat(2, 1fr);
+    grid-column-gap: 2.5em; }
+    .skills .dev-skills {
+      grid-area: 1/1; }
+    .skills .design-skills {
+      grid-area: 1/2; }
+    .skills .other-skills {
+      grid-area: 2/2/auto/span 1; } }
+@media screen and (min-width: 1280px) {
+  .skills {
+    grid: repeat(3, 20.6rem)/repeat(3, 1fr); }
+    .skills .other-skills {
+      grid-area: 1/3/auto/span 1; } }
+
+@media screen and (min-width: 768px) {
+  .opinions {
+    grid-area: 4/1/auto/span 8; }
+    .opinions .container {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      display: inline-block; }
+      .opinions .container::after {
+        content: "";
+        display: block;
+        clear: both; }
+    .opinions .container-thomazella-pic {
+      float: right;
+      position: relative;
+      left: 14px;
+      top: 70px; }
+    .opinions h2 {
+      float: left;
+      display: inline; }
+    .opinions ul {
+      display: grid;
+      grid: repeat(6, auto)/repeat(2, 1fr);
+      grid-column-gap: 2.5em; } }
+    @media screen and (min-width: 768px) and (min-width: 1280px) {
+      .opinions ul {
+        grid: repeat(6, auto)/repeat(3, 1fr); }
+        .opinions ul li:last-child {
+          grid-area: 2/2; } }
 
 blockquote {
   font-style: italic;
   padding: 1em 2em;
   margin-left: 0; }
 
-.thanks-for-reading {
-  margin: 9em 2em; }
-  .thanks-for-reading .img-svg, .thanks-for-reading .thomazella-logo {
-    margin-top: 4.5em; }
+.thanks-for-reading em {
+  margin-top: 4.5em;
+  display: block; }
+.thanks-for-reading .img-svg, .thanks-for-reading .thomazella-logo {
+  margin-top: 4.5em;
+  position: relative;
+  left: -30px; }
+@media screen and (min-width: 1280px) {
+  .thanks-for-reading .container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1175px; } }
 
 #pic-cartoon {
   background-color: #f3f3e9; }

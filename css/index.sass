@@ -427,7 +427,7 @@ button
     margin-top: 2em
     margin-bottom: 2em
     @media screen and (min-width: $break-tabletM)
-      text-align: justify
+      // text-align: justify
     @media screen and (min-width: $break-desktopS)
       line-height: 1.55
   h2
@@ -692,7 +692,7 @@ button[name="choose-portuguese"]
   padding: 2%
 
 #email-me
-  @extend #about
+  @extend .about
   label
     +col(4)
     @media screen and (min-width: $break-tabletS)
@@ -720,8 +720,13 @@ label
 input,
 textarea
   @extend %form-common
+  @extend %transition-standard
   border-style: none
   background-color: $color-bg-darker-darker
+  transition-property: border-color
+  border: 2px solid transparent
+  &:focus
+    border-color: $color-text
 
 textarea
   width: 100%
@@ -733,14 +738,8 @@ fieldset
     display: none
 
 input[type="submit"]
-  @extend %transition-standard
   font-weight: 600
   width: auto
-  transition-property: border-color
-  border-width: 2px
-  border-color: transparent
-  border-style: solid
-  background-color: $color-bg-darker-darker
   &:hover
     cursor: pointer
     border-color: $color-text
@@ -749,47 +748,26 @@ input[type="submit"]
 // - - - - - - - About
 // - - - - - - - - - - - - -
 
-#about
+.about
   @extend .read
   padding-top: 0
 
 .container-about
+  padding: 0 4%
+  @media screen and (min-width: $break-tabletS)
+    padding: 0
   @media screen and (min-width: $break-tabletM)
     +row
+  @media screen and (min-width: $break-desktopS)
+    +aligned-block
+    max-width: 1175px
 
 .about-header
   @extend %full-width-object
   margin-bottom: 2em
-
-.about-text
-  @extend .read-text
-  @media screen and (min-width: $break-tabletM)
-    p
-      +col(3)
-      +gutter(0.15)
-      text-align: left
-
-// .thomazella-pics
-//   +row
-//   text-align: center
-//   @media screen and (min-width: $break-tabletS)
-//     margin: 30px 0
-//     margin: 3vh 0
-//   @media screen and (min-width: $break-tabletM)
-//     +col(3)
-//     +gutter(0.7)
-//     padding-top: 4em
-
-.container-rotated-right
-
-#what-does-tazel-mean
-  span
-    @extend %transition-fast
-    transition-property: color
-    line-height: 1.60
-  &:hover
-    span.fade-to-background
-      color: $color-bg-darker
+  @media screen and (min-width: $break-desktopS)
+    margin-bottom: 15em
+    margin-top: 5em
 
 .with-a-box-around
   background-color: $color-bg-darker
@@ -798,14 +776,10 @@ input[type="submit"]
 .container-thomazella-pic
   display: inline-block
   padding-top: 1em
-  max-width: 400px
+  max-width: 300px
   margin-bottom: 1.5em
-  &:nth-child(2n -1)
-    transform: rotate(5deg)
-    filter: drop-shadow(7px 8px 0px $color-text)
-  &:nth-child(2n)
-    transform: rotate(-5deg)
-    filter: drop-shadow(-7px 8px 0px $color-text)
+  transform: rotate(5deg)
+  filter: drop-shadow(7px 8px 0px $color-text)
   & > *
     border: 2px solid $color-text
   @media screen and (min-width: $break-tabletS)
@@ -813,7 +787,62 @@ input[type="submit"]
   @media screen and (min-width: $break-tabletM)
     margin-bottom: 0
 
-// .who-i-am
+.about-text
+  @extend .read-text
+  @media screen and (min-width: $break-tabletS)
+    display: grid
+    grid: repeat(4, auto) / repeat(8, 1fr)
+  @media screen and (min-width: $break-tabletM)
+
+.what-does-tazel-mean
+  h2
+    +width-squeeze(60%)
+    padding: 0.2em
+    display: block
+    transform: rotate(5deg)
+    &:hover
+      span.fade-to-background
+        color: $color-bg-darker
+  span
+    @extend %transition-fast
+    transition-property: color
+    line-height: 1.4
+  @media screen and (min-width: $break-tabletS)
+    +width-squeeze(200px)
+    grid-area: 1 / 8
+    position: relative
+    top: -25px
+    left: -25px
+    h2
+      padding: 0
+      width: 100%
+      position: relative
+      left: 14px
+      margin-bottom: 0
+  @media screen and (min-width: $break-desktopS)
+    grid-area: 1 / 5
+    left: -76px
+    top: -145px
+
+.who-i-am
+  @media screen and (min-width: $break-tabletS)
+    grid-area: 1 / 1 / auto / 7
+  @media screen and (min-width: $break-desktopS)
+    grid-area: 1 / 1 / auto / 9
+    display: grid
+    grid: repeat(6, 5rem) / repeat(8, 1fr)
+    p
+      margin-top: 0
+    .heading3
+      grid-area: 1 / 1 / auto / span 2
+      align-self: end
+    p:nth-child(2)
+      grid-area: 2 / 1 / auto / span 3
+    p:nth-child(3)
+      grid-area: 4 / 1 / auto / span 3
+    p:nth-child(4)
+      grid-area: 2 / 6 / auto / span 3
+
 
 .heading3
   @extend %monospaced
@@ -821,10 +850,13 @@ input[type="submit"]
   font-size: 1.5rem
   margin: 2em 0
 
-// .what-i-do
-strong
-  @extend .heading1
-  display: inline-block
+.what-i-do
+  strong
+    @extend .heading1
+    display: inline-block
+    line-height: 1.35
+  @media screen and (min-width: $break-tabletS)
+    grid-area: 2 / 1 / auto / 9
 
 .skills
   b
@@ -834,14 +866,44 @@ strong
     margin-bottom: 1.5em
     @media screen and (min-width: $break-desktopS)
       line-height: 1.55
+  @media screen and (min-width: $break-tabletS)
+    grid-area: 3 / 1 / auto / 9
+    display: grid
+    grid: repeat(3, 20.6rem) / repeat(2, 1fr)
+    grid-column-gap: 2.5em
+    .dev-skills
+      grid-area: 1 / 1
+    .design-skills
+      grid-area: 1 / 2
+    .other-skills
+      grid-area: 2 / 2 / auto / span 1
+  @media screen and (min-width: $break-desktopS)
+    grid: repeat(3, 20.6rem) / repeat(3, 1fr)
+    .other-skills
+      grid-area: 1 / 3 / auto / span 1
 
-// .dev-skills
-//
-// .design-skills
-//
-// .other-skills
 
-// .opinions
+.opinions
+  @media screen and (min-width: $break-tabletS)
+    grid-area: 4 / 1 / auto / span 8
+    .container
+      +row
+    .container-thomazella-pic
+      float: right
+      position: relative
+      left: 14px
+      top: 70px
+    h2
+      float: left
+      display: inline
+    ul
+      display: grid
+      grid: repeat(6, auto) / repeat(2, 1fr)
+      grid-column-gap: 2.5em
+      @media screen and (min-width: $break-desktopS)
+        grid: repeat(6, auto) / repeat(3, 1fr)
+        li:last-child
+          grid-area: 2 / 2
 
 blockquote
   font-style: italic
@@ -849,9 +911,18 @@ blockquote
   margin-left: 0
 
 .thanks-for-reading
-  margin: 9em 2em
+  @extend .about
+  em
+    margin-top: 4.5em
+    display: block
   .img-svg
     margin-top: 4.5em
+    position: relative
+    left: -30px
+  .container
+    @media screen and (min-width: $break-desktopS)
+      +aligned-block
+      max-width: 1175px
 
 #pic-cartoon
   background-color: $color-bg-darker
