@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,24 +16,24 @@
     <div role="banner" id="header" class="header">
       <div class="nav" role="navigation">
         <ul>
-          <li><a href="index.html">This</a></li><li><a href="projects.html">Projects</a></li><br class="linebreak-for-mobile-nav" role="presentation"><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
+          <li><a href="index.html">This</a></li><li><a href="projects.html">Projects<br class="linebreak-for-mobile-nav" role="presentation"></a></li><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
         </ul>
       </div>
 
       <div class="language-switch" role="menu">
         <button type="button" name="choose-english" title="Read in English">
-          <div class="img-svg">
+          <span class="img-svg">
             <svg width="100%" height="30" role="presentation">
-              <image xlink:href="css/img/flag-america.svg" src="css/img/flag-america.png" width="100%" height="100%" role="img" title="A flag of America"/>
+              <image xlink:href="css/img/flag-america.svg" src="css/img/flag-america.png" width="100%" height="100%" role="img" xlink:title="A flag of America"/>
             </svg>
-          </div>
+          </span>
         </button>
         <button type="button" name="choose-portuguese" class="active" title="Read in Portuguese">
-          <div class="img-svg">
+          <span class="img-svg">
             <svg width="100%" height="30" role="presentation">
-              <image xlink:href="css/img/flag-brazil.svg" src="css/img/flag-brazil.png" width="100%" height="100%" role="img" title="A flag of Brazil"/>
+              <image xlink:href="css/img/flag-brazil.svg" src="css/img/flag-brazil.png" width="100%" height="100%" role="img" xlink:title="A flag of Brazil"/>
             </svg>
-          </div>
+          </span>
         </button>
       </div>
     </div>
@@ -55,7 +55,7 @@
                 </span></h2>
 
             <div class="container-thomazella-pic">
-              <img src="css/img/pic-surprise.png" alt="a casual picture of thomazella" role="img">
+              <img src="css/img/pic-surprise.png" alt="a casual picture of thomazella">
             </div>
           </div>
 
@@ -115,7 +115,7 @@
               <h2>Eu acho o seguinte</h2>
 
               <div class="container-thomazella-pic">
-                <img src="css/img/pic-pro.png" alt="a picture of thomazella lookin like an ''''adult''''" role="img">
+                <img src="css/img/pic-pro.png" alt="a picture of thomazella lookin like an ''''adult''''">
               </div>
             </div>
 
@@ -156,17 +156,17 @@
     <div id="email-me" class="email-me" role="region" aria-label="Send an e-mail to Thomazella using this formulary">
       <form action="email.php" method="post" target="_self" name="Send Thomazella an email" aria-labelledby="lgn">
         <fieldset role="presentation">
-          <h2>Me manda um e-mail!</h2>
           <legend title="Send me an e-mail" id="lgn">Send me an e-mail!</legend>
+          <h2>Me manda um e-mail!</h2>
 
           <div class="container-labelAndInput">
             <label for="sender-name">Seu nome</label>
-            <input type="text" id="sender-name" name="sender name" autocomplete="name" inputmode="text" placeholder="Sir FooBar" title="Please provide your name" required>
+            <input type="text" id="sender-name" name="sender name" autocomplete="name" placeholder="Sir FooBar" title="Please provide your name" required>
           </div>
 
           <div class="container-labelAndInput">
             <label for="sender-email">Seu e-mail</label>
-            <input type="email" id="sender-email" name="sender email" autocomplete="email" title="Please provide an email address containing an 'at' and a 'dot'" inputmode="text" placeholder="yourname@provider.com" pattern=".+@.+[.].+">
+            <input type="email" id="sender-email" name="sender email" autocomplete="email" title="Please provide an email address containing an 'at' and a 'dot'" placeholder="yourname@provider.com" pattern=".+@.+[.].+">
           </div>
 
           <label for="email-body">Your message</label>
@@ -185,7 +185,7 @@
       <div class="container-thomazella-pic">
         <div class="img-svg" id="pic-cartoon">
           <svg width="100%" height="400" role="presentation">
-            <image xlink:href="css/img/pic-cartoon.svg" src="css/img/pic-cartoon.png" width="100%" height="100%" role="img" title="A cartoon of thomazella"/>
+            <image xlink:href="css/img/pic-cartoon.svg" src="css/img/pic-cartoon.png" width="100%" height="100%" role="img" xlink:title="A cartoon of thomazella"/>
           </svg>
         </div>
       </div>
@@ -195,7 +195,7 @@
     <div id="footer" class="footer" role="contentinfo">
       <div class="nav-footer" role="navigation">
         <ul>
-          <li><a href="index.html">This</a></li><li><a href="projects.html">Projects</a></li><br class="linebreak-for-mobile-nav" role="presentation"><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
+          <li><a href="index.html">This</a></li><li><a href="projects.html">Projects<br class="linebreak-for-mobile-nav" role="presentation"></a></li><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
         </ul>
       </div>
 
@@ -203,7 +203,7 @@
         <li><a href="https://facebook.com/thomazell" title="Find Thomazella on facebook">
           <div class="img-svg">
             <svg width="100%" height="50" role="presentation">
-              <image xlink:href="css/img/facebook.svg" src="css/img/facebook.png" width="100%" height="100%" role="img" title="Facebook icon"/>
+              <image xlink:href="css/img/facebook.svg" src="css/img/facebook.png" width="100%" height="100%" role="img" xlink:title="Facebook icon"/>
             </svg>
           </div>
         </a></li>
@@ -211,7 +211,7 @@
         <li><a href="https://github.com/Thomazella" title="Find Thomazella on github">
           <div class="img-svg">
             <svg width="100%" height="50" role="presentation">
-              <image xlink:href="css/img/github.svg" src="css/img/github.png" width="100%" height="100%" role="img" title="Github icon"/>
+              <image xlink:href="css/img/github.svg" src="css/img/github.png" width="100%" height="100%" role="img" xlink:title="Github icon"/>
             </svg>
           </div>
         </a></li>
@@ -219,13 +219,13 @@
         <li><a href="https://www.linkedin.com/in/thomazella/" title="Find Thomazella on linkedIn">
           <div class="img-svg">
             <svg width="100%" height="50" role="presentation">
-              <image xlink:href="css/img/linkedin.svg" src="css/img/linkedin.png" width="100%" height="100%" role="img" title="linkedIn icon"/>
+              <image xlink:href="css/img/linkedin.svg" src="css/img/linkedin.png" width="100%" height="100%" role="img" xlink:title="linkedIn icon"/>
             </svg>
           </div>
         </a></li>
       </ul>
     </div>
   </div>
-  <script type="text/javascript" src="js/index.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
