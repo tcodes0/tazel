@@ -31,6 +31,10 @@ img {
 
 button {
   background-color: inherit; }
+  button:focus {
+    outline-style: none !important;
+    transform: scale(1.15);
+    zoom: 1.15; }
 
 /* ------- */
 /*   css   */
@@ -720,10 +724,10 @@ textarea {
   margin-top: 1em;
   background-color: #f3f3e9;
   padding: 1%;
-  padding-left: 7px;
   display: inline-block;
+  text-align: center;
   position: relative;
-  left: -2px; }
+  left: -3px; }
   .language-switch .img-svg, .language-switch .thomazella-logo {
     max-width: 50px;
     padding-top: 3.2px;
@@ -895,7 +899,7 @@ input[type="submit"] {
     margin-right: auto;
     grid-area: 1/8;
     position: relative;
-    top: -25px;
+    top: -45px;
     left: -25px; }
     .what-does-tazel-mean h2 {
       padding: 0;
@@ -939,7 +943,7 @@ input[type="submit"] {
 
 .what-i-do strong {
   display: inline-block;
-  line-height: 1.35; }
+  line-height: 1.55; }
 @media screen and (min-width: 768px) {
   .what-i-do {
     grid-area: 2/1/auto/9; } }
