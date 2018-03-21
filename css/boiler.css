@@ -29,5 +29,9 @@ img {
 
 button {
   background-color: inherit; }
+  button:focus {
+    outline-style: none !important;
+    transform: scale(1.15);
+    zoom: 1.15; }
 
 /*# sourceMappingURL=boiler.css.map */
