@@ -1,6 +1,6 @@
-// @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
-@import "normalize.css"
-// @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
+// @import "normalize.css"
+@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
 @import "boiler.sass"
 @import "grid-min.sass"
 /* ------- */
@@ -52,7 +52,7 @@ body
   border: 1px solid black
   position: absolute
   display: none
-  z-index: 100
+  z-index: 900
   width: 50%
 
 .header
@@ -537,7 +537,6 @@ button
   position: absolute
   display: none
   height: 50%
-  z-index: 1
   // %'s on this element look weird in code, 36.3, 27...
     but look right on screen. Probably compounded paddings on parents.
 
@@ -587,7 +586,7 @@ button
   +width-squeeze
   padding: 5% 7%
   transition: background-color 0.5s ease
-  // background-image: url('img/pat1.svg')
+  position: relative
   p
     padding: 1.5em 0
   hr
@@ -681,7 +680,7 @@ button
     &.active
       +opacity(1)
 
-button[name="choose-portuguese"]
+button.active
   +opacity(1)
 
 // - - - - - - - - - - - - -
@@ -792,7 +791,6 @@ input[type="submit"]
   @media screen and (min-width: $break-tabletS)
     display: grid
     grid: repeat(4, auto) / repeat(8, 1fr)
-  @media screen and (min-width: $break-tabletM)
 
 .what-does-tazel-mean
   h2
@@ -819,6 +817,10 @@ input[type="submit"]
       position: relative
       left: 14px
       margin-bottom: 0
+      & > span
+        // fixes the border glitch
+        display: inline-block
+        margin-bottom: -3px
   @media screen and (min-width: $break-desktopS)
     grid-area: 1 / 5
     left: -76px

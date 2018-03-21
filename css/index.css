@@ -1,4 +1,5 @@
-@import url(normalize.css);
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css";
+@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400";
 /* --------------- */
 /*   boilerplate   */
 /* --------------- */
@@ -50,7 +51,7 @@ body {
   border: 1px solid black;
   position: absolute;
   display: none;
-  z-index: 100;
+  z-index: 900;
   width: 50%; }
 
 .header {
@@ -585,8 +586,7 @@ textarea {
   border-right-style: solid;
   position: absolute;
   display: none;
-  height: 50%;
-  z-index: 1; }
+  height: 50%; }
 
 .container-project-previews {
   display: block;
@@ -649,6 +649,7 @@ textarea {
   margin-right: auto;
   padding: 5% 7%;
   transition: background-color 0.5s ease;
+  position: relative;
   /* ---- grid fallback ---- */
   /* ---- fallback override ---- */ }
   .project-preview p {
@@ -742,7 +743,7 @@ textarea {
       filter: alpha(opacity=100);
       opacity: 1; }
 
-button[name="choose-portuguese"] {
+button.active {
   zoom: 1;
   filter: alpha(opacity=100);
   opacity: 1; }
@@ -901,7 +902,10 @@ input[type="submit"] {
       width: 100%;
       position: relative;
       left: 14px;
-      margin-bottom: 0; } }
+      margin-bottom: 0; }
+      .what-does-tazel-mean h2 > span {
+        display: inline-block;
+        margin-bottom: -3px; } }
 @media screen and (min-width: 1280px) {
   .what-does-tazel-mean {
     grid-area: 1/5;
