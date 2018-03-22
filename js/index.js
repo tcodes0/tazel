@@ -70,27 +70,6 @@ const homeHide_FooterNav = () => {
   $('.nav-footer').setAttribute('hidden','')
 }
 onLoaders.push(homeHide_FooterNav)
-
-const articles_PlaceholderText = () => {
-  if (ThisPageIsNot(articles)) {
-    return
-  }
-  let rps = [...document.querySelectorAll('.read-preview')]
-  let bodyRGB = getComputedStyle(document.body).backgroundColor.match(/rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})/)
-  rps.forEach((rp, i) => {
-    if (i % 2 === 0) {
-      rp.style.backgroundImage = `linear-gradient(rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.7), rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.97)), url("../css/img/coffee.svg")`
-      // rp.querySelector('.date-written').textContent = "december 2017"
-      // rp.querySelector('.title').textContent = "my how to wash a dog f"
-      // rp.querySelector('.intro-text').textContent = "To properly wash a dog there are several tricky spots you need to rinse, soap and rub properly. This article breaks it down to you and even pets you a little bit."
-    } else {
-      rp.style.backgroundImage = `linear-gradient(rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.7), rgba(${bodyRGB[1]}, ${bodyRGB[2]}, ${bodyRGB[3]}, 0.97)), url("../css/img/bg1.jpg")`
-      // rp.querySelector('.date-written').textContent = "january 2018"
-      // rp.querySelector('.title').textContent = "how to do a steak on ice"
-      // rp.querySelector('.intro-text').textContent = "I bet you thought impossible to cook good meat on ice, but turns out is it possible, not just possible, DELISH!"
-    }
-  })
-}
 // onLoaders.push(articles_PlaceholderText)
 
 const light_Colors = () => {
@@ -99,10 +78,11 @@ const light_Colors = () => {
   $('body').style.color = 'rgb(19,19,35)'
 }
 // onLoaders.push(light_Colors)
-// - - - - - - - - - HOME
-// - - - - - - - - - - - - - - -
 
 const langSwitcher_ClickHandler = () => {
+  if (ThisPageIsNot(about) && ThisPageIsNot(home)) {
+    return
+  }
   $$('.language-switch button').forEach(b => b.addEventListener('click', e => {
     let t
     if (e.target.nodeName === "image") {
@@ -121,7 +101,11 @@ const langSwitcher_ClickHandler = () => {
       } else {
         t.previousElementSibling.classList.remove('active')
       }
-      document.documentElement.attributes.lang.value === "pt" ? english_About() : window.location.reload(false)
+      if (ThisPageIs(about)) {
+        document.documentElement.attributes.lang.value === "pt" ? english_About() : window.location.reload(false)
+      } else if (ThisPageIs(home)) {
+        document.documentElement.attributes.lang.value === "pt" ? english_Home() : window.location.reload(false)
+      }
     }
   }))
 }
@@ -134,11 +118,9 @@ const english_About = () => {
       if (x.length) {
         x.forEach(xx => {
           xx.style.opacity = 1
-          // xx.classList.add('js-language-switch-fadein')
         })
       } else {
         x.style.opacity = 1
-        // x.classList.add('js-language-switch-fadein')
       }
     })
   }
@@ -217,7 +199,7 @@ const english_About = () => {
 
     oth_h3.textContent = "And also"
     oth_li.innerHTML = "I know bussiness modeling and a thing or two about <b>entrepreneurship,</b> I studied it in college. I speak <b>English</b> since I was 16, having lived about a year in the US." +
-      " Strangely enough I never taught anyone. I work well in <b>groups</b> and I run <b>presentations</b> just fine. I consider myself <b>confident and rational</b>"
+      " Strangely enough I never taught anyone. I work well in <b>groups</b> and I run <b>presentations</b> just fine. I consider myself <b>confident and rational.</b>"
 
     opn_h2.textContent = "Here's what I think"
 
@@ -253,6 +235,7 @@ const english_About = () => {
     des_li, oth_h3, oth_li, opn_h2, opn_li, fom_h2,
     fom_la, fom_in, fom_submit, thanks)
   all[0].addEventListener('transitionend', changeToEnglish, {once: true})
+
   all.forEach(x => {
     let ts = "opacity 1.15s ease-out"
     if (x.length) {
@@ -267,3 +250,32 @@ const english_About = () => {
   })
   return all
 }
+
+const langSwitcher_Enabler = () => {
+  if (ThisPageIsNot(home) && ThisPageIsNot(about)) {
+    return
+  }
+  $('.language-switch').classList.remove('hide')
+}
+onLoaders.push(langSwitcher_Enabler)
+
+const english_Home = () => {
+  const changeToEnglish = () => {
+    $('html').setAttribute('lang','en')
+    pro.innerHTML = "Hi there!<br> I work building websites and enjoy it a lot. I think constantly about the people" +
+    " using my work and how to make it better. You can see and play with my stuff or just read it."
+    fadeIn()
+  }
+  const fadeIn = () => {
+    window.addEventListener('scroll', cleanStyles, {once: true})
+    pro.style.opacity = 1
+  }
+  const cleanStyles = () => pro.removeAttribute('style')
+
+  let pro = $('#professional-description h2')
+  let ts = "opacity 1.15s ease-out"
+  pro.addEventListener('transitionend', changeToEnglish, {once: true})
+  pro.style.transition = ts
+  pro.style.opacity = 0
+}
+// onLoaders.push(english_Home)
