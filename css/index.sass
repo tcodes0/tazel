@@ -1,6 +1,6 @@
-@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
-// @import "normalize.css"
-@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
+// @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
+@import "normalize.css"
+// @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
 @import "boiler.sass"
 @import "grid-min.sass"
 /* ------- */
@@ -119,6 +119,9 @@ button
   background-color: $color-bg-darker
   padding: 1em 0 2em
   text-align: center
+
+.hide
+  display: none !important
 /*________________________________________________________________
   -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
   ________________________________________________________________
@@ -574,15 +577,10 @@ button
         &:nth-child(3)
           left: 40.8%
 
-%no-date
-  .span-date
-    display: none
-
 .project-preview
   @extend %preview
   @extend %read-common-children
   @extend %background
-  @extend %no-date
   +width-squeeze
   padding: 5% 7%
   transition: background-color 0.5s ease
@@ -599,6 +597,8 @@ button
     margin-top: 2.67em
     span
       @extend %hover-underline
+  .span-date
+    display: none
   &:hover
     background-color: $color-bg-darker
   /* ---- grid fallback ----
@@ -682,6 +682,10 @@ button
 
 button.active
   +opacity(1)
+
+.header.fancy
+  .language-switch
+      background-color: transparent
 
 // - - - - - - - - - - - - -
 // - - - - - - - Email Form
@@ -828,11 +832,11 @@ input[type="submit"]
 
 .who-i-am
   @media screen and (min-width: $break-tabletS)
-    grid-area: 1 / 1 / auto / 7
+    grid-area: 1 / 1 / auto / 6
   @media screen and (min-width: $break-desktopS)
     grid-area: 1 / 1 / auto / 9
     display: grid
-    grid: repeat(6, 5rem) / repeat(8, 1fr)
+    grid: repeat(4, 5rem) / repeat(8, 1fr)
     p
       margin-top: 0
     .heading3
@@ -841,7 +845,7 @@ input[type="submit"]
     p:nth-child(2)
       grid-area: 2 / 1 / auto / span 3
     p:nth-child(3)
-      grid-area: 4 / 1 / auto / span 3
+      grid-area: 2 / 6 / auto / span 3
     p:nth-child(4)
       grid-area: 2 / 6 / auto / span 3
 
@@ -908,7 +912,7 @@ input[type="submit"]
 
 blockquote
   font-style: italic
-  padding: 1em 2em
+  padding: 0 2em
   margin-left: 0
 
 .thanks-for-reading

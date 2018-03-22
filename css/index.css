@@ -1,5 +1,4 @@
-@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css";
-@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400";
+@import url(normalize.css);
 /* --------------- */
 /*   boilerplate   */
 /* --------------- */
@@ -118,6 +117,9 @@ button {
   background-color: #f3f3e9;
   padding: 1em 0 2em;
   text-align: center; }
+
+.hide {
+  display: none !important; }
 
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
@@ -643,9 +645,6 @@ textarea {
           .container-project-previews .project-absolute-separator:nth-child(3) {
             left: 40.8%; } } }
 
-.project-preview .span-date {
-  display: none; }
-
 .project-preview {
   width: 95%;
   display: block;
@@ -665,6 +664,8 @@ textarea {
     font-size: 1rem;
     font-weight: 400;
     margin-top: 2.67em; }
+  .project-preview .span-date {
+    display: none; }
   .project-preview:hover {
     background-color: #f3f3e9; }
   @media screen and (min-width: 768px) {
@@ -751,6 +752,9 @@ button.active {
   zoom: 1;
   filter: alpha(opacity=100);
   opacity: 1; }
+
+.header.fancy .language-switch {
+  background-color: transparent; }
 
 label, input,
 textarea {
@@ -918,12 +922,12 @@ input[type="submit"] {
 
 @media screen and (min-width: 768px) {
   .who-i-am {
-    grid-area: 1/1/auto/7; } }
+    grid-area: 1/1/auto/6; } }
 @media screen and (min-width: 1280px) {
   .who-i-am {
     grid-area: 1/1/auto/9;
     display: grid;
-    grid: repeat(6, 5rem)/repeat(8, 1fr); }
+    grid: repeat(4, 5rem)/repeat(8, 1fr); }
     .who-i-am p {
       margin-top: 0; }
     .who-i-am .heading3 {
@@ -932,7 +936,7 @@ input[type="submit"] {
     .who-i-am p:nth-child(2) {
       grid-area: 2/1/auto/span 3; }
     .who-i-am p:nth-child(3) {
-      grid-area: 4/1/auto/span 3; }
+      grid-area: 2/6/auto/span 3; }
     .who-i-am p:nth-child(4) {
       grid-area: 2/6/auto/span 3; } }
 
@@ -1007,7 +1011,7 @@ input[type="submit"] {
 
 blockquote {
   font-style: italic;
-  padding: 1em 2em;
+  padding: 0 2em;
   margin-left: 0; }
 
 .thanks-for-reading em {
