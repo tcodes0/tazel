@@ -111,30 +111,34 @@ const langSwitcher_ClickHandler = () => {
 }
 onLoaders.push(langSwitcher_ClickHandler)
 
+const langSwitcher_Enabler = () => {
+  if (ThisPageIsNot(home) && ThisPageIsNot(about)) {
+    return
+  }
+  $('.language-switch').classList.remove('hide')
+}
+onLoaders.push(langSwitcher_Enabler)
+
+const notSureIfList_RunTask = (object, task) => {
+  if (object.forEach) {
+    object.forEach(obj => {
+      notSureIfList_RunTask(obj, task)
+    })
+  } else {
+    task(object)
+  }
+}
+
+const cleanStyles = obj => notSureIfList_RunTask(obj, o => o.removeAttribute('style'))
+const changeOpacity = (obj, value) => notSureIfList_RunTask(obj, o => o.style.opacity = value)
+
 const english_About = () => {
   const fadeIn = () => {
-    window.addEventListener('scroll', cleanStyles, {once: true})
-    all.forEach(x => {
-      if (x.length) {
-        x.forEach(xx => {
-          xx.style.opacity = 1
-        })
-      } else {
-        x.style.opacity = 1
-      }
-    })
+    window.addEventListener('scroll', clean, {once: true})
+    changeOpacity(all, 1)
   }
-  const cleanStyles = () => {
-    all.forEach(x => {
-      if (x.length) {
-        x.forEach(xx => {
-          xx.removeAttribute('style')
-        })
-      } else {
-        x.removeAttribute('style')
-      }
-    })
-  }
+  const clean = () => cleanStyles(all)
+
   let all = []
 
   let h_h1 = $('.about-header h1')
@@ -236,28 +240,13 @@ const english_About = () => {
     fom_la, fom_in, fom_submit, thanks)
   all[0].addEventListener('transitionend', changeToEnglish, {once: true})
 
-  all.forEach(x => {
-    let ts = "opacity 1.15s ease-out"
-    if (x.length) {
-      x.forEach(xx => {
-        xx.style.transition = ts
-        xx.style.opacity = 0
-      })
-    } else {
-      x.style.transition = ts
-      x.style.opacity = 0
-    }
+  notSureIfList_RunTask(all, a => {
+    a.style.transition = "opacity 1.15s ease-out"
+    a.style.opacity = 0
   })
+
   return all
 }
-
-const langSwitcher_Enabler = () => {
-  if (ThisPageIsNot(home) && ThisPageIsNot(about)) {
-    return
-  }
-  $('.language-switch').classList.remove('hide')
-}
-onLoaders.push(langSwitcher_Enabler)
 
 const english_Home = () => {
   const changeToEnglish = () => {
@@ -267,15 +256,13 @@ const english_Home = () => {
     fadeIn()
   }
   const fadeIn = () => {
-    window.addEventListener('scroll', cleanStyles, {once: true})
+    window.addEventListener('scroll', clean, {once: true})
     pro.style.opacity = 1
   }
-  const cleanStyles = () => pro.removeAttribute('style')
+  const clean = () => cleanStyles(pro)
 
   let pro = $('#professional-description h2')
-  let ts = "opacity 1.15s ease-out"
   pro.addEventListener('transitionend', changeToEnglish, {once: true})
-  pro.style.transition = ts
+  pro.style.transition = "opacity 1.15s ease-out"
   pro.style.opacity = 0
 }
-// onLoaders.push(english_Home)
