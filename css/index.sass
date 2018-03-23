@@ -44,6 +44,8 @@ body
   overflow-x: hidden
 
 .main
+  min-height: 768px
+  min-height: 100vh
   margin: 0 auto
   overflow-y: hidden
   background-color: $color-bg
@@ -72,6 +74,8 @@ a
     color: $color-text-darker
   &.disabled
     cursor: default
+    span
+      border-color: transparent !important
   &.close
     float: right
     margin-right: 3.2px
@@ -87,7 +91,7 @@ a
     display: block
     text-align: center
     text-transform: none
-    margin-bottom: 0.5em
+    margin-bottom: 1.25em
     &:hover .img-svg
       +opacity(0.15)
     span
@@ -126,12 +130,10 @@ button
   -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
   ________________________________________________________________
 
-.container-100vh
+.flex-vertical-align-center
   display: flex
   flex-direction: column
   justify-content: flex-start
-  min-height: 768px
-  min-height: 100vh
 
 %monospaced
   font-family: 'Roboto Mono', monospace
@@ -247,8 +249,6 @@ button
 #professional-description
   @media screen and (min-width: $break-mobileM)
     min-height: 280px
-  @media screen and (min-width: $break-desktopM)
-    min-height: 510px
   display: flex
   flex-grow: 1
   flex-direction: column
@@ -272,7 +272,12 @@ button
     @media screen and (min-width: $break-desktopM)
       max-width: 40%
     @media screen and (min-width: $break-desktopM)
-      margin-top: 190px
+      margin-top: 130px
+    //OVERRIDE for flexbox vertical align
+    @supports (display: flex)
+      // margin-top: 2em
+      // margin-bottom: 2em
+      padding: 0
 
 .footer-home
   @extend .footer
@@ -349,6 +354,7 @@ button
     border-color: $color-text
 
 #previews
+  // min-height: 65vh
   @media screen and (min-width: $break-desktopS)
     +row
     +padding-squeeze(1%)
@@ -514,6 +520,7 @@ button
 
 .added-by-js
   position: absolute
+  z-index: 200
   width: 100%
   background-color: white
   background-color: $color-bg-transparent
@@ -532,7 +539,7 @@ button
 
 %project-border-common
   border-color: $color-bg-darker
-  border-width: 2px
+  border-width: 3px
 
 .project-absolute-separator
   @extend %project-border-common
@@ -660,7 +667,7 @@ button
 
 .language-switch
   margin-top: 1em
-  background-color: $color-bg-darker
+  // background-color: $color-bg-darker
   padding: 1%
   display: inline-block
   text-align: center
@@ -682,10 +689,6 @@ button
 
 button.active
   +opacity(1)
-
-.header.fancy
-  .language-switch
-      background-color: transparent
 
 // - - - - - - - - - - - - -
 // - - - - - - - Email Form
