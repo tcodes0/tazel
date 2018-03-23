@@ -6,8 +6,10 @@ const projects = 'Thomazella\'s projects'
 const about = 'About Thomazella'
 const $ = q => document.querySelector(q)
 const $$ = q => document.querySelectorAll(q)
-const f = document.querySelector('.footer')
-const m = document.querySelector('.main')
+const f = $('.footer') || $('.footer-home')
+const m = $('.main')
+const transitionStandard = "1.15s ease-out"
+const transitionSmooth = "2.15s ease-in-out"
 let resizers = []
 let onLoaders = []
 
@@ -130,14 +132,14 @@ const notSureIfList_RunTask = (object, task) => {
 }
 
 const cleanStyles = obj => notSureIfList_RunTask(obj, o => o.removeAttribute('style'))
+
 const changeOpacity = (obj, value) => notSureIfList_RunTask(obj, o => o.style.opacity = value)
 
 const english_About = () => {
   const fadeIn = () => {
-    window.addEventListener('scroll', clean, {once: true})
+    window.addEventListener('scroll', () => cleanStyles(all), {once: true})
     changeOpacity(all, 1)
   }
-  const clean = () => cleanStyles(all)
 
   let all = []
 
@@ -241,7 +243,7 @@ const english_About = () => {
   all[0].addEventListener('transitionend', changeToEnglish, {once: true})
 
   notSureIfList_RunTask(all, a => {
-    a.style.transition = "opacity 1.15s ease-out"
+    a.style.transition = `opacity ${transitionStandard}`
     a.style.opacity = 0
   })
 
@@ -256,13 +258,196 @@ const english_Home = () => {
     fadeIn()
   }
   const fadeIn = () => {
-    window.addEventListener('scroll', clean, {once: true})
+    window.addEventListener('scroll', () => cleanStyles(pro), {once: true})
     pro.style.opacity = 1
   }
-  const clean = () => cleanStyles(pro)
 
   let pro = $('#professional-description h2')
   pro.addEventListener('transitionend', changeToEnglish, {once: true})
-  pro.style.transition = "opacity 1.15s ease-out"
+  pro.style.transition = `opacity ${transitionStandard}`
   pro.style.opacity = 0
 }
+
+const footer_OnBottom = () => {
+  if (f.offsetHeight + f.offsetTop < window.innerHeight) {
+    f.style.position = "absolute"
+    f.style.bottom = "0"
+    m.style.height = window.innerHeight + 'px'
+  }
+}
+onLoaders.push(footer_OnBottom)
+resizers.push(footer_OnBottom)
+
+const findALinkParent = x => x.nodeName === "A" ? x : findALinkParent(x.parentNode)
+
+const previewArticles_LinkHooker = () => {
+  const handler = e => {
+    e.preventDefault()
+    if ($('.added-by-js')) {
+      return
+    } else {
+      floatingArticle_Inserter(e)
+      previewArticles_LinkDisabler()
+    }
+  }
+  const hooker = (query) => {
+    [...$$(query)]
+      .filter(link => ! link.classList.contains('other-site'))
+      .forEach(link => {
+        // console.log(link);
+        link.addEventListener('click', handler)
+      })
+  }
+  if (ThisPageIs(articles)) {
+    hooker('.read-preview a')
+  }
+  if (ThisPageIs(projects)) {
+    hooker('.project-preview a')
+  }
+}
+onLoaders.push(previewArticles_LinkHooker)
+
+const previewArticles_LinkDisabler = () => {
+  const hooker = (query) => {
+    [...$$(query)]
+      .filter(link => ! link.classList.contains('other-site'))
+      .forEach(link => {
+        // console.log(link);
+        link.classList.add('disabled')
+        // link.removeAttribute('href')
+        // IDEA: remove borderbot on hover
+      })
+  }
+  if (ThisPageIs(articles)) {
+    hooker('.read-preview a')
+  }
+  if (ThisPageIs(projects)) {
+    hooker('.project-preview a')
+  }
+}
+
+const floatingArticle_Inserter = e => {
+  const headPrepender = e => {
+    let head = document.createElement('div')
+    head.classList.add('empty-transparency')
+    head.style.height = el.dataset.top + 'px'
+    head.style.top = -1 * Number.parseInt(el.dataset.top) + 'px'
+    el.prepend(head)
+    head.addEventListener('click', floatingArticle_Destroyer, {once: true})
+    head.addEventListener('touchend', floatingArticle_Destroyer, {once: true})
+  }
+  let tail = document.createElement('div')
+  // get the link that was clicked, figure what article to show
+  let clickedLink = findALinkParent(e.target)
+  let el = $(clickedLink.attributes.href.value)
+  // console.log(el);
+
+  // move such article underneath, make it visible, make it abs position
+  el.classList.add('added-by-js')
+  el.style.transition = `top ${transitionSmooth}`
+  el.style.top = window.innerHeight + window.scrollY + "px"
+  el.classList.remove('hide')
+
+  tail.classList.add('empty-transparency')
+  tail.style.top = el.offsetHeight + 'px'
+  el.appendChild(tail)
+  el.setAttribute("data-top", window.scrollY)
+  el.style.top = window.scrollY + "px"
+  // IDEA: scroll bar is taking a 15px right making the page move when article shows up
+  // IDEA: make .main as tall as el to avoid bg glitch bc main scrolls away
+
+  // will run after transition and wrap it up
+  el.addEventListener('transitionend', positionFixed_Apply, {once: true})
+  el.addEventListener('transitionend', headPrepender, {once: true})
+
+  //how to get rid of it
+  tail.addEventListener('click', floatingArticle_Destroyer, {once: true})
+  tail.addEventListener('touchend', floatingArticle_Destroyer, {once: true})
+  el.querySelector('a.close').addEventListener('click', floatingArticle_Destroyer, {once: true})
+  el.querySelector('a.close').addEventListener('touchstart', floatingArticle_Destroyer, {once: true})
+  window.addEventListener('wheel', scrollHandler)
+  window.addEventListener('touchmove', scrollHandler)
+  window.addEventListener('keydown', keyHandler)
+}
+
+const positionFixed_Apply = e => {
+  // console.log(e);
+  let mchildren = [...m.children].filter(child => child.attributes.id.value !== "reads")
+  let el = $('.added-by-js')
+  // start from bottom, bc elements tend to collapse upwards
+  mchildren.reverse()
+  mchildren.forEach(child => {
+    child.style.top = child.offsetTop - Number.parseInt(el.dataset.top) + 'px'
+    child.style.position = 'fixed'
+  })
+}
+
+const positionFixed_Remove = () => {
+  [...m.children].forEach(child => child.removeAttribute('style'))
+  resizers.forEach(resizer => resizer())
+}
+
+const floatingArticle_Destroyer = () => {
+  // IDEA: need an instant kill too, scrolling looks bad wth transition
+  let el = $('.added-by-js')
+  el.style.transition = `opacity ${transitionStandard}`
+  changeOpacity(el, 0)
+  el.addEventListener('transitionend', e => {
+    el.classList.remove('added-by-js')
+    el.classList.add('hide')
+    el.removeAttribute('style')
+    previewArticles_LinkEnabler()
+    positionFixed_Remove()
+    // IDEA: remove transparecies. or add hidden and show/hide
+    // this call makes it seem smoother cancelling some scrolling
+    window.scroll(0, Number.parseInt(el.dataset.top))
+  }, {once: true})
+  window.removeEventListener('wheel', scrollHandler)
+  window.removeEventListener('touchmove', scrollHandler)
+  window.removeEventListener('keydown', keyHandler)
+}
+
+const scrollHandler = e => {
+  if (e.deltaY < 0) {
+    return
+  }
+  let el = $('.added-by-js')
+  if (window.scrollY >= el.offsetHeight + Number.parseInt(el.dataset.top) - 120) {
+    floatingArticle_Destroyer()
+  }
+}
+
+const keyHandler = e => {
+  console.log(`${e.code} - ${e.keyCode}`);
+  if (
+    e.keyCode !== 32 && //space
+    // e.keyCode !== 33 && //pgup
+    e.keyCode !== 34 && //pgdown
+    // e.keyCode !== 38 && //uparrow
+    e.keyCode !== 27 && //esc
+    e.keyCode !== 40) { //downarrow
+      return
+    } else {
+      e.keyCode === 27 ? floatingArticle_Destroyer() : scrollHandler(e)
+    }
+}
+
+const previewArticles_LinkEnabler = () => {
+  const hooker = (query) => {
+    [...$$(query)]
+      .filter(link => ! link.classList.contains('other-site'))
+      .forEach(link => {
+        // console.log(link);
+        link.classList.remove('disabled')
+        // IDEA: remove borderbot on hover
+      })
+  }
+  if (ThisPageIs(articles)) {
+    hooker('.read-preview a')
+  }
+  if (ThisPageIs(projects)) {
+    hooker('.project-preview a')
+  }
+}
+
+// IDEA: write f to hide the back to top backlink (not working w floating)
