@@ -270,8 +270,8 @@ const english_Home = () => {
 
 const footer_OnBottom = () => {
   if (f.offsetHeight + f.offsetTop < window.innerHeight) {
-    f.style.position = "absolute"
-    f.style.bottom = "0"
+    f.style.position = "relative"
+    f.style.bottom = -1 * (window.innerHeight - f.offsetHeight - f.offsetTop) + "px"
     m.style.height = window.innerHeight + 'px'
   }
 }
@@ -312,10 +312,7 @@ const previewArticles_LinkDisabler = () => {
     [...$$(query)]
       .filter(link => ! link.classList.contains('other-site'))
       .forEach(link => {
-        // console.log(link);
         link.classList.add('disabled')
-        // link.removeAttribute('href')
-        // IDEA: remove borderbot on hover
       })
   }
   if (ThisPageIs(articles)) {
@@ -342,7 +339,7 @@ const floatingArticle_Inserter = e => {
   let el = $(clickedLink.attributes.href.value)
   // console.log(el);
 
-  // move such article underneath, make it visible, make it abs position
+  // move such article underneath viewport, make it visible, make it abs position
   el.classList.add('added-by-js')
   el.style.transition = `top ${transitionSmooth}`
   el.style.top = window.innerHeight + window.scrollY + "px"
@@ -353,8 +350,9 @@ const floatingArticle_Inserter = e => {
   el.appendChild(tail)
   el.setAttribute("data-top", window.scrollY)
   el.style.top = window.scrollY + "px"
-  // IDEA: scroll bar is taking a 15px right making the page move when article shows up
-  // IDEA: make .main as tall as el to avoid bg glitch bc main scrolls away
+  // .main scrolls away and the body's bg color looks like a glitch
+  document.body.style.backgroundColor = getComputedStyle(m).backgroundColor
+  // IDEA: scroll bar is taking 15px on the right making the page move when article shows up
 
   // will run after transition and wrap it up
   el.addEventListener('transitionend', positionFixed_Apply, {once: true})
@@ -372,7 +370,9 @@ const floatingArticle_Inserter = e => {
 
 const positionFixed_Apply = e => {
   // console.log(e);
-  let mchildren = [...m.children].filter(child => child.attributes.id.value !== "reads")
+  let mchildren = [...m.children].filter(child => {
+    return child.attributes.id.value !== "reads" && child.attributes.id.value !== "projects"
+  })
   let el = $('.added-by-js')
   // start from bottom, bc elements tend to collapse upwards
   mchildren.reverse()
@@ -388,7 +388,6 @@ const positionFixed_Remove = () => {
 }
 
 const floatingArticle_Destroyer = () => {
-  // IDEA: need an instant kill too, scrolling looks bad wth transition
   let el = $('.added-by-js')
   el.style.transition = `opacity ${transitionStandard}`
   changeOpacity(el, 0)
@@ -396,9 +395,10 @@ const floatingArticle_Destroyer = () => {
     el.classList.remove('added-by-js')
     el.classList.add('hide')
     el.removeAttribute('style')
+    $$('.empty-transparency').forEach(transp => el.removeChild(transp))
+    document.body.removeAttribute('style')
     previewArticles_LinkEnabler()
     positionFixed_Remove()
-    // IDEA: remove transparecies. or add hidden and show/hide
     // this call makes it seem smoother cancelling some scrolling
     window.scroll(0, Number.parseInt(el.dataset.top))
   }, {once: true})
@@ -437,9 +437,7 @@ const previewArticles_LinkEnabler = () => {
     [...$$(query)]
       .filter(link => ! link.classList.contains('other-site'))
       .forEach(link => {
-        // console.log(link);
         link.classList.remove('disabled')
-        // IDEA: remove borderbot on hover
       })
   }
   if (ThisPageIs(articles)) {
@@ -449,5 +447,5 @@ const previewArticles_LinkEnabler = () => {
     hooker('.project-preview a')
   }
 }
-
 // IDEA: write f to hide the back to top backlink (not working w floating)
+// IDEA: project separator glitches when main changes size. rework it
