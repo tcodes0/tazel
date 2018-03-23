@@ -34,4 +34,8 @@ button {
     transform: scale(1.15);
     zoom: 1.15; }
 
+main > *,
+.main > * {
+  width: 100%; }
+
 /*# sourceMappingURL=boiler.css.map */
