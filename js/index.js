@@ -35,7 +35,7 @@ const toggleGuide = () => {
 
 const htmlHide = (query) => {
   let e = $(query)
-  e.setAttribute('hidden','')
+  e.attributes.hidden ? e.removeAttribute('hidden') : e.setAttribute('hidden', '')
 }
 
 const whiteIcons = () => {
@@ -69,10 +69,9 @@ const homeHide_FooterNav = () => {
   if (ThisPageIsNot(home)) {
     return
   }
-  $('.nav-footer').setAttribute('hidden','')
+  $('.nav-footer').setAttribute('hidden', '')
 }
 onLoaders.push(homeHide_FooterNav)
-// onLoaders.push(articles_PlaceholderText)
 
 const light_Colors = () => {
   let color = 'rgb(255,255,252)'
@@ -272,7 +271,7 @@ const footer_OnBottom = () => {
   if (f.offsetHeight + f.offsetTop < window.innerHeight) {
     f.style.position = "relative"
     f.style.bottom = -1 * (window.innerHeight - f.offsetHeight - f.offsetTop) + "px"
-    m.style.height = window.innerHeight + 'px'
+    m.style.minHeight = window.innerHeight + 'px'
   }
 }
 onLoaders.push(footer_OnBottom)
@@ -344,6 +343,7 @@ const floatingArticle_Inserter = e => {
   el.style.transition = `top ${transitionSmooth}`
   el.style.top = window.innerHeight + window.scrollY + "px"
   el.classList.remove('hide')
+  el.querySelector('.container-backlinks a.back[href="#header"]').classList.add('hide')
 
   tail.classList.add('empty-transparency')
   tail.style.top = el.offsetHeight + 'px'
@@ -447,5 +447,35 @@ const previewArticles_LinkEnabler = () => {
     hooker('.project-preview a')
   }
 }
+
 // IDEA: write f to hide the back to top backlink (not working w floating)
+const backToTop_LinkReplacer = () => {
+  // return
+  if (ThisPageIsNot(articles) && ThisPageIsNot(projects)) {
+    return
+  }
+  let xl = "xlink:href"
+  let source = $('a.close[href="#header"]')
+  let clone = $('.container-backlinks a.back[href="index.html"]').cloneNode(true)
+  clone.querySelector('span').textContent = "Close this"
+  clone.attributes.href.value = source.attributes.href.value
+  clone.querySelector('svg > *').attributes[xl].value = source.querySelector('svg > *').attributes[xl].value
+  clone.querySelector('svg > *').attributes.src.value = source.querySelector('svg > *').attributes.src.value
+  clone.addEventListener('click', floatingArticle_Destroyer, {once: true})
+  clone.addEventListener('touchstart', floatingArticle_Destroyer, {once: true})
+  $('.container-backlinks a.back[href="#header"]').classList.add('hide')
+  $('.container-backlinks').prepend(clone)
+}
+
+const hideReadOrProject = () => {
+  if (ThisPageIs(articles)) {
+    $$('.read').forEach(r => r.classList.add('hide'))
+  } else
+  if (ThisPageIs(projects)) {
+    $$('.project').forEach(p => p.classList.add('hide'))
+  }
+}
+onLoaders.push(hideReadOrProject)
+onLoaders.reverse()
+
 // IDEA: project separator glitches when main changes size. rework it
