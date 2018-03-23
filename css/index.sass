@@ -354,7 +354,7 @@ button
     border-color: $color-text
 
 #previews
-  // min-height: 65vh
+  min-height: 65vh
   @media screen and (min-width: $break-desktopS)
     +row
     +padding-squeeze(1%)
@@ -541,15 +541,6 @@ button
   border-color: $color-bg-darker
   border-width: 3px
 
-.project-absolute-separator
-  @extend %project-border-common
-  +border-stylus(right)
-  position: absolute
-  display: none
-  height: 50%
-  // %'s on this element look weird in code, 36.3, 27...
-    but look right on screen. Probably compounded paddings on parents.
-
 .container-project-previews
   @extend %container-read
   +aligned-block
@@ -562,27 +553,13 @@ button
   @supports (display: grid)
     @media screen and (min-width: $break-tabletS)
       display: grid
-      grid-template-columns: 1fr 1fr
-      grid-template-rows: auto
-      .project-absolute-separator
-        display: block
-        width: 50.2%
+      grid: auto / repeat(2, 1fr)
     @media screen and (min-width: $break-tabletM)
       +padding-squeeze(10%)
     @media screen and (min-width: $break-desktopS)
-      grid-template-columns: 1fr 1fr 1fr
-      .project-absolute-separator
-        width: 36.2%
-        &:nth-child(2)
-          left: 27.35%
+      grid-template-columns: repeat(3, 1fr)
     @media screen and (min-width: $break-desktopM)
-      grid-template-columns: 1fr 1fr 1fr 1fr
-      .project-absolute-separator
-        width: 28.4%
-        &:nth-child(2)
-          left: 21.953%
-        &:nth-child(3)
-          left: 40.8%
+      grid-template-columns: repeat(4, 1fr)
 
 .project-preview
   @extend %preview
@@ -597,6 +574,11 @@ button
   hr
     @extend %project-border-common
     +border-stylus(bottom)
+    position: relative
+    margin-top: 1em
+  .horizontal-separator
+    @media screen and (min-width: $break-tabletS)
+      top: 4em
   .heading1
     font-size: 16px
     font-size: 1rem
@@ -656,6 +638,16 @@ button
 .project-text
   +row
   @extend .read-text
+
+.vertical-separator
+  display: none
+  transform: rotate(90deg)
+  position: relative
+  right: -59%
+  top: -28%
+  @media screen and (min-width: $break-tabletS)
+    display: block
+
 
 /*________________________________________________________________
   -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -

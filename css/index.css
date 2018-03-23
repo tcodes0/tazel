@@ -377,23 +377,25 @@ textarea {
   .read-preview h1 span:hover, .project-preview .heading1 span:hover, .project-preview .what-i-do strong span:hover, .what-i-do .project-preview strong span:hover {
     border-color: #131323; }
 
-@media screen and (min-width: 1280px) {
-  #previews, #project-previews {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    display: inline-block;
-    padding-left: 1%;
-    padding-right: 1%; }
-    #previews::after, #project-previews::after {
-      content: "";
+#previews, #project-previews {
+  min-height: 65vh; }
+  @media screen and (min-width: 1280px) {
+    #previews, #project-previews {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
       display: block;
-      clear: both; } }
-@media screen and (min-width: 1600px) {
-  #previews, #project-previews {
-    padding-left: 3%;
-    padding-right: 3%; } }
+      display: inline-block;
+      padding-left: 1%;
+      padding-right: 1%; }
+      #previews::after, #project-previews::after {
+        content: "";
+        display: block;
+        clear: both; } }
+  @media screen and (min-width: 1600px) {
+    #previews, #project-previews {
+      padding-left: 3%;
+      padding-right: 3%; } }
 
 @media screen and (min-width: 768px) {
   .container-tileable {
@@ -591,15 +593,9 @@ textarea {
   padding-bottom: 20px;
   padding-bottom: 3vh; }
 
-.project-absolute-separator, .project-preview hr, .container-project-logo {
+.project-preview hr, .container-project-logo {
   border-color: #f3f3e9;
   border-width: 3px; }
-
-.project-absolute-separator {
-  border-right-style: solid;
-  position: absolute;
-  display: none;
-  height: 50%; }
 
 .container-project-previews {
   display: block;
@@ -626,31 +622,17 @@ textarea {
     @media screen and (min-width: 768px) {
       .container-project-previews {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto; }
-        .container-project-previews .project-absolute-separator {
-          display: block;
-          width: 50.2%; } }
+        grid: auto/repeat(2, 1fr); } }
     @media screen and (min-width: 1024px) {
       .container-project-previews {
         padding-left: 10%;
         padding-right: 10%; } }
     @media screen and (min-width: 1280px) {
       .container-project-previews {
-        grid-template-columns: 1fr 1fr 1fr; }
-        .container-project-previews .project-absolute-separator {
-          width: 36.2%; }
-          .container-project-previews .project-absolute-separator:nth-child(2) {
-            left: 27.35%; } }
+        grid-template-columns: repeat(3, 1fr); } }
     @media screen and (min-width: 1600px) {
       .container-project-previews {
-        grid-template-columns: 1fr 1fr 1fr 1fr; }
-        .container-project-previews .project-absolute-separator {
-          width: 28.4%; }
-          .container-project-previews .project-absolute-separator:nth-child(2) {
-            left: 21.953%; }
-          .container-project-previews .project-absolute-separator:nth-child(3) {
-            left: 40.8%; } } }
+        grid-template-columns: repeat(4, 1fr); } } }
 
 .project-preview {
   width: 95%;
@@ -665,7 +647,12 @@ textarea {
   .project-preview p {
     padding: 1.5em 0; }
   .project-preview hr {
-    border-bottom-style: solid; }
+    border-bottom-style: solid;
+    position: relative;
+    margin-top: 1em; }
+  @media screen and (min-width: 768px) {
+    .project-preview .horizontal-separator {
+      top: 4em; } }
   .project-preview .heading1, .project-preview .what-i-do strong, .what-i-do .project-preview strong {
     font-size: 16px;
     font-size: 1rem;
@@ -724,6 +711,16 @@ textarea {
     content: "";
     display: block;
     clear: both; }
+
+.vertical-separator {
+  display: none;
+  transform: rotate(90deg);
+  position: relative;
+  right: -59%;
+  top: -28%; }
+  @media screen and (min-width: 768px) {
+    .vertical-separator {
+      display: block; } }
 
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
