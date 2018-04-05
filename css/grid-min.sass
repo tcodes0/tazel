@@ -6,15 +6,19 @@ $break-tabletM: 1024px
 $break-desktopS: 1280px
 // 1920x1080 ⬇
 $break-desktopM: 1600px
-=row
+=row($grid: null)
   width: 100%
   margin-left: auto
   margin-right: auto
   display: block
-  &::after
+  &:after
     content: ""
     display: block
     clear: both
+  @if $grid
+    display: grid
+    &:after
+      content: none
 =col($num, $max: 12)
   float: left
   width: (100% / $max) * $num
