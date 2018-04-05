@@ -271,7 +271,7 @@ const footer_OnBottom = () => {
   if (f.offsetHeight + f.offsetTop < window.innerHeight) {
     f.style.position = "relative"
     f.style.bottom = -1 * (window.innerHeight - f.offsetHeight - f.offsetTop) + "px"
-    m.style.minHeight = window.innerHeight + 'px'
+    // m.style.minHeight = window.innerHeight + 'px'
   }
 }
 onLoaders.push(footer_OnBottom)
@@ -475,7 +475,10 @@ const hideReadOrProject = () => {
     $$('.project').forEach(p => p.classList.add('hide'))
   }
 }
-onLoaders.push(hideReadOrProject)
-onLoaders.reverse()
+// onLoaders.push(hideReadOrProject)
+// onLoaders.reverse()
 
 // IDEA: project separator glitches when main changes size. rework it
+const dumper = () => {
+  let item = $('.project-preview')
+}
