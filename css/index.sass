@@ -64,8 +64,9 @@ body
 .header
   @extend %margin-bottom-large
   text-align: center
-  *::after,
-  *::before
+  //old syntax with : for IE
+  *:after,
+  *:before
     font-size: 1.3em
 
 .header-fancy
@@ -118,9 +119,12 @@ a
       margin-right: 0.3rem
   &.other-site
     @extend %hover-fade-color
-    @extend %small-text
-    text-transform: lowercase
     margin-bottom: 1em
+    text-transform: none
+  &.other-site-small
+    text-transform: lowercase
+    @extend .other-site
+    @extend %small-text
 
 .img-svg
   display: inline-block
@@ -162,7 +166,9 @@ button
 .thomazella-logo
   @extend .img-svg
   +aligned-block
-  max-width: 78%
+  // IE8,9 fallback
+  max-width: 25%
+  max-width: calc(77% + 1%)
   margin-top: 0.3em
   @media screen and (min-width: $break-mobileL)
     max-width: 70%
@@ -181,9 +187,9 @@ button
   margin-bottom: 6.5em
   margin-top: 0
   text-transform: capitalize
-  &::before
+  &:before
     content: "( "
-  &::after
+  &:after
     content: " )"
   @media screen and (min-width: $break-tabletS)
     font-size: 13.8px
@@ -241,9 +247,9 @@ button
   @extend .nav
   padding-top: 0
   background-color: inherit
-  li:first-child::before
+  li:first-child:before
     content: "{ "
-  li:last-child::after
+  li:last-child:after
     content: " }"
   a
     position: relative
@@ -271,11 +277,13 @@ button
     font-size: 1.8rem
     text-align: center
     padding-bottom: 1.4em
+    max-width: 600px
     @media screen and (min-width: $break-tabletS)
       max-width: 65%
       font-size: 45px
       font-size: 2.5rem
     @media screen and (min-width: $break-desktopS)
+      // IDEA: sub these with pxs
       max-width: 45%
     @media screen and (min-width: $break-desktopM)
       max-width: 40%
@@ -294,8 +302,6 @@ button
     display: none
 
 .social-media-links
-  @media screen and (min-width: $break-mobileL)
-    padding-top: 0.8em
   a
     border-width: 0
     &:hover
@@ -306,13 +312,17 @@ button
     @media screen and (min-width: $break-tabletS)
       margin: 0 2.5em 0
     .img-svg
-      max-width: 8%
+      //IE8,9 fallback
+      max-width: 3%
+      max-width: calc(7% + 1%)
       @media screen and (min-width: $break-tabletS)
         max-width: 5%
       @media screen and (min-width: $break-tabletM)
         max-width: 3.3%
       @media screen and (min-width: $break-desktopM)
         max-width: 2.2%
+  @media screen and (min-width: $break-mobileL)
+    padding-top: 0.8em
 
 
 /*________________________________________________________________
@@ -332,19 +342,62 @@ button
     text-transform: none
     // font-weight: 300 darkmode
     font-weight: 400
-    line-height: 1.45
+    line-height: 1.52
     @media screen and (min-width: $break-tabletM)
-      font-size: 18.7px
-      font-size: 1.17rem
+      font-size: 17.6px
+      font-size: 1.1rem
   .heading1,
-  h2
+  h2,
+  h3
     @extend %monospaced
     text-align: left
     text-transform: uppercase
+    line-height: 1.35
+  h2,
+  h3
+    padding: 2.5em 0
+    & + h4
+      padding-top: 0
   .heading1
-    font-size: 2.5em
+    font-size: 43.2px
+    font-size: 2.7rem
+  h2
+    font-size: 32px
+    font-size: 2.3rem
+  h3
+    font-size: 23.2px
+    font-size: 1.45rem
+  h4
+    font-size: 20px
+    font-size: 1.25rem
+    margin-top: 1.75em
+    padding-top: 1em
   hr
     border: none
+  blockquote
+    @extend p
+    font-style: italic
+    margin: 0 1em
+    padding: 0.5em
+  code, pre
+    padding: 0.35em
+    background: $color-bg-darker-darker
+    margin: 2em 0
+  em
+    & > code, pre
+      padding-top: 0
+      padding-bottom: 0
+  p, li
+    & > code, pre
+      padding-top: 0.2em
+      padding-bottom: 0.2em
+  .align-center
+    text-align: center
+  .inline
+    display: inline
+    margin: 0
+  .path-arrow:after
+    content: "\21d2"
 
 %background
   background-position: center
@@ -357,11 +410,15 @@ button
   &:hover
     border-color: $color-text
 
+%dont-stretch
+  //IE8,9 fallback, & improves several screen sizes
+  max-width: 415px
+
 #read-previews
   @extend %margin-bottom-large
   min-height: 65vh
   @media screen and (min-width: $break-desktopS)
-    +row
+    // +row
     +padding-squeeze(4%)
     display: grid
     grid: auto-flow / 1fr 1fr
@@ -389,6 +446,7 @@ button
   @extend %preview
   @extend %read-common-children
   @extend %background
+  @extend %dont-stretch
   +aligned-block
   padding: 1.5% 2% 1% 2%
   background-color: $color-bg-darker
@@ -396,13 +454,9 @@ button
   background-image: url('img/coffee-white.svg'), url('img/coffee-white.png')
   h1 span
     @extend %hover-underline
-  @media screen and (min-width: $break-mobileL)
-    max-width: 495px
   @media screen and (min-width: $break-tabletS)
-    max-width: 630px
-  @media screen and (min-width: $break-tabletM)
     +row
-    max-width: 760px
+    max-width: 630px
   @media screen and (min-width: $break-desktopS)
     max-width: 100%
     .span-date
@@ -429,12 +483,14 @@ button
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 #reads
-  // position: relative
-  // top: -400px
   z-index: 200
 
 .container-nontileable
   background-color: $color-bg-transparent
+
+%read-border-common
+  border-color: $color-bg-darker-darker
+  border-width: 3px
 
 .read
   @extend %read-common-children
@@ -445,36 +501,84 @@ button
     padding-left: 7%
   .heading1
     text-align: center
-    padding: 2.5em 0
+    padding: 3.5em 0
     @media screen and (min-width: $break-tabletM)
-      font-size: 40px
-      font-size: 2.5rem
-    @media screen and (min-width: $break-desktopS)
       font-size: 48px
       font-size: 3rem
+    @media screen and (min-width: $break-desktopS)
+      font-size: 56px
+      font-size: 3.5rem
   p
     margin-top: 2em
     margin-bottom: 2em
-    @media screen and (min-width: $break-tabletM)
-      // text-align: justify
-    @media screen and (min-width: $break-desktopS)
-      line-height: 1.55
-  h2
-    font-size: 32px
-    font-size: 2rem
-    padding: 1.5em 0
+  ul,
+  dl
+    padding: 0 1em
+    margin: 2em 0
+    & > dt,li,dd
+      padding-left: 0.5em
+    li,
+    dd
+      margin-bottom: 1.3em
+    dd
+      margin-left: 0
+      background-color: $color-bg-darker-darker
+    dt
+      &:after
+        content: ":"
+    dt,
+    dd
+      padding-top: 0.35em
+      padding-bottom: 0.35em
+  dl
+    @supports (display: grid)
+      display: grid
+      grid: auto-flow / 1fr 1fr
+      grid-gap: 1em
+  .important
+    @extend .align-center
+    @extend %full-width-object
+    @extend %read-border-common
+    +border-stylus
+    padding: 1em 0.5em
+  .big
+    @extend h3
+    @extend .align-center
+    @extend %full-width-object
+    line-height: 1.7
+    text-transform: uppercase
+    font-family: inherit
+  .no-margin
+    margin: 0
+  .lang-shell
+    &:before
+      content: "$ "
+  .explains-syntax:after
+    display: inline
+    content: "("attr(aria-label)")"
+    color: transparentize($color-text, 0.5)
+  .explained
+    @extend %read-border-common
+    border-color: $color-text
+    border-color: transparentize($color-text, 0.5)
+    border-style: dashed
+    &:hover,
+    &:active
+      cursor: help
+      .explains-syntax:after
+        content: attr(data-ex)
+        color: $color-text
 
 .read-background
+  +aligned-block
   background-color: $color-bg-darker
   padding: 2% 4%
+  max-width: 1000px
   @media screen and (min-width: $break-tabletS)
     padding: 3% 4%
   @media screen and (min-width: $break-desktopS)
-    padding-left: 6%
-    padding-right: 6%
-  @media screen and (min-width: $break-desktopM)
-    padding-left: 9%
-    padding-right: 9%
+    padding-left: 4.7%
+    padding-right: 4.7%
 
 %full-width-object
   +width-squeeze
@@ -553,7 +657,8 @@ button
   ________________________________________________________________
 
 #project-previews
-  @extend #read-previews
+  @extend %margin-bottom-large
+  min-height: 65vh
   // padding-bottom: 20px
   // padding-bottom: 3vh
 
@@ -585,6 +690,7 @@ button
   @extend %preview
   @extend %read-common-children
   @extend %background
+  @extend %dont-stretch
   +width-squeeze
   padding: 5% 7%
   transition: background-color 0.5s ease
@@ -773,13 +879,14 @@ input[type="submit"]
   padding-top: 0
 
 .container-about
+  +aligned-block
+  +row
   padding: 0 4%
+  max-width: 525px
   @media screen and (min-width: $break-tabletS)
+    max-width: 100%
     padding: 0
-  @media screen and (min-width: $break-tabletM)
-    +row
   @media screen and (min-width: $break-desktopS)
-    +aligned-block
     max-width: 1175px
 
 .about-header
@@ -926,11 +1033,6 @@ input[type="submit"]
         grid: repeat(6, auto) / repeat(3, 1fr)
         li:last-child
           grid-area: 2 / 2
-
-blockquote
-  font-style: italic
-  padding: 0 2em
-  margin-left: 0
 
 .thanks-for-reading
   @extend .about

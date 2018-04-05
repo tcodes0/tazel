@@ -1,16 +1,17 @@
+@charset "UTF-8";
 @import url(normalize.css);
 /* --------------- */
 /*   boilerplate   */
 /* --------------- */
-* {
-  box-sizing: border-box; }
+*, *:after, *:before {
+  box-sizing: inherit; }
 
-*::after,
-*::before {
-  box-sizing: border-box; }
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth; }
 
 body {
-  font-size: 16px;
+  font-size: 100%;
   line-height: 1.25; }
 
 ul {
@@ -22,8 +23,9 @@ a {
   color: inherit;
   text-decoration: none; }
 
-p {
-  margin: 0; }
+p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, #email-me blockquote, .thanks-for-reading blockquote, .project-preview blockquote {
+  margin: 0;
+  hyphens: none; }
 
 img {
   width: 100%; }
@@ -38,6 +40,13 @@ button {
 main > *,
 .main > * {
   width: 100%; }
+
+blockquote, pre, code {
+  overflow-x: auto; }
+
+code {
+  display: block;
+  white-space: nowrap; }
 
 /* ------- */
 /*   css   */
@@ -69,9 +78,9 @@ body {
 
 .header, .header-fancy {
   text-align: center; }
-  .header *::after, .header-fancy *::after,
-  .header *::before,
-  .header-fancy *::before {
+  .header *:after, .header-fancy *:after,
+  .header *:before,
+  .header-fancy *:before {
     font-size: 1.3em; }
 
 .header-fancy {
@@ -119,9 +128,11 @@ a {
       max-width: 1rem;
       margin-right: 4.8px;
       margin-right: 0.3rem; }
-  a.other-site {
-    text-transform: lowercase;
-    margin-bottom: 1em; }
+  a.other-site, a.other-site-small {
+    margin-bottom: 1em;
+    text-transform: none; }
+  a.other-site-small {
+    text-transform: lowercase; }
 
 .img-svg, .thomazella-logo {
   display: inline-block; }
@@ -154,16 +165,28 @@ button {
 .about h2,
 #email-me h2,
 .thanks-for-reading h2,
-.project-preview h2, .heading3 {
+.project-preview h2,
+.read-preview h3,
+.read h3,
+.project h3,
+.about h3,
+#email-me h3,
+.thanks-for-reading h3,
+.project-preview h3,
+.read .big,
+.project .big,
+.about .big,
+#email-me .big,
+.thanks-for-reading .big, .heading3 {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
 
-a.back, a.other-site, #professional-title, .span-date {
+a.back, a.other-site-small, #professional-title, .span-date {
   font-size: 12.8px;
   font-size: 0.8rem;
   font-weight: 400; }
   @media screen and (min-width: 1280px) {
-    a.back, a.other-site, #professional-title, .span-date {
+    a.back, a.other-site-small, #professional-title, .span-date {
       font-size: 14.7px;
       font-size: 0.92rem; } }
 
@@ -171,7 +194,8 @@ a.back, a.other-site, #professional-title, .span-date {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 78%;
+  max-width: 25%;
+  max-width: calc(77% + 1%);
   margin-top: 0.3em; }
   @media screen and (min-width: 414px) {
     .thomazella-logo {
@@ -192,16 +216,16 @@ a.back, a.other-site, #professional-title, .span-date {
   margin-bottom: 6.5em;
   margin-top: 0;
   text-transform: capitalize; }
-  #professional-title::before {
+  #professional-title:before {
     content: "( "; }
-  #professional-title::after {
+  #professional-title:after {
     content: " )"; }
   @media screen and (min-width: 768px) {
     #professional-title {
       font-size: 13.8px;
       font-size: calc(0.67rem + 0.4vw); } }
 
-a.back:hover, a.other-site:hover, .nav ul li a:hover, .nav-fancy ul li a:hover, .nav-footer ul li a:hover {
+a.back:hover, a.other-site:hover, a.other-site-small:hover, .nav ul li a:hover, .nav-fancy ul li a:hover, .nav-footer ul li a:hover {
   color: #e5e5cf;
   border-color: inherit; }
 
@@ -255,9 +279,9 @@ textarea {
 .nav-fancy {
   padding-top: 0;
   background-color: inherit; }
-  .nav-fancy li:first-child::before {
+  .nav-fancy li:first-child:before {
     content: "{ "; }
-  .nav-fancy li:last-child::after {
+  .nav-fancy li:last-child:after {
     content: " }"; }
   .nav-fancy a {
     position: relative;
@@ -284,7 +308,8 @@ textarea {
     font-size: 28.8px;
     font-size: 1.8rem;
     text-align: center;
-    padding-bottom: 1.4em; }
+    padding-bottom: 1.4em;
+    max-width: 600px; }
     @media screen and (min-width: 768px) {
       #professional-description h2 {
         max-width: 65%;
@@ -310,9 +335,6 @@ textarea {
   .footer-home .nav-footer {
     display: none; }
 
-@media screen and (min-width: 414px) {
-  .social-media-links {
-    padding-top: 0.8em; } }
 .social-media-links a {
   border-width: 0; }
   .social-media-links a:hover {
@@ -326,7 +348,8 @@ textarea {
     .social-media-links li {
       margin: 0 2.5em 0; } }
   .social-media-links li .img-svg, .social-media-links li .thomazella-logo {
-    max-width: 8%; }
+    max-width: 3%;
+    max-width: calc(7% + 1%); }
     @media screen and (min-width: 768px) {
       .social-media-links li .img-svg, .social-media-links li .thomazella-logo {
         max-width: 5%; } }
@@ -336,6 +359,9 @@ textarea {
     @media screen and (min-width: 1600px) {
       .social-media-links li .img-svg, .social-media-links li .thomazella-logo {
         max-width: 2.2%; } }
+@media screen and (min-width: 414px) {
+  .social-media-links {
+    padding-top: 0.8em; } }
 
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  Read  -  -  -  -  -  -  -  -  -  -
@@ -350,14 +376,14 @@ textarea {
     .read-preview, .project-preview {
       margin-bottom: 0.4em; } }
 
-.read-preview p, .read p, .project p, .about p, #email-me p, .thanks-for-reading p, .project-preview p {
+.read-preview p, .read p, .project p, .about p, #email-me p, .thanks-for-reading p, .project-preview p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, #email-me blockquote, .thanks-for-reading blockquote, .project-preview blockquote {
   text-transform: none;
   font-weight: 400;
-  line-height: 1.45; }
+  line-height: 1.52; }
   @media screen and (min-width: 1024px) {
-    .read-preview p, .read p, .project p, .about p, #email-me p, .thanks-for-reading p, .project-preview p {
-      font-size: 18.7px;
-      font-size: 1.17rem; } }
+    .read-preview p, .read p, .project p, .about p, #email-me p, .thanks-for-reading p, .project-preview p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, #email-me blockquote, .thanks-for-reading blockquote, .project-preview blockquote {
+      font-size: 17.6px;
+      font-size: 1.1rem; } }
 .read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong,
 .read-preview h2,
 .read h2,
@@ -365,13 +391,101 @@ textarea {
 .about h2,
 #email-me h2,
 .thanks-for-reading h2,
-.project-preview h2 {
+.project-preview h2,
+.read-preview h3,
+.read h3,
+.project h3,
+.about h3,
+#email-me h3,
+.thanks-for-reading h3,
+.project-preview h3,
+.read .big,
+.project .big,
+.about .big,
+#email-me .big,
+.thanks-for-reading .big {
   text-align: left;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  line-height: 1.35; }
+.read-preview h2, .read h2, .project h2, .about h2, #email-me h2, .thanks-for-reading h2, .project-preview h2,
+.read-preview h3,
+.read h3,
+.project h3,
+.about h3,
+#email-me h3,
+.thanks-for-reading h3,
+.project-preview h3,
+.read .big,
+.project .big,
+.about .big,
+#email-me .big,
+.thanks-for-reading .big {
+  padding: 2.5em 0; }
+  .read-preview h2 + h4, .read h2 + h4, .project h2 + h4, .about h2 + h4, #email-me h2 + h4, .thanks-for-reading h2 + h4, .project-preview h2 + h4,
+  .read-preview h3 + h4,
+  .read h3 + h4,
+  .project h3 + h4,
+  .about h3 + h4,
+  #email-me h3 + h4,
+  .thanks-for-reading h3 + h4,
+  .project-preview h3 + h4,
+  .read .read-preview .big + h4,
+  .read .big + h4,
+  .read .project-preview .big + h4,
+  .project .read-preview .big + h4,
+  .project .big + h4,
+  .project .project-preview .big + h4,
+  .about .read-preview .big + h4,
+  .about .big + h4,
+  .about .project-preview .big + h4,
+  #email-me .read-preview .big + h4,
+  #email-me .read .big + h4,
+  #email-me .project .big + h4,
+  #email-me .about .big + h4,
+  #email-me .big + h4,
+  #email-me .project-preview .big + h4,
+  .thanks-for-reading .read-preview .big + h4,
+  #email-me .thanks-for-reading .big + h4,
+  .thanks-for-reading .big + h4,
+  .thanks-for-reading .project-preview .big + h4 {
+    padding-top: 0; }
 .read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong {
-  font-size: 2.5em; }
+  font-size: 43.2px;
+  font-size: 2.7rem; }
+.read-preview h2, .read h2, .project h2, .about h2, #email-me h2, .thanks-for-reading h2, .project-preview h2 {
+  font-size: 32px;
+  font-size: 2.3rem; }
+.read-preview h3, .read h3, .project h3, .about h3, #email-me h3, .thanks-for-reading h3, .project-preview h3, .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big {
+  font-size: 23.2px;
+  font-size: 1.45rem; }
+.read-preview h4, .read h4, .project h4, .about h4, #email-me h4, .thanks-for-reading h4, .project-preview h4 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  margin-top: 1.75em;
+  padding-top: 1em; }
 .read-preview hr, .read hr, .project hr, .about hr, #email-me hr, .thanks-for-reading hr, .project-preview hr {
   border: none; }
+.read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, #email-me blockquote, .thanks-for-reading blockquote, .project-preview blockquote {
+  font-style: italic;
+  margin: 0 1em;
+  padding: 0.5em; }
+.read-preview code, .read code, .project code, .about code, #email-me code, .thanks-for-reading code, .project-preview code, .read-preview pre, .read pre, .project pre, .about pre, #email-me pre, .thanks-for-reading pre, .project-preview pre {
+  padding: 0.35em;
+  background: #e5e5cf;
+  margin: 2em 0; }
+.read-preview em > code, .read em > code, .project em > code, .about em > code, #email-me em > code, .thanks-for-reading em > code, .project-preview em > code, .read-preview em pre, .read em pre, .project em pre, .about em pre, #email-me em pre, .thanks-for-reading em pre, .project-preview em pre {
+  padding-top: 0;
+  padding-bottom: 0; }
+.read-preview p > code, .read p > code, .project p > code, .about p > code, #email-me p > code, .thanks-for-reading p > code, .project-preview p > code, .read-preview blockquote > code, .read blockquote > code, .project blockquote > code, .about blockquote > code, #email-me .read-preview blockquote > code, #email-me .read blockquote > code, #email-me .project blockquote > code, #email-me .about blockquote > code, #email-me blockquote > code, #email-me .thanks-for-reading blockquote > code, .thanks-for-reading blockquote > code, #email-me .project-preview blockquote > code, .project-preview blockquote > code, .read-preview p pre, .read p pre, .project p pre, .about p pre, #email-me p pre, .thanks-for-reading p pre, .project-preview p pre, .read-preview blockquote pre, .read blockquote pre, .project blockquote pre, .about blockquote pre, #email-me blockquote pre, .thanks-for-reading blockquote pre, .project-preview blockquote pre, .read-preview li > code, .read li > code, .project li > code, .about li > code, #email-me li > code, .thanks-for-reading li > code, .project-preview li > code, .read-preview li pre, .read li pre, .project li pre, .about li pre, #email-me li pre, .thanks-for-reading li pre, .project-preview li pre {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em; }
+.read-preview .align-center, .read .align-center, .project .align-center, .about .align-center, #email-me .align-center, .thanks-for-reading .align-center, .project-preview .align-center, .read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big {
+  text-align: center; }
+.read-preview .inline, .read .inline, .project .inline, .about .inline, #email-me .inline, .thanks-for-reading .inline, .project-preview .inline {
+  display: inline;
+  margin: 0; }
+.read-preview .path-arrow:after, .read .path-arrow:after, .project .path-arrow:after, .about .path-arrow:after, #email-me .path-arrow:after, .thanks-for-reading .path-arrow:after, .project-preview .path-arrow:after {
+  content: "⇒"; }
 
 .read-preview, .project-preview {
   background-position: center;
@@ -383,25 +497,20 @@ textarea {
   .read-preview h1 span:hover, .project-preview .heading1 span:hover, .project-preview .what-i-do strong span:hover, .what-i-do .project-preview strong span:hover {
     border-color: #131323; }
 
-#read-previews, #project-previews {
+.read-preview, .project-preview {
+  max-width: 415px; }
+
+#read-previews {
   min-height: 65vh; }
   @media screen and (min-width: 1280px) {
-    #read-previews, #project-previews {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
+    #read-previews {
       padding-left: 4%;
       padding-right: 4%;
       display: grid;
       grid: auto-flow/1fr 1fr;
-      grid-gap: 1.5rem; }
-      #read-previews::after, #project-previews::after {
-        content: "";
-        display: block;
-        clear: both; } }
+      grid-gap: 1.5rem; } }
   @media screen and (min-width: 1600px) {
-    #read-previews, #project-previews {
+    #read-previews {
       padding-left: 3%;
       padding-right: 3%; } }
 
@@ -434,20 +543,14 @@ textarea {
   background-color: #f3f3e9;
   border-bottom: 3px solid #fffffc;
   background-image: url("img/coffee-white.svg"), url("img/coffee-white.png"); }
-  @media screen and (min-width: 414px) {
-    .read-preview {
-      max-width: 495px; } }
   @media screen and (min-width: 768px) {
-    .read-preview {
-      max-width: 630px; } }
-  @media screen and (min-width: 1024px) {
     .read-preview {
       width: 100%;
       margin-left: auto;
       margin-right: auto;
       display: block;
-      max-width: 760px; }
-      .read-preview::after {
+      max-width: 630px; }
+      .read-preview:after {
         content: "";
         display: block;
         clear: both; } }
@@ -461,7 +564,7 @@ textarea {
         padding-top: 0.6em;
         padding-right: 8px;
         padding-right: 0.5rem; }
-      .read-preview p {
+      .read-preview p, .read-preview blockquote, .read-preview #email-me blockquote, #email-me .read-preview blockquote {
         float: left;
         width: 50%;
         margin-top: 0;
@@ -482,13 +585,17 @@ textarea {
 .container-nontileable {
   background-color: rgba(255, 255, 252, 0.75); }
 
+.read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read .explained, .project .explained, .about .explained, #email-me .explained, .thanks-for-reading .explained {
+  border-color: #e5e5cf;
+  border-width: 3px; }
+
 .read, .project, .about, #email-me, .thanks-for-reading {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: block;
   padding: 12% 3%; }
-  .read::after, .project::after, .about::after, #email-me::after, .thanks-for-reading::after {
+  .read:after, .project:after, .about:after, #email-me:after, .thanks-for-reading:after {
     content: "";
     display: block;
     clear: both; }
@@ -498,48 +605,145 @@ textarea {
       padding-left: 7%; } }
   .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong {
     text-align: center;
-    padding: 2.5em 0; }
+    padding: 3.5em 0; }
     @media screen and (min-width: 1024px) {
-      .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong {
-        font-size: 40px;
-        font-size: 2.5rem; } }
-    @media screen and (min-width: 1280px) {
       .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong {
         font-size: 48px;
         font-size: 3rem; } }
-  .read p, .project p, .about p, #email-me p, .thanks-for-reading p {
+    @media screen and (min-width: 1280px) {
+      .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong {
+        font-size: 56px;
+        font-size: 3.5rem; } }
+  .read p, .project p, .about p, #email-me p, .thanks-for-reading p, .read blockquote, .project blockquote, .about blockquote, #email-me blockquote, .thanks-for-reading blockquote {
     margin-top: 2em;
     margin-bottom: 2em; }
-    @media screen and (min-width: 1280px) {
-      .read p, .project p, .about p, #email-me p, .thanks-for-reading p {
-        line-height: 1.55; } }
-  .read h2, .project h2, .about h2, #email-me h2, .thanks-for-reading h2 {
-    font-size: 32px;
-    font-size: 2rem;
-    padding: 1.5em 0; }
+  .read ul, .project ul, .about ul, #email-me ul, .thanks-for-reading ul,
+  .read dl,
+  .project dl,
+  .about dl,
+  #email-me dl,
+  .thanks-for-reading dl {
+    padding: 0 1em;
+    margin: 2em 0; }
+    .read ul > dt, .project ul > dt, .about ul > dt, #email-me ul > dt, .thanks-for-reading ul > dt, .read ul li, .project ul li, .about ul li, #email-me ul li, .thanks-for-reading ul li, .read ul dd, .project ul dd, .about ul dd, #email-me ul dd, .thanks-for-reading ul dd,
+    .read dl > dt,
+    .project dl > dt,
+    .about dl > dt,
+    #email-me dl > dt,
+    .thanks-for-reading dl > dt,
+    .read dl li,
+    .project dl li,
+    .about dl li,
+    #email-me dl li,
+    .thanks-for-reading dl li,
+    .read dl dd,
+    .project dl dd,
+    .about dl dd,
+    #email-me dl dd,
+    .thanks-for-reading dl dd {
+      padding-left: 0.5em; }
+    .read ul li, .project ul li, .about ul li, #email-me ul li, .thanks-for-reading ul li,
+    .read ul dd,
+    .project ul dd,
+    .about ul dd,
+    #email-me ul dd,
+    .thanks-for-reading ul dd,
+    .read dl li,
+    .project dl li,
+    .about dl li,
+    #email-me dl li,
+    .thanks-for-reading dl li,
+    .read dl dd,
+    .project dl dd,
+    .about dl dd,
+    #email-me dl dd,
+    .thanks-for-reading dl dd {
+      margin-bottom: 1.3em; }
+    .read ul dd, .project ul dd, .about ul dd, #email-me ul dd, .thanks-for-reading ul dd,
+    .read dl dd,
+    .project dl dd,
+    .about dl dd,
+    #email-me dl dd,
+    .thanks-for-reading dl dd {
+      margin-left: 0;
+      background-color: #e5e5cf; }
+    .read ul dt:after, .project ul dt:after, .about ul dt:after, #email-me ul dt:after, .thanks-for-reading ul dt:after,
+    .read dl dt:after,
+    .project dl dt:after,
+    .about dl dt:after,
+    #email-me dl dt:after,
+    .thanks-for-reading dl dt:after {
+      content: ":"; }
+    .read ul dt, .project ul dt, .about ul dt, #email-me ul dt, .thanks-for-reading ul dt,
+    .read ul dd,
+    .project ul dd,
+    .about ul dd,
+    #email-me ul dd,
+    .thanks-for-reading ul dd,
+    .read dl dt,
+    .project dl dt,
+    .about dl dt,
+    #email-me dl dt,
+    .thanks-for-reading dl dt,
+    .read dl dd,
+    .project dl dd,
+    .about dl dd,
+    #email-me dl dd,
+    .thanks-for-reading dl dd {
+      padding-top: 0.35em;
+      padding-bottom: 0.35em; }
+  @supports (display: grid) {
+    .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl {
+      display: grid;
+      grid: auto-flow/1fr 1fr;
+      grid-gap: 1em; } }
+  .read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important {
+    border-style: solid;
+    padding: 1em 0.5em; }
+  .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big {
+    line-height: 1.7;
+    text-transform: uppercase;
+    font-family: inherit; }
+  .read .no-margin, .project .no-margin, .about .no-margin, #email-me .no-margin, .thanks-for-reading .no-margin {
+    margin: 0; }
+  .read .lang-shell:before, .project .lang-shell:before, .about .lang-shell:before, #email-me .lang-shell:before, .thanks-for-reading .lang-shell:before {
+    content: "$ "; }
+  .read .explains-syntax:after, .project .explains-syntax:after, .about .explains-syntax:after, #email-me .explains-syntax:after, .thanks-for-reading .explains-syntax:after {
+    display: inline;
+    content: "(" attr(aria-label) ")";
+    color: rgba(19, 19, 35, 0.5); }
+  .read .explained, .project .explained, .about .explained, #email-me .explained, .thanks-for-reading .explained {
+    border-color: #131323;
+    border-color: rgba(19, 19, 35, 0.5);
+    border-style: dashed; }
+    .read .explained:hover, .project .explained:hover, .about .explained:hover, #email-me .explained:hover, .thanks-for-reading .explained:hover, .read .explained:active, .project .explained:active, .about .explained:active, #email-me .explained:active, .thanks-for-reading .explained:active {
+      cursor: help; }
+      .read .explained:hover .explains-syntax:after, .project .explained:hover .explains-syntax:after, .about .explained:hover .explains-syntax:after, #email-me .explained:hover .explains-syntax:after, .thanks-for-reading .explained:hover .explains-syntax:after, .read .explained:active .explains-syntax:after, .project .explained:active .explains-syntax:after, .about .explained:active .explains-syntax:after, #email-me .explained:active .explains-syntax:after, .thanks-for-reading .explained:active .explains-syntax:after {
+        content: attr(data-ex);
+        color: #131323; }
 
 .read-background, .project-background {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #f3f3e9;
-  padding: 2% 4%; }
+  padding: 2% 4%;
+  max-width: 1000px; }
   @media screen and (min-width: 768px) {
     .read-background, .project-background {
       padding: 3% 4%; } }
   @media screen and (min-width: 1280px) {
     .read-background, .project-background {
-      padding-left: 6%;
-      padding-right: 6%; } }
-  @media screen and (min-width: 1600px) {
-    .read-background, .project-background {
-      padding-left: 9%;
-      padding-right: 9%; } }
+      padding-left: 4.7%;
+      padding-right: 4.7%; } }
 
-.read-header, .container-image-wide img, .project-header, .about-header {
+.read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big, .read-header, .container-image-wide img, .project-header, .about-header {
   width: 95%;
   display: block;
   margin-left: auto;
   margin-right: auto; }
   @media screen and (min-width: 1280px) {
-    .read-header, .container-image-wide img, .project-header, .about-header {
+    .read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big, .read-header, .container-image-wide img, .project-header, .about-header {
       width: 84%; } }
 
 .read-text, .project-text, .about-text {
@@ -552,7 +756,7 @@ textarea {
   display: block;
   margin-top: 1.5em;
   margin-bottom: 2em; }
-  .container-image-wide::after, .container-image-right::after, .container-image-left::after {
+  .container-image-wide:after, .container-image-right:after, .container-image-left:after {
     content: "";
     display: block;
     clear: both; }
@@ -614,6 +818,9 @@ textarea {
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  Projects  -  -  -  -  -  -  -  -  -  -
  * ________________________________________________________________ */
+#project-previews {
+  min-height: 65vh; }
+
 .project-preview hr, .container-project-logo {
   border-color: #f3f3e9;
   border-width: 3px; }
@@ -630,7 +837,7 @@ textarea {
       margin-left: auto;
       margin-right: auto;
       display: block; }
-      .container-project-previews::after {
+      .container-project-previews:after {
         content: "";
         display: block;
         clear: both; } }
@@ -664,7 +871,7 @@ textarea {
   position: relative;
   /* ---- grid fallback ---- */
   /* ---- fallback override ---- */ }
-  .project-preview p {
+  .project-preview p, .project-preview #email-me blockquote, #email-me .project-preview blockquote, .project-preview blockquote {
     padding: 1.5em 0; }
   .project-preview hr {
     border-bottom-style: solid;
@@ -726,7 +933,7 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   display: block; }
-  .project-text::after {
+  .project-text:after {
     content: "";
     display: block;
     clear: both; }
@@ -813,7 +1020,7 @@ textarea {
   margin-right: auto;
   display: block;
   margin-bottom: 0.5em; }
-  .container-labelAndInput::after {
+  .container-labelAndInput:after {
     content: "";
     display: block;
     clear: both; }
@@ -848,25 +1055,25 @@ input[type="submit"] {
   padding-top: 0; }
 
 .container-about {
-  padding: 0 4%; }
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 0 4%;
+  max-width: 525px; }
+  .container-about:after {
+    content: "";
+    display: block;
+    clear: both; }
   @media screen and (min-width: 768px) {
     .container-about {
+      max-width: 100%;
       padding: 0; } }
-  @media screen and (min-width: 1024px) {
-    .container-about {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      display: block; }
-      .container-about::after {
-        content: "";
-        display: block;
-        clear: both; } }
   @media screen and (min-width: 1280px) {
     .container-about {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
       max-width: 1175px; } }
 
 .about-header {
@@ -947,16 +1154,16 @@ input[type="submit"] {
     grid-area: 1/1/auto/9;
     display: grid;
     grid: repeat(4, 5rem)/repeat(8, 1fr); }
-    .who-i-am p {
+    .who-i-am p, .who-i-am .read-preview blockquote, .read-preview .who-i-am blockquote, .who-i-am .read blockquote, .read .who-i-am blockquote, .who-i-am .project blockquote, .project .who-i-am blockquote, .who-i-am .about blockquote, .about .who-i-am blockquote, .who-i-am #email-me blockquote, #email-me .who-i-am blockquote, .who-i-am .thanks-for-reading blockquote, .thanks-for-reading .who-i-am blockquote, .who-i-am .project-preview blockquote, .project-preview .who-i-am blockquote {
       margin-top: 0; }
     .who-i-am .heading3 {
       grid-area: 1/1/auto/span 2;
       align-self: end; }
-    .who-i-am p:nth-child(2) {
+    .who-i-am p:nth-child(2), .who-i-am .read-preview blockquote:nth-child(2), .read-preview .who-i-am blockquote:nth-child(2), .who-i-am .read blockquote:nth-child(2), .read .who-i-am blockquote:nth-child(2), .who-i-am .project blockquote:nth-child(2), .project .who-i-am blockquote:nth-child(2), .who-i-am .about blockquote:nth-child(2), .about .who-i-am blockquote:nth-child(2), .who-i-am #email-me blockquote:nth-child(2), #email-me .who-i-am blockquote:nth-child(2), .who-i-am .thanks-for-reading blockquote:nth-child(2), .thanks-for-reading .who-i-am blockquote:nth-child(2), .who-i-am .project-preview blockquote:nth-child(2), .project-preview .who-i-am blockquote:nth-child(2) {
       grid-area: 2/1/auto/span 3; }
-    .who-i-am p:nth-child(3) {
+    .who-i-am p:nth-child(3), .who-i-am .read-preview blockquote:nth-child(3), .read-preview .who-i-am blockquote:nth-child(3), .who-i-am .read blockquote:nth-child(3), .read .who-i-am blockquote:nth-child(3), .who-i-am .project blockquote:nth-child(3), .project .who-i-am blockquote:nth-child(3), .who-i-am .about blockquote:nth-child(3), .about .who-i-am blockquote:nth-child(3), .who-i-am #email-me blockquote:nth-child(3), #email-me .who-i-am blockquote:nth-child(3), .who-i-am .thanks-for-reading blockquote:nth-child(3), .thanks-for-reading .who-i-am blockquote:nth-child(3), .who-i-am .project-preview blockquote:nth-child(3), .project-preview .who-i-am blockquote:nth-child(3) {
       grid-area: 2/6/auto/span 3; }
-    .who-i-am p:nth-child(4) {
+    .who-i-am p:nth-child(4), .who-i-am .read-preview blockquote:nth-child(4), .read-preview .who-i-am blockquote:nth-child(4), .who-i-am .read blockquote:nth-child(4), .read .who-i-am blockquote:nth-child(4), .who-i-am .project blockquote:nth-child(4), .project .who-i-am blockquote:nth-child(4), .who-i-am .about blockquote:nth-child(4), .about .who-i-am blockquote:nth-child(4), .who-i-am #email-me blockquote:nth-child(4), #email-me .who-i-am blockquote:nth-child(4), .who-i-am .thanks-for-reading blockquote:nth-child(4), .thanks-for-reading .who-i-am blockquote:nth-child(4), .who-i-am .project-preview blockquote:nth-child(4), .project-preview .who-i-am blockquote:nth-child(4) {
       grid-area: 2/6/auto/span 3; } }
 
 .heading3 {
@@ -1005,7 +1212,7 @@ input[type="submit"] {
       margin-left: auto;
       margin-right: auto;
       display: block; }
-      .opinions .container::after {
+      .opinions .container:after {
         content: "";
         display: block;
         clear: both; }
@@ -1026,11 +1233,6 @@ input[type="submit"] {
         grid: repeat(6, auto)/repeat(3, 1fr); }
         .opinions ul li:last-child {
           grid-area: 2/2; } }
-
-blockquote {
-  font-style: italic;
-  padding: 0 2em;
-  margin-left: 0; }
 
 .thanks-for-reading em {
   margin-top: 4.5em;
