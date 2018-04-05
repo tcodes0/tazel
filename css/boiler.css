@@ -1,15 +1,15 @@
 /* --------------- */
 /*   boilerplate   */
 /* --------------- */
-* {
-  box-sizing: border-box; }
+*, *:after, *:before {
+  box-sizing: inherit; }
 
-*::after,
-*::before {
-  box-sizing: border-box; }
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth; }
 
 body {
-  font-size: 16px;
+  font-size: 100%;
   line-height: 1.25; }
 
 ul {
@@ -22,7 +22,8 @@ a {
   text-decoration: none; }
 
 p {
-  margin: 0; }
+  margin: 0;
+  hyphens: none; }
 
 img {
   width: 100%; }
@@ -37,5 +38,12 @@ button {
 main > *,
 .main > * {
   width: 100%; }
+
+blockquote, pre, code {
+  overflow-x: auto; }
+
+code {
+  display: block;
+  white-space: nowrap; }
 
 /*# sourceMappingURL=boiler.css.map */
