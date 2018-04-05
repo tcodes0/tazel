@@ -19,7 +19,7 @@ ul {
   padding: 0;
   margin: 0; }
 
-a {
+a, .social-media-links .img-svg, .social-media-links .thomazella-logo {
   color: inherit;
   text-decoration: none; }
 
@@ -87,20 +87,20 @@ body {
   margin-top: 20px;
   margin-top: 3vh; }
 
-a {
+a, .social-media-links .img-svg, .social-media-links .thomazella-logo {
   text-transform: capitalize;
   border-bottom: 1px solid #131323;
   transition-property: color, opacity;
   z-index: 100;
   position: relative; }
-  a.is-link-to-current-page {
+  a.is-link-to-current-page, .social-media-links .is-link-to-current-page.img-svg, .social-media-links .is-link-to-current-page.thomazella-logo {
     text-decoration: #131323 wavy underline;
     color: black; }
-  a.disabled {
+  a.disabled, .social-media-links .disabled.img-svg, .social-media-links .disabled.thomazella-logo {
     cursor: default; }
-    a.disabled span {
+    a.disabled span, .social-media-links .disabled.img-svg span, .social-media-links .disabled.thomazella-logo span {
       border-color: transparent !important; }
-  a.close {
+  a.close, .social-media-links .close.img-svg, .social-media-links .close.thomazella-logo {
     float: right;
     margin-right: 3.2px;
     margin-right: 0.2rem;
@@ -108,30 +108,30 @@ a {
     margin-right: 0.1rem;
     border-width: 0;
     max-width: 13px; }
-  a.back {
+  a.back, .social-media-links .back.img-svg, .social-media-links .back.thomazella-logo {
     border-width: 0;
     display: block;
     text-align: center;
     text-transform: none;
     margin-bottom: 1.25em; }
-    a.back:hover .img-svg, a.back:hover .thomazella-logo {
+    a.back:hover .img-svg, .social-media-links .back.img-svg:hover .img-svg, .social-media-links .back.thomazella-logo:hover .img-svg, a.back:hover .thomazella-logo, .social-media-links .back.img-svg:hover .thomazella-logo, .social-media-links .back.thomazella-logo:hover .thomazella-logo {
       zoom: 1;
       filter: alpha(opacity=15);
       opacity: 0.15; }
-    a.back span {
+    a.back span, .social-media-links .back.img-svg span, .social-media-links .back.thomazella-logo span {
       position: relative;
       top: -2px;
       top: -0.125rem; }
-    a.back .img-svg, a.back .thomazella-logo {
+    a.back .img-svg, .social-media-links .back.img-svg .img-svg, .social-media-links .back.thomazella-logo .img-svg, a.back .thomazella-logo, .social-media-links .back.img-svg .thomazella-logo, .social-media-links .back.thomazella-logo .thomazella-logo {
       transition-property: inherit;
       max-width: 15px;
       max-width: 1rem;
       margin-right: 4.8px;
       margin-right: 0.3rem; }
-  a.other-site, a.other-site-small {
+  a.other-site, a.other-site-small, .social-media-links .other-site-small.img-svg, .social-media-links .other-site-small.thomazella-logo, .social-media-links .other-site.img-svg, .social-media-links .other-site.thomazella-logo {
     margin-bottom: 1em;
     text-transform: none; }
-  a.other-site-small {
+  a.other-site-small, .social-media-links .other-site-small.img-svg, .social-media-links .other-site-small.thomazella-logo {
     text-transform: lowercase; }
 
 .img-svg, .thomazella-logo {
@@ -181,12 +181,12 @@ button {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
 
-a.back, a.other-site-small, #professional-title, .span-date {
+a.back, .social-media-links .back.img-svg, .social-media-links .back.thomazella-logo, a.other-site-small, .social-media-links .other-site-small.img-svg, .social-media-links .other-site-small.thomazella-logo, #professional-title, .span-date {
   font-size: 12.8px;
   font-size: 0.8rem;
   font-weight: 400; }
   @media screen and (min-width: 1280px) {
-    a.back, a.other-site-small, #professional-title, .span-date {
+    a.back, .social-media-links .back.img-svg, .social-media-links .back.thomazella-logo, a.other-site-small, .social-media-links .other-site-small.img-svg, .social-media-links .other-site-small.thomazella-logo, #professional-title, .span-date {
       font-size: 14.7px;
       font-size: 0.92rem; } }
 
@@ -217,19 +217,19 @@ a.back, a.other-site-small, #professional-title, .span-date {
   margin-top: 0;
   text-transform: capitalize; }
   #professional-title:before {
-    content: "( "; }
+    content: "("; }
   #professional-title:after {
-    content: " )"; }
+    content: ")"; }
   @media screen and (min-width: 768px) {
     #professional-title {
       font-size: 13.8px;
       font-size: calc(0.67rem + 0.4vw); } }
 
-a.back:hover, a.other-site:hover, a.other-site-small:hover, .nav ul li a:hover, .nav-fancy ul li a:hover, .nav-footer ul li a:hover {
+a.back:hover, .social-media-links .back.img-svg:hover, .social-media-links .back.thomazella-logo:hover, a.other-site:hover, a.other-site-small:hover, .social-media-links .other-site-small.img-svg:hover, .social-media-links .other-site-small.thomazella-logo:hover, .social-media-links .other-site.img-svg:hover, .social-media-links .other-site.thomazella-logo:hover, .nav ul li a:hover, .nav-fancy ul li a:hover, .nav-footer ul li a:hover, .nav ul li .social-media-links .img-svg:hover, .social-media-links .nav ul li .img-svg:hover, .nav-fancy ul li .social-media-links .img-svg:hover, .social-media-links .nav-fancy ul li .img-svg:hover, .nav-footer ul li .social-media-links .img-svg:hover, .social-media-links .nav-footer ul li .img-svg:hover, .nav ul li .social-media-links .thomazella-logo:hover, .social-media-links .nav ul li .thomazella-logo:hover, .nav-fancy ul li .social-media-links .thomazella-logo:hover, .social-media-links .nav-fancy ul li .thomazella-logo:hover, .nav-footer ul li .social-media-links .thomazella-logo:hover, .social-media-links .nav-footer ul li .thomazella-logo:hover {
   color: #e5e5cf;
   border-color: inherit; }
 
-a, a.back .img-svg, a.back .thomazella-logo, .read-preview h1 span, .project-preview .heading1 span, .project-preview .what-i-do strong span, .what-i-do .project-preview strong span, .language-switch button, input,
+a, .social-media-links .img-svg, .social-media-links .thomazella-logo, a.back .img-svg, .social-media-links .back.img-svg .img-svg, .social-media-links .back.thomazella-logo .img-svg, a.back .thomazella-logo, .social-media-links .back.img-svg .thomazella-logo, .social-media-links .back.thomazella-logo .thomazella-logo, .read-preview h1 span, .project-preview .heading1 span, .project-preview .what-i-do strong span, .what-i-do .project-preview strong span, .language-switch button, input,
 textarea {
   transition-duration: 1.15s;
   transition-timing-function: ease-out; }
@@ -279,11 +279,11 @@ textarea {
 .nav-fancy {
   padding-top: 0;
   background-color: inherit; }
-  .nav-fancy li:first-child:before {
-    content: "{ "; }
+  .nav-fancy li:first-child::before {
+    content: "{"; }
   .nav-fancy li:last-child:after {
-    content: " }"; }
-  .nav-fancy a {
+    content: "}"; }
+  .nav-fancy a, .nav-fancy .social-media-links .img-svg, .social-media-links .nav-fancy .img-svg, .nav-fancy .social-media-links .thomazella-logo, .social-media-links .nav-fancy .thomazella-logo {
     position: relative;
     bottom: 0.13em; }
 
@@ -335,12 +335,8 @@ textarea {
   .footer-home .nav-footer {
     display: none; }
 
-.social-media-links a {
+.social-media-links a, .social-media-links .img-svg, .social-media-links .thomazella-logo {
   border-width: 0; }
-  .social-media-links a:hover {
-    zoom: 1;
-    filter: alpha(opacity=50);
-    opacity: 0.5; }
 .social-media-links li {
   display: inline;
   margin: 0 1.8em 0; }
@@ -359,6 +355,10 @@ textarea {
     @media screen and (min-width: 1600px) {
       .social-media-links li .img-svg, .social-media-links li .thomazella-logo {
         max-width: 2.2%; } }
+.social-media-links .img-svg:hover, .social-media-links .thomazella-logo:hover {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5; }
 @media screen and (min-width: 414px) {
   .social-media-links {
     padding-top: 0.8em; } }
@@ -497,7 +497,7 @@ textarea {
   .read-preview h1 span:hover, .project-preview .heading1 span:hover, .project-preview .what-i-do strong span:hover, .what-i-do .project-preview strong span:hover {
     border-color: #131323; }
 
-.read-preview, .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl, .project-preview {
+.read-preview, .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl, .project-preview, form {
   max-width: 415px; }
 
 #read-previews {
@@ -1013,12 +1013,14 @@ textarea {
 #email-me label[for="email-body"] {
   display: none; }
 
-@media screen and (min-width: 768px) {
-  form {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 37.5rem; } }
+form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (min-width: 768px) {
+    form {
+      max-width: 600px;
+      max-width: 37.5rem; } }
 
 .container-labelAndInput {
   width: 100%;

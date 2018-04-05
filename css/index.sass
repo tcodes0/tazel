@@ -188,9 +188,9 @@ button
   margin-top: 0
   text-transform: capitalize
   &:before
-    content: "( "
+    content: "("
   &:after
-    content: " )"
+    content: ")"
   @media screen and (min-width: $break-tabletS)
     font-size: 13.8px
     font-size: calc(0.67rem + 0.4vw)
@@ -247,10 +247,11 @@ button
   @extend .nav
   padding-top: 0
   background-color: inherit
-  li:first-child:before
-    content: "{ "
+  //using :: to exclude IE8, it doesnt support :after
+  li:first-child::before
+    content: "{"
   li:last-child:after
-    content: " }"
+    content: "}"
   a
     position: relative
     bottom: 0.13em
@@ -304,8 +305,6 @@ button
 .social-media-links
   a
     border-width: 0
-    &:hover
-      +opacity(0.5)
   li
     display: inline
     margin: 0 1.8em 0
@@ -321,9 +320,12 @@ button
         max-width: 3.3%
       @media screen and (min-width: $break-desktopM)
         max-width: 2.2%
+  .img-svg
+    @extend a
+    &:hover
+      +opacity(0.5)
   @media screen and (min-width: $break-mobileL)
     padding-top: 0.8em
-
 
 /*________________________________________________________________
   -  -  -  -  -  -  -  -  -  -  Read  -  -  -  -  -  -  -  -  -  -
@@ -837,8 +839,10 @@ button.active
     display: none
 
 form
+  @extend %dont-stretch
+  +aligned-block
   @media screen and (min-width: $break-tabletS)
-    +aligned-block
+    max-width: 600px
     max-width: 37.5rem
 
 .container-labelAndInput
