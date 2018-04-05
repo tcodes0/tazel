@@ -24,14 +24,12 @@
     <div id="read-previews" role="region" aria-label="Previews of all articles Thomazella wrote">
       <div class="container-tileable" role="presentation">
         <div class="read-preview" role="article">
-          <span class="span-date" role="note">January 2018</span>
-          <a href="#my-how-to-wash-a-dog-f">
-            <h1 class="heading1"><span>my how to wash a dog f</span></h1>
+          <span class="span-date" role="note">March 2018</span>
+          <a href="#say-goodbye-to-ftp">
+            <h1 class="heading1"><span>Say goodbye to FTP</span></h1>
           </a>
-          <a href="#my-how-to-wash-a-dog-f"><p>
-            All their equipment and instruments are alive. I watched the storm, so beautiful yet terrific. Almost before we knew it, we had left the ground.
-            It was going to be a lonely trip back. The litre (SI spelling) or liter (American spelling) (SI symbols L or l,[1] commonly, but incorrectly
-          </p></a>
+          <p>We all used FTP to upload our sites at some point. Here I present a faster alternative: using rsync over SSH. Rsync is a really good file transfer program that can serve multiple purposes, including backup. SSH is a protocol for secure access to a remote computer.
+            By using both together you can save yourself a ton of time.</p>
           <hr>
         </div>
       </div>
@@ -52,10 +50,10 @@
 
     <div id="reads" role="region" aria-label="All articles Thomazella wrote">
       <div class="container-nontileable" role="presentation">
-        <div class="read" role="article" id="my-how-to-wash-a-dog-f" aria-label="My how to wash a dog f">
+        <div class="read" role="article" id="say-goodbye-to-ftp" aria-label="Say goodbye to FTP">
           <div class="read-background" role="presentation">
             <div class="read-header">
-              <span class="span-date" role="note">December 2017</span>
+              <span class="span-date" role="note">March 2017, by Thomazella</span>
               <a class="close" href="#header" title="back to preview browsing">
                 <div class="img-svg">
                   <svg width="100%" height="13" role="presentation">
@@ -63,19 +61,361 @@
                   </svg>
                 </div>
               </a>
-              <h1 class="heading1">The staggering bullshit of the secret and similar self-help</h1>
+              <h1 class="heading1">Say goodbye to FTP</h1>
             </div>
             <div class="read-text" role="main">
-              <p>All their equipment and instruments are alive. I watched the storm, so beautiful yet terrific. Almost before we knew it, we had left the ground. It was going to be a lonely trip back.</p>
-              <div class="container-image-right"><img class="half-width-right" src="css/img/bg1.png" alt="a sweet placeholder image"></div>
-              <p>
-                All their equipment and instruments are alive. I watched the storm, so beautiful yet terrific. Almost before we knew it, we had left the ground. It was going to be a lonely trip back. The litre (SI spelling) or liter (American spelling) (SI symbols L or l,[1] commonly, but incorrectly, abbreviated as ltr) is an SI accepted metric system unit of volume equal to 1 cubic decimetre (dm3), 1,000 cubic centimetres (cm3) or 1/1,000 cubic metre. A cubic decimetre (or litre) occupies a volume of 10×10×10 centimetres (see figure) and is thus equal to one-thousandth of a cubic metre.The original French metric system used the litre as a base unit. The word litre is derived from an older French unit, the litron, whose name came from Greek — where it was a unit of weight, not volume [2] — via Latin, and which equalled approximately 0.831 litres. The litre was also used in several subsequent versions of the metric system and is accepted for use with the SI,[3] although not an official SI unit — the SI unit of volume is the cubic metre (m3). The spelling used by the International Bureau of Weights and Measures is "litre",[3] a spelling which is shared by almost all English-speaking countries. The spelling "liter" is predominantly used in American English.[a]One litre of liquid water has a mass of almost exactly one kilogram, because the kilogram was originally defined in 1795 as one cubic decimetre of water at the temperature of melting ice. Subsequent redefinitions of the metre and kilogram mean that this relationship is no longer exact.[4] Although minor armed clashes had occurred previously between supporters of York and Lancaster, the first open fighting broke out in 1455 at the First Battle of St Albans. Several prominent Lancastrians died at the hands of the Yorkists. Although peace was temporarily restored, the Lancastrians were inspired by Margaret of Anjou to contest York's influence, and a deadly feud between the two branches of the royal family ensued.Fighting resumed more violently in 1459.
+              <p>The first way I learned to upload  a site over to a server was using FTP. And FTP is good, it has many great free programs out there.
+                It is a good way to learn how sites go from local files to being available online. It even is easier to relate to other uploads one might have done before, because...
+                It show arrows pointing up, or something like that.</p>
+              <p>There are, however, faster ways to get your site live, and to people doing many uploads a day to test things, this saves <em>a ton</em> of time.
+                To be specific, when I say FTP, I mean a graphical computer program where you click buttons and drag files. The dragging and clicking is what is slow, and we can automate that.
+                We’ll setup SSH to connect to your web hosting provider passwordlessly, with <em>more</em> security. Then we'll use rsync to send the files over, way faster than FTP consuming <em>way less</em> bandwidth.
+                Optionally, you can further make things faster using a shell alias or a script. I have one<a class="other-site" href="https://github.com/Thomazella"> over at Github</a>
               </p>
-              <div class="container-image-left"><img class="half-width" src="css/img/bg1.png" alt="a sweet placeholder image"></div>
-              <p>
-                York and his supporters were forced to flee the country, but one of his most prominent supporters, the Earl of Warwick, invaded England from Calais and captured Henry VI at the Battle of Northampton. York returned to the country and became Protector of England, but was dissuaded from claiming the throne, though it was agreed that he would become heir to the throne (thus displacing Henry and Margaret's son, Edward of Westminster, from the line of succession). Margaret and the remaining Lancastrian nobles gathered their army in the north of England.When York moved north to engage them, he and his second son Edmund were killed at the Battle of Wakefield in December 1460. The Lancastrian army advanced south and released Henry at the Second Battle of St Albans, but failed to occupy London, and subsequently retreated to the north. York's eldest son, Edward, Earl of March, was proclaimed King Edward IV. He gathered the Yorkist armies and won a crushing victory at the Battle of Towton in March 1461.After Lancastrian revolts in the north were suppressed in 1464, Henry was captured once again and placed in the Tower of London. Edward fell out with his chief supporter and adviser, the Earl of Warwick (known as the "Kingmaker") after Edward's unpopular and secretly conducted marriage with the widow of a Lancastrian supporter, Elizabeth Woodville. Within a few years, it became clear that Edward was favouring his wife's family and alienating a number of friends closely aligned with Warwick as well.
+
+              <h3>What is the command line?</h3>
+              <p>I need to write about that in detail later... But for now it'll suffice to say:</p>
+              <ul>
+                <li><em>The command line</em>, <em>the terminal</em> and <em>CLI</em> mean roughly the same thing.</li>
+                <li><strong>C</strong>ommand <strong>L</strong>ine <strong>I</strong>nterface. Contrast with: <strong>G</strong>raphical <strong>U</strong>ser <strong>I</strong>nterface.</li>
+                <li>No mouse or windows involved. You type commands.</li>
+                <li>It is not programming.</li>
+                <li>Seen as a <code class="inline">h4ck3r</code> thing. It really is not.</li>
+                <li>Much faster than a GUI for repetitive work.</li>
+                <li>Slower than a GUI for non-repetitive tasks.</li>
+              </ul>
+              <em class="important">Knowing both allows you to play to their strengths.</em>
+
+              <h3>What is scripting?</h3>
+              <p>Bash shell scripting, in this case, is programming a bunch of CLI commands to run together in some fashion.
+                <strong>Shell</strong> is a type of program that is the heart of the CLI experience, much like windows for a GUI.
+                <strong>Bash</strong> is the most popular shell out there.
               </p>
-              <div class="container-image-wide"><img src="css/img/bg1.png" alt="a sweet placeholder image"></div>
+
+              <h3>What is SSH?</h3>
+              <p>It stands for <strong>S</strong>ecure <strong>Sh</strong>ell. It is a connection and security solution to allow access to a remote computer.
+                After we set it up, we'll let rsync do the SSH for us. <strong>Rsync</strong> is a really nice file transfer program with multiple uses.
+                It can copy files locally on your computer or to another one (our case). It can SSH for us, it is smart and doesn't transfer repeated data, saving time and bandwidth,
+                it is error resistant and has a million options.
+              </p>
+              <p><em class="small">so...</em></p>
+              <strong class="big">We'll setup SSH access into the web host and upload a site using rsync, then we'll go over some ways reduce our work even further using bash.</strong>
+
+              <h3>Before you begin</h3>
+              <h4>Are you on Windows?</h4>
+              <p>I'm not keen on Windows support for SSH, rsync and bash, but here are a few ideas:</p>
+              <ul>
+                <li>Windows 10 has SSH <a class="other-site" href="https://www.howtogeek.com/336775/how-to-enable-and-use-windows-10s-built-in-ssh-commands/">on Powershell.</a></li>
+                <li>But I guess you would be better off just using the <a class="other-site" href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">Windows Subsystem for Linux.</a></li>
+                <li>Not the point here, but on Windows<a class="other-site" href="https://putty.org/"> PuTTy</a> is a great GUI for SSH.</li>
+              </ul>
+              <p>Sorry to not support Windows further. The minimum you need on your system is rsync. On Mac and Linux you should have no problems.</p>
+              <h4>Do you have FTP upload working already?</h4>
+              <p>
+                This is important because it means you have a username and password, and a way to get in touch with your web host.
+                They usually e-mail you this information right after you purchase the hosting plan.
+              </p>
+
+              <h2>Step 1: Making sure SSH works</h2>
+
+              <p>We need to make sure your hosting provider accepts SSH. The pieces of info you need:</p>
+              <ul>
+                <li>Their policy for SSH.</li>
+                <li>Port number.</li>
+                <li>Username, likely the same used for FTP.</li>
+                <li>Servername, likely the same used for FTP.</li>
+              </ul>
+              <p>
+                Each provider may have a different policy in place to allow SSH access, so we'll be googling for it. SSH is known and common in web development so we should find the info right away.
+                I'm using namecheap right now, so I googled for:
+              </p>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <p>Try googling for something similar, using your web host in place of mine, obviously. I landed on a knowledge base article with further instructions saying I need to contact support to enable SSH.
+                I logged into my account and opened a support ticket saying:
+              </p>
+              <blockquote>
+                I would like to access the account using SSH and I am opening a ticket as instructed here:
+                https://www.namecheap.com/support/knowledgebase/article.aspx/1016
+              </blockquote>
+              <p>They replied in less than 10 minutes with an e-mail:</p>
+              <blockquote>
+                Hello Raphael,<br>
+                  Thank you for contacting the Namecheap Support Team!<br>
+                  We are glad to let you know, that Shell SSH access has been enabled for your account. Connection is available on the server via port <strong>21098.</strong><br>
+                  You can find more information about how to access your hosting account via SSH at:
+                  http://www.namecheap.com/support/knowledgebase/article.aspx/1016/89/how-to-access-my-hosting-account-via-ssh<br>
+                  Feel free to use <strong>server179.web-hosting.com as the servername.</strong><br>
+                  Please check it and let us know if you need further assistance.<br><br>
+                  We are looking forward to hearing from you.
+              </blockquote>
+              <p>They even put other info in the email, the server and port. With just this e-mail I was good to go.</p>
+              <dl>
+                <dt>Their policy for SSH</dt><dd>Authorized</dd>
+                <dt>Port number</dt><dd>21098</dd>
+                <dt>Username</dt><dd>I was hoping it would be the same.</dd>
+                <dt>Servername</dt><dd>server179.web-hosting.com</dd>
+              </dl>
+              <h3>Using SSH on the terminal</h3>
+              <p>With the information, let's SSH. We need a terminal for that. On Linux your terminal name depends on your distro, but is in your programs menu. On MacOS it is called Terminal and is inside Applications <span class="path-arrow"></span> Utilities.</p>
+              <ul>
+                <li>Heads up: All code samples of shell commands are preceded by a <strong>$</strong>.<br><br><em>Don't actually type that!</em></li>
+              </ul>
+              <em>Type only: cal</em>
+              <code class="lang-shell">cal</code>
+              <p>Okay, I feel better now. Back to SSH.</p>
+              <em>Open your terminal and type:</em>
+              <code class="lang-shell">ssh</code>
+              <em>Expected output:</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <p>This means a SSH program is available and working. Good.</p>
+              <p>The command we need works like below. Hover or tap on it to show examples of information you could enter. Tap outside to hide.</p>
+              <code class="explained">ssh -p <span class="explains-syntax" aria-label="port number" data-ex="21098"></span> <span data-ex="heyzor" class="explains-syntax" aria-label="username"></span>@<span data-ex="server179.web-hosting.com" aria-label="servername" class="explains-syntax"></span></code>
+              <em>Go ahead and enter the command with your info.</em><br><br>
+              <em>Expected output:</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <p>Type your password, the one you use for FTP.</p>
+              <em>Expected output:</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <p>This should work and you should see a new prompt. To test, type <code class="inline lang-shell">ls</code> and it should list the base directory of your hosting storage.
+                You can change the current directory with <code class="inline lang-shell">cd</code>, and do many other operations. We're done seting up SSH.</code>
+              </p>
+              <p>When you're done go ahead and quit with Ctrl + D.</p>
+
+              <h3>Having trouble?</h3>
+              <p>This is something you need to work with your web hosting provider. If the google search turned up nothing good or just incomplete, I'd just e-mail them or contact support asking something bold like:</p>
+              <blockquote>What command do I type in my terminal to SSH into my account?</blockquote>
+              <p>That should at worst give you the info, and at best the SSH command already figured for you. For problems with SSH you can use a similar approach.</p>
+
+              <h2>Step 2: Skipping the password</h2>
+
+              <p>Let's type passwords the minimum necessary. We have SSH keys.</p>
+
+              <h3>What are SSH keys?</h3>
+              <p>A secure, faster authentication method where we don't type passwords. It is compromised of a pair of keys:</p>
+              <dl>
+                <dt>Public key</dt><dd>It works like a padlock, it is publically visible on the internet.</dd>
+                <dt>Private key</dt><dd>The padlock's key, you don't share it with anyone.</dd>
+              </dl>
+              <p>You have two ways to create the keys:</p>
+
+              <h3>Generating SSH keys yourself</h3>
+              <p>This method is faster.</p>
+              <em>Type on terminal:</em>
+              <code>ssh-keygen</code>
+              <p>It will ask you for one thing at a time, follow the instructions, leave the save path and name on default and give it a password, a <em>new</em> one.</p>
+              <p>Beware:</p>
+              <ul>
+                <li>The default save path is <code class="inline">~/.ssh</code> which is a hidden directory. Should you browse to it with a filemanager, enable hidden files to see it properly.</li>
+                <li>The default name for the private key is <code class="inline">id_rsa</code> and public <code class="inline">id_rsa.pub</code>. Should you change the name, change the commands too.</li>
+              </ul>
+              <dl>
+                <dt>Private key default path</dt><dd><code class="inline">~/.ssh/id_rsa</code></dd>
+                <dt>Public key default path</dt><dd><code class="inline">~/.ssh/id_rsa.pub</code></dd>
+              </dl>
+              <em>Expected output:</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <p>All good, now to upload the public key to the host. Login at your CPanel, or equivalent software you use to manage your hosting.</p>
+              <em>Look for a SSH menu item.</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <em>Import key option.</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <p>It wants you to paste your key in. We'll only be providing the public key, leave the private blank. You can browse to your public key file, open on a text editor and copy it, or copy it with terminal commands.</p>
+              <em>MacOS</em>
+              <code>cat ~/.ssh/id_rsa.pub | pbcopy</code>
+              <em>Linux</em>
+              <code>cat ~/.ssh/id_rsa.pub | xclip -selection c</code>
+              <em>Paste it. Hit Ok.</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <p>After uploading we need to authorize the key.</p>
+              <em>Look for an authorize key option.</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <p>All done.</p>
+
+              <h3>Generating SSH keys with your host</h3>
+              <p>Another way is to do it on the control panel. On the SSH menu, choose generate a new key from the menu.</p>
+              <em>Follow the instructions.</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <em>You should now have a pair of keys.</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <em>Download your private key.</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <em>Then move your private key to <code class="inline">~/.ssh</code></em>
+              <ul>
+                <li>You may need to make the directory:</li>
+                <li>
+                  <code>mkdir ~/.ssh</code>
+                </li>
+                <li>
+                  Then move <code class="inline">id_rsa</code> into <code class="inline">~/.ssh</code> using your filemanager.
+                </li>
+              </ul>
+              <em>Or run:</em>
+              <code class="explained">mv <span class="explains-syntax" aria-label="download location" data-ex="~/Downloads/id_rsa"></span> ~/.ssh/id_rsa</code>
+
+              <h3>Using the key</h3>
+              <p>Having authorized the public key on the host and having your private key on <code class="inline">~/.shh</code>, the command becomes:</p>
+              <code class="explained">ssh -p <span class="explains-syntax" aria-label="port number" data-ex="21098"></span> -i ~/.ssh/id_rsa <span data-ex="heyzor" class="explains-syntax" aria-label="username"></span>@<span data-ex="server179.web-hosting.com" aria-label="servername" class="explains-syntax"></span></code>
+              <em>Just add the <code class="inline">-i ~/.ssh/id_rsa</code> bit to the previous command and run it.</em>
+              <ul>
+                <li>It will ask to confirm the host authenticity, hit <strong>y</strong>es.</li>
+                <li>It will ask for <strong>the key's</strong> password, provide it.</li>
+                <li><strong>MacOS - </strong>If you get a keychain pop-up, say <strong>y</strong>es to remember the password.</li>
+              </ul>
+              <em>...you should have logged in!</em>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <p>When you're done logout by hiting Ctrl + D.</p>
+
+              <h3>Saving the key's password</h3>
+              <p>If your key has a custom name you need to write its path after <code class="inline">ssh-add</code></p>
+              <h4>Linux</h4>
+              <code class="no-margin"> eval $(ssh-agent)</code>
+              <code class="no-margin">ssh-add</code>
+              <h4>MacOS</h4>
+              <p>You must have accepted the keychain pop-up.</p>
+              <code>/usr/bin/ssh-add -A</code>
+              <h4>Additional step for MacOS versions after Sierra 10.12.2</h4>
+              <em>Create a new empty file named <code class="inline">~/.ssh/config</code> with a text editor and add the following lines:</em>
+              <code>
+<pre>
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes</pre>
+            </code>
+              <p>Goodbye passwords. You also don't need to add <code class="inline">-i ~/.ssh/id_rsa</code> to any SSH command anymore.</p>
+
+              <h2>Step 3: Setting up Rsync</h2>
+
+              <p>You definitely already have a version pre-installed on your system. </p>
+              <ul>
+                <li>
+                  <strong>MacOS - </strong> You're probably not running the latest version as some open source software shipping with MacOS tends to be outdated.
+                  If you care, you can use <a href="https://brew.sh">Homebrew</a> to install the latest version. Not that the stock rsync won't do, it totally does.
+                </li>
+              </ul>
+              <p>A basic rsync command copies <em>source</em> to <em>destination:</em> </p>
+              <code class="explained">rsync </span> <span data-ex="index.html" class="explains-syntax" aria-label="source"></span> <span data-ex="destination/index.html" aria-label="destination" class="explains-syntax"></span></code>
+              <p>You can specify options:</p>
+              <code class="explained">rsync <span class="explains-syntax" aria-label="options" data-ex="--quiet --links"></span> <span data-ex="index.html" class="explains-syntax" aria-label="source"></span> <span data-ex="destination/index.html" aria-label="destination" class="explains-syntax"></span></code>
+              <!-- <p>To have rsync SSH for us, add <code class="inline">-e "ssh -p <span class="explains-syntax" aria-label="port number" data-ex="21098"></span>"</code> <em> The "quotes" are required.</em></p> -->
+              <p>To learn more: <code class="inline lang-shell">man rsync</code>. Just know that I wasn't kidding when I said a million.</p>
+              <p>To have rsync SSH for us, we'll need to find the path of your home directory on the web host. This can be as simple as a login into your FTP and looking at the current directory:</p>
+              <div class="container-image-wide"><img src="css/img/bg1.png" alt=""></div>
+              <em>Or you can SSH into the host and type:</em>
+              <code class="lang-shell">pwd</code>
+              <p>It will reply to you with the path we're looking for. Let's call this path <code class="inline">hosthome</code>. It probably contains your username on it, something like <code class="inline">/home/heyzor</code> if your username is <code class="inline">heyzor</code>.</p>
+
+              <h3>Testing it</h3>
+              <p>Let's test sending something over to the host.</p>
+              <em>Use a text editor to create a test file and save it. Example:</em>
+              <dl>
+                <dt>Filename</dt><dd>foo.txt</dd>
+                <dt>Path</dt><dd>~/Desktop/foo.txt</dd>
+              </dl>
+              <em>Fill in your information and execute:</em>
+              <code class="explained">rsync
+                <span class="explains-syntax" aria-label="options" data-ex="--quiet --links"></span>
+                -e "ssh -p
+                <span class="explains-syntax" aria-label="port number" data-ex="21098"></span>"
+                <span data-ex="~/Desktop/foo.txt" class="explains-syntax" aria-label="source"></span>
+                <span data-ex="heyzor" class="explains-syntax" aria-label="username"></span>@<span data-ex="server179.web-hosting.com" aria-label="servername" class="explains-syntax"></span>:<span data-ex="/home/heyzor" aria-label="hosthome" class="explains-syntax"></span>/<span data-ex="destination/index.html" aria-label="destination" class="explains-syntax"></span>
+              </code>
+              <p>Careful:</p>
+              <ul>
+                <li>Make sure the destination directory exists on the host, either create it or use an existing one. Rsync will give you an error if you use a directory that doesn't exist.</li>
+              </ul>
+              <p>If you see no output, that's good. Use SSH or your FTP to verify the file arrived on the host. Alright!</p>
+
+              <h3>Time for a site upload</h3>
+              <p>Rsync can easily send a whole directory to another directory on your host. Yep, the whole site with <code class="inline">css</code> and <code class="inline">js</code> and any other dirs you might have, piece of cake. To have it work with directories I use roughly:</p>
+              <dl>
+                <dt>--recursive</dt><dd>Send sub directories along with their contents</dd>
+                <dt>--update</dt><dd>Skip files that are newer on the destination</dd>
+                <dt>--inplace</dt><dd>Only send new data for modified files</dd>
+                <dt>--no-relative</dt><dd>Don't use relative path names</dd>
+              </dl>
+              <code>rsync --recursive --update --inplace --no-relative</code>
+              <ul>
+                <li>
+                  <strong>Caveat: </strong> when telling rsync about directories you want it to send, end their names with a forward slash /
+                </li>
+              </ul>
+              <dl>
+                <dt>~/Desktop/test-site</dt><dd>~/Desktop/test-site/</dd>
+              </dl>
+              <em>Directory rsync command:</em>
+              <code class="explained">
+                rsync --recursive --update --inplace --no-relative
+                  -e "ssh -p
+                  <span class="explains-syntax" aria-label="port number" data-ex="21098"></span>"
+                  <span data-ex="~/Desktop/test-site/" class="explains-syntax" aria-label="source"></span>
+                  <span data-ex="heyzor" class="explains-syntax" aria-label="username"></span>@<span data-ex="server179.web-hosting.com" aria-label="servername" class="explains-syntax"></span>:<span data-ex="/home/heyzor" aria-label="hosthome" class="explains-syntax"></span>/<span data-ex="destination/test-site/" aria-label="destination" class="explains-syntax"></span>
+              </code>
+              <p>Okay. By now, you should be either sold on this, or not even reading anymore. If you chose a directory on the host actually linked to a domain, <em>you just upload a site.</em> It should be live. Isn't that cool? Fast?
+                I get it, it might look complicated, but hey, once you have it figured out:
+              </p>
+              <em class="important">You just copy-paste it over and over.</em>
+              <p>Or you do even better, you:</p>
+
+              <h2>step 4: Optimizing with bash</h2>
+
+              <p>I think the bare minimum is to alias the rsync command to something smaller. That way we can type <code class="inline">uploadSite</code> , and it uploads the site!</p>
+              <em>To create an alias use:</em>
+              <code class="explained">alias
+                <span class="explains-syntax" aria-label="alias name" data-ex="foo"></span>="<span class="explains-syntax" aria-label="command" data-ex="echo this is an alias"></span>"
+              </code>
+              <p>Then you type <em>foo</em> to run <code class="inline">echo this is an alias</code> </p>
+              <em>Should you want to remove an alias:</em>
+              <code class="explained">unalias <span class="explains-syntax" data-ex="foo" aria-label="alias name"></span></code>
+              <p>To make the alias permanent we must add it to the shell init files.</p>
+              <p><em>Open  in a text editor.</em></p>
+              <ul>
+                <li>
+                  <strong>MacOS - </strong>You may use <code class="inline">~/.bash_profile</code> if you have no <code class="inline">~/.bashrc</code>
+                </li>
+              </ul>
+              <em>Add the alias line to the file:</em>
+              <code>alias uploadSite="rsync --recursive --update --inplace --no-relative -e "ssh -p 21098" ~/Desktop/test-site/ heyzor@server179.web-hosting.com:/home/heyzor/destination/test-site/"</code>
+              <p>To cause the shell to read the file, it needs to restart. To do that you can restart the terminal, or switch to a new tab.</p>
+              <p><em>And that's it.</em></p>
+
+              <h3>A function</h3>
+              <p>The alias is simple and great, but you would have to edit that line on your shell file everytime you change the site you want to upload, because the source and destination directories are hardcoded.</p>
+              <p>Here's a trivial function to deal with that problem:</p>
+<pre>
+uploadSite() {
+  #this function takes 2 parameters
+  #1 - source directory
+  #2 - destination directory
+  #source is sent to destination via rsync SSH
+
+  #check enough arguments were provided
+  if [ "$1" == "" -o "$2" == "" ]; then
+    echo "Please provide two arguments"
+    echo "1 - source directory"
+    echo "2 - destination directory"
+    echo "source is sent to destination via rsync SSH"
+    return
+  fi
+
+  #rsync call
+  rsync --recursive --update --inplace --no-relative -e "ssh -p 21098" "$1" heyzor@server179.web-hosting.com:/home/heyzor/"$2"/
+}</pre>
+              <p>It essentially just checks if you passed it non-empty names, and substitutes them into the rsync command. Please make sure the names you pass as arguments are valid!
+                Paste it on your init file, then restart the shell.
+              </p>
+              <em>Use like this:</em>
+              <code class="explained">uploadSite <span class="explains-syntax" data-ex="~/Desktop/test-site" aria-label="source"></span> <span class="explains-syntax" data-ex="destination/test-site" aria-label="destination"></span></code>
+
+              <h3>My own function</h3>
+              <p>I have my own function for doing this on <a href="https://github.com/Thomazella">Github</a>. It is slighly easier to use because it figures out the directory names for you, but you need to use the same names on both your computer and the host.</p>
+              <em>Thanks for reading!</em>
+
+
+              <div class="hide container-image-right"><img class="half-width-right" src="css/img/bg1.png" alt="a sweet placeholder image"></div>
+              <div class="hide container-image-left"><img class="half-width" src="css/img/bg1.png" alt="a sweet placeholder image"></div>
+              <div class="hide container-image-wide"><img src="css/img/bg1.png" alt="a sweet placeholder image"></div>
             </div>
             <div class="container-backlinks">
               <a href="#header" class="back" title="back to top">
