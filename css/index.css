@@ -497,7 +497,7 @@ textarea {
   .read-preview h1 span:hover, .project-preview .heading1 span:hover, .project-preview .what-i-do strong span:hover, .what-i-do .project-preview strong span:hover {
     border-color: #131323; }
 
-.read-preview, .project-preview {
+.read-preview, .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl, .project-preview {
   max-width: 415px; }
 
 #read-previews {
@@ -507,7 +507,7 @@ textarea {
       padding-left: 4%;
       padding-right: 4%;
       display: grid;
-      grid: auto-flow/1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-gap: 1.5rem; } }
   @media screen and (min-width: 1600px) {
     #read-previews {
@@ -692,11 +692,18 @@ textarea {
     .thanks-for-reading dl dd {
       padding-top: 0.35em;
       padding-bottom: 0.35em; }
-  @supports (display: grid) {
-    .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl {
-      display: grid;
-      grid: auto-flow/1fr 1fr;
-      grid-gap: 1em; } }
+  .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl {
+    overflow: auto; }
+    @supports (display: grid) {
+      .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: minmax(min-content, 50%) minmax(min-content, 50%);
+        grid-gap: 1em; }
+        @media screen and (min-width: 1024px) {
+          .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl {
+            grid-template-columns: minmax(min-content, 33%) minmax(min-content, 67%);
+            max-width: 75%; } } }
   .read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important {
     border-style: solid;
     padding: 1em 0.5em; }
@@ -848,8 +855,7 @@ textarea {
   @supports (display: grid) {
     @media screen and (min-width: 768px) {
       .container-project-previews {
-        display: grid;
-        grid: auto/repeat(2, 1fr); } }
+        display: grid; } }
     @media screen and (min-width: 1024px) {
       .container-project-previews {
         padding-left: 10%;
@@ -1105,8 +1111,7 @@ input[type="submit"] {
 
 @media screen and (min-width: 768px) {
   .about-text {
-    display: grid;
-    grid: repeat(4, auto)/repeat(8, 1fr); } }
+    display: grid; } }
 
 .what-does-tazel-mean h2 {
   width: 60%;
@@ -1153,7 +1158,8 @@ input[type="submit"] {
   .who-i-am {
     grid-area: 1/1/auto/9;
     display: grid;
-    grid: repeat(4, 5rem)/repeat(8, 1fr); }
+    grid-template-rows: repeat(4, 5rem);
+    grid-template-columns: repeat(8, 1fr); }
     .who-i-am p, .who-i-am .read-preview blockquote, .read-preview .who-i-am blockquote, .who-i-am .read blockquote, .read .who-i-am blockquote, .who-i-am .project blockquote, .project .who-i-am blockquote, .who-i-am .about blockquote, .about .who-i-am blockquote, .who-i-am #email-me blockquote, #email-me .who-i-am blockquote, .who-i-am .thanks-for-reading blockquote, .thanks-for-reading .who-i-am blockquote, .who-i-am .project-preview blockquote, .project-preview .who-i-am blockquote {
       margin-top: 0; }
     .who-i-am .heading3 {
@@ -1190,19 +1196,19 @@ input[type="submit"] {
   .skills {
     grid-area: 3/1/auto/9;
     display: grid;
-    grid: repeat(3, 20.6rem)/repeat(2, 1fr);
     grid-column-gap: 2.5em; }
     .skills .dev-skills {
       grid-area: 1/1; }
     .skills .design-skills {
       grid-area: 1/2; }
     .skills .other-skills {
-      grid-area: 2/2/auto/span 1; } }
+      grid-area: 1/2;
+      position: relative;
+      top: 44%; } }
 @media screen and (min-width: 1280px) {
-  .skills {
-    grid: repeat(3, 20.6rem)/repeat(3, 1fr); }
-    .skills .other-skills {
-      grid-area: 1/3/auto/span 1; } }
+  .skills .other-skills {
+    grid-area: 1/3/auto/span 1;
+    position: static; } }
 
 @media screen and (min-width: 768px) {
   .opinions {
@@ -1226,11 +1232,12 @@ input[type="submit"] {
       display: inline; }
     .opinions ul {
       display: grid;
-      grid: repeat(6, auto)/repeat(2, 1fr);
+      grid-template-rows: repeat(6, auto);
+      grid-template-columns: repeat(2, 1fr);
       grid-column-gap: 2.5em; } }
     @media screen and (min-width: 768px) and (min-width: 1280px) {
       .opinions ul {
-        grid: repeat(6, auto)/repeat(3, 1fr); }
+        grid-template-columns: repeat(3, 1fr); }
         .opinions ul li:last-child {
           grid-area: 2/2; } }
 
