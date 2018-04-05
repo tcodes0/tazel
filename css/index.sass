@@ -22,7 +22,7 @@ $color-text-darker-darker: darken($color-text-darker, 20%)
 =width-squeeze($percent: 95%)
   width: $percent
   +aligned-block
-=padding-squeeze($percent: 95%)
+=padding-squeeze($percent: 2.5%)
   padding-left: $percent
   padding-right: $percent
 =opacity($n)
@@ -220,26 +220,28 @@ button
   @media screen and (min-width: $break-tabletS)
     padding: 1.7em 0
   ul
-    padding-left: 0.6em
+    // padding-left: 0.6em
+    +aligned-block
+    display: inline-block
     @media screen and (min-width: $break-mobileL)
       .linebreak-for-mobile-nav
         display: none
-    @media screen and (min-width: $break-tabletS)
-      padding-left: 2.6em
-    @media screen and (min-width: $break-tabletM)
-      padding-left: 5em
-    @media screen and (min-width: $break-desktopS)
-      padding-left: 7.6em
+    // @media screen and (min-width: $break-tabletS)
+    //   padding-left: 2.6em
+    // @media screen and (min-width: $break-tabletM)
+    //   padding-left: 5em
+    // @media screen and (min-width: $break-desktopS)
+    //   padding-left: 7.6em
     li
       display: inline
       line-height: 1.7em
-      margin-right: 1.05em
+      margin: 0 0.45em
       @media screen and (min-width: $break-tabletS)
-        margin-right: 2.6em
+        margin: 0 1.3em
       @media screen and (min-width: $break-tabletM)
-        margin-right: 5em
+        margin: 0 2.5em
       @media screen and (min-width: $break-desktopS)
-        margin-right: 8em
+        margin: 0 4em
       a
         @extend %hover-fade-color
 
@@ -267,10 +269,9 @@ button
   flex-grow: 1
   flex-direction: column
   justify-content: center
-  @media screen and (min-width: $break-mobileM)
-    min-height: 280px
   h2
     +aligned-block
+    +padding-squeeze(4%)
     // font-weight: 400 darkmode
     font-weight: 600
     max-width: 85%
@@ -294,7 +295,7 @@ button
     @supports (display: flex)
       margin-top: 0
       margin-bottom: 0
-      padding: 0
+      padding-bottom: 0
 
 .footer-home
   @extend .footer
