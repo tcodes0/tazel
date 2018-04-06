@@ -226,12 +226,6 @@ button
     @media screen and (min-width: $break-mobileL)
       .linebreak-for-mobile-nav
         display: none
-    // @media screen and (min-width: $break-tabletS)
-    //   padding-left: 2.6em
-    // @media screen and (min-width: $break-tabletM)
-    //   padding-left: 5em
-    // @media screen and (min-width: $break-desktopS)
-    //   padding-left: 7.6em
     li
       display: inline
       line-height: 1.7em
@@ -687,6 +681,7 @@ button
   @supports (display: grid)
     @media screen and (min-width: $break-tabletS)
       display: grid
+      grid-template-columns: repeat(2, 1fr)
     @media screen and (min-width: $break-tabletM)
       +padding-squeeze(10%)
     @media screen and (min-width: $break-desktopS)
@@ -698,7 +693,6 @@ button
   @extend %preview
   @extend %read-common-children
   @extend %background
-  @extend %dont-stretch
   +width-squeeze
   padding: 5% 7%
   transition: background-color 0.5s ease
@@ -739,13 +733,19 @@ button
       +gutter(2,103)
     &:nth-child(3n+2)
       +gutter(2,103)
+  /* ---- end ----
   /* ---- fallback override ----
   @supports (display: grid)
+    max-width: 415px // @extend %dont-stretch
     @media screen and (min-width: $break-tabletS)
+      margin: 0
       width: 95%
       float: none
       padding-left: 5%
       padding-right: 5%
+      &:nth-child(2n-1)
+        justify-self: end
+  /* ---- end ----
 
 .container-project-logo
   @extend %project-border-common
@@ -780,7 +780,8 @@ button
   right: -59%
   top: -28%
   @media screen and (min-width: $break-tabletS)
-    display: block
+    @supports (display: grid)
+      display: block
 
 
 /*________________________________________________________________

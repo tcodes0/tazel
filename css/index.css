@@ -490,7 +490,7 @@ textarea {
   .read-preview h1 span:hover, .project-preview .heading1 span:hover, .project-preview .what-i-do strong span:hover, .what-i-do .project-preview strong span:hover {
     border-color: #131323; }
 
-.read-preview, .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl, .project-preview, form {
+.read-preview, .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl, form {
   max-width: 415px; }
 
 #read-previews {
@@ -848,7 +848,8 @@ textarea {
   @supports (display: grid) {
     @media screen and (min-width: 768px) {
       .container-project-previews {
-        display: grid; } }
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); } }
     @media screen and (min-width: 1024px) {
       .container-project-previews {
         padding-left: 10%;
@@ -869,7 +870,9 @@ textarea {
   transition: background-color 0.5s ease;
   position: relative;
   /* ---- grid fallback ---- */
-  /* ---- fallback override ---- */ }
+  /* ---- end ---- */
+  /* ---- fallback override ---- */
+  /* ---- end ---- */ }
   .project-preview p, .project-preview #email-me blockquote, #email-me .project-preview blockquote, .project-preview blockquote {
     padding: 1.5em 0; }
   .project-preview hr {
@@ -907,12 +910,17 @@ textarea {
       .project-preview:nth-child(3n+2) {
         margin-right: 1.9417475728%; } }
   @supports (display: grid) {
-    @media screen and (min-width: 768px) {
-      .project-preview {
-        width: 95%;
-        float: none;
-        padding-left: 5%;
-        padding-right: 5%; } } }
+    .project-preview {
+      max-width: 415px; }
+      @media screen and (min-width: 768px) {
+        .project-preview {
+          margin: 0;
+          width: 95%;
+          float: none;
+          padding-left: 5%;
+          padding-right: 5%; }
+          .project-preview:nth-child(2n-1) {
+            justify-self: end; } } }
 
 .container-project-logo {
   border-style: solid;
@@ -944,8 +952,9 @@ textarea {
   right: -59%;
   top: -28%; }
   @media screen and (min-width: 768px) {
-    .vertical-separator {
-      display: block; } }
+    @supports (display: grid) {
+      .vertical-separator {
+        display: block; } } }
 
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
