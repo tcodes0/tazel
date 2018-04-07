@@ -35,6 +35,9 @@ $color-text-darker-darker: darken($color-text-darker, 20%)
   @if $option != null
     $option: -$option
   border#{$option}-style: $style
+=box-shade($X: 5px, $Y: 5px, $Color: rgba(0,0,0,0.3), $Blur: 10px, $Spread: 3px)
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$X},OffY=#{$Y},Color="#{$Color}",Positive='true')
+  box-shadow: $X $Y $Blur $Spread $Color
 
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
@@ -380,6 +383,10 @@ button
     padding: 0.35em
     background: $color-bg-darker-darker
     margin: 2em 0
+  code > pre
+    margin: 0
+  code.inline
+    white-space: normal
   em
     & > code, pre
       padding-top: 0
@@ -448,7 +455,7 @@ button
   padding: 1.5% 2% 1% 2%
   background-color: $color-bg-darker
   border-bottom: 3px solid $color-bg
-  background-image: url('img/coffee-white.svg'), url('img/coffee-white.png')
+  // background-image: url('img/coffee-white.svg'), url('img/coffee-white.png')
   h1 span
     @extend %hover-underline
   @media screen and (min-width: $break-tabletS)
@@ -547,10 +554,12 @@ button
   .big
     @extend h3
     @extend .align-center
-    @extend %full-width-object
+    +width-squeeze(80%)
     line-height: 1.7
     text-transform: uppercase
     font-family: inherit
+    @media screen and (min-width: $break-tabletM)
+      +width-squeeze(65%)
   .no-margin
     margin: 0
   .lang-shell
@@ -571,6 +580,8 @@ button
       .explains-syntax:after
         content: attr(data-ex)
         color: $color-text
+  [aria-label="screenshot"]
+    +box-shade(5px,5px,$color-bg-darker-darker,9px,4px)
 
 .read-background
   +aligned-block

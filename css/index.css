@@ -466,6 +466,10 @@ textarea {
   padding: 0.35em;
   background: #e5e5cf;
   margin: 2em 0; }
+.read-preview code > pre, .read code > pre, .project code > pre, .about code > pre, #email-me code > pre, .thanks-for-reading code > pre, .project-preview code > pre {
+  margin: 0; }
+.read-preview code.inline, .read code.inline, .project code.inline, .about code.inline, #email-me code.inline, .thanks-for-reading code.inline, .project-preview code.inline {
+  white-space: normal; }
 .read-preview em > code, .read em > code, .project em > code, .about em > code, #email-me em > code, .thanks-for-reading em > code, .project-preview em > code, .read-preview em pre, .read em pre, .project em pre, .about em pre, #email-me em pre, .thanks-for-reading em pre, .project-preview em pre {
   padding-top: 0;
   padding-bottom: 0; }
@@ -534,8 +538,7 @@ textarea {
   margin-right: auto;
   padding: 1.5% 2% 1% 2%;
   background-color: #f3f3e9;
-  border-bottom: 3px solid #fffffc;
-  background-image: url("img/coffee-white.svg"), url("img/coffee-white.png"); }
+  border-bottom: 3px solid #fffffc; }
   @media screen and (min-width: 768px) {
     .read-preview {
       width: 100%;
@@ -701,9 +704,19 @@ textarea {
     border-style: solid;
     padding: 1em 0.5em; }
   .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     line-height: 1.7;
     text-transform: uppercase;
     font-family: inherit; }
+    @media screen and (min-width: 1024px) {
+      .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big {
+        width: 65%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; } }
   .read .no-margin, .project .no-margin, .about .no-margin, #email-me .no-margin, .thanks-for-reading .no-margin {
     margin: 0; }
   .read .lang-shell:before, .project .lang-shell:before, .about .lang-shell:before, #email-me .lang-shell:before, .thanks-for-reading .lang-shell:before {
@@ -721,6 +734,9 @@ textarea {
       .read .explained:hover .explains-syntax:after, .project .explained:hover .explains-syntax:after, .about .explained:hover .explains-syntax:after, #email-me .explained:hover .explains-syntax:after, .thanks-for-reading .explained:hover .explains-syntax:after, .read .explained:active .explains-syntax:after, .project .explained:active .explains-syntax:after, .about .explained:active .explains-syntax:after, #email-me .explained:active .explains-syntax:after, .thanks-for-reading .explained:active .explains-syntax:after {
         content: attr(data-ex);
         color: #131323; }
+  .read [aria-label="screenshot"], .project [aria-label="screenshot"], .about [aria-label="screenshot"], #email-me [aria-label="screenshot"], .thanks-for-reading [aria-label="screenshot"] {
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=5px,OffY=5px,Color="#e5e5cf",Positive='true');
+    box-shadow: 5px 5px 9px 4px #e5e5cf; }
 
 .read-background, .project-background {
   display: block;
@@ -737,13 +753,13 @@ textarea {
       padding-left: 4.7%;
       padding-right: 4.7%; } }
 
-.read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big, .read-header, .container-image-wide img, .project-header, .about-header {
+.read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read-header, .container-image-wide img, .project-header, .about-header {
   width: 95%;
   display: block;
   margin-left: auto;
   margin-right: auto; }
   @media screen and (min-width: 1280px) {
-    .read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big, .read-header, .container-image-wide img, .project-header, .about-header {
+    .read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read-header, .container-image-wide img, .project-header, .about-header {
       width: 84%; } }
 
 .read-text, .project-text, .about-text {
