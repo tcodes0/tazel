@@ -1279,14 +1279,13 @@ input[type="submit"] {
     max-width: 1175px; } }
 
 #pic-cartoon {
-  background-color: #f3f3e9; }
+  background-color: #f3f3e9;
+  margin-left: 40px;
+  margin-left: 2.5rem; }
   #pic-cartoon svg {
-    max-height: 310px; }
-    @media screen and (min-width: 414px) {
-      #pic-cartoon svg {
-        max-height: 370px; } }
+    max-height: 260px; }
     @media screen and (min-width: 768px) {
       #pic-cartoon svg {
-        max-height: 190px; } }
+        max-height: 160px; } }
 
 /*# sourceMappingURL=index.css.map */
