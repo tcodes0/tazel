@@ -581,7 +581,7 @@ button
         content: attr(data-ex)
         color: $color-text
   [aria-label="screenshot"]
-    +box-shade(5px,5px,$color-bg-darker-darker,9px,4px)
+    +box-shade(3px,3px,$color-bg-darker-darker,10px,4px)
 
 .read-background
   +aligned-block
@@ -879,6 +879,8 @@ textarea
 textarea
   width: 100%
   margin-bottom: 0.5em
+  min-width: 75%
+  min-height: 10em
 
 fieldset
   border-style: none
@@ -886,6 +888,7 @@ fieldset
     display: none
 
 input[type="submit"]
+  display: block
   font-weight: 600
   width: auto
   &:hover

@@ -120,19 +120,19 @@ const langSwitcher_Enabler = () => {
 }
 onLoaders.push(langSwitcher_Enabler)
 
-const notSureIfList_RunTask = (object, task) => {
+const runTask_ObjectOrList = (object, task) => {
   if (object.forEach) {
     object.forEach(obj => {
-      notSureIfList_RunTask(obj, task)
+      runTask_ObjectOrList(obj, task)
     })
   } else {
     task(object)
   }
 }
 
-const cleanStyles = obj => notSureIfList_RunTask(obj, o => o.removeAttribute('style'))
+const cleanStyles = obj => runTask_ObjectOrList(obj, o => o.removeAttribute('style'))
 
-const changeOpacity = (obj, value) => notSureIfList_RunTask(obj, o => o.style.opacity = value)
+const changeOpacity = (obj, value) => runTask_ObjectOrList(obj, o => o.style.opacity = value)
 
 const english_About = () => {
   const fadeIn = () => {
@@ -172,6 +172,9 @@ const english_About = () => {
 
   const changeToEnglish = () => {
     $('html').setAttribute('lang','en')
+    $('#sender-name').setAttribute('placeholder','Mr. Foo Bar')
+    $('#sender-email').setAttribute('placeholder','yourname@provider.com')
+
     h_h1.textContent = "It's nice you came by"
     iAmCalled.textContent = "I'm"
     who_h3.textContent = "Since we're here, this is what I do"
@@ -239,9 +242,10 @@ const english_About = () => {
   all.push(h_h1, iAmCalled, who_h3, who_p, strong, dev_h3,dev_li, des_h3,
     des_li, oth_h3, oth_li, opn_h2, opn_li, fom_h2,
     fom_la, fom_in, fom_submit, thanks)
+  // add handler to only one element to avoid handling it many times
   all[0].addEventListener('transitionend', changeToEnglish, {once: true})
 
-  notSureIfList_RunTask(all, a => {
+  runTask_ObjectOrList(all, a => {
     a.style.transition = `opacity ${transitionStandard}`
     a.style.opacity = 0
   })

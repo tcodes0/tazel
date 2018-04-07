@@ -735,8 +735,8 @@ textarea {
         content: attr(data-ex);
         color: #131323; }
   .read [aria-label="screenshot"], .project [aria-label="screenshot"], .about [aria-label="screenshot"], #email-me [aria-label="screenshot"], .thanks-for-reading [aria-label="screenshot"] {
-    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=5px,OffY=5px,Color="#e5e5cf",Positive='true');
-    box-shadow: 5px 5px 9px 4px #e5e5cf; }
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=3px,OffY=3px,Color="#e5e5cf",Positive='true');
+    box-shadow: 3px 3px 10px 4px #e5e5cf; }
 
 .read-background, .project-background {
   display: block;
@@ -1063,7 +1063,9 @@ textarea {
 
 textarea {
   width: 100%;
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.5em;
+  min-width: 75%;
+  min-height: 10em; }
 
 fieldset {
   border-style: none; }
@@ -1071,6 +1073,7 @@ fieldset {
     display: none; }
 
 input[type="submit"] {
+  display: block;
   font-weight: 600;
   width: auto; }
   input[type="submit"]:hover {
