@@ -294,8 +294,8 @@ textarea {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 4%;
-    padding-right: 4%;
+    padding-left: 7%;
+    padding-right: 7%;
     font-weight: 600;
     max-width: 85%;
     font-size: 28.8px;
@@ -305,15 +305,14 @@ textarea {
     max-width: 600px; }
     @media screen and (min-width: 768px) {
       #professional-description h2 {
-        max-width: 65%;
         font-size: 45px;
         font-size: 2.5rem; } }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1024px) {
       #professional-description h2 {
-        max-width: 45%; } }
+        max-width: 65%; } }
     @media screen and (min-width: 1600px) {
       #professional-description h2 {
-        max-width: 40%; } }
+        max-width: 50%; } }
     @media screen and (min-width: 1600px) {
       #professional-description h2 {
         margin-top: 130px; } }
@@ -360,8 +359,8 @@ textarea {
  * -  -  -  -  -  -  -  -  -  -  Read  -  -  -  -  -  -  -  -  -  -
  * ________________________________________________________________ */
 .container-tileable, .container-project-previews {
-  padding-left: 2.5%;
-  padding-right: 2.5%; }
+  padding-left: 5%;
+  padding-right: 5%; }
 
 .read-preview, .project-preview {
   margin-bottom: 0.75em; }
@@ -536,7 +535,7 @@ textarea {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 1.5% 2% 1% 2%;
+  padding: 1.5% 2% 1%;
   background-color: #f3f3e9;
   border-bottom: 3px solid #fffffc; }
   @media screen and (min-width: 768px) {
@@ -878,11 +877,10 @@ textarea {
         grid-template-columns: repeat(4, 1fr); } } }
 
 .project-preview {
-  width: 95%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 5% 7%;
+  padding: 5% 2%;
   transition: background-color 0.5s ease;
   position: relative;
   /* ---- grid fallback ---- */

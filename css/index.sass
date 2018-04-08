@@ -268,7 +268,7 @@ button
   justify-content: center
   h2
     +aligned-block
-    +padding-squeeze(4%)
+    +padding-squeeze(7%)
     // font-weight: 400 darkmode
     font-weight: 600
     max-width: 85%
@@ -278,14 +278,12 @@ button
     padding-bottom: 1.4em
     max-width: 600px
     @media screen and (min-width: $break-tabletS)
-      max-width: 65%
       font-size: 45px
       font-size: 2.5rem
-    @media screen and (min-width: $break-desktopS)
-      // IDEA: sub these with pxs
-      max-width: 45%
+    @media screen and (min-width: $break-tabletM)
+      max-width: 65%
     @media screen and (min-width: $break-desktopM)
-      max-width: 40%
+      max-width: 50%
     @media screen and (min-width: $break-desktopM)
       margin-top: 130px
     //OVERRIDE for flexbox vertical align
@@ -330,7 +328,7 @@ button
   ________________________________________________________________
 
 %container-read
-  +padding-squeeze(2.5%)
+  +padding-squeeze(5%) // nomally 7%. container-tileable needs 2% for bg color
 
 %preview
   margin-bottom: 0.75em
@@ -452,7 +450,7 @@ button
   @extend %background
   @extend %dont-stretch
   +aligned-block
-  padding: 1.5% 2% 1% 2%
+  padding: 1.5% 2% 1%
   background-color: $color-bg-darker
   border-bottom: 3px solid $color-bg
   // background-image: url('img/coffee-white.svg'), url('img/coffee-white.png')
@@ -704,8 +702,8 @@ button
   @extend %preview
   @extend %read-common-children
   @extend %background
-  +width-squeeze
-  padding: 5% 7%
+  +aligned-block
+  padding: 5% 2%
   transition: background-color 0.5s ease
   position: relative
   p
