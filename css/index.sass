@@ -62,7 +62,9 @@ body
 
 %margin-bottom-large
   margin-bottom: 75px
-  margin-bottom: 4.7rem
+  margin-bottom: 12vh
+  // margin-bottom: 75px
+  // margin-bottom: 4.7rem
 
 .header
   @extend %margin-bottom-large
@@ -71,11 +73,6 @@ body
   *:after,
   *:before
     font-size: 1.3em
-
-.header-fancy
-  @extend .header
-  margin-top: 20px
-  margin-top: 3vh
 
 a
   @extend %transition-standard
@@ -88,7 +85,8 @@ a
     text-decoration: $color-text wavy underline
     color: $color-text-darker
   &.disabled
-    cursor: default
+    cursor: disabled
+    cursor: inherit
     span
       border-color: transparent !important
   &.close
@@ -148,11 +146,6 @@ button
   -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
   ________________________________________________________________
 
-.flex-vertical-align-center
-  display: flex
-  flex-direction: column
-  justify-content: flex-start
-
 %monospaced
   font-family: 'Roboto Mono', monospace
   text-align: center
@@ -166,12 +159,23 @@ button
     font-size: 14.7px
     font-size: 0.92rem
 
+.header-fancy
+  @extend .header
+  margin-top: 20px
+  margin-top: 3vh
+  @supports (display: flex)
+    min-height: 35vh
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+
 .thomazella-logo
   @extend .img-svg
   +aligned-block
   // IE8,9 fallback
   max-width: 25%
-  max-width: calc(77% + 1%)
+  max-width: calc(82% + 1%)
   margin-top: 0.3em
   @media screen and (min-width: $break-mobileL)
     max-width: 70%
@@ -182,7 +186,8 @@ button
   @media screen and (min-width: $break-tabletM)
     max-width: 35%
   @media screen and (min-width: $break-desktopS)
-    max-width: calc(100% - 72vw)
+    margin-bottom: 2em
+    max-width: 28%
 
 #professional-title
   @extend %monospaced
@@ -219,31 +224,39 @@ button
   @extend %monospaced
   background-color: $color-bg-darker
   font-weight: 600
+  font-size: 19px
+  font-size: 1.2rem
   padding: 0.7em 0
   @media screen and (min-width: $break-tabletS)
     padding: 1.7em 0
   ul
-    // padding-left: 0.6em
     +aligned-block
     display: inline-block
-    @media screen and (min-width: $break-mobileL)
-      .linebreak-for-mobile-nav
-        display: none
+    // .linebreak-for-mobile-nav
+    //   // using :: to exclude old IE
+    //   &::after
+    //     content: "\0a"
+    //   @media screen and (min-width: $break-mobileL)
+    //     display: none
     li
       display: inline
       line-height: 1.7em
-      margin: 0 0.45em
+      margin: 0 0.7em
+      &:nth-child(2)::after
+          content: " \0a"
+          white-space: pre
+          @media screen and (min-width: $break-mobileL)
+            display: none
       @media screen and (min-width: $break-tabletS)
         margin: 0 1.3em
-      @media screen and (min-width: $break-tabletM)
-        margin: 0 2.5em
       @media screen and (min-width: $break-desktopS)
-        margin: 0 4em
+        margin: 0 2.8em
       a
         @extend %hover-fade-color
 
 .nav-fancy
   @extend .nav
+  line-height: 2.2
   padding-top: 0
   background-color: inherit
   //using :: to exclude IE8, it doesnt support :after
@@ -262,35 +275,39 @@ button
 
 #professional-description
   @extend %margin-bottom-large
-  display: flex
-  flex-grow: 1
-  flex-direction: column
-  justify-content: center
+  // display: flex
+  // flex-grow: 1
+  // flex-direction: column
+  // justify-content: center
+  text-align: center
+  font-size: 28.8px
+  font-size: 1.8rem
+  @media screen and (min-width: $break-tabletS)
+    font-size: 45px
+    font-size: 2.5rem
+  .language-switch
+    margin-bottom: 1em
   h2
     +aligned-block
     +padding-squeeze(7%)
-    // font-weight: 400 darkmode
+    margin-top: 0
+    margin-bottom: 0
+    font-size: inherit
     font-weight: 600
-    max-width: 85%
-    font-size: 28.8px
-    font-size: 1.8rem
-    text-align: center
-    padding-bottom: 1.4em
-    max-width: 600px
+    //fallback
+    max-width: 40%
+    max-width: calc(99% + 1%)
+    // padding-bottom: 0
+    // font-weight: 400 darkmode
+    // max-width: 450px
+    // padding-bottom: 1.4em
+    // max-width: 600px
     @media screen and (min-width: $break-tabletS)
-      font-size: 45px
-      font-size: 2.5rem
+      max-width: 85%
     @media screen and (min-width: $break-tabletM)
       max-width: 65%
     @media screen and (min-width: $break-desktopM)
       max-width: 50%
-    @media screen and (min-width: $break-desktopM)
-      margin-top: 130px
-    //OVERRIDE for flexbox vertical align
-    @supports (display: flex)
-      margin-top: 0
-      margin-bottom: 0
-      padding-bottom: 0
 
 .footer-home
   @extend .footer
@@ -706,6 +723,9 @@ button
   padding: 5% 2%
   transition: background-color 0.5s ease
   position: relative
+  // fallback for IE8
+  max-width: 40%
+  max-width: calc(99% + 1%)
   p
     padding: 1.5em 0
   hr
@@ -823,7 +843,8 @@ button
     &.active
       +opacity(1)
     &:first-child
-      margin-right: 1em
+      margin-right: 16px
+      margin-right: 1rem
 
 button.active
   +opacity(1)
