@@ -35,7 +35,12 @@ const toggleGuide = () => {
 
 const htmlHide = (query) => {
   let e = $(query)
-  e.attributes.hidden ? e.removeAttribute('hidden') : e.setAttribute('hidden', '')
+  if (e.attributes.hidden)
+    e.removeAttribute('hidden')
+  else {
+    e.setAttribute('hidden', '')
+    e.style.display = 'none'
+  }
 }
 
 const whiteIcons = () => {
@@ -65,13 +70,13 @@ const blackIcons = () => {
   })
 }
 
-const homeHide_FooterNav = () => {
+const hide_HomeFooterNav = () => {
   if (ThisPageIsNot(home)) {
     return
   }
   $('.nav-footer').setAttribute('hidden', '')
 }
-onLoaders.push(homeHide_FooterNav)
+onLoaders.push(hide_HomeFooterNav)
 
 const light_Colors = () => {
   let color = 'rgb(255,255,252)'
@@ -80,7 +85,7 @@ const light_Colors = () => {
 }
 // onLoaders.push(light_Colors)
 
-const langSwitcher_ClickHandler = () => {
+const langSwitcher_AddClickHandler = () => {
   if (ThisPageIsNot(about) && ThisPageIsNot(home)) {
     return
   }
@@ -110,15 +115,15 @@ const langSwitcher_ClickHandler = () => {
     }
   }))
 }
-onLoaders.push(langSwitcher_ClickHandler)
+onLoaders.push(langSwitcher_AddClickHandler)
 
-const langSwitcher_Enabler = () => {
+const langSwitcher_Unhide = () => {
   if (ThisPageIsNot(home) && ThisPageIsNot(about)) {
     return
   }
   $('.language-switch').classList.remove('hide')
 }
-onLoaders.push(langSwitcher_Enabler)
+onLoaders = [langSwitcher_Unhide, ...onLoaders]
 
 const runTask_ObjectOrList = (object, task) => {
   if (object.forEach) {
@@ -279,11 +284,11 @@ const footer_OnBottom = () => {
   }
 }
 onLoaders.push(footer_OnBottom)
-resizers.push(footer_OnBottom)
+// resizers.push(footer_OnBottom)
 
 const findALinkParent = x => x.nodeName === "A" ? x : findALinkParent(x.parentNode)
 
-const previewArticles_LinkHooker = () => {
+const previewArticles_AddClickHandler = () => {
   const handler = e => {
     e.preventDefault()
     if ($('.added-by-js')) {
@@ -308,7 +313,7 @@ const previewArticles_LinkHooker = () => {
     hooker('.project-preview a')
   }
 }
-onLoaders.push(previewArticles_LinkHooker)
+onLoaders.push(previewArticles_AddClickHandler)
 
 const previewArticles_LinkDisabler = () => {
   const hooker = (query) => {
@@ -336,31 +341,37 @@ const floatingArticle_Inserter = e => {
     head.addEventListener('click', floatingArticle_Destroyer, {once: true})
     head.addEventListener('touchend', floatingArticle_Destroyer, {once: true})
   }
+  const unsetProgressCursor = () => document.body.style.cursor = "auto"
+
   let tail = document.createElement('div')
   // get the link that was clicked, figure what article to show
   let clickedLink = findALinkParent(e.target)
   let el = $(clickedLink.attributes.href.value)
-  // console.log(el);
+
+  // set cursor for feedback something is happening
+  document.body.style.cursor = "progress"
 
   // move such article underneath viewport, make it visible, make it abs position
   el.classList.add('added-by-js')
   el.style.transition = `top ${transitionSmooth}`
   el.style.top = window.innerHeight + window.scrollY + "px"
   el.classList.remove('hide')
+  // hide nonsensical link if article is floating
   el.querySelector('.container-backlinks a.back[href="#header"]').classList.add('hide')
 
   tail.classList.add('empty-transparency')
   tail.style.top = el.offsetHeight + 'px'
   el.appendChild(tail)
   el.setAttribute("data-top", window.scrollY)
+  // trigger transition to bring article up
   el.style.top = window.scrollY + "px"
-  // .main scrolls away and the body's bg color looks like a glitch
+  // .main scrolls away with the article and the body's bg color looks like a glitch
   document.body.style.backgroundColor = getComputedStyle(m).backgroundColor
-  // IDEA: scroll bar is taking 15px on the right making the page move when article shows up
 
   // will run after transition and wrap it up
   el.addEventListener('transitionend', positionFixed_Apply, {once: true})
   el.addEventListener('transitionend', headPrepender, {once: true})
+  el.addEventListener('transitionend', unsetProgressCursor, {once: true})
 
   //how to get rid of it
   tail.addEventListener('click', floatingArticle_Destroyer, {once: true})
@@ -370,6 +381,7 @@ const floatingArticle_Inserter = e => {
   window.addEventListener('wheel', scrollHandler)
   window.addEventListener('touchmove', scrollHandler)
   window.addEventListener('keydown', keyHandler)
+  // IDEA: scroll bar is taking 15px on the right making the page move when article shows up
 }
 
 const positionFixed_Apply = e => {
@@ -392,20 +404,35 @@ const positionFixed_Remove = () => {
 }
 
 const floatingArticle_Destroyer = () => {
+  // avoids a flick caused by smooth scrolling when article is destroyed
+  const avoidScrollBehaviorSmooth = () => {
+    let sb = getComputedStyle(document.body).scrollBehavior
+    if (!sb) {
+      return
+    }
+    else if (sb !== "auto") {
+      document.body.style.scrollBehavior = "auto"
+    }
+  }
   let el = $('.added-by-js')
+
   el.style.transition = `opacity ${transitionStandard}`
   changeOpacity(el, 0)
+
   el.addEventListener('transitionend', e => {
     el.classList.remove('added-by-js')
     el.classList.add('hide')
     el.removeAttribute('style')
     $$('.empty-transparency').forEach(transp => el.removeChild(transp))
-    document.body.removeAttribute('style')
     previewArticles_LinkEnabler()
+    avoidScrollBehaviorSmooth()
     positionFixed_Remove()
-    // this call makes it seem smoother cancelling some scrolling
+    // avoid flicks by cancelling some scrolling
     window.scroll(0, Number.parseInt(el.dataset.top))
+    // cleanup js css
+    document.body.removeAttribute('style')
   }, {once: true})
+
   window.removeEventListener('wheel', scrollHandler)
   window.removeEventListener('touchmove', scrollHandler)
   window.removeEventListener('keydown', keyHandler)
@@ -452,7 +479,6 @@ const previewArticles_LinkEnabler = () => {
   }
 }
 
-// IDEA: write f to hide the back to top backlink (not working w floating)
 const backToTop_LinkReplacer = () => {
   // return
   if (ThisPageIsNot(articles) && ThisPageIsNot(projects)) {
@@ -471,7 +497,7 @@ const backToTop_LinkReplacer = () => {
   $('.container-backlinks').prepend(clone)
 }
 
-const hideReadOrProject = () => {
+const hideReadsAndProjects = () => {
   if (ThisPageIs(articles)) {
     $$('.read').forEach(r => r.classList.add('hide'))
   } else
@@ -479,10 +505,5 @@ const hideReadOrProject = () => {
     $$('.project').forEach(p => p.classList.add('hide'))
   }
 }
-// onLoaders.push(hideReadOrProject)
-// onLoaders.reverse()
-
+onLoaders = [hideReadsAndProjects, ...onLoaders]
 // IDEA: project separator glitches when main changes size. rework it
-const dumper = () => {
-  let item = $('.project-preview')
-}
