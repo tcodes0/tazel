@@ -23,7 +23,7 @@ a, .social-media-links .img-svg, .social-media-links .thomazella-logo {
   color: inherit;
   text-decoration: none; }
 
-p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, #email-me blockquote, .thanks-for-reading blockquote, .project-preview blockquote {
+p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, .thanks-for-reading blockquote, #email-me blockquote, .project-preview blockquote {
   margin: 0;
   hyphens: none; }
 
@@ -158,26 +158,26 @@ button {
   flex-direction: column;
   justify-content: flex-start; }
 
-#professional-title, .nav, .nav-fancy, .nav-footer, .read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong,
+#professional-title, .nav, .nav-fancy, .nav-footer, .read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong,
 .read-preview h2,
 .read h2,
 .project h2,
 .about h2,
-#email-me h2,
 .thanks-for-reading h2,
+#email-me h2,
 .project-preview h2,
 .read-preview h3,
 .read h3,
 .project h3,
 .about h3,
-#email-me h3,
 .thanks-for-reading h3,
+#email-me h3,
 .project-preview h3,
 .read .big,
 .project .big,
 .about .big,
-#email-me .big,
-.thanks-for-reading .big, .heading3 {
+.thanks-for-reading .big,
+#email-me .big, .heading3 {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
 
@@ -369,58 +369,58 @@ textarea {
     .read-preview, .project-preview {
       margin-bottom: 0.4em; } }
 
-.read-preview p, .read p, .project p, .about p, #email-me p, .thanks-for-reading p, .project-preview p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, #email-me blockquote, .thanks-for-reading blockquote, .project-preview blockquote {
+.read-preview p, .read p, .project p, .about p, .thanks-for-reading p, #email-me p, .project-preview p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, .thanks-for-reading blockquote, #email-me blockquote, .project-preview blockquote {
   text-transform: none;
   font-weight: 400;
   line-height: 1.52; }
   @media screen and (min-width: 1024px) {
-    .read-preview p, .read p, .project p, .about p, #email-me p, .thanks-for-reading p, .project-preview p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, #email-me blockquote, .thanks-for-reading blockquote, .project-preview blockquote {
+    .read-preview p, .read p, .project p, .about p, .thanks-for-reading p, #email-me p, .project-preview p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, .thanks-for-reading blockquote, #email-me blockquote, .project-preview blockquote {
       font-size: 17.6px;
       font-size: 1.1rem; } }
-.read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong,
+.read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong,
 .read-preview h2,
 .read h2,
 .project h2,
 .about h2,
-#email-me h2,
 .thanks-for-reading h2,
+#email-me h2,
 .project-preview h2,
 .read-preview h3,
 .read h3,
 .project h3,
 .about h3,
-#email-me h3,
 .thanks-for-reading h3,
+#email-me h3,
 .project-preview h3,
 .read .big,
 .project .big,
 .about .big,
-#email-me .big,
-.thanks-for-reading .big {
+.thanks-for-reading .big,
+#email-me .big {
   text-align: left;
   text-transform: uppercase;
   line-height: 1.35; }
-.read-preview h2, .read h2, .project h2, .about h2, #email-me h2, .thanks-for-reading h2, .project-preview h2,
+.read-preview h2, .read h2, .project h2, .about h2, .thanks-for-reading h2, #email-me h2, .project-preview h2,
 .read-preview h3,
 .read h3,
 .project h3,
 .about h3,
-#email-me h3,
 .thanks-for-reading h3,
+#email-me h3,
 .project-preview h3,
 .read .big,
 .project .big,
 .about .big,
-#email-me .big,
-.thanks-for-reading .big {
+.thanks-for-reading .big,
+#email-me .big {
   padding: 2.5em 0; }
-  .read-preview h2 + h4, .read h2 + h4, .project h2 + h4, .about h2 + h4, #email-me h2 + h4, .thanks-for-reading h2 + h4, .project-preview h2 + h4,
+  .read-preview h2 + h4, .read h2 + h4, .project h2 + h4, .about h2 + h4, .thanks-for-reading h2 + h4, #email-me h2 + h4, .project-preview h2 + h4,
   .read-preview h3 + h4,
   .read h3 + h4,
   .project h3 + h4,
   .about h3 + h4,
-  #email-me h3 + h4,
   .thanks-for-reading h3 + h4,
+  #email-me h3 + h4,
   .project-preview h3 + h4,
   .read .read-preview .big + h4,
   .read .big + h4,
@@ -431,57 +431,57 @@ textarea {
   .about .read-preview .big + h4,
   .about .big + h4,
   .about .project-preview .big + h4,
+  .thanks-for-reading .read-preview .big + h4,
+  .thanks-for-reading .big + h4,
+  .thanks-for-reading .project-preview .big + h4,
   #email-me .read-preview .big + h4,
   #email-me .read .big + h4,
   #email-me .project .big + h4,
   #email-me .about .big + h4,
-  #email-me .big + h4,
-  #email-me .project-preview .big + h4,
-  .thanks-for-reading .read-preview .big + h4,
   #email-me .thanks-for-reading .big + h4,
-  .thanks-for-reading .big + h4,
-  .thanks-for-reading .project-preview .big + h4 {
+  #email-me .big + h4,
+  #email-me .project-preview .big + h4 {
     padding-top: 0; }
-.read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong {
+.read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong {
   font-size: 43.2px;
   font-size: 2.7rem; }
-.read-preview h2, .read h2, .project h2, .about h2, #email-me h2, .thanks-for-reading h2, .project-preview h2 {
+.read-preview h2, .read h2, .project h2, .about h2, .thanks-for-reading h2, #email-me h2, .project-preview h2 {
   font-size: 32px;
   font-size: 2.3rem; }
-.read-preview h3, .read h3, .project h3, .about h3, #email-me h3, .thanks-for-reading h3, .project-preview h3, .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big {
+.read-preview h3, .read h3, .project h3, .about h3, .thanks-for-reading h3, #email-me h3, .project-preview h3, .read .big, .project .big, .about .big, .thanks-for-reading .big, #email-me .big {
   font-size: 23.2px;
   font-size: 1.45rem; }
-.read-preview h4, .read h4, .project h4, .about h4, #email-me h4, .thanks-for-reading h4, .project-preview h4 {
+.read-preview h4, .read h4, .project h4, .about h4, .thanks-for-reading h4, #email-me h4, .project-preview h4 {
   font-size: 20px;
   font-size: 1.25rem;
   margin-top: 1.75em;
   padding-top: 1em; }
-.read-preview hr, .read hr, .project hr, .about hr, #email-me hr, .thanks-for-reading hr, .project-preview hr {
+.read-preview hr, .read hr, .project hr, .about hr, .thanks-for-reading hr, #email-me hr, .project-preview hr {
   border: none; }
-.read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, #email-me blockquote, .thanks-for-reading blockquote, .project-preview blockquote {
+.read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, .thanks-for-reading blockquote, #email-me blockquote, .project-preview blockquote {
   font-style: italic;
   margin: 0 1em;
   padding: 0.5em; }
-.read-preview code, .read code, .project code, .about code, #email-me code, .thanks-for-reading code, .project-preview code, .read-preview pre, .read pre, .project pre, .about pre, #email-me pre, .thanks-for-reading pre, .project-preview pre {
+.read-preview code, .read code, .project code, .about code, .thanks-for-reading code, #email-me code, .project-preview code, .read-preview pre, .read pre, .project pre, .about pre, .thanks-for-reading pre, #email-me pre, .project-preview pre {
   padding: 0.35em;
   background: #e5e5cf;
   margin: 2em 0; }
-.read-preview code > pre, .read code > pre, .project code > pre, .about code > pre, #email-me code > pre, .thanks-for-reading code > pre, .project-preview code > pre {
+.read-preview code > pre, .read code > pre, .project code > pre, .about code > pre, .thanks-for-reading code > pre, #email-me code > pre, .project-preview code > pre {
   margin: 0; }
-.read-preview code.inline, .read code.inline, .project code.inline, .about code.inline, #email-me code.inline, .thanks-for-reading code.inline, .project-preview code.inline {
+.read-preview code.inline, .read code.inline, .project code.inline, .about code.inline, .thanks-for-reading code.inline, #email-me code.inline, .project-preview code.inline {
   white-space: normal; }
-.read-preview em > code, .read em > code, .project em > code, .about em > code, #email-me em > code, .thanks-for-reading em > code, .project-preview em > code, .read-preview em pre, .read em pre, .project em pre, .about em pre, #email-me em pre, .thanks-for-reading em pre, .project-preview em pre {
+.read-preview em > code, .read em > code, .project em > code, .about em > code, .thanks-for-reading em > code, #email-me em > code, .project-preview em > code, .read-preview em pre, .read em pre, .project em pre, .about em pre, .thanks-for-reading em pre, #email-me em pre, .project-preview em pre {
   padding-top: 0;
   padding-bottom: 0; }
-.read-preview p > code, .read p > code, .project p > code, .about p > code, #email-me p > code, .thanks-for-reading p > code, .project-preview p > code, .read-preview blockquote > code, .read blockquote > code, .project blockquote > code, .about blockquote > code, #email-me .read-preview blockquote > code, #email-me .read blockquote > code, #email-me .project blockquote > code, #email-me .about blockquote > code, #email-me blockquote > code, #email-me .thanks-for-reading blockquote > code, .thanks-for-reading blockquote > code, #email-me .project-preview blockquote > code, .project-preview blockquote > code, .read-preview p pre, .read p pre, .project p pre, .about p pre, #email-me p pre, .thanks-for-reading p pre, .project-preview p pre, .read-preview blockquote pre, .read blockquote pre, .project blockquote pre, .about blockquote pre, #email-me blockquote pre, .thanks-for-reading blockquote pre, .project-preview blockquote pre, .read-preview li > code, .read li > code, .project li > code, .about li > code, #email-me li > code, .thanks-for-reading li > code, .project-preview li > code, .read-preview li pre, .read li pre, .project li pre, .about li pre, #email-me li pre, .thanks-for-reading li pre, .project-preview li pre {
+.read-preview p > code, .read p > code, .project p > code, .about p > code, .thanks-for-reading p > code, #email-me p > code, .project-preview p > code, .read-preview blockquote > code, .read blockquote > code, .project blockquote > code, .about blockquote > code, .thanks-for-reading blockquote > code, #email-me .read-preview blockquote > code, #email-me .read blockquote > code, #email-me .project blockquote > code, #email-me .about blockquote > code, #email-me .thanks-for-reading blockquote > code, #email-me blockquote > code, #email-me .project-preview blockquote > code, .project-preview blockquote > code, .read-preview p pre, .read p pre, .project p pre, .about p pre, .thanks-for-reading p pre, #email-me p pre, .project-preview p pre, .read-preview blockquote pre, .read blockquote pre, .project blockquote pre, .about blockquote pre, .thanks-for-reading blockquote pre, #email-me blockquote pre, .project-preview blockquote pre, .read-preview li > code, .read li > code, .project li > code, .about li > code, .thanks-for-reading li > code, #email-me li > code, .project-preview li > code, .read-preview li pre, .read li pre, .project li pre, .about li pre, .thanks-for-reading li pre, #email-me li pre, .project-preview li pre {
   padding-top: 0.2em;
   padding-bottom: 0.2em; }
-.read-preview .align-center, .read .align-center, .project .align-center, .about .align-center, #email-me .align-center, .thanks-for-reading .align-center, .project-preview .align-center, .read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big {
+.read-preview .align-center, .read .align-center, .project .align-center, .about .align-center, .thanks-for-reading .align-center, #email-me .align-center, .project-preview .align-center, .read .important, .project .important, .about .important, .thanks-for-reading .important, #email-me .important, .read .big, .project .big, .about .big, .thanks-for-reading .big, #email-me .big {
   text-align: center; }
-.read-preview .inline, .read .inline, .project .inline, .about .inline, #email-me .inline, .thanks-for-reading .inline, .project-preview .inline {
+.read-preview .inline, .read .inline, .project .inline, .about .inline, .thanks-for-reading .inline, #email-me .inline, .project-preview .inline {
   display: inline;
   margin: 0; }
-.read-preview .path-arrow:after, .read .path-arrow:after, .project .path-arrow:after, .about .path-arrow:after, #email-me .path-arrow:after, .thanks-for-reading .path-arrow:after, .project-preview .path-arrow:after {
+.read-preview .path-arrow:after, .read .path-arrow:after, .project .path-arrow:after, .about .path-arrow:after, .thanks-for-reading .path-arrow:after, #email-me .path-arrow:after, .project-preview .path-arrow:after {
   content: "⇒"; }
 
 .read-preview, .project-preview {
@@ -494,7 +494,7 @@ textarea {
   .read-preview h1 span:hover, .project-preview .heading1 span:hover, .project-preview .what-i-do strong span:hover, .what-i-do .project-preview strong span:hover {
     border-color: #131323; }
 
-.read-preview, .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl, form {
+.read-preview, .read dl, .project dl, .about dl, .thanks-for-reading dl, #email-me dl, form {
   max-width: 415px; }
 
 #read-previews {
@@ -581,129 +581,129 @@ textarea {
 .container-nontileable {
   background-color: rgba(255, 255, 252, 0.75); }
 
-.read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read .explained, .project .explained, .about .explained, #email-me .explained, .thanks-for-reading .explained {
+.read .important, .project .important, .about .important, .thanks-for-reading .important, #email-me .important, .read .explained, .project .explained, .about .explained, .thanks-for-reading .explained, #email-me .explained {
   border-color: #e5e5cf;
   border-width: 3px; }
 
-.read, .project, .about, #email-me, .thanks-for-reading {
+.read, .project, .about, .thanks-for-reading, #email-me {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: block;
   padding: 12% 3%; }
-  .read:after, .project:after, .about:after, #email-me:after, .thanks-for-reading:after {
+  .read:after, .project:after, .about:after, .thanks-for-reading:after, #email-me:after {
     content: "";
     display: block;
     clear: both; }
   @media screen and (min-width: 768px) {
-    .read, .project, .about, #email-me, .thanks-for-reading {
+    .read, .project, .about, .thanks-for-reading, #email-me {
       padding-right: 7%;
       padding-left: 7%; } }
-  .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong {
+  .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong {
     text-align: center;
     padding: 3.5em 0; }
     @media screen and (min-width: 1024px) {
-      .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong {
+      .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong {
         font-size: 48px;
         font-size: 3rem; } }
     @media screen and (min-width: 1280px) {
-      .read .heading1, .project .heading1, .about .heading1, #email-me .heading1, .thanks-for-reading .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong {
+      .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong {
         font-size: 56px;
         font-size: 3.5rem; } }
-  .read p, .project p, .about p, #email-me p, .thanks-for-reading p, .read blockquote, .project blockquote, .about blockquote, #email-me blockquote, .thanks-for-reading blockquote {
+  .read p, .project p, .about p, .thanks-for-reading p, #email-me p, .read blockquote, .project blockquote, .about blockquote, .thanks-for-reading blockquote, #email-me blockquote {
     margin-top: 2em;
     margin-bottom: 2em; }
-  .read ul, .project ul, .about ul, #email-me ul, .thanks-for-reading ul,
+  .read ul, .project ul, .about ul, .thanks-for-reading ul, #email-me ul,
   .read dl,
   .project dl,
   .about dl,
-  #email-me dl,
-  .thanks-for-reading dl {
+  .thanks-for-reading dl,
+  #email-me dl {
     padding: 0 1em;
     margin: 2em 0; }
-    .read ul > dt, .project ul > dt, .about ul > dt, #email-me ul > dt, .thanks-for-reading ul > dt, .read ul li, .project ul li, .about ul li, #email-me ul li, .thanks-for-reading ul li, .read ul dd, .project ul dd, .about ul dd, #email-me ul dd, .thanks-for-reading ul dd,
+    .read ul > dt, .project ul > dt, .about ul > dt, .thanks-for-reading ul > dt, #email-me ul > dt, .read ul li, .project ul li, .about ul li, .thanks-for-reading ul li, #email-me ul li, .read ul dd, .project ul dd, .about ul dd, .thanks-for-reading ul dd, #email-me ul dd,
     .read dl > dt,
     .project dl > dt,
     .about dl > dt,
-    #email-me dl > dt,
     .thanks-for-reading dl > dt,
+    #email-me dl > dt,
     .read dl li,
     .project dl li,
     .about dl li,
-    #email-me dl li,
     .thanks-for-reading dl li,
+    #email-me dl li,
     .read dl dd,
     .project dl dd,
     .about dl dd,
-    #email-me dl dd,
-    .thanks-for-reading dl dd {
+    .thanks-for-reading dl dd,
+    #email-me dl dd {
       padding-left: 0.5em; }
-    .read ul li, .project ul li, .about ul li, #email-me ul li, .thanks-for-reading ul li,
+    .read ul li, .project ul li, .about ul li, .thanks-for-reading ul li, #email-me ul li,
     .read ul dd,
     .project ul dd,
     .about ul dd,
-    #email-me ul dd,
     .thanks-for-reading ul dd,
+    #email-me ul dd,
     .read dl li,
     .project dl li,
     .about dl li,
-    #email-me dl li,
     .thanks-for-reading dl li,
+    #email-me dl li,
     .read dl dd,
     .project dl dd,
     .about dl dd,
-    #email-me dl dd,
-    .thanks-for-reading dl dd {
+    .thanks-for-reading dl dd,
+    #email-me dl dd {
       margin-bottom: 1.3em; }
-    .read ul dd, .project ul dd, .about ul dd, #email-me ul dd, .thanks-for-reading ul dd,
+    .read ul dd, .project ul dd, .about ul dd, .thanks-for-reading ul dd, #email-me ul dd,
     .read dl dd,
     .project dl dd,
     .about dl dd,
-    #email-me dl dd,
-    .thanks-for-reading dl dd {
+    .thanks-for-reading dl dd,
+    #email-me dl dd {
       margin-left: 0;
       background-color: #e5e5cf; }
-    .read ul dt:after, .project ul dt:after, .about ul dt:after, #email-me ul dt:after, .thanks-for-reading ul dt:after,
+    .read ul dt:after, .project ul dt:after, .about ul dt:after, .thanks-for-reading ul dt:after, #email-me ul dt:after,
     .read dl dt:after,
     .project dl dt:after,
     .about dl dt:after,
-    #email-me dl dt:after,
-    .thanks-for-reading dl dt:after {
+    .thanks-for-reading dl dt:after,
+    #email-me dl dt:after {
       content: ":"; }
-    .read ul dt, .project ul dt, .about ul dt, #email-me ul dt, .thanks-for-reading ul dt,
+    .read ul dt, .project ul dt, .about ul dt, .thanks-for-reading ul dt, #email-me ul dt,
     .read ul dd,
     .project ul dd,
     .about ul dd,
-    #email-me ul dd,
     .thanks-for-reading ul dd,
+    #email-me ul dd,
     .read dl dt,
     .project dl dt,
     .about dl dt,
-    #email-me dl dt,
     .thanks-for-reading dl dt,
+    #email-me dl dt,
     .read dl dd,
     .project dl dd,
     .about dl dd,
-    #email-me dl dd,
-    .thanks-for-reading dl dd {
+    .thanks-for-reading dl dd,
+    #email-me dl dd {
       padding-top: 0.35em;
       padding-bottom: 0.35em; }
-  .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl {
+  .read dl, .project dl, .about dl, .thanks-for-reading dl, #email-me dl {
     overflow: auto; }
     @supports (display: grid) {
-      .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl {
+      .read dl, .project dl, .about dl, .thanks-for-reading dl, #email-me dl {
         max-width: 100%;
         display: grid;
         grid-template-columns: minmax(min-content, 50%) minmax(min-content, 50%);
         grid-gap: 1em; }
         @media screen and (min-width: 1024px) {
-          .read dl, .project dl, .about dl, #email-me dl, .thanks-for-reading dl {
+          .read dl, .project dl, .about dl, .thanks-for-reading dl, #email-me dl {
             grid-template-columns: minmax(min-content, 33%) minmax(min-content, 67%);
             max-width: 75%; } } }
-  .read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important {
+  .read .important, .project .important, .about .important, .thanks-for-reading .important, #email-me .important {
     border-style: solid;
     padding: 1em 0.5em; }
-  .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big {
+  .read .big, .project .big, .about .big, .thanks-for-reading .big, #email-me .big {
     width: 80%;
     display: block;
     margin-left: auto;
@@ -712,29 +712,29 @@ textarea {
     text-transform: uppercase;
     font-family: inherit; }
     @media screen and (min-width: 1024px) {
-      .read .big, .project .big, .about .big, #email-me .big, .thanks-for-reading .big {
+      .read .big, .project .big, .about .big, .thanks-for-reading .big, #email-me .big {
         width: 65%;
         display: block;
         margin-left: auto;
         margin-right: auto; } }
-  .read .no-margin, .project .no-margin, .about .no-margin, #email-me .no-margin, .thanks-for-reading .no-margin {
+  .read .no-margin, .project .no-margin, .about .no-margin, .thanks-for-reading .no-margin, #email-me .no-margin {
     margin: 0; }
-  .read .lang-shell:before, .project .lang-shell:before, .about .lang-shell:before, #email-me .lang-shell:before, .thanks-for-reading .lang-shell:before {
+  .read .lang-shell:before, .project .lang-shell:before, .about .lang-shell:before, .thanks-for-reading .lang-shell:before, #email-me .lang-shell:before {
     content: "$ "; }
-  .read .explains-syntax:after, .project .explains-syntax:after, .about .explains-syntax:after, #email-me .explains-syntax:after, .thanks-for-reading .explains-syntax:after {
+  .read .explains-syntax:after, .project .explains-syntax:after, .about .explains-syntax:after, .thanks-for-reading .explains-syntax:after, #email-me .explains-syntax:after {
     display: inline;
     content: "(" attr(aria-label) ")";
     color: rgba(19, 19, 35, 0.5); }
-  .read .explained, .project .explained, .about .explained, #email-me .explained, .thanks-for-reading .explained {
+  .read .explained, .project .explained, .about .explained, .thanks-for-reading .explained, #email-me .explained {
     border-color: #131323;
     border-color: rgba(19, 19, 35, 0.5);
     border-style: dashed; }
-    .read .explained:hover, .project .explained:hover, .about .explained:hover, #email-me .explained:hover, .thanks-for-reading .explained:hover, .read .explained:active, .project .explained:active, .about .explained:active, #email-me .explained:active, .thanks-for-reading .explained:active {
+    .read .explained:hover, .project .explained:hover, .about .explained:hover, .thanks-for-reading .explained:hover, #email-me .explained:hover, .read .explained:active, .project .explained:active, .about .explained:active, .thanks-for-reading .explained:active, #email-me .explained:active {
       cursor: help; }
-      .read .explained:hover .explains-syntax:after, .project .explained:hover .explains-syntax:after, .about .explained:hover .explains-syntax:after, #email-me .explained:hover .explains-syntax:after, .thanks-for-reading .explained:hover .explains-syntax:after, .read .explained:active .explains-syntax:after, .project .explained:active .explains-syntax:after, .about .explained:active .explains-syntax:after, #email-me .explained:active .explains-syntax:after, .thanks-for-reading .explained:active .explains-syntax:after {
+      .read .explained:hover .explains-syntax:after, .project .explained:hover .explains-syntax:after, .about .explained:hover .explains-syntax:after, .thanks-for-reading .explained:hover .explains-syntax:after, #email-me .explained:hover .explains-syntax:after, .read .explained:active .explains-syntax:after, .project .explained:active .explains-syntax:after, .about .explained:active .explains-syntax:after, .thanks-for-reading .explained:active .explains-syntax:after, #email-me .explained:active .explains-syntax:after {
         content: attr(data-ex);
         color: #131323; }
-  .read [aria-label="screenshot"], .project [aria-label="screenshot"], .about [aria-label="screenshot"], #email-me [aria-label="screenshot"], .thanks-for-reading [aria-label="screenshot"] {
+  .read [aria-label="screenshot"], .project [aria-label="screenshot"], .about [aria-label="screenshot"], .thanks-for-reading [aria-label="screenshot"], #email-me [aria-label="screenshot"] {
     filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=3px,OffY=3px,Color="#e5e5cf",Positive='true');
     box-shadow: 3px 3px 10px 4px #e5e5cf; }
 
@@ -753,13 +753,13 @@ textarea {
       padding-left: 4.7%;
       padding-right: 4.7%; } }
 
-.read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read-header, .container-image-wide img, .project-header, .about-header {
+.read .important, .project .important, .about .important, .thanks-for-reading .important, #email-me .important, .read-header, .container-image-wide img, .project-header, .about-header {
   width: 95%;
   display: block;
   margin-left: auto;
   margin-right: auto; }
   @media screen and (min-width: 1280px) {
-    .read .important, .project .important, .about .important, #email-me .important, .thanks-for-reading .important, .read-header, .container-image-wide img, .project-header, .about-header {
+    .read .important, .project .important, .about .important, .thanks-for-reading .important, #email-me .important, .read-header, .container-image-wide img, .project-header, .about-header {
       width: 84%; } }
 
 .read-text, .project-text, .about-text {
@@ -1008,79 +1008,9 @@ button.active {
   filter: alpha(opacity=100);
   opacity: 1; }
 
-label, input,
-textarea {
-  padding: 2%; }
-
-#email-me label {
-  float: left;
-  width: 33.3333333333%; }
-  @media screen and (min-width: 768px) {
-    #email-me label {
-      float: left;
-      width: 20.8333333333%; } }
-#email-me input[type="email"],
-#email-me input[type="text"] {
-  float: left;
-  width: 66.6666666667%; }
-  @media screen and (min-width: 768px) {
-    #email-me input[type="email"],
-    #email-me input[type="text"] {
-      float: left;
-      width: 79.1666666667%; } }
-#email-me label[for="email-body"] {
-  display: none; }
-
-form {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
-  @media screen and (min-width: 768px) {
-    form {
-      max-width: 600px;
-      max-width: 37.5rem; } }
-
-.container-labelAndInput {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin-bottom: 0.5em; }
-  .container-labelAndInput:after {
-    content: "";
-    display: block;
-    clear: both; }
-
-input,
-textarea {
-  border-style: none;
-  background-color: #e5e5cf;
-  transition-property: border-color;
-  border: 2px solid transparent; }
-  input:focus,
-  textarea:focus {
-    border-color: #131323; }
-
-textarea {
-  width: 100%;
-  margin-bottom: 0.5em;
-  min-width: 75%;
-  min-height: 10em; }
-
-fieldset {
-  border-style: none; }
-  fieldset legend {
-    display: none; }
-
-input[type="submit"] {
-  display: block;
-  font-weight: 600;
-  width: auto; }
-  input[type="submit"]:hover {
-    cursor: pointer;
-    border-color: #131323; }
-
-.about, #email-me, .thanks-for-reading {
+.about, .thanks-for-reading, #email-me {
+  padding-left: 7%;
+  padding-right: 7%;
   padding-top: 0; }
 
 .container-about {
@@ -1091,7 +1021,6 @@ input[type="submit"] {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  padding: 0 4%;
   max-width: 525px; }
   .container-about:after {
     content: "";
@@ -1099,8 +1028,7 @@ input[type="submit"] {
     clear: both; }
   @media screen and (min-width: 768px) {
     .container-about {
-      max-width: 100%;
-      padding: 0; } }
+      max-width: 100%; } }
   @media screen and (min-width: 1280px) {
     .container-about {
       max-width: 1175px; } }
@@ -1183,16 +1111,16 @@ input[type="submit"] {
     display: grid;
     grid-template-rows: repeat(4, 5rem);
     grid-template-columns: repeat(8, 1fr); }
-    .who-i-am p, .who-i-am .read-preview blockquote, .read-preview .who-i-am blockquote, .who-i-am .read blockquote, .read .who-i-am blockquote, .who-i-am .project blockquote, .project .who-i-am blockquote, .who-i-am .about blockquote, .about .who-i-am blockquote, .who-i-am #email-me blockquote, #email-me .who-i-am blockquote, .who-i-am .thanks-for-reading blockquote, .thanks-for-reading .who-i-am blockquote, .who-i-am .project-preview blockquote, .project-preview .who-i-am blockquote {
+    .who-i-am p, .who-i-am .read-preview blockquote, .read-preview .who-i-am blockquote, .who-i-am .read blockquote, .read .who-i-am blockquote, .who-i-am .project blockquote, .project .who-i-am blockquote, .who-i-am .about blockquote, .about .who-i-am blockquote, .who-i-am .thanks-for-reading blockquote, .thanks-for-reading .who-i-am blockquote, .who-i-am #email-me blockquote, #email-me .who-i-am blockquote, .who-i-am .project-preview blockquote, .project-preview .who-i-am blockquote {
       margin-top: 0; }
     .who-i-am .heading3 {
       grid-area: 1/1/auto/span 2;
       align-self: end; }
-    .who-i-am p:nth-child(2), .who-i-am .read-preview blockquote:nth-child(2), .read-preview .who-i-am blockquote:nth-child(2), .who-i-am .read blockquote:nth-child(2), .read .who-i-am blockquote:nth-child(2), .who-i-am .project blockquote:nth-child(2), .project .who-i-am blockquote:nth-child(2), .who-i-am .about blockquote:nth-child(2), .about .who-i-am blockquote:nth-child(2), .who-i-am #email-me blockquote:nth-child(2), #email-me .who-i-am blockquote:nth-child(2), .who-i-am .thanks-for-reading blockquote:nth-child(2), .thanks-for-reading .who-i-am blockquote:nth-child(2), .who-i-am .project-preview blockquote:nth-child(2), .project-preview .who-i-am blockquote:nth-child(2) {
+    .who-i-am p:nth-child(2), .who-i-am .read-preview blockquote:nth-child(2), .read-preview .who-i-am blockquote:nth-child(2), .who-i-am .read blockquote:nth-child(2), .read .who-i-am blockquote:nth-child(2), .who-i-am .project blockquote:nth-child(2), .project .who-i-am blockquote:nth-child(2), .who-i-am .about blockquote:nth-child(2), .about .who-i-am blockquote:nth-child(2), .who-i-am .thanks-for-reading blockquote:nth-child(2), .thanks-for-reading .who-i-am blockquote:nth-child(2), .who-i-am #email-me blockquote:nth-child(2), #email-me .who-i-am blockquote:nth-child(2), .who-i-am .project-preview blockquote:nth-child(2), .project-preview .who-i-am blockquote:nth-child(2) {
       grid-area: 2/1/auto/span 3; }
-    .who-i-am p:nth-child(3), .who-i-am .read-preview blockquote:nth-child(3), .read-preview .who-i-am blockquote:nth-child(3), .who-i-am .read blockquote:nth-child(3), .read .who-i-am blockquote:nth-child(3), .who-i-am .project blockquote:nth-child(3), .project .who-i-am blockquote:nth-child(3), .who-i-am .about blockquote:nth-child(3), .about .who-i-am blockquote:nth-child(3), .who-i-am #email-me blockquote:nth-child(3), #email-me .who-i-am blockquote:nth-child(3), .who-i-am .thanks-for-reading blockquote:nth-child(3), .thanks-for-reading .who-i-am blockquote:nth-child(3), .who-i-am .project-preview blockquote:nth-child(3), .project-preview .who-i-am blockquote:nth-child(3) {
+    .who-i-am p:nth-child(3), .who-i-am .read-preview blockquote:nth-child(3), .read-preview .who-i-am blockquote:nth-child(3), .who-i-am .read blockquote:nth-child(3), .read .who-i-am blockquote:nth-child(3), .who-i-am .project blockquote:nth-child(3), .project .who-i-am blockquote:nth-child(3), .who-i-am .about blockquote:nth-child(3), .about .who-i-am blockquote:nth-child(3), .who-i-am .thanks-for-reading blockquote:nth-child(3), .thanks-for-reading .who-i-am blockquote:nth-child(3), .who-i-am #email-me blockquote:nth-child(3), #email-me .who-i-am blockquote:nth-child(3), .who-i-am .project-preview blockquote:nth-child(3), .project-preview .who-i-am blockquote:nth-child(3) {
       grid-area: 2/6/auto/span 3; }
-    .who-i-am p:nth-child(4), .who-i-am .read-preview blockquote:nth-child(4), .read-preview .who-i-am blockquote:nth-child(4), .who-i-am .read blockquote:nth-child(4), .read .who-i-am blockquote:nth-child(4), .who-i-am .project blockquote:nth-child(4), .project .who-i-am blockquote:nth-child(4), .who-i-am .about blockquote:nth-child(4), .about .who-i-am blockquote:nth-child(4), .who-i-am #email-me blockquote:nth-child(4), #email-me .who-i-am blockquote:nth-child(4), .who-i-am .thanks-for-reading blockquote:nth-child(4), .thanks-for-reading .who-i-am blockquote:nth-child(4), .who-i-am .project-preview blockquote:nth-child(4), .project-preview .who-i-am blockquote:nth-child(4) {
+    .who-i-am p:nth-child(4), .who-i-am .read-preview blockquote:nth-child(4), .read-preview .who-i-am blockquote:nth-child(4), .who-i-am .read blockquote:nth-child(4), .read .who-i-am blockquote:nth-child(4), .who-i-am .project blockquote:nth-child(4), .project .who-i-am blockquote:nth-child(4), .who-i-am .about blockquote:nth-child(4), .about .who-i-am blockquote:nth-child(4), .who-i-am .thanks-for-reading blockquote:nth-child(4), .thanks-for-reading .who-i-am blockquote:nth-child(4), .who-i-am #email-me blockquote:nth-child(4), #email-me .who-i-am blockquote:nth-child(4), .who-i-am .project-preview blockquote:nth-child(4), .project-preview .who-i-am blockquote:nth-child(4) {
       grid-area: 2/6/auto/span 3; } }
 
 .heading3 {
@@ -1207,61 +1135,67 @@ input[type="submit"] {
   .what-i-do {
     grid-area: 2/1/auto/9; } }
 
-.skills b {
-  text-transform: uppercase; }
-.skills li {
-  line-height: 1.45;
-  margin-bottom: 1.5em; }
+#about .skills {
+  padding: 0; }
+  #about .skills ul, #about .skills li {
+    padding: 0; }
+  #about .skills b {
+    text-transform: uppercase; }
+  #about .skills li {
+    line-height: 1.45;
+    margin-bottom: 1.5em; }
+    @media screen and (min-width: 1280px) {
+      #about .skills li {
+        line-height: 1.55; } }
+  @media screen and (min-width: 768px) {
+    #about .skills {
+      grid-area: 3/1/auto/9;
+      display: grid;
+      grid-column-gap: 2.5em; }
+      #about .skills .dev-skills {
+        grid-area: 1/1; }
+      #about .skills .design-skills {
+        grid-area: 1/2; }
+      #about .skills .other-skills {
+        grid-area: 1/2;
+        position: relative;
+        top: 44%; } }
   @media screen and (min-width: 1280px) {
-    .skills li {
-      line-height: 1.55; } }
-@media screen and (min-width: 768px) {
-  .skills {
-    grid-area: 3/1/auto/9;
-    display: grid;
-    grid-column-gap: 2.5em; }
-    .skills .dev-skills {
-      grid-area: 1/1; }
-    .skills .design-skills {
-      grid-area: 1/2; }
-    .skills .other-skills {
-      grid-area: 1/2;
-      position: relative;
-      top: 44%; } }
-@media screen and (min-width: 1280px) {
-  .skills .other-skills {
-    grid-area: 1/3/auto/span 1;
-    position: static; } }
+    #about .skills .other-skills {
+      grid-area: 1/3/auto/span 1;
+      position: static; } }
 
+#about .opinions ul, #about .opinions li {
+  padding: 0; }
 @media screen and (min-width: 768px) {
-  .opinions {
+  #about .opinions {
     grid-area: 4/1/auto/span 8; }
-    .opinions .container {
+    #about .opinions .container {
       width: 100%;
       margin-left: auto;
       margin-right: auto;
       display: block; }
-      .opinions .container:after {
+      #about .opinions .container:after {
         content: "";
         display: block;
         clear: both; }
-    .opinions .container-thomazella-pic {
+    #about .opinions .container-thomazella-pic {
       float: right;
       position: relative;
       left: 14px;
       top: 70px; }
-    .opinions h2 {
+    #about .opinions h2 {
       float: left;
       display: inline; }
-    .opinions ul {
+    #about .opinions ul {
       display: grid;
       grid-template-rows: repeat(6, auto);
       grid-template-columns: repeat(2, 1fr);
       grid-column-gap: 2.5em; } }
     @media screen and (min-width: 768px) and (min-width: 1280px) {
-      .opinions ul {
+      #about .opinions ul {
         grid-template-columns: repeat(3, 1fr); }
-        .opinions ul li:last-child {
+        #about .opinions ul li:last-child {
           grid-area: 2/2; } }
 
 .thanks-for-reading em {
@@ -1287,5 +1221,77 @@ input[type="submit"] {
     @media screen and (min-width: 768px) {
       #pic-cartoon svg {
         max-height: 160px; } }
+
+label, input,
+textarea {
+  padding: 2%; }
+
+#email-me label {
+  float: left;
+  width: 33.3333333333%; }
+  @media screen and (min-width: 768px) {
+    #email-me label {
+      float: left;
+      width: 20.8333333333%; } }
+#email-me input[type="email"],
+#email-me input[type="text"] {
+  float: left;
+  width: 66.6666666667%; }
+  @media screen and (min-width: 768px) {
+    #email-me input[type="email"],
+    #email-me input[type="text"] {
+      float: left;
+      width: 79.1666666667%; } }
+#email-me label[for="email-body"] {
+  display: none; }
+
+form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (min-width: 768px) {
+    form {
+      max-width: 600px;
+      max-width: 37.5rem; } }
+
+.container-labelAndInput {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 0.5em; }
+  .container-labelAndInput:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+input,
+textarea {
+  border-style: none;
+  background-color: #e5e5cf;
+  transition-property: border-color;
+  border: 2px solid transparent; }
+  input:focus,
+  textarea:focus {
+    border-color: #131323; }
+
+textarea {
+  width: 100%;
+  margin-bottom: 0.5em;
+  min-width: 75%;
+  min-height: 10em; }
+
+fieldset {
+  border-style: none; }
+  fieldset legend {
+    display: none; }
+
+input[type="submit"] {
+  display: block;
+  font-weight: 600;
+  width: auto; }
+  input[type="submit"]:hover {
+    cursor: pointer;
+    border-color: #131323; }
 
 /*# sourceMappingURL=index.css.map */
