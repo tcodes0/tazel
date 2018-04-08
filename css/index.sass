@@ -1,6 +1,6 @@
 // @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
 @import "normalize.css"
-// @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
+@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
 @import "boiler.sass"
 @import "grid-min.sass"
 /* ------- */
@@ -178,7 +178,7 @@ button
   max-width: calc(82% + 1%)
   margin-top: 0.3em
   @media screen and (min-width: $break-mobileL)
-    max-width: 70%
+    max-width: 78%
   @media screen and (min-width: $break-tabletS)
     max-width: 46%
     margin-top: 2em
@@ -192,7 +192,8 @@ button
 #professional-title
   @extend %monospaced
   @extend %small-text
-  margin-bottom: 6.5em
+  margin-bottom: 84px
+  margin-bottom: 5rem
   margin-top: 0
   text-transform: capitalize
   &:before
@@ -243,7 +244,7 @@ button
       line-height: 1.7em
       margin: 0 0.7em
       &:nth-child(2)::after
-          content: " \0a"
+          content: "\0a"
           white-space: pre
           @media screen and (min-width: $break-mobileL)
             display: none
