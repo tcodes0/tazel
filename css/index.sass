@@ -1,6 +1,6 @@
 // @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
 @import "normalize.css"
-@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
+// @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
 @import "boiler.sass"
 @import "grid-min.sass"
 /* ------- */
@@ -596,8 +596,13 @@ button
       .explains-syntax:after
         content: attr(data-ex)
         color: $color-text
-  [aria-label="screenshot"]
+  .screenshot
     +box-shade(3px,3px,$color-bg-darker-darker,10px,4px)
+    @media screen and (min-width: $break-tabletS)
+      max-width: 85%
+  .screenshot.portrait
+    @media screen and (min-width: $break-tabletS)
+      max-width: 65%
 
 .read-background
   +aligned-block

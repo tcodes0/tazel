@@ -146,7 +146,7 @@
                 Each provider may have a different policy in place to allow SSH access, so we'll be googling for it. SSH is known and common in web development so we should find the info right away.
                 I'm using namecheap right now, so I googled for:
               </p>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-google.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot" aria-label="screenshot" src="css/img/screen-google.png" alt=""></div>
               <p>Try googling for something similar, using your web host in place of mine, obviously. I landed on a knowledge base article with further instructions saying I need to contact support to enable SSH.
                 I logged into my account and opened a support ticket saying:
               </p>
@@ -185,21 +185,26 @@
               <em>Open your terminal and type:</em>
               <code class="lang-shell">ssh</code>
               <em>Expected output:</em>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-ssh.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot" aria-label="screenshot" src="css/img/screen-ssh.png" alt=""></div>
               <p>This means a SSH program is available and working. Good.</p>
               <em>Notice the prompt?</em>
 <pre>
-  ~/Desktop
-  $
+~/Desktop
+$
 </pre>
               <p>The command we need works like below. Hover or tap on it to show examples of information you could enter. Tap outside to hide.</p>
               <code class="explained lang-shell">ssh -p <span class="explains-syntax" aria-label="port number" data-ex="21098"></span> <span data-ex="heyzor" class="explains-syntax" aria-label="username"></span>@<span data-ex="server179.web-hosting.com" aria-label="servername" class="explains-syntax"></span></code>
-              <em>Go ahead and enter the command with your info. Type the FTP password.</em><br><br>
+              <em>Go ahead and enter the command with your info.</em>
+              <p>
+                It should say something like 'The authenticity of host ... can't be established.'
+                This is normal and will happen the first time connecting to any host.
+              </p>
+              <em>Type <strong>yes</strong>. Then type your FTP password.</em><br><br>
               <em>Expected output:</em>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-prompt.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot" aria-label="screenshot" src="css/img/screen-prompt.png" alt=""></div>
               <em>Notice the prompt changed?</em>
 <pre>
-  [taz@server179 ~]$
+[taz@server179 ~]$
 </pre>
               <p>This means it worked and we're <em>logged into the web host</em> and any commands will be executed on the remote computer.
                 To test, type <code class="inline lang-shell">ls</code> and it should list the base directory of your hosting storage.
@@ -239,6 +244,7 @@
                 <strong>Leave the save location on default </strong>and give it a password.</p>
               <p>Beware:</p>
               <ul>
+                <li><strong>Linux - </strong>As far as I know, no way to save the key's password across reboots. The only way to go truly passwordless is to not type a password on <code class="inline">ssh-keygen</code></li>
                 <li>The default save path is <code class="inline">~/.ssh</code> which is a hidden directory. Should you browse to it with a filemanager, enable hidden files to see it properly.</li>
                 <li>The default name for the private key is <code class="inline">id_rsa</code> and public <code class="inline">id_rsa.pub</code>. Should you change the name, change the commands too.</li>
               </ul>
@@ -247,22 +253,22 @@
                 <dt>Public key default path</dt><dd><code class="inline">~/.ssh/id_rsa.pub</code></dd>
               </dl>
               <em>Expected output:</em>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-keyfinish.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/screen-keyfinish.png" alt=""></div>
               <p>All good, now we upload the public key to the host keeping the private to ourselves.</p>
               <em>Login at your CPanel, or equivalent software you use to manage your hosting, and look for a SSH menu item.</em>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-sshicon.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/screen-sshicon.png" alt=""></div>
               <em>Import key option.</em>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-import.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/screen-import.png" alt=""></div>
               <p>It wants you to paste your key in. We'll only be providing the public key, leave the private blank. You can browse to your public key file, open on a text editor and copy it, or copy it with terminal commands.</p>
               <em>MacOS</em>
               <code class="lang-shell">cat ~/.ssh/id_rsa.pub | pbcopy</code>
               <em>Linux</em>
               <code class="lang-shell">cat ~/.ssh/id_rsa.pub | xclip -selection c</code>
               <em>Paste it.</em>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-importbutton.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/screen-importbutton.png" alt=""></div>
               <p>After uploading we need to authorize the key.</p>
               <em>Under public keys, click manage.</em>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-manage.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot" aria-label="screenshot" src="css/img/screen-manage.png" alt=""></div>
               <em>Click on authorize.</em>
               <p>All done.</p>
 
@@ -270,31 +276,27 @@
               <p>Another way is to do it on the control panel.
                 On the SSH menu, choose 'generate a new key', right next to 'import'.</p>
               <em>Fill in the information.</em>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-genkey2.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/screen-genkey2.png" alt=""></div>
               <p>You should now have a pair of keys.</p>
               <em>Under private keys, click 'view/download', right next to 'import'. Then 'download key'.</em>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-download.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/screen-download.png" alt=""></div>
               <p>Private keys stay in our machines and normally live on <code class="inline">~/.ssh</code>.
                 So we need to move this new key there.
               </p>
-              <ul>
-                <li>You may need to make the directory:</li>
-                <li>
-                  <code class="lang-shell">mkdir ~/.ssh</code>
-                </li>
-                <li>
-                  Then move <code class="inline">id_rsa</code> into <code class="inline">~/.ssh</code> using your filemanager.
-                </li>
-              </ul>
-              <em>Or run:</em>
+              <em>Move <code class="inline">id_rsa</code> into <code class="inline">~/.ssh</code> using your filemanager.</em>
+              <p>Or run:</p>
               <code class="explained lang-shell">mv <span class="explains-syntax" aria-label="download location" data-ex="~/Downloads/id_rsa"></span> ~/.ssh/id_rsa</code>
+              <p>
+                Because the key was downloaded, it might have lost the strict permissions that make it safe.
+                To avoid a SSH error, reset the key permissions using:
+              </p>
+              <code class="lang-shell">chmod 600 ~/.ssh/id_rsa</code>
 
               <h3>Using the key</h3>
               <p>Having authorized the public key on the host and having the private key on <code class="inline">~/.shh</code>, the command becomes:</p>
               <code class="explained lang-shell">ssh -p <span class="explains-syntax" aria-label="port number" data-ex="21098"></span> -i ~/.ssh/id_rsa <span data-ex="heyzor" class="explains-syntax" aria-label="username"></span>@<span data-ex="server179.web-hosting.com" aria-label="servername" class="explains-syntax"></span></code>
               <em>Just add the <code class="inline">-i ~/.ssh/id_rsa</code> bit to the previous command and run it.</em>
               <ul>
-                <li>It will ask to confirm the host authenticity, hit <strong>y</strong>es.</li>
                 <li>It will ask for <strong>the key's</strong> password, provide it.</li>
                 <li><strong>MacOS - </strong>If you get a keychain pop-up, say <strong>y</strong>es to remember the password.</li>
               </ul>
@@ -303,10 +305,19 @@
 
               <h3>Saving the key's password</h3>
               <p>We actually just exchanged one password for another... Now we'll save the key's password.
-                If your key has a custom name you need to provide its path to the <code class="inline lang-shell">ssh-add</code> command.</p>
+                If your key has a custom name you need to provide its path to the <code class="inline lang-shell">ssh-add</code> command.
+              </p>
+              <em>Feel free to skip this if concerned with security, typing the password is always safer.</em>
               <h4>Linux</h4>
-              <code class="no-margin lang-shell"> eval $(ssh-agent)</code>
-              <code class="no-margin lang-shell">ssh-add</code>
+              <em>Install <code class="inline">keychain</code> if you don't have it.</em>
+              <p>Edit <code class="inline">~/.bashrc</code> to add the following line:</p>
+              <code>alias loadKeys=‘eval $(keychain -q --eval id_rsa)’</code>
+              <em>Open and close your terminal.</em>
+              <p>Before using SSH, run <code class="inline lang-shell">loadKeys</code> and type your password.
+                It will stay saved until you reboot, even if you log out and log back in.
+                If you use SSH a lot, you might add <code class="inline">eval $(keychain -q --eval id_rsa)</code> to bashrc directly,
+                but it'll prompt for the password after each boot, as soon as you open a terminal.
+              </p>
               <h4>MacOS</h4>
               <p>You must have accepted the keychain pop-up.</p>
               <code class="lang-shell lang-shell">/usr/bin/ssh-add -A</code>
@@ -331,8 +342,8 @@ Host *
                 Just know that I wasn't kidding when I said a million.
                 We don't need options yet, so leave it blank.
               </p>
-              <p>To have rsync SSH for us, we'll need to find the path of your home directory on the web host. This can be as simple as a login into your FTP and looking at the current directory:</p>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-hosthome.png" alt=""></div>
+              <p>To have rsync SSH for us, we'll need to find the path of your home directory on the web host. This can be as simple as a login into your FTP (here I'm using <a class="other-site" href="https://cyberduck.io/">Cyberduck</a>) and looking at the current directory:</p>
+              <div class="container-image-wide"><img class="screenshot" aria-label="screenshot" src="css/img/screen-hosthome.png" alt=""></div>
               <em>Or you can SSH into the host and type:</em>
               <code class="lang-shell">pwd</code>
               <p>It will reply to you with the path we're looking for. Let's call this path <code class="inline">hosthome</code>. It probably contains your username on it, something like <code class="inline">/home/heyzor</code> if your username is <code class="inline">heyzor</code>.</p>
@@ -357,7 +368,7 @@ Host *
               </ul>
               <p>If you see no output, that's good. Use SSH or your FTP to verify the file arrived on the host.</p>
               <em>Alright!</em>
-              <div class="container-image-wide"><img aria-label="screenshot" src="css/img/screen-test.png" alt=""></div>
+              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/screen-test.png" alt=""></div>
 
               <h3>Time for a site upload</h3>
               <p>Rsync can easily send a whole directory to another directory on your host. Yep, the whole site with <code class="inline">css</code> and <code class="inline">js</code> and any other sub directories you might have, piece of cake.
@@ -385,9 +396,11 @@ Host *
                   <span data-ex="~/Desktop/test-site/" class="explains-syntax" aria-label="source"></span>
                   <span data-ex="heyzor" class="explains-syntax" aria-label="username"></span>@<span data-ex="server179.web-hosting.com" aria-label="servername" class="explains-syntax"></span>:<span data-ex="/home/heyzor" aria-label="hosthome" class="explains-syntax"></span>/<span data-ex="destination/test-site/" aria-label="destination" class="explains-syntax"></span>
               </code>
-              <p>Okay. By now, you should be either sold on this, or not even reading anymore. If you chose a directory on the host actually linked to a domain, <em>you just upload a site.</em> It should be live. Isn't that cool? Fast?
-                I get it, it might look complicated, but hey, once it's figured out:
+              <p>Okay. By now, you should be either sold on this, or not even reading anymore.
+                If you chose a directory on the host actually linked to a domain, <em>you just uploaded a site.</em>
               </p>
+              <p>It should be live. Isn't that cool? Fast?</p>
+              <p>I get it, it might look complicated, but hey, once it's figured out:</p>
               <em class="important">Just copy-paste it over and over.</em>
               <p>Or do even better:</p>
 
@@ -445,10 +458,6 @@ uploadSite() {
               <p>I have my own function for doing this on <a href="https://github.com/Thomazella">Github</a>. It's slighly easier to use because it figures out the directory names for you, but you need to use the same names on both your computer and the host.</p>
               <em>That's my first post, I hope it's useful!</em>
 
-
-              <div class="hide container-image-right"><img class="half-width-right" src="css/img/bg1.png" alt="a sweet placeholder image"></div>
-              <div class="hide container-image-left"><img class="half-width" src="css/img/bg1.png" alt="a sweet placeholder image"></div>
-              <div class="hide container-image-wide"><img src="css/img/bg1.png" alt="a sweet placeholder image"></div>
             </div>
             <div class="container-backlinks">
               <a href="#header" class="back" title="back to top">

@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url(normalize.css);
-@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400";
 /* --------------- */
 /*   boilerplate   */
 /* --------------- */
@@ -737,9 +736,15 @@ textarea {
       .read .explained:hover .explains-syntax:after, .project .explained:hover .explains-syntax:after, .about .explained:hover .explains-syntax:after, .thanks-for-reading .explained:hover .explains-syntax:after, #email-me .explained:hover .explains-syntax:after, .read .explained:active .explains-syntax:after, .project .explained:active .explains-syntax:after, .about .explained:active .explains-syntax:after, .thanks-for-reading .explained:active .explains-syntax:after, #email-me .explained:active .explains-syntax:after {
         content: attr(data-ex);
         color: #131323; }
-  .read [aria-label="screenshot"], .project [aria-label="screenshot"], .about [aria-label="screenshot"], .thanks-for-reading [aria-label="screenshot"], #email-me [aria-label="screenshot"] {
+  .read .screenshot, .project .screenshot, .about .screenshot, .thanks-for-reading .screenshot, #email-me .screenshot {
     filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=3px,OffY=3px,Color="#e5e5cf",Positive='true');
     box-shadow: 3px 3px 10px 4px #e5e5cf; }
+    @media screen and (min-width: 768px) {
+      .read .screenshot, .project .screenshot, .about .screenshot, .thanks-for-reading .screenshot, #email-me .screenshot {
+        max-width: 85%; } }
+  @media screen and (min-width: 768px) {
+    .read .screenshot.portrait, .project .screenshot.portrait, .about .screenshot.portrait, .thanks-for-reading .screenshot.portrait, #email-me .screenshot.portrait {
+      max-width: 65%; } }
 
 .read-background, .project-background {
   display: block;
