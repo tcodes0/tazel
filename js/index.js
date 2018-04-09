@@ -353,7 +353,7 @@ const floatingArticle_Inserter = e => {
 
   // move such article underneath viewport, make it visible, make it abs position
   el.classList.add('added-by-js')
-  el.style.transition = `top ${transitionSmooth}`
+  el.style.transition = `transform ${transitionSmooth}`
   el.style.top = window.innerHeight + window.scrollY + "px"
   el.classList.remove('hide')
   // hide nonsensical link if article is floating
@@ -364,7 +364,7 @@ const floatingArticle_Inserter = e => {
   el.appendChild(tail)
   el.setAttribute("data-top", window.scrollY)
   // trigger transition to bring article up
-  el.style.top = window.scrollY + "px"
+  el.style.transform = `translateY(-${window.innerHeight}px)`
   // .main scrolls away with the article and the body's bg color looks like a glitch
   document.body.style.backgroundColor = getComputedStyle(m).backgroundColor
 
