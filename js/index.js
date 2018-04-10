@@ -449,7 +449,7 @@ const scrollHandler = e => {
 }
 
 const keyHandler = e => {
-  console.log(`${e.code} - ${e.keyCode}`);
+  // console.log(`${e.code} - ${e.keyCode}`);
   if (
     e.keyCode !== 32 && //space
     // e.keyCode !== 33 && //pgup
