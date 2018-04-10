@@ -752,7 +752,7 @@ textarea {
   margin-right: auto;
   background-color: #f3f3e9;
   padding: 2% 4%;
-  max-width: 1000px; }
+  max-width: 900px; }
   @media screen and (min-width: 768px) {
     .read-background, .project-background {
       padding: 3% 4%; } }

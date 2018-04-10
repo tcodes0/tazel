@@ -38,6 +38,9 @@ $color-text-darker-darker: darken($color-text-darker, 20%)
 =box-shade($X: 5px, $Y: 5px, $Color: rgba(0,0,0,0.3), $Blur: 10px, $Spread: 3px)
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$X},OffY=#{$Y},Color="#{$Color}",Positive='true')
   box-shadow: $X $Y $Blur $Spread $Color
+=topAndBottom($property, $value: 0)
+  #{$property}-top: $value
+  #{$property}-bottom: $value
 
 body
   font-family: 'Source Sans Pro', helvetica, arial, sans-serif
@@ -608,12 +611,11 @@ button
   +aligned-block
   background-color: $color-bg-darker
   padding: 2% 4%
-  max-width: 1000px
+  max-width: 900px
   @media screen and (min-width: $break-tabletS)
     padding: 3% 4%
   @media screen and (min-width: $break-desktopS)
-    padding-left: 4.7%
-    padding-right: 4.7%
+    +padding-squeeze(4.7%)
 
 %full-width-object
   +width-squeeze
@@ -686,6 +688,36 @@ button
 
 .container-backlinks
   margin-top: 6em
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                           Specific to one article
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//@media screen and (min-width: $break-tabletM)
+  This idea needs a rework so the column are grouped together in a more
+  paper print fashion. Maybe add divs and make sure col 2 is always
+  smaller and col 1 always full of text. Paragraphs can use indent on
+  first line or a line break to differentiate themselves.
+  @supports (display: grid)
+    #pwned .read-text
+      $total: 4
+      $half: $total / 2
+      $line-half: $half +1
+      $line-total: $total +1
+      display: grid
+      grid-template-columns: repeat($total, 1fr)
+      grid-column-gap: 1.5rem
+      grid-row-gap: 4.5rem
+      & > *
+        grid-column: span $half
+        margin: 0
+        +topAndBottom(margin, 0)
+      h2, h3
+        grid-column: span $total
+      em:last-of-type
+        grid-column: span $total
+      .column-group *:first-child
+        margin-top: 0
+        padding-top: 0
 
 /*________________________________________________________________
   -  -  -  -  -  -  -  -  -  -  Projects  -  -  -  -  -  -  -  -  -  -

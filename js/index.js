@@ -505,5 +505,12 @@ const hideReadsAndProjects = () => {
     $$('.project').forEach(p => p.classList.add('hide'))
   }
 }
-onLoaders = [hideReadsAndProjects, ...onLoaders]
+// onLoaders = [hideReadsAndProjects, ...onLoaders]
+
+const hideAllReadsButLast = () => {
+  let reads = [...$$('.read')]
+  reads.pop()
+  reads.forEach(r => r.classList.add('hide'))
+}
+onLoaders.push(hideAllReadsButLast)
 // IDEA: project separator glitches when main changes size. rework it
