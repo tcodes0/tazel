@@ -150,26 +150,7 @@ button {
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  Home  -  -  -  -  -  -  -  -  -  -
  * ________________________________________________________________ */
-#professional-title, .nav, .nav-fancy, .nav-footer, .read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong,
-.read-preview h2,
-.read h2,
-.project h2,
-.about h2,
-.thanks-for-reading h2,
-#email-me h2,
-.project-preview h2,
-.read-preview h3,
-.read h3,
-.project h3,
-.about h3,
-.thanks-for-reading h3,
-#email-me h3,
-.project-preview h3,
-.read .big,
-.project .big,
-.about .big,
-.thanks-for-reading .big,
-#email-me .big, .heading3 {
+#professional-title, .nav, .nav-fancy, .nav-footer, .read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong, .read-preview h2, .read h2, .project h2, .about h2, .thanks-for-reading h2, #email-me h2, .project-preview h2, .read-preview h3, .read h3, .project h3, .about h3, .thanks-for-reading h3, #email-me h3, .project-preview h3, .read .big, .project .big, .about .big, .thanks-for-reading .big, #email-me .big, .heading3 {
   font-family: "Roboto Mono", monospace;
   text-align: center; }
 
@@ -359,7 +340,7 @@ textarea {
     padding-top: 0.8em; } }
 
 /*________________________________________________________________
- * -  -  -  -  -  -  -  -  -  -  Read  -  -  -  -  -  -  -  -  -  -
+ * -  -  -  -  -  -  -  -  Read Previews  -  -  -  -  -  -  -  -  -
  * ________________________________________________________________ */
 .container-tileable, .container-project-previews {
   padding-left: 5%;
@@ -369,7 +350,8 @@ textarea {
   margin-bottom: 0.75em; }
   @media screen and (min-width: 768px) {
     .read-preview, .project-preview {
-      margin-bottom: 0.4em; } }
+      margin-bottom: 6.4px;
+      margin-bottom: 0.4rem; } }
 
 .read-preview p, .read p, .project p, .about p, .thanks-for-reading p, #email-me p, .project-preview p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, .thanks-for-reading blockquote, #email-me blockquote, .project-preview blockquote {
   text-transform: none;
@@ -379,70 +361,13 @@ textarea {
     .read-preview p, .read p, .project p, .about p, .thanks-for-reading p, #email-me p, .project-preview p, .read-preview blockquote, .read blockquote, .project blockquote, .about blockquote, .thanks-for-reading blockquote, #email-me blockquote, .project-preview blockquote {
       font-size: 17.6px;
       font-size: 1.1rem; } }
-.read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong,
-.read-preview h2,
-.read h2,
-.project h2,
-.about h2,
-.thanks-for-reading h2,
-#email-me h2,
-.project-preview h2,
-.read-preview h3,
-.read h3,
-.project h3,
-.about h3,
-.thanks-for-reading h3,
-#email-me h3,
-.project-preview h3,
-.read .big,
-.project .big,
-.about .big,
-.thanks-for-reading .big,
-#email-me .big {
+.read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong, .read-preview h2, .read h2, .project h2, .about h2, .thanks-for-reading h2, #email-me h2, .project-preview h2, .read-preview h3, .read h3, .project h3, .about h3, .thanks-for-reading h3, #email-me h3, .project-preview h3, .read .big, .project .big, .about .big, .thanks-for-reading .big, #email-me .big {
   text-align: left;
   text-transform: uppercase;
   line-height: 1.35; }
-.read-preview h2, .read h2, .project h2, .about h2, .thanks-for-reading h2, #email-me h2, .project-preview h2,
-.read-preview h3,
-.read h3,
-.project h3,
-.about h3,
-.thanks-for-reading h3,
-#email-me h3,
-.project-preview h3,
-.read .big,
-.project .big,
-.about .big,
-.thanks-for-reading .big,
-#email-me .big {
+.read-preview h2, .read h2, .project h2, .about h2, .thanks-for-reading h2, #email-me h2, .project-preview h2, .read-preview h3, .read h3, .project h3, .about h3, .thanks-for-reading h3, #email-me h3, .project-preview h3, .read .big, .project .big, .about .big, .thanks-for-reading .big, #email-me .big {
   padding: 2.5em 0; }
-  .read-preview h2 + h4, .read h2 + h4, .project h2 + h4, .about h2 + h4, .thanks-for-reading h2 + h4, #email-me h2 + h4, .project-preview h2 + h4,
-  .read-preview h3 + h4,
-  .read h3 + h4,
-  .project h3 + h4,
-  .about h3 + h4,
-  .thanks-for-reading h3 + h4,
-  #email-me h3 + h4,
-  .project-preview h3 + h4,
-  .read .read-preview .big + h4,
-  .read .big + h4,
-  .read .project-preview .big + h4,
-  .project .read-preview .big + h4,
-  .project .big + h4,
-  .project .project-preview .big + h4,
-  .about .read-preview .big + h4,
-  .about .big + h4,
-  .about .project-preview .big + h4,
-  .thanks-for-reading .read-preview .big + h4,
-  .thanks-for-reading .big + h4,
-  .thanks-for-reading .project-preview .big + h4,
-  #email-me .read-preview .big + h4,
-  #email-me .read .big + h4,
-  #email-me .project .big + h4,
-  #email-me .about .big + h4,
-  #email-me .thanks-for-reading .big + h4,
-  #email-me .big + h4,
-  #email-me .project-preview .big + h4 {
+  .read-preview h2 + h4, .read h2 + h4, .project h2 + h4, .about h2 + h4, .thanks-for-reading h2 + h4, #email-me h2 + h4, .project-preview h2 + h4, .read-preview h3 + h4, .read h3 + h4, .project h3 + h4, .about h3 + h4, .thanks-for-reading h3 + h4, #email-me h3 + h4, .project-preview h3 + h4, .read .read-preview .big + h4, .read .big + h4, .read .project-preview .big + h4, .project .read-preview .big + h4, .project .big + h4, .project .project-preview .big + h4, .about .read-preview .big + h4, .about .big + h4, .about .project-preview .big + h4, .thanks-for-reading .read-preview .big + h4, .thanks-for-reading .big + h4, .thanks-for-reading .project-preview .big + h4, #email-me .read-preview .big + h4, #email-me .read .big + h4, #email-me .project .big + h4, #email-me .about .big + h4, #email-me .thanks-for-reading .big + h4, #email-me .big + h4, #email-me .project-preview .big + h4 {
     padding-top: 0; }
 .read-preview .heading1, .read .heading1, .project .heading1, .about .heading1, .thanks-for-reading .heading1, #email-me .heading1, .project-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong, .read .what-i-do strong, .what-i-do .read strong, .project .what-i-do strong, .what-i-do .project strong, .about .what-i-do strong, .what-i-do .about strong, .thanks-for-reading .what-i-do strong, .what-i-do .thanks-for-reading strong, #email-me .what-i-do strong, .what-i-do #email-me strong, .project-preview .what-i-do strong, .what-i-do .project-preview strong {
   font-size: 43.2px;
@@ -507,7 +432,7 @@ textarea {
       padding-right: 4%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 1.5rem; } }
+      grid-gap: 0.65rem; } }
   @media screen and (min-width: 1600px) {
     #read-previews {
       padding-left: 3%;
@@ -529,6 +454,7 @@ textarea {
     width: 50%; }
     @supports (display: grid) {
       .container-tileable {
+        padding: 0;
         width: 100%;
         max-width: 655px; }
         .container-tileable:nth-child(2n-1) {
@@ -566,8 +492,8 @@ textarea {
         float: left;
         width: 50%;
         margin-top: 0;
-        padding: 1.6px 8px 8px 8px;
-        padding: 0.1rem 0.5rem 0.5rem 0.5rem; }
+        padding: 4px 8px 8px 8px;
+        padding: 0.25rem 0.5rem 0.5rem 0.5rem; }
       .read-preview .heading1, .read-preview .what-i-do strong, .what-i-do .read-preview strong {
         float: left;
         width: 37.5%;
@@ -775,10 +701,13 @@ textarea {
   .read-text p:first-of-type .read-first-line, .project-text p:first-of-type .read-first-line, .about-text p:first-of-type .read-first-line, .read-text .read-preview blockquote:first-of-type .read-first-line, .read-preview .read-text blockquote:first-of-type .read-first-line, .project-text .read-preview blockquote:first-of-type .read-first-line, .read-preview .project-text blockquote:first-of-type .read-first-line, .about-text .read-preview blockquote:first-of-type .read-first-line, .read-preview .about-text blockquote:first-of-type .read-first-line, .read-text .read blockquote:first-of-type .read-first-line, .read .read-text blockquote:first-of-type .read-first-line, .project-text .read blockquote:first-of-type .read-first-line, .read .project-text blockquote:first-of-type .read-first-line, .about-text .read blockquote:first-of-type .read-first-line, .read .about-text blockquote:first-of-type .read-first-line, .read-text .project blockquote:first-of-type .read-first-line, .project .read-text blockquote:first-of-type .read-first-line, .project-text .project blockquote:first-of-type .read-first-line, .project .project-text blockquote:first-of-type .read-first-line, .about-text .project blockquote:first-of-type .read-first-line, .project .about-text blockquote:first-of-type .read-first-line, .read-text .about blockquote:first-of-type .read-first-line, .about .read-text blockquote:first-of-type .read-first-line, .project-text .about blockquote:first-of-type .read-first-line, .about .project-text blockquote:first-of-type .read-first-line, .about-text .about blockquote:first-of-type .read-first-line, .about .about-text blockquote:first-of-type .read-first-line, .read-text .thanks-for-reading blockquote:first-of-type .read-first-line, .thanks-for-reading .read-text blockquote:first-of-type .read-first-line, .project-text .thanks-for-reading blockquote:first-of-type .read-first-line, .thanks-for-reading .project-text blockquote:first-of-type .read-first-line, .about-text .thanks-for-reading blockquote:first-of-type .read-first-line, .thanks-for-reading .about-text blockquote:first-of-type .read-first-line, .read-text #email-me blockquote:first-of-type .read-first-line, #email-me .read-text blockquote:first-of-type .read-first-line, .project-text #email-me blockquote:first-of-type .read-first-line, #email-me .project-text blockquote:first-of-type .read-first-line, .about-text #email-me blockquote:first-of-type .read-first-line, #email-me .about-text blockquote:first-of-type .read-first-line, .read-text .project-preview blockquote:first-of-type .read-first-line, .project-preview .read-text blockquote:first-of-type .read-first-line, .project-text .project-preview blockquote:first-of-type .read-first-line, .project-preview .project-text blockquote:first-of-type .read-first-line, .about-text .project-preview blockquote:first-of-type .read-first-line, .project-preview .about-text blockquote:first-of-type .read-first-line {
     text-transform: uppercase; }
 
-.container-image > img, .container-image > .img-svg, .container-image > .thomazella-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
+.container-image {
+  margin-top: 3em;
+  margin-bottom: 3em; }
+  .container-image > img, .container-image > .img-svg, .container-image > .thomazella-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
 
 .empty-transparency {
   position: absolute;
