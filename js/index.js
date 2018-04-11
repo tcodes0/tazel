@@ -17,6 +17,7 @@ let onLoaders = []
 // - - - - - - - - - - - - - - -
 window.addEventListener('resize', () => resizers.forEach(resizer => resizer()))
 window.addEventListener('load', () => onLoaders.forEach(onLoader => onLoader()))
+// window.addEventListener('hashchange', () => hashChecker())
 
 const toggleGuide = () => {
   let guide = $('.guide')
@@ -343,35 +344,47 @@ const floatingArticle_Inserter = e => {
   }
   const unsetProgressCursor = () => document.body.style.cursor = "auto"
 
+  // get the link that was clicked or URL hash navigated to and figure what article to show
+  let triggeredByClick = typeof(e) === "object"
+  let targetHash = triggeredByClick ? findALinkParent(e.target).attributes.href.value : e
+  let el = $(targetHash)
   let tail = document.createElement('div')
-  // get the link that was clicked, figure what article to show
-  let clickedLink = findALinkParent(e.target)
-  let el = $(clickedLink.attributes.href.value)
 
-  // set cursor for feedback something is happening
+  // set URL and cursor for feedback something is gonna happen
   document.body.style.cursor = "progress"
+  if (window.location.hash !== targetHash)
+    window.location.hash = targetHash
 
-  // move such article underneath viewport, make it visible, make it abs position
   el.classList.add('added-by-js')
-  el.style.transition = `transform ${transitionSmooth}`
+  // in case of a direct navigation to the article, no transition
+  el.style.transition = triggeredByClick ? `transform ${transitionSmooth}` : ""
+  // move article underneath viewport
   el.style.top = window.innerHeight + window.scrollY + "px"
   el.classList.remove('hide')
-  // hide nonsensical link if article is floating
+  // hide nonsensical link if js works
   el.querySelector('.container-backlinks a.back[href="#header"]').classList.add('hide')
 
   tail.classList.add('empty-transparency')
   tail.style.top = el.offsetHeight + 'px'
   el.appendChild(tail)
+  // the point where the article begins
   el.setAttribute("data-top", window.scrollY)
-  // trigger transition to bring article up
+  // trigger to bring article up
   el.style.transform = `translateY(-${window.innerHeight}px)`
   // .main scrolls away with the article and the body's bg color looks like a glitch
   document.body.style.backgroundColor = getComputedStyle(m).backgroundColor
 
-  // will run after transition and wrap it up
-  el.addEventListener('transitionend', positionFixed_Apply, {once: true})
-  el.addEventListener('transitionend', headPrepender, {once: true})
-  el.addEventListener('transitionend', unsetProgressCursor, {once: true})
+  if (triggeredByClick) {
+    // will run after transition and wrap it up
+    el.addEventListener('transitionend', positionFixed_Apply, {once: true})
+    el.addEventListener('transitionend', headPrepender, {once: true})
+    el.addEventListener('transitionend', unsetProgressCursor, {once: true})
+  } else {
+    // no transiton, no problem
+    positionFixed_Apply()
+    headPrepender()
+    unsetProgressCursor()
+  }
 
   //how to get rid of it
   tail.addEventListener('click', floatingArticle_Destroyer, {once: true})
@@ -385,7 +398,6 @@ const floatingArticle_Inserter = e => {
 }
 
 const positionFixed_Apply = e => {
-  // console.log(e);
   let mchildren = [...m.children].filter(child => {
     return child.attributes.id.value !== "reads" && child.attributes.id.value !== "projects"
   })
@@ -407,9 +419,10 @@ const floatingArticle_Destroyer = () => {
   // avoids a flick caused by smooth scrolling when article is destroyed
   const avoidScrollBehaviorSmooth = () => {
     let sb = getComputedStyle(document.body).scrollBehavior
-    if (!sb) {
+
+    if (!sb)
       return
-    }
+
     else if (sb !== "auto") {
       document.body.style.scrollBehavior = "auto"
     }
@@ -480,7 +493,6 @@ const previewArticles_LinkEnabler = () => {
 }
 
 const backToTop_LinkReplacer = () => {
-  // return
   if (ThisPageIsNot(articles) && ThisPageIsNot(projects)) {
     return
   }
@@ -505,12 +517,24 @@ const hideReadsAndProjects = () => {
     $$('.project').forEach(p => p.classList.add('hide'))
   }
 }
-// onLoaders = [hideReadsAndProjects, ...onLoaders]
 
 const hideAllReadsButLast = () => {
   let reads = [...$$('.read')]
   reads.pop()
   reads.forEach(r => r.classList.add('hide'))
 }
-onLoaders.push(hideAllReadsButLast)
-// IDEA: project separator glitches when main changes size. rework it
+// onLoaders.push(hideAllReadsButLast)
+// IDEA: project separator glitches when main changes size. rework i
+
+const hashChecker = () => {
+  if (window.location.hash === "#header" ||
+  window.location.hash === "#reads" ||
+  window.location.hash === "#projects" ||
+  ! window.location.hash) {
+    return
+  }
+
+  window.scrollTo(0,0)
+  floatingArticle_Inserter(window.location.hash)
+}
+onLoaders = [hashChecker, ...onLoaders]
