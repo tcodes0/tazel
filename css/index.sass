@@ -627,47 +627,8 @@ button
 
 .read-text
   margin-bottom: 2em
-
-%container-image-block
-  +row
-  margin-top: 1.5em
-  margin-bottom: 2em
-  @media screen and (min-width: $break-tabletS)
-    margin-top: 0.4em
-
-.container-image-wide
-  @extend %container-image-block
-  img
-    @extend %full-width-object
-
-%container-image-inline
-  @extend %container-image-block
-  img,
-  .img-svg
-    +width-squeeze
-  @media screen and (min-width: $break-tabletS)
-    +col(7)
-    display: inline
-    // any value conflicts with our width based margin
-    margin-bottom: 0
-
-.container-image-right
-  @extend %container-image-inline
-  @media screen and (min-width: $break-tabletM)
-    float: right
-  img
-    @media screen and (min-width: $break-tabletS)
-      // almost snap to right side, creating margin-left with remaining space (is on auto).
-      margin-left: 0
-    @media screen and (min-width: $break-tabletM)
-      margin-left: auto
-      margin-right: 0
-
-.container-image-left
-  @extend %container-image-inline
-  img
-    @media screen and (min-width: $break-tabletS)
-      margin-left: 0
+  p:first-of-type .read-first-line
+    text-transform: uppercase
 
 .empty-transparency
   position: absolute

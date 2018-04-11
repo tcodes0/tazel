@@ -78,7 +78,8 @@
               <h1 class="heading1">Say goodbye to FTP</h1>
             </div>
             <div class="read-text" role="main">
-              <p>The first way I learned to upload  a site over to a server was using FTP. And FTP is good, it has many great free programs out there.
+              <p><span class="read-first-line">The first way I learned to upload  a site over to a server was using FTP.</span>
+                And FTP is good, it has many great free programs out there.
                 It's a good way to learn how sites go from local files to being available online.
                 It even is easier to relate to other uploads you might have done before, because the interface is familiar.
               </p>
@@ -156,7 +157,7 @@
                 Each provider may have a different policy in place to allow SSH access, so we'll be googling for it. SSH is known and common in web development so we should find the info right away.
                 I'm using namecheap right now, so I googled for:
               </p>
-              <div class="container-image-wide"><img class="screenshot" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-google.png" alt=""></div>
+              <div class="container-image"><img class="screenshot" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-google.png" alt="search the web for instructions"></div>
               <p>Try googling for something similar, using your web host in place of mine, obviously. I landed on a knowledge base article with further instructions saying I need to contact support to enable SSH.
                 I logged into my account and opened a support ticket saying:
               </p>
@@ -195,7 +196,7 @@
               <em>Open your terminal and type:</em>
               <code class="lang-shell">ssh</code>
               <em>Expected output:</em>
-              <div class="container-image-wide"><img class="screenshot" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-ssh.png" alt=""></div>
+              <div class="container-image"><img class="screenshot" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-ssh.png" alt="terminal output showing ssh is installed"></div>
               <p>This means a SSH program is available and working. Good.</p>
               <em>Notice the prompt?</em>
 <pre>
@@ -211,7 +212,7 @@ $
               </p>
               <em>Type <strong>yes</strong>. Then type your FTP password.</em><br><br>
               <em>Expected output:</em>
-              <div class="container-image-wide"><img class="screenshot" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-prompt.png" alt=""></div>
+              <div class="container-image"><img class="screenshot" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-prompt.png" alt="terminal output showing log in succeeded"></div>
               <em>Notice the prompt changed?</em>
 <pre>
 [taz@server179 ~]$
@@ -263,22 +264,22 @@ $
                 <dt>Public key default path</dt><dd><code class="inline">~/.ssh/id_rsa.pub</code></dd>
               </dl>
               <em>Expected output:</em>
-              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-keyfinish.png" alt=""></div>
+              <div class="container-image"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-keyfinish.png" alt="terminal output showing ssh key creation succeeded"></div>
               <p>All good, now we upload the public key to the host keeping the private to ourselves.</p>
               <em>Login at your CPanel, or equivalent software you use to manage your hosting, and look for a SSH menu item.</em>
-              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-sshicon.png" alt=""></div>
+              <div class="container-image"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-sshicon.png" alt="ssh icon on cpanel"></div>
               <em>Import key option.</em>
-              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-import.png" alt=""></div>
+              <div class="container-image"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-import.png" alt="import key button on cpanel"></div>
               <p>It wants you to paste your key in. We'll only be providing the public key, leave the private blank. You can browse to your public key file, open on a text editor and copy it, or copy it with terminal commands.</p>
               <em>MacOS</em>
               <code class="lang-shell">cat ~/.ssh/id_rsa.pub | pbcopy</code>
               <em>Linux</em>
               <code class="lang-shell">cat ~/.ssh/id_rsa.pub | xclip -selection c</code>
               <em>Paste it.</em>
-              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-importbutton.png" alt=""></div>
+              <div class="container-image"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-importbutton.png" alt="click import after pasting"></div>
               <p>After uploading we need to authorize the key.</p>
               <em>Under public keys, click manage.</em>
-              <div class="container-image-wide"><img class="screenshot" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-manage.png" alt=""></div>
+              <div class="container-image"><img class="screenshot" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-manage.png" alt="manage key icon"></div>
               <em>Click on authorize.</em>
               <p>All done.</p>
 
@@ -286,10 +287,10 @@ $
               <p>Another way is to do it on the control panel.
                 On the SSH menu, choose 'generate a new key', right next to 'import'.</p>
               <em>Fill in the information.</em>
-              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-genkeyform.png" alt=""></div>
+              <div class="container-image"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-genkeyform.png" alt="fields of a form to generate a ssh key"></div>
               <p>You should now have a pair of keys.</p>
               <em>Under private keys, click 'view/download', right next to 'import'. Then 'download key'.</em>
-              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-download.png" alt=""></div>
+              <div class="container-image"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-download.png" alt="ssh key in plain text and download button"></div>
               <p>Private keys stay in our machines and normally live on <code class="inline">~/.ssh</code>.
                 So we need to move this new key there.
               </p>
@@ -352,7 +353,7 @@ Host *
                 We don't need options yet, so leave it blank.
               </p>
               <p>To have rsync SSH for us, we'll need to find the path of your home directory on the web host. This can be as simple as a login into your FTP (here I'm using <a class="other-site" href="https://cyberduck.io/">Cyberduck</a>) and looking at the current directory:</p>
-              <div class="container-image-wide"><img class="screenshot" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-hosthome.png" alt=""></div>
+              <div class="container-image"><img class="screenshot" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-hosthome.png" alt="ftp program showing home path on webhost"></div>
               <em>Or you can SSH into the host and type:</em>
               <code class="lang-shell">pwd</code>
               <p>It will reply to you with the path we're looking for. Let's call this path <code class="inline">hosthome</code>. It probably contains your username on it, something like <code class="inline">/home/heyzor</code> if your username is <code class="inline">heyzor</code>.</p>
@@ -377,7 +378,7 @@ Host *
               </ul>
               <p>If you see no output, that's good. Use SSH or your FTP to verify the file arrived on the host.</p>
               <em>Alright!</em>
-              <div class="container-image-wide"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-test.png" alt=""></div>
+              <div class="container-image"><img class="screenshot portrait" aria-label="screenshot" src="css/img/reads/say-goodbye-to-ftp/screen-test.png" alt="ftp program showing test upload succeeded"></div>
 
               <h3>Time for a site upload</h3>
               <p>Rsync can easily send a whole directory to another directory on your host. Yep, the whole site with <code class="inline">css</code> and <code class="inline">js</code> and any other subdirectories you might have, piece of cake.
@@ -513,18 +514,22 @@ uploadSite() {
             </div>
             <div class="read-text" role="main">
               <p>
-                <a class="other-site" href="https://haveibeenpwned.com/">haveibeenpwned.com</a>
-                Is a site trying to do the right thing about the problem of password dumps.
+                <span class="read-first-line">Password dumps are a new security problem.</span>
+                A site trying to do the right thing about it is
+                <a class="other-site" href="https://haveibeenpwned.com/"> haveibeenpwned.com</a>.
                 In a nutshell, a password dump happens when criminals 0wn a site, and post the data they obtained online, for anyone to use or see.
                 This means email addresses and passwords, ip addresses, birthdates or any data you share with the owned site could potentially be leaked.
                 It's a privacy violation fest that's for sure, but the biggest problem is that a collection of this information starts to build up online.
               </p>
+              <em>My own pwnage stats</em>
+              <div class="container-image"><img class="screenshot" src="css/img/reads/pwned/screen-pwned.png" alt="haveibeenpwned website showing pwned stats"></div>
               <h3>credential stuffing</h3>
               <p>
                 Having such information available saves criminals a lot of time because they don't need to obtain it, they just have to think how to use it.
                 The best way to take advantage of a password dump is to test the emails and passwords against as many services as possible, hoping to find a match.
                 Then, log in to the account and try to make some money or just whack some mischief.
-                This strategy is being called credential stuffing, and is the driving force behind recent attacks to Fortnite accounts.
+                This strategy is being called <a class="other-site" href="https://www.owasp.org/index.php/Credential_stuffing">credential stuffing</a>,
+                and is the driving force behind recent <a class="other-site" href="https://kotaku.com/whats-really-going-on-with-all-those-hacked-fortnite-ac-1823965781">attacks</a> to Fortnite accounts.
                 The Fortnite case is specially bad because the game is designed as a free to play with a straightforward approach to spending money on the game, with little security verification required.
               </p>
               <p>
@@ -535,33 +540,40 @@ uploadSite() {
                 Let's hope this increased awareness leads to tighter security.
               <h3>security habits</h3>
               <div class="column-group">
-                <p>Searching an email on haveibeenpwned.com and finding some dumps that match, spells out security risk to you proportionally to your security habits.</p>
+                <p>
+                  Searching an email on haveibeenpwned.com and finding some dumps that match, spells out security risk to you proportionally to your security habits,
+                  but you should definitely assume the password is compromised and change it before someone uses it.
+                </p>
                 <p>Good behavior:</p>
                 <ul>
                   <li>Use strong passwords</li>
                   <li>Use unique passwords for all services</li>
                   <li>Use two-factor authentication</li>
-                  <li>Avoid vinculating credit cards to accounts</li>
+                  <li>Be thoughful about vinculating credit cards to accounts</li>
                 </ul>
               </div>
               <p>
-                You should definitely assume the password is compromised and change it before someone uses it.
                 The best approach to this question is to search for a balance in the security vs. convenience tradeoff.
+              </p>
+              <em class="important">Security x Convenience</em>
+              <p>
                 Too much security could lock a person out of their own account for trivial reasons, e.g. they forgot their phone at work, or make the credential management a stressful experience.
-                The main risk to watch out for is reusing the same password across multiple services.
+                The main risk to watch out for <strong>is reusing the same password across multiple services</strong>.
                 People that reuse passwords are the only affected by credential stuffing.
-                The second risk is to share your credit card irresponsibly.
-                Niche sites and services, as well as games, are places to be careful.
+                The second risk is <strong>to share your credit card irresponsibly</strong>.
+                Fair sized sites and services popular with certain crowds, as well as games, are places to be careful.
               </p>
               <p>
                 To generate unique passwords for each service, use a password manager.
                 It will also provide strong passwords: Use the password generator and create something you would hate to type.
                 Also, nevermind typing passwords, copy-paste them.
                 If a service blocks copy pasting passwords, complain to them, this is a mistake and only worsens security.
-                Currently I use the keepass password manager and it works well for me.
+                Currently I use the <a href="https://keepass.info/" class="other-site">keepass password manager</a> and it works well for me.
                 I use it because it's simple, free, open source, and available on all platforms.
                 I sync my database to google drive to keep it up to date across my systems.
               </p>
+              <em>Keepass 3 on Mac</em>
+              <div class="container-image"><img class="screenshot" src="css/img/reads/pwned/screen-keepass.png" alt="keepass program window"></div>
               <p>
                 To share your credit card responsibly, look for two-factor authentication.
                 Since criminals look for the routes of least resistance to make money, they probably won't even bother to mess with an account two-factor authenticated.
