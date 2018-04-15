@@ -64,10 +64,8 @@ body
   width: 50%
 
 %margin-bottom-large
-  margin-bottom: 75px
-  margin-bottom: 12vh
-  // margin-bottom: 75px
-  // margin-bottom: 4.7rem
+  margin-bottom: 38px
+  margin-bottom: 6vh
 
 .header
   @extend %margin-bottom-large
@@ -708,7 +706,7 @@ button
   /* ---- end ----
   @supports (display: grid)
     @media screen and (min-width: $break-tabletS)
-      display: grid
+      +row(grid)
       grid-template-columns: repeat(2, 1fr)
     @media screen and (min-width: $break-tabletM)
       +padding-squeeze(10%)
@@ -721,9 +719,10 @@ button
   @extend %preview
   @extend %read-common-children
   @extend %background
+  @extend %transition-fast
   +aligned-block
   padding: 5% 2%
-  transition: background-color 0.5s ease
+  transition-property: background-color
   position: relative
   // fallback for IE8
   max-width: 40%
@@ -781,11 +780,30 @@ button
 .container-project-logo
   @extend %project-border-common
   +border-stylus
-  padding-top: 6.4px
-  padding-top: 0.4rem
+  +topAndBottom(padding, 0.7em)
+  img,
   .img-svg
     +aligned-block
-    max-width: 20%
+    max-width: 80%
+
+//.container-background
+  - - - - - - - - - - - - - - -
+  abandoned because stupid chrome stuff. idea is to set a bg image
+  to each project to appear on hover but chrome shittyin on my zindex
+  - - - - - - - - - - - - - - -
+  @extend %transition-fast
+  transition-property: opacity
+  opacity: 0
+  width: 100%
+  height: 100%
+  position: absolute
+  z-index: -1
+  top: 0
+  left: 0
+  background-position: center
+  &:hover
+    .container-background
+      opacity: 0.5
 
 #projects
   @extend #reads
@@ -812,7 +830,19 @@ button
   top: -28%
   @media screen and (min-width: $break-tabletS)
     @supports (display: grid)
-      display: block
+      // display: block
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//                           Specific to one project
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// #nununu-preview
+//   .container-background
+//     background-image: url('img/projects/nununu/logo-bg.png')
+//   &:hover
+//     background-color: transparent
+//     .container-background
+//       opacity: 0.1
 
 
 /*________________________________________________________________

@@ -73,8 +73,8 @@ body {
   width: 50%; }
 
 .header, .header-fancy, #professional-description, #read-previews, #project-previews {
-  margin-bottom: 75px;
-  margin-bottom: 12vh; }
+  margin-bottom: 38px;
+  margin-bottom: 6vh; }
 
 .header, .header-fancy {
   text-align: center; }
@@ -220,7 +220,7 @@ textarea {
   transition-duration: 1.15s;
   transition-timing-function: ease-out; }
 
-.what-does-tazel-mean span {
+.project-preview, .what-does-tazel-mean span {
   transition-duration: 0.57s;
   transition-timing-function: ease-in-out; }
 
@@ -762,8 +762,18 @@ textarea {
   @supports (display: grid) {
     @media screen and (min-width: 768px) {
       .container-project-previews {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
         display: grid;
-        grid-template-columns: repeat(2, 1fr); } }
+        grid-template-columns: repeat(2, 1fr); }
+        .container-project-previews:after {
+          content: "";
+          display: block;
+          clear: both; }
+        .container-project-previews:after {
+          content: none; } }
     @media screen and (min-width: 1024px) {
       .container-project-previews {
         padding-left: 10%;
@@ -780,7 +790,7 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   padding: 5% 2%;
-  transition: background-color 0.5s ease;
+  transition-property: background-color;
   position: relative;
   max-width: 40%;
   max-width: calc(99% + 1%);
@@ -839,13 +849,15 @@ textarea {
 
 .container-project-logo {
   border-style: solid;
-  padding-top: 6.4px;
-  padding-top: 0.4rem; }
-  .container-project-logo .img-svg, .container-project-logo .thomazella-logo {
+  padding-top: 0.7em;
+  padding-bottom: 0.7em; }
+  .container-project-logo img,
+  .container-project-logo .img-svg,
+  .container-project-logo .thomazella-logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 20%; }
+    max-width: 80%; }
 
 .project-header {
   margin-bottom: 2em; }
@@ -866,10 +878,37 @@ textarea {
   position: relative;
   right: -59%;
   top: -28%; }
-  @media screen and (min-width: 768px) {
-    @supports (display: grid) {
-      .vertical-separator {
-        display: block; } } }
+
+#nununu .project-text {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  display: grid;
+  grid-row-gap: 3rem; }
+  #nununu .project-text:after {
+    content: "";
+    display: block;
+    clear: both; }
+  #nununu .project-text:after {
+    content: none; }
+  @media screen and (min-width: 1024px) {
+    #nununu .project-text {
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 2rem; } }
+  @supports (display: grid) {
+    #nununu .project-text .container-image {
+      margin-top: 0;
+      margin-bottom: 0; } }
+  @media screen and (min-width: 1024px) {
+    #nununu .project-text .container-image {
+      grid-column: span 2;
+      justify-self: center; }
+      #nununu .project-text .container-image:nth-of-type(4) {
+        grid-area: 1/1/1/5;
+        margin-bottom: 6em; }
+      #nununu .project-text .container-image:nth-of-type(3) {
+        border: 2px solid red; } }
 
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
