@@ -10,13 +10,16 @@ const f = $('.footer') || $('.footer-home')
 const m = $('.main')
 const transitionStandard = "1.15s ease-out"
 const transitionSmooth = "2.15s ease-in-out"
+const floatArticleEvent = new Event('floatarticle', {bubbles: true})
 let resizers = []
 let onLoaders = []
+let floaters = []
 
 // - - - - - - - - - All PAGES
 // - - - - - - - - - - - - - - -
 window.addEventListener('resize', () => resizers.forEach(resizer => resizer()))
 window.addEventListener('load', () => onLoaders.forEach(onLoader => onLoader()))
+window.addEventListener('floatarticle', e => floaters.forEach(floater => floater(e)))
 // window.addEventListener('hashchange', () => hashChecker())
 
 const toggleGuide = () => {
@@ -44,8 +47,8 @@ const htmlHide = (query) => {
   }
 }
 
-const whiteIcons = () => {
-  let icons = [...$$('svg image')]
+const whiteIcons = q => {
+  let icons = q ? [...$$(`${q} svg image`)] : [...$$('svg image')]
   let xlink = 'xlink:href'
   let src = 'src'
   icons.forEach(icon => {
@@ -58,8 +61,8 @@ const whiteIcons = () => {
 }
 // onLoaders.push(whiteIcons)
 
-const blackIcons = () => {
-  let icons = [...$$('svg image')]
+const blackIcons = q => {
+  let icons = q ? [...$$(`${q} svg image`)] : [...$$('svg image')]
   let xlink = 'xlink:href'
   let src = 'src'
   icons.forEach(icon => {
@@ -350,6 +353,9 @@ const floatingArticle_Inserter = e => {
   let el = $(targetHash)
   let tail = document.createElement('div')
 
+  //some functions listen to this for article specific stuff
+  el.dispatchEvent(floatArticleEvent)
+
   // set URL and cursor for feedback something is gonna happen
   document.body.style.cursor = "progress"
   if (window.location.hash !== targetHash)
@@ -526,6 +532,22 @@ const hideAllReadsButLast = () => {
 // onLoaders.push(hideAllReadsButLast)
 // IDEA: project separator glitches when main changes size. rework i
 
+const projectsFloatEventHooker = () => {
+  if (ThisPageIs(projects)) {
+    document.body.addEventListener('floatarticle', e => floaters.forEach(floater => floater(e)))
+  }
+}
+onLoaders.push(projectsFloatEventHooker)
+
+const nununuIconColorSwapper = e => {
+  if (e.target.attributes.id.value != "nununu") {
+    return
+  }
+
+  whiteIcons(`#${e.target.attributes.id.value}`)
+}
+floaters.push(nununuIconColorSwapper)
+
 const hashChecker = () => {
   if (window.location.hash === "#header" ||
   window.location.hash === "#reads" ||
@@ -537,4 +559,5 @@ const hashChecker = () => {
   window.scrollTo(0,0)
   floatingArticle_Inserter(window.location.hash)
 }
+// safari needs hashChecker as the very first f()
 onLoaders = [hashChecker, ...onLoaders]
