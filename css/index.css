@@ -698,15 +698,15 @@ textarea {
 .container-image {
   margin-top: 3em;
   margin-bottom: 3em; }
-  .container-image > img, .container-image > .img-svg, .container-image > .thomazella-logo {
+  .container-image * {
     display: block;
     margin-left: auto;
     margin-right: auto; }
     @media screen and (min-width: 768px) {
-      .container-image > img, .container-image > .img-svg, .container-image > .thomazella-logo {
+      .container-image * {
         max-width: 85%; } }
     @media screen and (min-width: 768px) {
-      .container-image > img.portrait, .container-image > .img-svg.portrait, .container-image > .portrait.thomazella-logo {
+      .container-image *.portrait {
         max-width: 65%; } }
 
 .empty-transparency {
@@ -868,11 +868,7 @@ textarea {
   margin-right: auto; }
 
 .vertical-separator {
-  display: none;
-  transform: rotate(90deg);
-  position: relative;
-  right: -59%;
-  top: -28%; }
+  display: none; }
 
 #nununu img[src*="logo-white"] {
   background-color: #fffffc; }
@@ -897,9 +893,11 @@ textarea {
     grid-row-gap: 1rem; }
     #nununu .project-text ul, #nununu .project-text p, #nununu .project-text .read-preview blockquote, .read-preview #nununu .project-text blockquote, #nununu .project-text .read blockquote, .read #nununu .project-text blockquote, #nununu .project-text .project blockquote, .project #nununu .project-text blockquote, #nununu .project-text .about blockquote, .about #nununu .project-text blockquote, #nununu .project-text .thanks-for-reading blockquote, .thanks-for-reading #nununu .project-text blockquote, #nununu .project-text #email-me blockquote, #email-me #nununu .project-text blockquote, #nununu .project-text .project-preview blockquote, .project-preview #nununu .project-text blockquote {
       padding: 32px;
-      padding: 2rem;
-      max-width: 70%; }
-    #nununu .project-text p, #nununu .project-text .read-preview blockquote, .read-preview #nununu .project-text blockquote, #nununu .project-text .read blockquote, .read #nununu .project-text blockquote, #nununu .project-text .project blockquote, .project #nununu .project-text blockquote, #nununu .project-text .about blockquote, .about #nununu .project-text blockquote, #nununu .project-text .thanks-for-reading blockquote, .thanks-for-reading #nununu .project-text blockquote, #nununu .project-text #email-me blockquote, #email-me #nununu .project-text blockquote, #nununu .project-text .project-preview blockquote, .project-preview #nununu .project-text blockquote, #nununu .project-text li {
+      padding: 2rem; }
+      @media screen and (min-width: 768px) {
+        #nununu .project-text ul, #nununu .project-text p, #nununu .project-text .read-preview blockquote, .read-preview #nununu .project-text blockquote, #nununu .project-text .read blockquote, .read #nununu .project-text blockquote, #nununu .project-text .project blockquote, .project #nununu .project-text blockquote, #nununu .project-text .about blockquote, .about #nununu .project-text blockquote, #nununu .project-text .thanks-for-reading blockquote, .thanks-for-reading #nununu .project-text blockquote, #nununu .project-text #email-me blockquote, #email-me #nununu .project-text blockquote, #nununu .project-text .project-preview blockquote, .project-preview #nununu .project-text blockquote {
+          max-width: 70%; } }
+    #nununu .project-text p, #nununu .project-text .read-preview blockquote, .read-preview #nununu .project-text blockquote, #nununu .project-text .read blockquote, .read #nununu .project-text blockquote, #nununu .project-text .project blockquote, .project #nununu .project-text blockquote, #nununu .project-text .about blockquote, .about #nununu .project-text blockquote, #nununu .project-text .thanks-for-reading blockquote, .thanks-for-reading #nununu .project-text blockquote, #nununu .project-text #email-me blockquote, #email-me #nununu .project-text blockquote, #nununu .project-text .project-preview blockquote, .project-preview #nununu .project-text blockquote, #nununu .project-text li, #nununu .project-text iframe {
       position: relative;
       z-index: 50; }
     #nununu .project-text .container-image, #nununu .project-text p, #nununu .project-text .read-preview blockquote, .read-preview #nununu .project-text blockquote, #nununu .project-text .read blockquote, .read #nununu .project-text blockquote, #nununu .project-text .project blockquote, .project #nununu .project-text blockquote, #nununu .project-text .about blockquote, .about #nununu .project-text blockquote, #nununu .project-text .thanks-for-reading blockquote, .thanks-for-reading #nununu .project-text blockquote, #nununu .project-text #email-me blockquote, #email-me #nununu .project-text blockquote, #nununu .project-text .project-preview blockquote, .project-preview #nununu .project-text blockquote, #nununu .project-text ul {
@@ -930,31 +928,26 @@ textarea {
       grid-area: 15/1/15/3; }
     #nununu .project-text p:nth-of-type(1), #nununu .project-text .read-preview blockquote:nth-of-type(1), .read-preview #nununu .project-text blockquote:nth-of-type(1), #nununu .project-text .read blockquote:nth-of-type(1), .read #nununu .project-text blockquote:nth-of-type(1), #nununu .project-text .project blockquote:nth-of-type(1), .project #nununu .project-text blockquote:nth-of-type(1), #nununu .project-text .about blockquote:nth-of-type(1), .about #nununu .project-text blockquote:nth-of-type(1), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(1), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(1), #nununu .project-text #email-me blockquote:nth-of-type(1), #email-me #nununu .project-text blockquote:nth-of-type(1), #nununu .project-text .project-preview blockquote:nth-of-type(1), .project-preview #nununu .project-text blockquote:nth-of-type(1) {
       grid-area: 1/1/1/3;
-      transform: translateY(50%); }
+      transform: translate(4%, 30%); }
     #nununu .project-text p:nth-of-type(2), #nununu .project-text .read-preview blockquote:nth-of-type(2), .read-preview #nununu .project-text blockquote:nth-of-type(2), #nununu .project-text .read blockquote:nth-of-type(2), .read #nununu .project-text blockquote:nth-of-type(2), #nununu .project-text .project blockquote:nth-of-type(2), .project #nununu .project-text blockquote:nth-of-type(2), #nununu .project-text .about blockquote:nth-of-type(2), .about #nununu .project-text blockquote:nth-of-type(2), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(2), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(2), #nununu .project-text #email-me blockquote:nth-of-type(2), #email-me #nununu .project-text blockquote:nth-of-type(2), #nununu .project-text .project-preview blockquote:nth-of-type(2), .project-preview #nununu .project-text blockquote:nth-of-type(2) {
       grid-area: 2/1/2/3;
-      transform: translateY(50%); }
+      transform: translate(4%, 35%); }
     #nununu .project-text p:nth-of-type(3), #nununu .project-text .read-preview blockquote:nth-of-type(3), .read-preview #nununu .project-text blockquote:nth-of-type(3), #nununu .project-text .read blockquote:nth-of-type(3), .read #nununu .project-text blockquote:nth-of-type(3), #nununu .project-text .project blockquote:nth-of-type(3), .project #nununu .project-text blockquote:nth-of-type(3), #nununu .project-text .about blockquote:nth-of-type(3), .about #nununu .project-text blockquote:nth-of-type(3), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(3), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(3), #nununu .project-text #email-me blockquote:nth-of-type(3), #email-me #nununu .project-text blockquote:nth-of-type(3), #nununu .project-text .project-preview blockquote:nth-of-type(3), .project-preview #nununu .project-text blockquote:nth-of-type(3) {
       grid-area: 3/1/3/2;
-      transform: translateY(40%); }
+      transform: translate(4%, 40%); }
     #nununu .project-text p:nth-of-type(4), #nununu .project-text .read-preview blockquote:nth-of-type(4), .read-preview #nununu .project-text blockquote:nth-of-type(4), #nununu .project-text .read blockquote:nth-of-type(4), .read #nununu .project-text blockquote:nth-of-type(4), #nununu .project-text .project blockquote:nth-of-type(4), .project #nununu .project-text blockquote:nth-of-type(4), #nununu .project-text .about blockquote:nth-of-type(4), .about #nununu .project-text blockquote:nth-of-type(4), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(4), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(4), #nununu .project-text #email-me blockquote:nth-of-type(4), #email-me #nununu .project-text blockquote:nth-of-type(4), #nununu .project-text .project-preview blockquote:nth-of-type(4), .project-preview #nununu .project-text blockquote:nth-of-type(4) {
       grid-area: 5/2/5/3;
-      transform: translateY(60%); }
+      transform: translate(4%, 60%); }
     #nununu .project-text p:nth-of-type(5), #nununu .project-text .read-preview blockquote:nth-of-type(5), .read-preview #nununu .project-text blockquote:nth-of-type(5), #nununu .project-text .read blockquote:nth-of-type(5), .read #nununu .project-text blockquote:nth-of-type(5), #nununu .project-text .project blockquote:nth-of-type(5), .project #nununu .project-text blockquote:nth-of-type(5), #nununu .project-text .about blockquote:nth-of-type(5), .about #nununu .project-text blockquote:nth-of-type(5), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(5), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(5), #nununu .project-text #email-me blockquote:nth-of-type(5), #email-me #nununu .project-text blockquote:nth-of-type(5), #nununu .project-text .project-preview blockquote:nth-of-type(5), .project-preview #nununu .project-text blockquote:nth-of-type(5) {
       grid-area: 8/1/8/3; }
     #nununu .project-text p:nth-of-type(6), #nununu .project-text .read-preview blockquote:nth-of-type(6), .read-preview #nununu .project-text blockquote:nth-of-type(6), #nununu .project-text .read blockquote:nth-of-type(6), .read #nununu .project-text blockquote:nth-of-type(6), #nununu .project-text .project blockquote:nth-of-type(6), .project #nununu .project-text blockquote:nth-of-type(6), #nununu .project-text .about blockquote:nth-of-type(6), .about #nununu .project-text blockquote:nth-of-type(6), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(6), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(6), #nununu .project-text #email-me blockquote:nth-of-type(6), #email-me #nununu .project-text blockquote:nth-of-type(6), #nununu .project-text .project-preview blockquote:nth-of-type(6), .project-preview #nununu .project-text blockquote:nth-of-type(6) {
-      grid-area: 9/1/9/3;
-      transform: translateX(20%); }
-    #nununu .project-text p:nth-of-type(7), #nununu .project-text .read-preview blockquote:nth-of-type(7), .read-preview #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text .read blockquote:nth-of-type(7), .read #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text .project blockquote:nth-of-type(7), .project #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text .about blockquote:nth-of-type(7), .about #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(7), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text #email-me blockquote:nth-of-type(7), #email-me #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text .project-preview blockquote:nth-of-type(7), .project-preview #nununu .project-text blockquote:nth-of-type(7) {
-      grid-area: 10/1/10/3;
-      transform: translate(40%, 25%); }
-    #nununu .project-text p:nth-of-type(8), #nununu .project-text .read-preview blockquote:nth-of-type(8), .read-preview #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text .read blockquote:nth-of-type(8), .read #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text .project blockquote:nth-of-type(8), .project #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text .about blockquote:nth-of-type(8), .about #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(8), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text #email-me blockquote:nth-of-type(8), #email-me #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text .project-preview blockquote:nth-of-type(8), .project-preview #nununu .project-text blockquote:nth-of-type(8) {
-      grid-area: 11/1/11/3;
-      transform: translate(30%, 30%); }
-    #nununu .project-text p:nth-of-type(9), #nununu .project-text .read-preview blockquote:nth-of-type(9), .read-preview #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text .read blockquote:nth-of-type(9), .read #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text .project blockquote:nth-of-type(9), .project #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text .about blockquote:nth-of-type(9), .about #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(9), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text #email-me blockquote:nth-of-type(9), #email-me #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text .project-preview blockquote:nth-of-type(9), .project-preview #nununu .project-text blockquote:nth-of-type(9) {
       grid-area: 12/1/12/3; }
-    #nununu .project-text p:nth-of-type(10), #nununu .project-text .read-preview blockquote:nth-of-type(10), .read-preview #nununu .project-text blockquote:nth-of-type(10), #nununu .project-text .read blockquote:nth-of-type(10), .read #nununu .project-text blockquote:nth-of-type(10), #nununu .project-text .project blockquote:nth-of-type(10), .project #nununu .project-text blockquote:nth-of-type(10), #nununu .project-text .about blockquote:nth-of-type(10), .about #nununu .project-text blockquote:nth-of-type(10), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(10), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(10), #nununu .project-text #email-me blockquote:nth-of-type(10), #email-me #nununu .project-text blockquote:nth-of-type(10), #nununu .project-text .project-preview blockquote:nth-of-type(10), .project-preview #nununu .project-text blockquote:nth-of-type(10) {
+    #nununu .project-text p:nth-of-type(7), #nununu .project-text .read-preview blockquote:nth-of-type(7), .read-preview #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text .read blockquote:nth-of-type(7), .read #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text .project blockquote:nth-of-type(7), .project #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text .about blockquote:nth-of-type(7), .about #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(7), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text #email-me blockquote:nth-of-type(7), #email-me #nununu .project-text blockquote:nth-of-type(7), #nununu .project-text .project-preview blockquote:nth-of-type(7), .project-preview #nununu .project-text blockquote:nth-of-type(7) {
       grid-area: 13/1/13/3; }
+    #nununu .project-text p:nth-of-type(8), #nununu .project-text .read-preview blockquote:nth-of-type(8), .read-preview #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text .read blockquote:nth-of-type(8), .read #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text .project blockquote:nth-of-type(8), .project #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text .about blockquote:nth-of-type(8), .about #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(8), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text #email-me blockquote:nth-of-type(8), #email-me #nununu .project-text blockquote:nth-of-type(8), #nununu .project-text .project-preview blockquote:nth-of-type(8), .project-preview #nununu .project-text blockquote:nth-of-type(8) {
+      grid-area: 14/1/14/3; }
+    #nununu .project-text p:nth-of-type(9), #nununu .project-text .read-preview blockquote:nth-of-type(9), .read-preview #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text .read blockquote:nth-of-type(9), .read #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text .project blockquote:nth-of-type(9), .project #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text .about blockquote:nth-of-type(9), .about #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text .thanks-for-reading blockquote:nth-of-type(9), .thanks-for-reading #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text #email-me blockquote:nth-of-type(9), #email-me #nununu .project-text blockquote:nth-of-type(9), #nununu .project-text .project-preview blockquote:nth-of-type(9), .project-preview #nununu .project-text blockquote:nth-of-type(9) {
+      grid-area: 15/1/15/3; }
     #nununu .project-text ul:nth-of-type(1) {
       grid-area: 8/1/8/3;
       transform: translateY(21%);

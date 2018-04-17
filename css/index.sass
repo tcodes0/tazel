@@ -234,12 +234,6 @@ button
   ul
     +aligned-block
     display: inline-block
-    // .linebreak-for-mobile-nav
-    //   // using :: to exclude old IE
-    //   &::after
-    //     content: "\0a"
-    //   @media screen and (min-width: $break-mobileL)
-    //     display: none
     li
       display: inline
       line-height: 1.7em
@@ -277,10 +271,6 @@ button
 
 #professional-description
   @extend %margin-bottom-large
-  // display: flex
-  // flex-grow: 1
-  // flex-direction: column
-  // justify-content: center
   text-align: center
   font-size: 28.8px
   font-size: 1.8rem
@@ -296,14 +286,9 @@ button
     margin-bottom: 0
     font-size: inherit
     font-weight: 600
-    //fallback
     max-width: 40%
     max-width: calc(99% + 1%)
-    // padding-bottom: 0
     // font-weight: 400 darkmode
-    // max-width: 450px
-    // padding-bottom: 1.4em
-    // max-width: 600px
     @media screen and (min-width: $break-tabletS)
       max-width: 85%
     @media screen and (min-width: $break-tabletM)
@@ -623,8 +608,7 @@ button
 
 .container-image
   +topAndBottom(margin, 3em)
-  & > img,
-  & > .img-svg
+  & *
     +aligned-block
     @media screen and (min-width: $break-tabletS)
       max-width: 85%
@@ -689,8 +673,6 @@ button
 #project-previews
   @extend %margin-bottom-large
   min-height: 65vh
-  // padding-bottom: 20px
-  // padding-bottom: 3vh
 
 %project-border-common
   border-color: $color-bg-darker
@@ -826,25 +808,9 @@ button
 
 .vertical-separator
   display: none
-  transform: rotate(90deg)
-  position: relative
-  right: -59%
-  top: -28%
-  @media screen and (min-width: $break-tabletS)
-    @supports (display: grid)
-      // display: block
-
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 //                           Specific to one project
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-// #nununu-preview
-//   .container-background
-//     background-image: url('img/projects/nununu/logo-bg.png')
-//   &:hover
-//     background-color: transparent
-//     .container-background
-//       opacity: 0.1
 
 #nununu
   img[src*="logo-white"]
@@ -871,8 +837,9 @@ button
       ul, p
         padding: 32px
         padding: 2rem
-        max-width: 70%
-      p, li,
+        @media screen and (min-width: $break-tabletS)
+          max-width: 70%
+      p, li, iframe
         position: relative
         z-index: 50
       .container-image, p, ul
@@ -905,31 +872,26 @@ button
       p
         &:nth-of-type(1)
           grid-area: 1/1/1/3
-          transform: translateY(50%)
+          transform: translate(4%, 30%)
         &:nth-of-type(2)
           grid-area: 2/1/2/3
-          transform: translateY(50%)
+          transform: translate(4%, 35%)
         &:nth-of-type(3)
           grid-area: 3/1/3/2
-          transform: translateY(40%)
+          transform: translate(4%, 40%)
         &:nth-of-type(4)
           grid-area: 5/2/5/3
-          transform: translateY(60%)
+          transform: translate(4%, 60%)
         &:nth-of-type(5)
           grid-area: 8/1/8/3
         &:nth-of-type(6)
-          grid-area: 9/1/9/3
-          transform: translateX(20%)
-        &:nth-of-type(7)
-          grid-area: 10/1/10/3
-          transform: translate(40%, 25%)
-        &:nth-of-type(8)
-          grid-area: 11/1/11/3
-          transform: translate(30%, 30%)
-        &:nth-of-type(9)
           grid-area: 12/1/12/3
-        &:nth-of-type(10)
+        &:nth-of-type(7)
           grid-area: 13/1/13/3
+        &:nth-of-type(8)
+          grid-area: 14/1/14/3
+        &:nth-of-type(9)
+          grid-area: 15/1/15/3
       ul
         &:nth-of-type(1)
           grid-area: 8/1/8/3
@@ -938,23 +900,6 @@ button
         &:nth-of-type(2)
           grid-area: 13/1/13/3
           transform: translateY(17%)
-
-  // img[src="css/img/projects/nununu/logo-white.png"]
-  //   padding: 2em
-  //@media screen and (min-width: $break-tabletM)
-    grid-template-columns: repeat(4, 1fr)
-    grid-gap: 2rem
-  //.container-image
-    @supports (display: grid)
-      +topAndBottom(margin, 0)
-    @media screen and (min-width: $break-tabletM)
-      grid-column: span 2
-      justify-self: center
-      &:nth-of-type(4)
-        grid-area: 1 / 1 / 1 /5
-        margin-bottom: 6em
-      &:nth-of-type(3)
-        border: 2px solid red
 
 /*________________________________________________________________
   -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
@@ -965,7 +910,6 @@ button
 // - - - - - - - - - - - - - - - -
 
 .language-switch
-  // margin-top: 1em
   padding: 1%
   display: inline-block
   text-align: center
