@@ -10,7 +10,7 @@ import advpng from 'imagemin-advpng'
 import mozjpeg from 'imagemin-mozjpeg'
 import pngtojpeg from 'png-to-jpeg'
 
-const { lstatSync, readdirSync, mkdirSync, existsSync } = require('fs')
+const { lstatSync, readdirSync } = require('fs')
 const { join, resolve } = require('path')
 const isDir = p => lstatSync(p).isDirectory()
 
