@@ -35,14 +35,15 @@ const paths = {
     dest: 'build/styles/'
   },
   images: {
-    src: 'css/img/projects/nununu',
+    src: 'css/img',
     dest: 'build/css/img/projects/nununu/'
   },
   scripts: {
     src: 'js/*.js',
     dest: 'build/js/'
   },
-  temp: "temp"
+  temp: "temp",
+  target: "css/img/reads/say-goodbye-to-ftp"
 }
 
 export const purgeTemp = () => del([ 'temp' ])
@@ -66,30 +67,48 @@ export const scripts = () => {
 }
 
 export const lossless = () => {
-  return gulp.src(paths.images.src)
+  return gulp.src(paths.target)
     .pipe(imagemin())
     .pipe(gulp.dest(paths.temp))
 }
 
 export const lossy_png = () => {
-  return gulp.src(`${paths.images.src}/*png`)
-    .pipe(imagemin([
-      pngquant(),
-      advpng()
-    ]))
-    .pipe(gulp.dest(paths.images.dest))
+  let dirs = getDirsDeep(paths.images.src)
+  dirs.push(resolve(paths.images.src))
+  let ret
+  if (dirs) {
+    dirs.forEach(dir => {
+      let destination = dir.replace(`${process.cwd()}`,`${process.cwd()}/build`)
+      ret = gulp.src(`${dir}/*png`)
+      .pipe(imagemin([
+        pngquant(),
+        advpng()
+      ]))
+      .pipe(gulp.dest(destination))
+    })
+  }
+  return ret
 }
 
 export const lossy_jpeg = () => {
-  return gulp.src(`${paths.images.src}/*jpg`)
-    .pipe(imagemin([
-      mozjpeg({quality: 65})
-    ]))
-    .pipe(gulp.dest(paths.images.dest))
+  let dirs = getDirsDeep(paths.images.src)
+  dirs.push(resolve(paths.images.src))
+  let ret
+  if (dirs) {
+    dirs.forEach(dir => {
+      let destination = dir.replace(`${process.cwd()}`,`${process.cwd()}/build`)
+      ret = gulp.src(`${dir}/*jpg`)
+      .pipe(imagemin([
+        mozjpeg({quality: 65})
+      ]))
+      .pipe(gulp.dest(destination))
+    })
+  }
+  return ret
 }
 
 export const pngToJpeg = () => {
-  return gulp.src(paths.images.src)
+  return gulp.src(paths.target)
     .pipe(imagemin([
       pngtojpeg({quality: 90})
     ]))
