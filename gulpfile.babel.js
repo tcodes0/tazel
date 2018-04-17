@@ -43,7 +43,7 @@ const paths = {
     dest: 'build/js/'
   },
   temp: "temp",
-  target: "css/img/reads/say-goodbye-to-ftp"
+  target: "css/img"
 }
 
 export const purgeTemp = () => del([ 'temp' ])
@@ -67,7 +67,7 @@ export const scripts = () => {
 }
 
 export const lossless = () => {
-  return gulp.src(paths.target)
+  return gulp.src(`${paths.target}/*`)
     .pipe(imagemin())
     .pipe(gulp.dest(paths.temp))
 }
@@ -107,8 +107,22 @@ export const lossy_jpeg = () => {
   return ret
 }
 
+export const copyOthers = () => {
+  let dirs = getDirsDeep(paths.images.src)
+  dirs.push(resolve(paths.images.src))
+  let ret
+  if (dirs) {
+    dirs.forEach(dir => {
+      let destination = dir.replace(`${process.cwd()}`,`${process.cwd()}/build`)
+      ret = gulp.src(`${dir}/*`, `!${dir}/*jpg`, `!${dir}/*png`)
+      .pipe(gulp.dest(destination))
+    })
+  }
+  return ret
+}
+
 export const pngToJpeg = () => {
-  return gulp.src(paths.target)
+  return gulp.src(`${paths.target}/*png`)
     .pipe(imagemin([
       pngtojpeg({quality: 90})
     ]))
@@ -118,7 +132,7 @@ export const pngToJpeg = () => {
     .pipe(gulp.dest(paths.temp))
 }
 
-export const optimizeImgs = gulp.parallel(lossy_png, lossy_jpeg)
+export const optimizeImgs = gulp.parallel(lossy_png, lossy_jpeg, copyOthers)
 export const build = gulp.parallel(scripts, optimizeImgs)
 export default build
 
