@@ -4,6 +4,8 @@ node_modules/*
 .DS*
 css/normalize*
 public/*
+build/*
+temp/*
 misc/*
 test*
 fk*
