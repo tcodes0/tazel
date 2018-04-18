@@ -15,41 +15,16 @@ let resizers = []
 let onLoaders = []
 let floaters = []
 
-
-//
-console.log(`${performance.now()}: state: ${document.readyState}`);
-console.log(`${performance.now()}: scrollY: ${window.scrollY}`);
-document.addEventListener('readystatechange', () => console.log(`${performance.now()}: state: ${document.readyState}`))
-
-//test fast load
-const clicka = () => {
-  if (ThisPageIs(projects)) {
-    console.log(`${performance.now()}: test: click`);
-    $('#nununu-preview a').click()
-  }
-}
-
-//long task
-const longa = () => {
-  for (var i = 0; i < 999999999; i++) {
-    undefined
-  }
-}
-
 // - - - - - - - - - All PAGES
 // - - - - - - - - - - - - - - -
 window.addEventListener('resize', () => resizers.forEach(resizer => resizer()))
 document.addEventListener('readystatechange', () => {
   if (document.readyState == "interactive") {
     onLoaders.forEach(onLoader => {
-      console.log(`${performance.now()}: onLoader: ${onLoader.name}`);
       onLoader()
     })
   }
 })
-window.addEventListener('load', () => console.log(`${performance.now()}: loadevent`))
-// window.addEventListener('load', () => onLoaders.forEach(onLoader => onLoader()))
-// window.addEventListener('hashchange', () => hashChecker())
 
 const toggleGuide = () => {
   let guide = $('.guide')
@@ -365,10 +340,12 @@ const previewArticles_LinkDisabler = () => {
 }
 
 const floatingArticle_Inserter = e => {
-  // get the link that was clicked or URL hash navigated to and figure what article to show
+  // if the hashChecker() called this, it will be a string
   let triggeredByClick = typeof(e) === "object"
+  // get the link that was clicked or URL hash navigated to and figure what article to show
   let targetHash = triggeredByClick ? findALinkParent(e.target).attributes.href.value : e
   let el = $(targetHash)
+  //see BUG below
   let tail = document.createElement('div')
 
   const headPrepender = e => {
@@ -386,15 +363,10 @@ const floatingArticle_Inserter = e => {
     tail.style.top = el.offsetHeight + 'px'
     tail.addEventListener('click', floatingArticle_Destroyer, {once: true})
     tail.addEventListener('touchend', floatingArticle_Destroyer, {once: true})
-    console.log("!!!!tail code is in");
   }
   const unsetProgressCursor = () => document.body.style.cursor = "auto"
   //setting this too early causes scroll that interferes with the floating transition
   const setURLHash = () => window.location.hash !== targetHash ? window.location.hash = targetHash : undefined
-
-
-  console.log(`${performance.now()}: floating with click= ${triggeredByClick}`);
-  console.log(`${performance.now()}: scrollY: ${window.scrollY}`);
 
   // set cursor for feedback something is gonna happen
   document.body.style.cursor = "progress"
@@ -411,7 +383,7 @@ const floatingArticle_Inserter = e => {
   // BUG: Safari needs this line outside 'load' handler below
   tail.style.top = el.offsetHeight + 'px'
 
-  //some functions listen to this for article specific stuff
+  //article specific functions listen to this
   el.dispatchEvent(floatArticleEvent)
 
   // the point where the article begins
@@ -421,11 +393,10 @@ const floatingArticle_Inserter = e => {
   // .main scrolls away with the article and the body's bg color looks like a glitch
   document.body.style.backgroundColor = getComputedStyle(m).backgroundColor
 
-  console.log(`${performance.now()}: scrollY: ${window.scrollY}`);
-
   if (document.readyState == "complete") {
     tailAppender()
   } else {
+    //if done earlier it will have wrong height
     window.addEventListener('load', tailAppender, {once: true})
   }
 
@@ -443,7 +414,7 @@ const floatingArticle_Inserter = e => {
     setURLHash()
   }
 
-  //how to get rid of it
+  //events to close the floating article
   el.querySelector('a.close').addEventListener('click', floatingArticle_Destroyer, {once: true})
   el.querySelector('a.close').addEventListener('touchstart', floatingArticle_Destroyer, {once: true})
   window.addEventListener('wheel', scrollHandler)
@@ -453,12 +424,11 @@ const floatingArticle_Inserter = e => {
 }
 
 const positionFixed_Apply = e => {
-  console.log(`${performance.now()}: positionFixed_Apply}`);
   let mchildren = [...m.children].filter(child => {
     return child.attributes.id.value !== "reads" && child.attributes.id.value !== "projects"
   })
   let el = $('.added-by-js')
-  // start from bottom, bc elements tend to collapse upwards
+  // rev to start from bottom, bc elements tend to collapse upwards
   mchildren.reverse()
   mchildren.forEach(child => {
     child.style.top = child.offsetTop - Number.parseInt(el.dataset.top) + 'px'
@@ -476,10 +446,9 @@ const floatingArticle_Destroyer = () => {
   const avoidScrollBehaviorSmooth = () => {
     let sb = getComputedStyle(document.body).scrollBehavior
 
-    if (!sb)
-      return
+    if (!sb) return
 
-    else if (sb !== "auto") {
+    if (sb !== "auto") {
       document.body.style.scrollBehavior = "auto"
     }
   }
@@ -612,4 +581,3 @@ const nununuIconColorSwapper = e => {
   targets.forEach(t => t.style.backgroundColor = "#ffbc0f")
 }
 floaters.push(nununuIconColorSwapper)
-// onLoaders.push(clicka)
