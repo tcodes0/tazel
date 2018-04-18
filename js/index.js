@@ -19,7 +19,6 @@ let floaters = []
 // - - - - - - - - - - - - - - -
 window.addEventListener('resize', () => resizers.forEach(resizer => resizer()))
 window.addEventListener('load', () => onLoaders.forEach(onLoader => onLoader()))
-window.addEventListener('floatarticle', e => floaters.forEach(floater => floater(e)))
 // window.addEventListener('hashchange', () => hashChecker())
 
 const toggleGuide = () => {
@@ -538,15 +537,6 @@ const projectsFloatEventHooker = () => {
   }
 }
 onLoaders.push(projectsFloatEventHooker)
-
-const nununuIconColorSwapper = e => {
-  if (e.target.attributes.id.value != "nununu") {
-    return
-  }
-
-  whiteIcons(`#${e.target.attributes.id.value}`)
-}
-floaters.push(nununuIconColorSwapper)
 
 const hashChecker = () => {
   if (window.location.hash === "#header" ||
