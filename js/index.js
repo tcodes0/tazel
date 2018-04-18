@@ -18,7 +18,12 @@ let floaters = []
 // - - - - - - - - - All PAGES
 // - - - - - - - - - - - - - - -
 window.addEventListener('resize', () => resizers.forEach(resizer => resizer()))
-window.addEventListener('load', () => onLoaders.forEach(onLoader => onLoader()))
+document.addEventListener('readystatechange', () => {
+  if (document.readyState == "interactive") {
+    onLoaders.forEach(onLoader => onLoader())
+  }
+})
+// window.addEventListener('load', () => onLoaders.forEach(onLoader => onLoader()))
 // window.addEventListener('hashchange', () => hashChecker())
 
 const toggleGuide = () => {
@@ -352,9 +357,6 @@ const floatingArticle_Inserter = e => {
   let el = $(targetHash)
   let tail = document.createElement('div')
 
-  //some functions listen to this for article specific stuff
-  el.dispatchEvent(floatArticleEvent)
-
   // set URL and cursor for feedback something is gonna happen
   document.body.style.cursor = "progress"
   if (window.location.hash !== targetHash)
@@ -369,15 +371,25 @@ const floatingArticle_Inserter = e => {
   // hide nonsensical link if js works
   el.querySelector('.container-backlinks a.back[href="#header"]').classList.add('hide')
 
+  //removing causes safari glitch?
   tail.classList.add('empty-transparency')
   tail.style.top = el.offsetHeight + 'px'
   el.appendChild(tail)
+
+  //some functions listen to this for article specific stuff
+  el.dispatchEvent(floatArticleEvent)
+
   // the point where the article begins
   el.setAttribute("data-top", window.scrollY)
   // trigger to bring article up
   el.style.transform = `translateY(-${window.innerHeight}px)`
   // .main scrolls away with the article and the body's bg color looks like a glitch
   document.body.style.backgroundColor = getComputedStyle(m).backgroundColor
+
+  //fix tail height to correct value
+  document.addEventListener('readystatechange', () => {
+    tail.style.top = el.offsetHeight + 'px'
+  }, {once: true})
 
   if (triggeredByClick) {
     // will run after transition and wrap it up
@@ -531,13 +543,6 @@ const hideAllReadsButLast = () => {
 // onLoaders.push(hideAllReadsButLast)
 // IDEA: project separator glitches when main changes size. rework i
 
-const projectsFloatEventHooker = () => {
-  if (ThisPageIs(projects)) {
-    document.body.addEventListener('floatarticle', e => floaters.forEach(floater => floater(e)))
-  }
-}
-onLoaders.push(projectsFloatEventHooker)
-
 const hashChecker = () => {
   if (window.location.hash === "#header" ||
   window.location.hash === "#reads" ||
@@ -549,5 +554,23 @@ const hashChecker = () => {
   window.scrollTo(0,0)
   floatingArticle_Inserter(window.location.hash)
 }
-// safari needs hashChecker as the very first f()
 onLoaders = [hashChecker, ...onLoaders]
+
+const projectsFloatEventHooker = () => {
+  if (ThisPageIs(projects)) {
+    document.body.addEventListener('floatarticle', e => floaters.forEach(floater => floater(e)))
+  }
+}
+onLoaders = [projectsFloatEventHooker, ...onLoaders]
+
+const nununuIconColorSwapper = e => {
+  if (e.target.attributes.id.value != "nununu") {
+    return
+  }
+
+  let targets = [...$$('#nununu a.close .img-svg')]
+  targets.push(...$$('#nununu a.back .img-svg'))
+  targets.forEach(t => t.style.backgroundColor = "#ffbc0f")
+}
+floaters.push(nununuIconColorSwapper)
+// safari needs hashChecker as the very first f()
