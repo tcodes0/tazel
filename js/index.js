@@ -15,14 +15,39 @@ let resizers = []
 let onLoaders = []
 let floaters = []
 
+
+//
+console.log(`${performance.now()}: state: ${document.readyState}`);
+console.log(`${performance.now()}: scrollY: ${window.scrollY}`);
+document.addEventListener('readystatechange', () => console.log(`${performance.now()}: state: ${document.readyState}`))
+
+//test fast load
+const clicka = () => {
+  if (ThisPageIs(projects)) {
+    console.log(`${performance.now()}: test: click`);
+    $('#nununu-preview a').click()
+  }
+}
+
+//long task
+const longa = () => {
+  for (var i = 0; i < 999999999; i++) {
+    undefined
+  }
+}
+
 // - - - - - - - - - All PAGES
 // - - - - - - - - - - - - - - -
 window.addEventListener('resize', () => resizers.forEach(resizer => resizer()))
 document.addEventListener('readystatechange', () => {
   if (document.readyState == "interactive") {
-    onLoaders.forEach(onLoader => onLoader())
+    onLoaders.forEach(onLoader => {
+      console.log(`${performance.now()}: onLoader: ${onLoader.name}`);
+      onLoader()
+    })
   }
 })
+window.addEventListener('load', () => console.log(`${performance.now()}: loadevent`))
 // window.addEventListener('load', () => onLoaders.forEach(onLoader => onLoader()))
 // window.addEventListener('hashchange', () => hashChecker())
 
@@ -340,6 +365,12 @@ const previewArticles_LinkDisabler = () => {
 }
 
 const floatingArticle_Inserter = e => {
+  // get the link that was clicked or URL hash navigated to and figure what article to show
+  let triggeredByClick = typeof(e) === "object"
+  let targetHash = triggeredByClick ? findALinkParent(e.target).attributes.href.value : e
+  let el = $(targetHash)
+  let tail = document.createElement('div')
+
   const headPrepender = e => {
     let head = document.createElement('div')
     head.classList.add('empty-transparency')
@@ -349,18 +380,24 @@ const floatingArticle_Inserter = e => {
     head.addEventListener('click', floatingArticle_Destroyer, {once: true})
     head.addEventListener('touchend', floatingArticle_Destroyer, {once: true})
   }
+  const tailAppender = e => {
+    el.appendChild(tail)
+    tail.classList.add('empty-transparency')
+    tail.style.top = el.offsetHeight + 'px'
+    tail.addEventListener('click', floatingArticle_Destroyer, {once: true})
+    tail.addEventListener('touchend', floatingArticle_Destroyer, {once: true})
+    console.log("!!!!tail code is in");
+  }
   const unsetProgressCursor = () => document.body.style.cursor = "auto"
+  //setting this too early causes scroll that interferes with the floating transition
+  const setURLHash = () => window.location.hash !== targetHash ? window.location.hash = targetHash : undefined
 
-  // get the link that was clicked or URL hash navigated to and figure what article to show
-  let triggeredByClick = typeof(e) === "object"
-  let targetHash = triggeredByClick ? findALinkParent(e.target).attributes.href.value : e
-  let el = $(targetHash)
-  let tail = document.createElement('div')
 
-  // set URL and cursor for feedback something is gonna happen
+  console.log(`${performance.now()}: floating with click= ${triggeredByClick}`);
+  console.log(`${performance.now()}: scrollY: ${window.scrollY}`);
+
+  // set cursor for feedback something is gonna happen
   document.body.style.cursor = "progress"
-  if (window.location.hash !== targetHash)
-    window.location.hash = targetHash
 
   el.classList.add('added-by-js')
   // in case of a direct navigation to the article, no transition
@@ -371,10 +408,8 @@ const floatingArticle_Inserter = e => {
   // hide nonsensical link if js works
   el.querySelector('.container-backlinks a.back[href="#header"]').classList.add('hide')
 
-  //removing causes safari glitch?
-  tail.classList.add('empty-transparency')
+  // BUG: Safari needs this line outside 'load' handler below
   tail.style.top = el.offsetHeight + 'px'
-  el.appendChild(tail)
 
   //some functions listen to this for article specific stuff
   el.dispatchEvent(floatArticleEvent)
@@ -386,26 +421,29 @@ const floatingArticle_Inserter = e => {
   // .main scrolls away with the article and the body's bg color looks like a glitch
   document.body.style.backgroundColor = getComputedStyle(m).backgroundColor
 
-  //fix tail height to correct value
-  document.addEventListener('readystatechange', () => {
-    tail.style.top = el.offsetHeight + 'px'
-  }, {once: true})
+  console.log(`${performance.now()}: scrollY: ${window.scrollY}`);
+
+  if (document.readyState == "complete") {
+    tailAppender()
+  } else {
+    window.addEventListener('load', tailAppender, {once: true})
+  }
 
   if (triggeredByClick) {
     // will run after transition and wrap it up
     el.addEventListener('transitionend', positionFixed_Apply, {once: true})
     el.addEventListener('transitionend', headPrepender, {once: true})
     el.addEventListener('transitionend', unsetProgressCursor, {once: true})
+    el.addEventListener('transitionend', setURLHash, {once: true})
   } else {
     // no transiton, no problem
     positionFixed_Apply()
     headPrepender()
     unsetProgressCursor()
+    setURLHash()
   }
 
   //how to get rid of it
-  tail.addEventListener('click', floatingArticle_Destroyer, {once: true})
-  tail.addEventListener('touchend', floatingArticle_Destroyer, {once: true})
   el.querySelector('a.close').addEventListener('click', floatingArticle_Destroyer, {once: true})
   el.querySelector('a.close').addEventListener('touchstart', floatingArticle_Destroyer, {once: true})
   window.addEventListener('wheel', scrollHandler)
@@ -415,6 +453,7 @@ const floatingArticle_Inserter = e => {
 }
 
 const positionFixed_Apply = e => {
+  console.log(`${performance.now()}: positionFixed_Apply}`);
   let mchildren = [...m.children].filter(child => {
     return child.attributes.id.value !== "reads" && child.attributes.id.value !== "projects"
   })
@@ -551,7 +590,7 @@ const hashChecker = () => {
     return
   }
 
-  window.scrollTo(0,0)
+  // window.scrollTo(0,0)
   floatingArticle_Inserter(window.location.hash)
 }
 onLoaders = [hashChecker, ...onLoaders]
@@ -573,4 +612,4 @@ const nununuIconColorSwapper = e => {
   targets.forEach(t => t.style.backgroundColor = "#ffbc0f")
 }
 floaters.push(nununuIconColorSwapper)
-// safari needs hashChecker as the very first f()
+// onLoaders.push(clicka)
