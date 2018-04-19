@@ -956,6 +956,18 @@ textarea {
       grid-area: 13/1/13/3;
       transform: translateY(17%); } }
 
+#logo-andrea div {
+  background-image: url("img/projects/andrea/logo.png");
+  background-size: cover;
+  background-position-y: 22%;
+  min-height: 75px; }
+  @media screen and (min-width: 768px) {
+    #logo-andrea div {
+      min-height: 58px; } }
+
+#andrea .project-background {
+  background-color: #e8e8e8; }
+
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
  * ________________________________________________________________ */

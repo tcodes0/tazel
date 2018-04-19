@@ -1,0 +1,88 @@
+#nununu
+  img[src*="logo-white"]
+    background-color: $color-bg
+  .project-background
+    background-color: black
+    @supports (display: grid)
+      & *
+        color: #ffbc0f
+        font-weight: 300
+  .project-text
+    ul, li
+      padding-left: 0
+    p
+      margin-bottom: 1em
+    .container-image
+      margin-top: 1em
+    img[src*="logo"]
+      padding: 2em
+    @supports (display: grid)
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-row-gap: 1rem
+      ul, p
+        padding: 32px
+        padding: 2rem
+        @media screen and (min-width: $break-tabletS)
+          max-width: 70%
+      p, li, iframe
+        position: relative
+        z-index: 50
+      .container-image, p, ul
+        margin: 0
+      & > *
+        grid-column: span 2
+      .container-image
+        &:nth-of-type(1)
+          grid-area: 1/1/1/3
+        &:nth-of-type(2)
+          grid-area: 2/1/2/3
+        &:nth-of-type(3)
+          grid-area: 3/1/3/3
+        &:nth-of-type(4)
+          grid-area: 5/1/5/3
+        &:nth-of-type(5)
+          grid-area: 6/1/6/3
+        &:nth-of-type(6)
+          grid-area: 7/1/7/3
+        &:nth-of-type(7)
+          grid-area: 9/1/9/3
+        &:nth-of-type(8)
+          grid-area: 10/1/10/3
+        &:nth-of-type(9)
+          grid-area: 11/1/11/3
+        &:nth-of-type(10)
+          grid-area: 14/1/14/3
+        &:nth-of-type(11)
+          grid-area: 15/1/15/3
+      p
+        &:nth-of-type(1)
+          grid-area: 1/1/1/3
+          transform: translate(4%, 30%)
+        &:nth-of-type(2)
+          grid-area: 2/1/2/3
+          transform: translate(4%, 35%)
+        &:nth-of-type(3)
+          grid-area: 3/1/3/2
+          transform: translate(4%, 40%)
+        &:nth-of-type(4)
+          grid-area: 5/2/5/3
+          transform: translate(4%, 60%)
+        &:nth-of-type(5)
+          grid-area: 8/1/8/3
+        &:nth-of-type(6)
+          grid-area: 12/1/12/3
+        &:nth-of-type(7)
+          grid-area: 13/1/13/3
+        &:nth-of-type(8)
+          grid-area: 14/1/14/3
+        &:nth-of-type(9)
+          grid-area: 15/1/15/3
+      ul
+        &:nth-of-type(1)
+          grid-area: 8/1/8/3
+          transform: translateY(21%)
+          margin-bottom: 9%
+        &:nth-of-type(2)
+          grid-area: 13/1/13/3
+          transform: translateY(17%)
