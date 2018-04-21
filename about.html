@@ -154,23 +154,23 @@
     </div>
 
     <div id="email-me" class="email-me" role="region" aria-label="Send an e-mail to Thomazella using this formulary">
-      <form action="email.php" method="post" target="_self" name="Send Thomazella an email" aria-labelledby="lgn">
+      <form action="email-handler.php" method="post" name="Send Thomazella an email" aria-labelledby="lgn">
         <fieldset role="presentation">
           <legend title="Send me an e-mail" id="lgn">Send me an e-mail!</legend>
           <h2>Me manda um e-mail!</h2>
 
           <div class="container-labelAndInput">
             <label for="sender-name">Seu nome</label>
-            <input type="text" id="sender-name" name="sender name" autocomplete="name" placeholder="Sr. Foogêncio Bar" title="Please provide your name" required>
+            <input type="text" id="sender-name" name="name" autocomplete="name" placeholder="Sr. Foogêncio Bar" title="Please provide your name" required>
           </div>
 
           <div class="container-labelAndInput">
             <label for="sender-email">Seu e-mail</label>
-            <input type="email" id="sender-email" name="sender email" autocomplete="email" title="Please provide an email address containing an 'at' and a 'dot'" placeholder="seunome@provedor.com" pattern=".+@.+[.].+">
+            <input type="email" id="sender-email" name="email" autocomplete="email" title="Please provide an email address containing an 'at' and a 'dot'" placeholder="seunome@provedor.com" pattern=".+@.+[.].+">
           </div>
 
           <label for="email-body">Your message</label>
-          <textarea name="email body" id="email-body" rows="15" cols="30" title="Please provide a message with at least 10 characters" required maxlength="499" minlength="10"></textarea>
+          <textarea name="message" id="email-body" rows="15" cols="30" title="Please provide a message with at least 10 characters" required maxlength="499" minlength="10"></textarea>
 
           <input type="submit" id="submit-button" value="Enviar" name="send e-mail">
         </fieldset>
