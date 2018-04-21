@@ -981,7 +981,7 @@ button.active
   @media screen and (min-width: $break-tabletS)
     grid-area: 3 / 1 / auto / 9
     display: grid
-    grid-column-gap: 2.5em
+    grid-column-gap: 3em
     .dev-skills
       grid-area: 1 / 1
     .design-skills
@@ -1019,6 +1019,9 @@ button.active
         grid-template-columns: repeat(3, 1fr)
         li:last-child
           grid-area: 2 / 2
+          h3
+            padding-top: 0
+            margin-top: 0
 
 .thanks-for-reading
   @extend .about
@@ -1063,6 +1066,9 @@ button.active
       +col(9.5)
   label[for="email-body"]
     display: none
+  h2
+    padding-top: 0
+    margin-top: 0
 
 form
   @extend %dont-stretch

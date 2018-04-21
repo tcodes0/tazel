@@ -1148,7 +1148,7 @@ button.active {
     #about .skills {
       grid-area: 3/1/auto/9;
       display: grid;
-      grid-column-gap: 2.5em; }
+      grid-column-gap: 3em; }
       #about .skills .dev-skills {
         grid-area: 1/1; }
       #about .skills .design-skills {
@@ -1193,7 +1193,10 @@ button.active {
       #about .opinions ul {
         grid-template-columns: repeat(3, 1fr); }
         #about .opinions ul li:last-child {
-          grid-area: 2/2; } }
+          grid-area: 2/2; }
+          #about .opinions ul li:last-child h3, #about .opinions ul li:last-child .read .big, .read #about .opinions ul li:last-child .big, #about .opinions ul li:last-child .project .big, .project #about .opinions ul li:last-child .big, #about .opinions ul li:last-child .about .big, .about #about .opinions ul li:last-child .big, #about .opinions ul li:last-child .thanks-for-reading .big, .thanks-for-reading #about .opinions ul li:last-child .big, #about .opinions ul li:last-child #email-me .big, #email-me #about .opinions ul li:last-child .big {
+            padding-top: 0;
+            margin-top: 0; } }
 
 .thanks-for-reading em {
   margin-top: 4.5em;
@@ -1241,6 +1244,9 @@ textarea {
       width: 79.1666666667%; } }
 #email-me label[for="email-body"] {
   display: none; }
+#email-me h2 {
+  padding-top: 0;
+  margin-top: 0; }
 
 form {
   display: block;
