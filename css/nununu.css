@@ -1,18 +1,21 @@
 /*
 Error: Undefined variable: "$color-bg".
-        on line 3 of css/nununu.sass
+        on line 8 of css/nununu.sass
 
-1: #nununu
-2:   img[src*="logo-white"]
-3:     background-color: $color-bg
-4:   .project-background
-5:     background-color: black
-6:     @supports (display: grid)
-7:       & *
-8:         color: #ffbc0f
+3:     @supports (display: flex)
+4:       display: flex
+5:       align-items: center
+6: #nununu
+7:   img[src*="logo-white"]
+8:     background-color: $color-bg
+9:   @supports (display: grid)
+10:     .project-background
+11:       background-color: black
+12:       & *
+13:         color: #ffbc0f
 
 Backtrace:
-css/nununu.sass:3
+css/nununu.sass:8
 /usr/local/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -77,4 +80,4 @@ css/nununu.sass:3
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$color-bg\".\A         on line 3 of css/nununu.sass\A \A 1: #nununu\A 2:   img[src*=\"logo-white\"]\A 3:     background-color: $color-bg\A 4:   .project-background\A 5:     background-color: black\A 6:     @supports (display: grid)\A 7:       & *\A 8:         color: #ffbc0f"; }
+  content: "Error: Undefined variable: \"$color-bg\".\A         on line 8 of css/nununu.sass\A \A 3:     @supports (display: flex)\A 4:       display: flex\A 5:       align-items: center\A 6: #nununu\A 7:   img[src*=\"logo-white\"]\A 8:     background-color: $color-bg\A 9:   @supports (display: grid)\A 10:     .project-background\A 11:       background-color: black\A 12:       & *\A 13:         color: #ffbc0f"; }

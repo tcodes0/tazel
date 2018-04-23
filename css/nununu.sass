@@ -1,9 +1,14 @@
+#nununu-preview
+  .container-project-logo
+    @supports (display: flex)
+      display: flex
+      align-items: center
 #nununu
   img[src*="logo-white"]
     background-color: $color-bg
-  .project-background
-    background-color: black
-    @supports (display: grid)
+  @supports (display: grid)
+    .project-background
+      background-color: black
       & *
         color: #ffbc0f
         font-weight: 300

@@ -106,6 +106,7 @@ a
     text-align: center
     text-transform: none
     margin-bottom: 1.25em
+    line-height: 1.5
     &:hover .img-svg
       +opacity(0.15)
     span
@@ -402,6 +403,10 @@ button
     margin: 0
   .path-arrow:after
     content: "\21d2"
+  .large-lines
+    line-height: 1.7
+    margin: 0
+    padding: 0
 
 %background
   background-position: center
@@ -715,11 +720,12 @@ button
   hr
     @extend %project-border-common
     +border-stylus(bottom)
-    position: relative
+    // position: relative
+    display: none
     margin-top: 1em
   .horizontal-separator
     @media screen and (min-width: $break-tabletS)
-      top: 4em
+      margin-top: 4em
   .heading1
     font-size: 16px
     font-size: 1rem
@@ -758,6 +764,8 @@ button
       padding-right: 5%
       &:nth-child(2n-1)
         justify-self: end
+        @media screen and (min-width: $break-desktopS)
+          justify-self: unset
   /* ---- end ----
 
 .container-project-logo
@@ -814,6 +822,7 @@ button
 
 @import "nununu.sass"
 @import "andrea.sass"
+@import "javascript30.sass"
 
 /*________________________________________________________________
   -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -

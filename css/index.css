@@ -110,7 +110,8 @@ a, .social-media-links .img-svg, .social-media-links .thomazella-logo {
     display: block;
     text-align: center;
     text-transform: none;
-    margin-bottom: 1.25em; }
+    margin-bottom: 1.25em;
+    line-height: 1.5; }
     a.back:hover .img-svg, .social-media-links .back.img-svg:hover .img-svg, .social-media-links .back.thomazella-logo:hover .img-svg, a.back:hover .thomazella-logo, .social-media-links .back.img-svg:hover .thomazella-logo, .social-media-links .back.thomazella-logo:hover .thomazella-logo {
       zoom: 1;
       filter: alpha(opacity=15);
@@ -410,6 +411,10 @@ textarea {
   margin: 0; }
 .read-preview .path-arrow:after, .read .path-arrow:after, .project .path-arrow:after, .about .path-arrow:after, .thanks-for-reading .path-arrow:after, #email-me .path-arrow:after, .project-preview .path-arrow:after {
   content: "⇒"; }
+.read-preview .large-lines, .read .large-lines, .project .large-lines, .about .large-lines, .thanks-for-reading .large-lines, #email-me .large-lines, .project-preview .large-lines {
+  line-height: 1.7;
+  margin: 0;
+  padding: 0; }
 
 .read-preview, .project-preview {
   background-position: center;
@@ -802,11 +807,11 @@ textarea {
     padding: 1.5em 0; }
   .project-preview hr {
     border-bottom-style: solid;
-    position: relative;
+    display: none;
     margin-top: 1em; }
   @media screen and (min-width: 768px) {
     .project-preview .horizontal-separator {
-      top: 4em; } }
+      margin-top: 4em; } }
   .project-preview .heading1, .project-preview .what-i-do strong, .what-i-do .project-preview strong {
     font-size: 16px;
     font-size: 1rem;
@@ -845,7 +850,10 @@ textarea {
           padding-left: 5%;
           padding-right: 5%; }
           .project-preview:nth-child(2n-1) {
-            justify-self: end; } } }
+            justify-self: end; } }
+        @media screen and (min-width: 768px) and (min-width: 1280px) {
+          .project-preview:nth-child(2n-1) {
+            justify-self: unset; } } }
 
 .container-project-logo {
   border-style: solid;
@@ -870,11 +878,16 @@ textarea {
 .vertical-separator {
   display: none; }
 
+@supports (display: flex) {
+  #nununu-preview .container-project-logo {
+    display: flex;
+    align-items: center; } }
+
 #nununu img[src*="logo-white"] {
   background-color: #fffffc; }
-#nununu .project-background {
-  background-color: black; }
-  @supports (display: grid) {
+@supports (display: grid) {
+  #nununu .project-background {
+    background-color: black; }
     #nununu .project-background * {
       color: #ffbc0f;
       font-weight: 300; } }
@@ -960,13 +973,13 @@ textarea {
   background-image: url("img/projects/andrea/logo.png");
   background-size: cover;
   background-position-y: 22%;
-  min-height: 75px; }
-  @media screen and (min-width: 768px) {
-    #logo-andrea div {
-      min-height: 58px; } }
+  min-height: 58px; }
 
 #andrea .project-background {
   background-color: #e8e8e8; }
+
+.project-preview .container-project-logo {
+  height: 85px; }
 
 /*________________________________________________________________
  * -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
