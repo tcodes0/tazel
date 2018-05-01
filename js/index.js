@@ -92,7 +92,7 @@ const light_Colors = () => {
   $('body').style.color = 'rgb(19,19,35)'
 }
 // onLoaders.push(light_Colors)
-
+ 
 const langSwitcher_AddClickHandler = () => {
   if (ThisPageIsNot(about) && ThisPageIsNot(home)) {
     return
@@ -188,17 +188,21 @@ const english_About = () => {
     $('#sender-name').setAttribute('placeholder','Mr. Foo Bar')
     $('#sender-email').setAttribute('placeholder','yourname@provider.com')
 
-    h_h1.textContent = "It's nice you came by"
+    h_h1.textContent = "Nice you came by"
     iAmCalled.textContent = "I'm"
-    who_h3.textContent = "Since we're here, this is what I do"
-    who_p[0].textContent = "I am a developer and a designer knee-deep into technology." +
-      " I like to learn everything and I'll teach myself anything." +
-      " Actually, nowadays what can't you learn on Youtube, hmm?"
-    who_p[1].textContent = "Truth is, I like too many things, specially in software." +
-      " I like layouts, typography, and visual elements... Well, I did major in Design, so that much is expected." +
-      " As a developer I like to understand how it works, investigate, test, play with and find my way of doing it."
-    // who_p[2].textContent = "das"
-    strong.textContent = "I make digital products for people like you. I specialize in frontend. I love this job and I'm quite creative. To me people come first."
+    who_h3.textContent = "This is what I do"
+
+    who_p[0].textContent = `I am a developer majored in design deeply interested in technology.
+      I like to learn everything and I'll teach myself anything.
+      One affinity is frontend: visual elements and building user interfaces, but I'm also very much into software logic.`
+
+    who_p[1].textContent = `As a developer, I strive to undestand the internals giving functionality to a program.
+      To me programming is a fun, creative tool drenched in sparking potential to build things.
+      It's very challenging at times, but nothing beats beating the problems and realizing something useful for someone.`
+
+    strong.textContent = `I make digital products for people like you. 
+      I love the creative side of the job and I put people first.`
+
     dev_h3.textContent = "Developer Skills"
     dev_li[0].querySelector('span').textContent = "Semantics, structure and accesibility are essential."
     dev_li[1].querySelector('span').textContent = "Communicate brand values offering a good experience on all platforms."
@@ -209,14 +213,23 @@ const english_About = () => {
     dev_li[5].querySelector('span').textContent = "I know fundamentals."
     dev_li[6].querySelector('span').textContent = "Currently practicing."
     dev_li[7].querySelector('span').textContent = "Currently practicing."
-
+    
     dev_li[8].querySelector('b').textContent = "4 Years"
     dev_li[8].querySelector('span').textContent = "Programmin\'."
+    
+    dev_li[9].querySelector('span').textContent = "Currently practicing."
 
     des_h3.textContent = "Designer Skills"
     des_li[0].querySelector('span').textContent = "10+ years using it. (I took classes when I was 13.)"
     des_li[1].querySelector('span').textContent = "5 years using."
     des_li[2].querySelector('span').textContent = "2 years using."
+    des_li[3].querySelector('span').textContent = "How to use a process to create good solutions."
+
+    des_li[4].querySelector('b').textContent = "Pragmatism"
+    des_li[4].querySelector('span').textContent = "To tackle a complex reality responsibly."
+
+    des_li[5].querySelector('b').textContent = "Integralism"
+    des_li[5].querySelector('span').textContent = "To think the product as more than the sum of its parts."
 
     oth_h3.textContent = "And also"
     oth_li.innerHTML = "I know bussiness modeling and a thing or two about <b>entrepreneurship,</b> I studied it in college. I speak <b>English</b> since I was 16, having lived about a year in the US." +
@@ -340,7 +353,7 @@ const previewArticles_LinkDisabler = () => {
 }
 
 const floatingArticle_Inserter = e => {
-  // if the hashChecker() called this, it will be a string
+  // if the hashChecker() called this, e will be a string
   let triggeredByClick = typeof(e) === "object"
   // get the link that was clicked or URL hash navigated to and figure what article to show
   let targetHash = triggeredByClick ? findALinkParent(e.target).attributes.href.value : e
@@ -416,9 +429,10 @@ const floatingArticle_Inserter = e => {
 
   //events to close the floating article
   el.querySelector('a.close').addEventListener('click', floatingArticle_Destroyer, {once: true})
-  el.querySelector('a.close').addEventListener('touchstart', floatingArticle_Destroyer, {once: true})
-  window.addEventListener('wheel', scrollHandler)
-  window.addEventListener('touchmove', scrollHandler)
+  el.querySelector('a.close').addEventListener('touchend', floatingArticle_Destroyer, {once: true})
+  // window.addEventListener('wheel', scrollHandler, {passive: true})
+  // window.addEventListener('touchstart', scrollHandler, {passive: true})
+  window.addEventListener('scroll', scrollHandler, {passive: true})
   window.addEventListener('keydown', keyHandler)
   // IDEA: scroll bar is taking 15px on the right making the page move when article shows up
 }
