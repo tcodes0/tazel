@@ -43,7 +43,7 @@ const paths = {
     dest: 'build/js/'
   },
   temp: "temp",
-  target: "css/img/projects/javascript30"
+  target: "css/img/projects/tazel"
 }
 
 export const purgeTemp = () => del([ 'temp' ])
