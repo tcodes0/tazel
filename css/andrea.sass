@@ -1,0 +1,59 @@
+#logo-andrea
+  div
+    background-image: url("img/projects/andrea/logo.png")
+    background-size: cover
+    background-position-y: 22%
+    min-height: 58px
+    // @media screen and (min-width: $break-tabletS)
+    //   min-height: 58px
+
+#andrea
+  $ash: #343434
+  $yellow: #e8be25
+  $gray: #e5e5e5
+
+  %color-block
+    width: 100%
+    min-height: 300px
+    padding: 2rem
+
+  .bg-gray
+    background-color: $gray
+  .bg-ash
+    background-color: $ash
+  .bg-yellow
+    background-color: $yellow
+  .ash
+    @extend %color-block
+    @extend .bg-ash
+    color: $color-bg
+    font-weight: 300
+    a
+      border-color: $color-bg
+      &:hover
+        color: $color-text
+  .yellow
+    @extend %color-block
+    @extend .bg-yellow
+  .gray
+    @extend %color-block
+    @extend .bg-gray
+
+  img[src="css/img/projects/andrea/footer.jpg"]
+    width: auto
+    margin-right: 0
+
+  img[src="css/img/projects/andrea/assinatura.png"]
+    position: absolute
+    max-width: 85%
+    transform: translateY(-41%) scale(0.8)
+
+  .no-margin
+    margin: 0
+  .border-ash
+    border: 1px solid $ash
+  .short
+    min-height: 50px
+  .half-img
+    max-height: 110px
+    overflow: hidden

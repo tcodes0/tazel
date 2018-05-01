@@ -1,0 +1,32 @@
+#new-tazel
+  .project-text
+    .letter-example
+      background-color: $color-bg-darker-darker
+      padding: 0 32px 16px 32px
+      padding: 0 2rem 1rem 2rem
+      margin: 0 auto
+      @media screen and (min-width: $break-tabletM)
+        max-width: 85%
+    h1 + h2,
+    h2 + h3
+      padding-top: 0
+      margin-top: 0
+    [aria-label*="logo with roboto"],
+    [aria-label*="logo with boogaloo"]
+      margin-bottom: 10em
+    .pallete
+      &:nth-child(1)
+        background-color: $color-bg
+      &:nth-child(2)
+        background-color: $color-bg-darker
+        border: 1px solid $color-text
+      &:nth-child(3)
+        background-color: $color-bg-darker-darker
+      &:nth-child(4)
+        background-color: $color-text
+    [aria-label*="Thomazella"]
+      .img-svg
+        max-width: 390px
+    [aria-label="Thomazella's logo"]
+      .img-svg
+        max-width: 690px
