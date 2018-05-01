@@ -1,6 +1,6 @@
-// @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
-@import "normalize.css"
-// @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400|Source+Sans+Pro:300,400"
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
+// @import "normalize.css"
+@import "https://fonts.googleapis.com/css?family=Roboto+Mono:300i,400,700|Source+Sans+Pro:300,400"
 @import "boiler.sass"
 @import "grid-min.sass"
 /* ------- */
@@ -15,29 +15,36 @@ $color-bg-transparent: fade-out($color-bg, 0.25)
 $color-text: lighten(invert($color-bg-darker), 4%)
 $color-text-darker: darken($color-text, 16%)
 $color-text-darker-darker: darken($color-text-darker, 20%)
+
 =aligned-block
   display: block
   margin-left: auto
   margin-right: auto
+
 =width-squeeze($percent: 95%)
   width: $percent
   +aligned-block
+
 =padding-squeeze($percent: 2.5%)
   padding-left: $percent
   padding-right: $percent
+
 =opacity($n)
   @if $n > 1
     @error "$n must be between 0 and 1"
   zoom: 1
   filter: alpha(opacity=$n*100)
   opacity: $n
+
 =border-stylus($option: null, $style: solid)
   @if $option != null
     $option: -$option
   border#{$option}-style: $style
+
 =box-shade($X: 5px, $Y: 5px, $Color: rgba(0,0,0,0.3), $Blur: 10px, $Spread: 3px)
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$X},OffY=#{$Y},Color="#{$Color}",Positive='true')
   box-shadow: $X $Y $Blur $Spread $Color
+
 =topAndBottom($property, $value: 0)
   #{$property}-top: $value
   #{$property}-bottom: $value
@@ -226,7 +233,7 @@ button
 .nav
   @extend %monospaced
   background-color: $color-bg-darker
-  font-weight: 600
+  font-weight: 700
   font-size: 19px
   font-size: 1.2rem
   padding: 0.7em 0
@@ -286,7 +293,7 @@ button
     margin-top: 0
     margin-bottom: 0
     font-size: inherit
-    font-weight: 600
+    font-weight: 700
     max-width: 40%
     max-width: calc(99% + 1%)
     // font-weight: 400 darkmode
@@ -356,7 +363,7 @@ button
     text-transform: uppercase
     line-height: 1.35
   h2, h3
-    padding: 2.5em 0
+    padding: 2em 0
     & + h4
       padding-top: 0
   .heading1
@@ -587,6 +594,11 @@ button
         color: $color-text
   .screenshot, .screenshot.portrait
     +box-shade(3px,3px,$color-bg-darker-darker,10px,4px)
+  .pallete
+    display: inline-block
+    min-width: 50px
+    min-height: 50px
+    margin: 0 1.5em
 
 .read-background
   +aligned-block
@@ -686,12 +698,12 @@ button
 .container-project-previews
   @extend %container-read
   +aligned-block
-  /* ---- grid fallback ----
+  /* ---- grid fallback ---- */
   @media screen and (min-width: $break-tabletS)
     +row
   @media screen and (min-width: $break-desktopM)
     +padding-squeeze(12.5%)
-  /* ---- end ----
+  /* ---- end ---- */
   @supports (display: grid)
     @media screen and (min-width: $break-tabletS)
       +row(grid)
@@ -737,7 +749,7 @@ button
     display: none
   &:hover
     background-color: $color-bg-darker
-  /* ---- grid fallback ----
+  /* ---- grid fallback ---- */
   @media screen and (min-width: $break-tabletS)
     +col(49,100)
     &:nth-child(2n+1)
@@ -752,8 +764,8 @@ button
       +gutter(2,103)
     &:nth-child(3n+2)
       +gutter(2,103)
-  /* ---- end ----
-  /* ---- fallback override ----
+  /* ---- end ---- */
+  /* ---- fallback override ---- */
   @supports (display: grid)
     max-width: 415px // @extend %dont-stretch
     @media screen and (min-width: $break-tabletS)
@@ -766,7 +778,7 @@ button
         justify-self: end
         @media screen and (min-width: $break-desktopS)
           justify-self: unset
-  /* ---- end ----
+  /* ---- end ---- */
 
 .container-project-logo
   @extend %project-border-common
@@ -823,6 +835,7 @@ button
 @import "nununu.sass"
 @import "andrea.sass"
 @import "javascript30.sass"
+@import "tazel.sass"
 
 /*________________________________________________________________
   -  -  -  -  -  -  -  -  -  -  About  -  -  -  -  -  -  -  -  -  -
@@ -883,6 +896,10 @@ button.active
   @media screen and (min-width: $break-desktopS)
     margin-bottom: 15em
     margin-top: 5em
+  .heading1
+    margin-top: 0
+    padding-top: 2em
+    padding-bottom: 5.5em
 
 .with-a-box-around
   background-color: $color-bg-darker
@@ -966,7 +983,7 @@ button.active
   @extend %monospaced
   text-align: left
   font-size: 1.5rem
-  margin: 2em 0
+  margin-bottom: 0
 
 .what-i-do
   strong
@@ -980,6 +997,8 @@ button.active
   padding: 0
   ul, li
     padding: 0
+  ul
+    margin-top: 1em
   b
     text-transform: uppercase
   li
@@ -990,7 +1009,7 @@ button.active
   @media screen and (min-width: $break-tabletS)
     grid-area: 3 / 1 / auto / 9
     display: grid
-    grid-column-gap: 3em
+    grid-column-gap: 6em
     .dev-skills
       grid-area: 1 / 1
     .design-skills
@@ -1007,6 +1026,8 @@ button.active
 #about .opinions
   ul, li
     padding: 0
+  p
+    margin-top: 1em
   @media screen and (min-width: $break-tabletS)
     grid-area: 4 / 1 / auto / span 8
     .container
@@ -1023,7 +1044,7 @@ button.active
       display: grid
       grid-template-rows: repeat(6, auto)
       grid-template-columns: repeat(2, 1fr)
-      grid-column-gap: 2.5em
+      grid-column-gap: 6em
       @media screen and (min-width: $break-desktopS)
         grid-template-columns: repeat(3, 1fr)
         li:last-child
@@ -1117,7 +1138,7 @@ fieldset
 
 input[type="submit"]
   display: block
-  font-weight: 600
+  font-weight: 700
   width: auto
   &:hover
     cursor: pointer
