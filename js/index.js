@@ -261,8 +261,8 @@ const english_About = () => {
 
     oth_h3.textContent = "And also"
     oth_li.innerHTML =
-      "I know bussiness modeling and a thing or two about <b>entrepreneurship,</b> I studied it in college. I speak <b>English</b> since I was 16, having lived about a year in the US." +
-      " Strangely enough I never taught anyone. I work well in <b>groups</b> and I run <b>presentations</b> just fine. I consider myself <b>confident and rational.</b>"
+      `I know bussiness modeling and a thing or two about <b>entrepreneurship,</b> I studied it in college. I speak <b>English</b> since I was 16, having lived about a year in the US.
+       Strangely enough I never taught anyone. I work well in <b>groups</b> and I run <b>presentations</b> just fine. I consider myself <b>confident and rational.</b>`
 
     opn_h2.textContent = "Here's what I think"
 
@@ -336,8 +336,8 @@ const english_Home = () => {
 
   const changeToEnglish = () => {
     $("html").setAttribute("lang", "en")
-    pro.innerHTML = `Hi there!<br> I work building websites and enjoy it a lot. I think constantly about the people
-    using my work and how to make it better. You can see and play with my stuff or just read it.`
+    pro.innerHTML = `Hi there!<br> I work building websites and I love it. I care about the people
+    using my work and I strive to make it better. This is my homepage, feel free to play with my stuff.`
     window.addEventListener("scroll", () => cleanStyles(pro), { once: true })
     pro.style.opacity = 1
   }
