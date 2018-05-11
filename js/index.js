@@ -15,6 +15,131 @@ let resizers = []
 let onLoaders = []
 let floaters = []
 
+const english_aboutStrings = [
+  "en",
+  "Nice you came by",
+  "I'm",
+  "This is what I do",
+  `I am a developer majored in design deeply interested in technology.
+    I like to learn everything and I'll teach myself anything.
+    One affinity is frontend: visual elements and building user interfaces, but I'm also very much into software logic.`,
+  `As a developer, I strive to undestand the internals giving functionality to a program.
+    To me programming is a fun, creative tool drenched in sparking potential to build things.
+    It's very challenging at times, but nothing beats beating the problems and realizing something useful for people.`,
+  `I make digital products for people like you.
+    I love the creative side of the job and I put people first.`,
+  "Developer Skills",
+  "Semantics, structure and accesibility are essential.",
+  "Communicate brand values offering a good experience on all platforms.",
+  "Functionality, interactivity and polish.",
+  "I know all but prefer Mac or Linux.",
+  "I write scripts to automate things. I plan to pick up a more powerful language like Python or Ruby.",
+  "I know fundamentals.",
+  "Currently practicing.",
+  "Currently practicing.",
+  "4 Years",
+  "Programmin'.",
+  "Currently practicing.",
+  "Designer Skills",
+  "10+ years using it. (I took classes when I was 13.)",
+  "5 years using.",
+  "2 years using.",
+  "How to use a process to create good solutions.",
+  "Pragmatism",
+  "To tackle a complex reality responsibly.",
+  "Integralism",
+  "To think the product as more than the sum of its parts.",
+  "And also",
+  `I know bussiness modeling and a thing or two about <b>entrepreneurship,</b> I studied it in college. I speak <b>English</b> since I was 16, having lived about a year in the US.
+       Strangely enough I never taught anyone. I work well in <b>groups</b> and I run <b>presentations</b> just fine. I consider myself <b>confident and rational.</b>`,
+  "Here's what I think",
+  "Development",
+  `Making and building is the essence of a developer. I'm careful with what I build because I understand someone will use it.
+       The goal is that someone's experience and that is what I deliver.`,
+  "You may not test your software, but your user always will",
+  `I learn the frameworks, practices and languages popular right now, fully aware they'll be replaced soon enough.
+       I also invest on theory, methodology and on the more permanent knowledge. I'm motivated to make useful things and the process is so fun.`,
+  `Design is taking an abstract idea and planning its realization. It's the special first step that makes for a solid beginning.
+       Just like in development, design to me is for the people. That's why I like frontend, because it's the first layer of contact with the user and must be handled skillfully.
+       UI, Web and Interaction are my main guns, but I also practice UX and Graphical. Actually they depend on one another and sometimes function together.`,
+  "People",
+  `I believe it's important to work with stimulating people. In college I worked mostly in groups and had good and bad experiences.
+       I even lead sometimes. In the end I like to make people feel good, be that the users or my work folks.`,
+  "Fun",
+  `I have a lotta fun working. Some of my hobbies include manga, music and games. I've been playing games since ever and I follow the scene closely.
+       Who knows I won't make my first game in the near future?`,
+  "Send me an e-mail!",
+  "Your name",
+  "Your e-mail",
+  "Send",
+  "Mr. Foo Bar",
+  "yourname@provider.com",
+  "Thanks for reading",
+]
+
+const portuguese_aboutStrings = [
+  "pt",
+  "Bom te ver por aqui",
+  "Eu sou",
+  "Então, sobre o que eu faço",
+  `Eu sou um desenvolvedor com formação em design e me interesso por quase tudo dentro de tecnologia.
+  Eu gosto muito de aprender qualquer coisa e aprendo tudo sozinho.
+  Tenho afinidade com front end: elementos visuais e construir interfaces, mas também me interesso muito pela lógica do software.`,
+  `Como desenvolvedor, gosto de parte do mecanismo interno que dirige as funções do programa.
+  Penso em programação como uma ferramenta divertida, criativa e com um potencial imenso.
+  Muitas vezes é desafiador, porém é muito estimulante ser capaz de superar problemas e construir algo útil para as pessoas.`,
+  `Eu construo produtos digitais para pessoas como você.
+  Adoro o lado criativo do meu trabalho e
+  coloco o usuário em primeiro lugar.`,
+  `Habilidades de Desenvolvedor`,
+  `Semântica, estrutura e acessibilidade são cada vez mais importantes.`,
+  `Comunicar a identidade visual e oferecer uma boa experiência independente de navegador.`,
+  `Funcionalidade, interação e refinamento.`,
+  `Sei usar qualquer um. Prefiro Mac ou Linux.`,
+  "Escrevo shell scripts para automatizar as coisas. Tenho planos de trocar por uma linguagem mais poderosa como Python ou Ruby.",
+  "Sei os fundamentos.",
+  "Atualmente praticando.",
+  "Atualmente praticando.",
+  "4 anos",
+  "Programando.",
+  "Ruby Atualmente praticando.",
+  "Habilidades de Designer",
+  "Photoshop 10+ anos usando. (Eu fiz curso aos 13.)",
+  "5 anos usando.",
+  "2 anos usando.",
+  "Como utilizar um processo para chegar em boas soluções.",
+  "Realismo",
+  "Abordar a complexidade contemporânea de forma responsável.",
+  "Integralismo",
+  "Compreender que o produto é mais que a soma das partes.",
+  "E também",
+  `Tenho noções de modelagem de negócios e empreendedorismo, eu estudei na faculdade.
+  Falo inglês desde os 16 anos, morei nos EUA 1 ano de intercâmbio.
+  Estranhamente nunca dei aula.
+  Trabalho bem em grupo e conduzo apresentações bem.
+  Me considero uma pessoa confiante e racional.
+  Trabalho na área porque eu gosto, e quero crescer como pessoa e profissional.`,
+  "Eu acho o seguinte",
+  "Desenvolvimento",
+  "Fazer, construir é a essência de ser um desenvolvedor. Eu sou cuidadoso com meu software porque eu entendo que aquilo vai ser usado por alguém. A experiência da pessoa é o objetivo final e é isso que eu entrego.",
+  "Você pode não testar seu software, mas seu usuário sempre vai.",
+  "Eu procuro aprender os frameworks, práticas e linguagens do momento, com plena consciência que eles vão e vem. Também invisto na teoria, metodologia e nas coisas que ficam. Me motiva fazer coisas úteis pras pessoas e me diverte o processo de fazer.",
+  `Design é o processo de tirar uma idéia do abstrato e esquematizar a realização dela. É a etapa especial que é a base de um bom produto. Assim como no desenvolvimento, o design para mim é centrado nas pessoas. Por isso eu tenho afinidade com front end, por ser algo em contato direto
+  com o usuário que precisa ser bem construído. UI, Web e Interação são minhas principais ferramentas, mas eu também pratico UX e Gráfico. Na verdade, eles são interdependentes e se confundem. Meu pensamento tende pro diferente, pro inusitado, pro inesperado,
+  pro engraçado.`,
+  "Pessoas",
+  "Eu acredito que é importante trabalhar com pessoas estimulantes. Passando pela faculdade eu trabalhei exclusivamente em grupos e tive experiências boas e ruins. Eu até liderei algumas vezes. No fim, eu gosto de fazer as pessoas sentirem bem, sejam os usuários ou colegas.",
+  "Diversão",
+  "Eu me divirto bastante trabalhando. Alguns hobbies são mangás, música e jogos. Jogos estiveram comigo desde sempre e eu me mantenho informado. Quem sabe eu não faço meu primeiro jogo no futuro?",
+  "Me manda um e-mail!",
+  "Seu nome",
+  "Seu e-mail",
+  "Enviar",
+  "Sr. Foogêncio Bar",
+  "seunome@provedor.com",
+  "Obrigado pela visita.",
+]
+
 // - - - - - - - - - All PAGES
 // - - - - - - - - - - - - - - -
 window.addEventListener("resize", () => resizers.forEach(resizer => resizer()))
@@ -129,8 +254,8 @@ const langSwitcher_AddClickHandler = () => {
 
         if (ThisPageIs(about)) {
           document.documentElement.attributes.lang.value === "pt"
-            ? english_About()
-            : window.location.reload(false)
+            ? changeLanguage(english_aboutStrings)
+            : changeLanguage(portuguese_aboutStrings)
         } else if (ThisPageIs(home)) {
           document.documentElement.attributes.lang.value === "pt"
             ? english_Home()
@@ -166,16 +291,12 @@ const cleanStyles = obj =>
 const changeOpacity = (obj, value) =>
   runTask_ObjectOrList(obj, o => (o.style.opacity = value))
 
-const english_About = () => {
-  const fadeIn = () => {
-    window.addEventListener("scroll", () => cleanStyles(all), { once: true })
-    changeOpacity(all, 1)
-  }
-
+const changeLanguage = Strings => {
   let all = []
+  let iterator = Strings.values()
+  const getNext = () => iterator.next().value
 
   let h_h1 = $(".about-header h1")
-
   let iAmCalled = $(".what-does-tazel-mean span")
 
   let who_h3 = $(".who-i-am h3")
@@ -195,109 +316,73 @@ const english_About = () => {
   let opn_h2 = $(".opinions h2")
   let opn_li = $$(".opinions li")
 
-  let fom_h2 = $("fieldset h2")
-  let fom_la = $$("fieldset label")
-  let fom_in = $$("fieldset input")
-  let fom_submit = $("#submit-button")
+  let form_h2 = $("fieldset h2")
+  let form_la = $$("fieldset label")
+  let form_in = $$("fieldset input")
+  let form_submit = $("#submit-button")
 
   let thanks = $(".thanks-for-reading em")
 
   const changeToEnglish = () => {
-    $("html").setAttribute("lang", "en")
-    $("#sender-name").setAttribute("placeholder", "Mr. Foo Bar")
-    $("#sender-email").setAttribute("placeholder", "yourname@provider.com")
+    $("html").setAttribute("lang", getNext())
 
-    h_h1.textContent = "Nice you came by"
-    iAmCalled.textContent = "I'm"
-    who_h3.textContent = "This is what I do"
+    h_h1.textContent = getNext()
+    iAmCalled.textContent = getNext()
 
-    who_p[0].textContent = `I am a developer majored in design deeply interested in technology.
-    I like to learn everything and I'll teach myself anything.
-    One affinity is frontend: visual elements and building user interfaces, but I'm also very much into software logic.`
+    who_h3.textContent = getNext()
+    who_p[0].textContent = getNext()
+    who_p[1].textContent = getNext()
 
-    who_p[1].textContent = `As a developer, I strive to undestand the internals giving functionality to a program.
-    To me programming is a fun, creative tool drenched in sparking potential to build things.
-    It's very challenging at times, but nothing beats beating the problems and realizing something useful for someone.`
+    strong.textContent = getNext()
 
-    strong.textContent = `I make digital products for people like you.
-    I love the creative side of the job and I put people first.`
+    dev_h3.textContent = getNext()
+    dev_li[0].querySelector("span").textContent = getNext()
+    dev_li[1].querySelector("span").textContent = getNext()
+    dev_li[2].querySelector("span").textContent = getNext()
+    dev_li[3].querySelector("span").textContent = getNext()
+    dev_li[4].querySelector("span").textContent = getNext()
+    dev_li[5].querySelector("span").textContent = getNext()
+    dev_li[6].querySelector("span").textContent = getNext()
+    dev_li[7].querySelector("span").textContent = getNext()
+    dev_li[8].querySelector("b").textContent = getNext()
+    dev_li[8].querySelector("span").textContent = getNext()
+    dev_li[9].querySelector("span").textContent = getNext()
 
-    dev_h3.textContent = "Developer Skills"
-    dev_li[0].querySelector("span").textContent =
-      "Semantics, structure and accesibility are essential."
-    dev_li[1].querySelector("span").textContent =
-      "Communicate brand values offering a good experience on all platforms."
-    dev_li[2].querySelector("span").textContent =
-      "Functionality, interactivity and polish."
-    // dev_li[3].querySelector('span').textContent = "I know fundamentals."
-    dev_li[3].querySelector("span").textContent =
-      "I know all but prefer Mac or Linux."
-    dev_li[4].querySelector("span").textContent =
-      "I write scripts to automate things. I plan to pick up a more powerful language like Python or Ruby."
-    dev_li[5].querySelector("span").textContent = "I know fundamentals."
-    dev_li[6].querySelector("span").textContent = "Currently practicing."
-    dev_li[7].querySelector("span").textContent = "Currently practicing."
+    des_h3.textContent = getNext()
+    des_li[0].querySelector("span").textContent = getNext()
+    des_li[1].querySelector("span").textContent = getNext()
+    des_li[2].querySelector("span").textContent = getNext()
+    des_li[3].querySelector("span").textContent = getNext()
+    des_li[4].querySelector("b").textContent = getNext()
+    des_li[4].querySelector("span").textContent = getNext()
+    des_li[5].querySelector("b").textContent = getNext()
+    des_li[5].querySelector("span").textContent = getNext()
 
-    dev_li[8].querySelector("b").textContent = "4 Years"
-    dev_li[8].querySelector("span").textContent = "Programmin'."
+    oth_h3.textContent = getNext()
+    oth_li.innerHTML = getNext()
 
-    dev_li[9].querySelector("span").textContent = "Currently practicing."
+    opn_h2.textContent = getNext()
+    opn_li[0].querySelector("h3").textContent = getNext()
+    opn_li[0].querySelectorAll("p")[0].textContent = getNext()
+    opn_li[0].querySelector("blockquote").textContent = getNext()
+    opn_li[0].querySelectorAll("p")[1].textContent = getNext()
+    opn_li[1].querySelector("p").textContent = getNext()
+    opn_li[2].querySelector("h3").textContent = getNext()
+    opn_li[2].querySelector("p").textContent = getNext()
+    opn_li[3].querySelector("h3").textContent = getNext()
+    opn_li[3].querySelector("p").textContent = getNext()
 
-    des_h3.textContent = "Designer Skills"
-    des_li[0].querySelector("span").textContent =
-      "10+ years using it. (I took classes when I was 13.)"
-    des_li[1].querySelector("span").textContent = "5 years using."
-    des_li[2].querySelector("span").textContent = "2 years using."
-    des_li[3].querySelector("span").textContent =
-      "How to use a process to create good solutions."
+    form_h2.textContent = getNext()
+    form_la[0].textContent = getNext()
+    form_la[1].textContent = getNext()
+    form_submit.value = getNext()
+    $("#sender-name").setAttribute("placeholder", getNext())
+    $("#sender-email").setAttribute("placeholder", getNext())
 
-    des_li[4].querySelector("b").textContent = "Pragmatism"
-    des_li[4].querySelector("span").textContent =
-      "To tackle a complex reality responsibly."
+    thanks.textContent = getNext()
 
-    des_li[5].querySelector("b").textContent = "Integralism"
-    des_li[5].querySelector("span").textContent =
-      "To think the product as more than the sum of its parts."
-
-    oth_h3.textContent = "And also"
-    oth_li.innerHTML =
-      `I know bussiness modeling and a thing or two about <b>entrepreneurship,</b> I studied it in college. I speak <b>English</b> since I was 16, having lived about a year in the US.
-       Strangely enough I never taught anyone. I work well in <b>groups</b> and I run <b>presentations</b> just fine. I consider myself <b>confident and rational.</b>`
-
-    opn_h2.textContent = "Here's what I think"
-
-    opn_li[0].querySelector("h3").textContent = "Development"
-    opn_li[0].querySelectorAll("p")[0].textContent =
-      "Making and building is the essence of a developer. I'm careful with what I build because I understand someone will use it." +
-      " The goal is that someone's experience and that is what I deliver."
-    opn_li[0].querySelector("blockquote").textContent =
-      "You may not test your software, but your user always will"
-    opn_li[0].querySelectorAll("p")[1].textContent =
-      "I learn the frameworks, practices and languages popular right now, fully aware they'll be replaced soon enough." +
-      " I also invest on theory, methodology and on the more permanent knowledge. I'm motivated to make useful things and the process is so fun."
-
-    opn_li[1].querySelector("p").textContent =
-      "Design is taking an abstract idea and planning its realization. It's the special first step that makes for a solid beginning." +
-      " Just like in development, design to me is for the people. That's why I like frontend, because it's the first layer of contact with the user and must be handled skillfully." +
-      " UI, Web and Interaction are my main guns, but I also practice UX and Graphical. Actually they depend on one another and sometimes function together."
-
-    opn_li[2].querySelector("h3").textContent = "People"
-    opn_li[2].querySelector("p").textContent =
-      "I believe it's important to work with stimulating people. In college I worked mostly in groups and had good and bad experiences." +
-      " I even lead sometimes. In the end I like to make people feel good, be that the users or my work folks."
-
-    opn_li[3].querySelector("h3").textContent = "Fun"
-    opn_li[3].querySelector("p").textContent =
-      "I have a lotta fun working. Some of my hobbies include manga, music and games. I've been playing games since ever and I follow the scene closely." +
-      " Who knows I won't make my first game in the near future?"
-
-    fom_h2.textContent = "Send me an e-mail!"
-    fom_la[0].textContent = "Your name"
-    fom_la[1].textContent = "Your e-mail"
-    fom_submit.value = "Send"
-
-    thanks.textContent = "Thanks for reading"
-    fadeIn()
+    window.addEventListener("scroll", () => cleanStyles(all), { once: true })
+    changeOpacity(all, 1)
   }
 
   all.push(
@@ -314,12 +399,13 @@ const english_About = () => {
     oth_li,
     opn_h2,
     opn_li,
-    fom_h2,
-    fom_la,
-    fom_in,
-    fom_submit,
+    form_h2,
+    form_la,
+    form_in,
+    form_submit,
     thanks
   )
+
   // add handler to only one element to avoid handling it many times
   all[0].addEventListener("transitionend", changeToEnglish, { once: true })
 
@@ -327,8 +413,6 @@ const english_About = () => {
     a.style.transition = `opacity ${transitionStandard}`
     a.style.opacity = 0
   })
-
-  return all
 }
 
 const english_Home = () => {
