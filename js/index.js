@@ -22,45 +22,42 @@ const english_aboutStrings = [
   "This is what I do",
   `I am a developer majored in design deeply interested in technology.
     I like to learn everything and I'll teach myself anything.
-    One affinity is frontend: visual elements and building user interfaces, but I'm also very much into software logic.`,
-  `As a developer, I strive to undestand the internals giving functionality to a program.
-    To me programming is a fun, creative tool drenched in sparking potential to build things.
-    It's very challenging at times, but nothing beats beating the problems and realizing something useful for people.`,
-  `I make digital products for people like you.
-    I love the creative side of the job and I put people first.`,
+    An affinity is front-end: visual elements and building user interfaces, but I'm curious enough to look into back-end, or anything involving code, really.
+    Ideation and people are what gives coding meaning, and for that, I'm glad to be a designer too.`,
+  `As a developer, I strive to understand the internals giving functionality to a program.
+    I enjoy taking my time to understand concepts and challenge myself to learn new languages for fun.
+    To me programming is a fun, creative tool drenched in potential to create things.
+    It's fulfilling to create something useful, but making the ideas in your head come to life (or to code?) is just incredible.`,
+  `I make digital products for anyone in the world to use.
+    It’s essential to me seeing good work making people happy.`,
   "Developer Skills",
-  "Semantics, structure and accesibility are essential.",
-  "Communicate brand values offering a good experience on all platforms.",
-  "Functionality, interactivity and polish.",
-  "I know all but prefer Mac or Linux.",
-  "I write scripts to automate things. I plan to pick up a more powerful language like Python or Ruby.",
-  "I know fundamentals.",
-  "Currently practicing.",
-  "Currently practicing.",
+  "Semantics, structure and accessibility are essential.",
+  "Good UI looks great and is backwards compatible with older devices.",
+  "My main language, I use it to deliver functionality, interactivity and polish. Knowing JS is more important than frameworks!",
   "4 Years",
   "Programmin'.",
-  "Currently practicing.",
+  "A great framework I look forward to using often.",
+  "I know how to use Linux and learning its principles made me a better developer. My preferred system is MacOS.",
+  "I write scripts in Bash to automate things. Moving towards using Ruby more.",
+  "Some experience with",
+  "C++, Node.js and Ruby",
   "Designer Skills",
-  "10+ years using it. (I took classes when I was 13.)",
-  "5 years using.",
-  "2 years using.",
-  "How to use a process to create good solutions.",
-  "Pragmatism",
-  "To tackle a complex reality responsibly.",
-  "Integralism",
-  "To think the product as more than the sum of its parts.",
+  "5 years using, essential to prototype and plan the UI.",
+  "2 years using, they are the support team for photography and moving pictures.",
+  "I think solutions by understanding the people they are for.",
+  "I think 99 possibilities, sketch 40 then code 1.",
   "And also",
-  `I know bussiness modeling and a thing or two about <b>entrepreneurship,</b> I studied it in college. I speak <b>English</b> since I was 16, having lived about a year in the US.
+  `I know business modeling and a thing or two about <b>entrepreneurship,</b> I studied it in college. I speak <b>English</b> since I was 16, having lived about a year in the US.
        Strangely enough I never taught anyone. I work well in <b>groups</b> and I run <b>presentations</b> just fine. I consider myself <b>confident and rational.</b>`,
   "Here's what I think",
   "Development",
   `Making and building is the essence of a developer. I'm careful with what I build because I understand someone will use it.
        The goal is that someone's experience and that is what I deliver.`,
-  "You may not test your software, but your user always will",
+  "You may not test your software, but your user always will.",
   `I learn the frameworks, practices and languages popular right now, fully aware they'll be replaced soon enough.
        I also invest on theory, methodology and on the more permanent knowledge. I'm motivated to make useful things and the process is so fun.`,
   `Design is taking an abstract idea and planning its realization. It's the special first step that makes for a solid beginning.
-       Just like in development, design to me is for the people. That's why I like frontend, because it's the first layer of contact with the user and must be handled skillfully.
+       Just like in development, design to me is for the people. That's why I like front-end, because it's the first layer of contact with the user and must be handled skillfully.
        UI, Web and Interaction are my main guns, but I also practice UX and Graphical. Actually they depend on one another and sometimes function together.`,
   "People",
   `I believe it's important to work with stimulating people. In college I worked mostly in groups and had good and bad experiences.
@@ -68,13 +65,13 @@ const english_aboutStrings = [
   "Fun",
   `I have a lotta fun working. Some of my hobbies include manga, music and games. I've been playing games since ever and I follow the scene closely.
        Who knows I won't make my first game in the near future?`,
-  "Send me an e-mail!",
+  "Send me an email!",
   "Your name",
-  "Your e-mail",
+  "Your email",
   "Send",
   "Mr. Foo Bar",
   "yourname@provider.com",
-  "Thanks for reading",
+  "Thanks for the visit",
 ]
 
 const portuguese_aboutStrings = [
@@ -84,7 +81,7 @@ const portuguese_aboutStrings = [
   "Então, sobre o que eu faço",
   `Eu sou um desenvolvedor com formação em design e me interesso por quase tudo dentro de tecnologia.
   Eu gosto muito de aprender qualquer coisa e aprendo tudo sozinho.
-  Tenho afinidade com front end: elementos visuais e construir interfaces, mas também me interesso muito pela lógica do software.`,
+  Tenho afinidade com front-end: elementos visuais e construir interfaces, mas também me interesso muito pela lógica do software.`,
   `Como desenvolvedor, gosto de parte do mecanismo interno que dirige as funções do programa.
   Penso em programação como uma ferramenta divertida, criativa e com um potencial imenso.
   Muitas vezes é desafiador, porém é muito estimulante ser capaz de superar problemas e construir algo útil para as pessoas.`,
@@ -95,45 +92,40 @@ const portuguese_aboutStrings = [
   `Semântica, estrutura e acessibilidade são cada vez mais importantes.`,
   `Comunicar a identidade visual e oferecer uma boa experiência independente de navegador.`,
   `Funcionalidade, interação e refinamento.`,
-  `Sei usar qualquer um. Prefiro Mac ou Linux.`,
-  "Escrevo shell scripts para automatizar as coisas. Tenho planos de trocar por uma linguagem mais poderosa como Python ou Ruby.",
-  "Sei os fundamentos.",
-  "Atualmente praticando.",
-  "Atualmente praticando.",
   "4 anos",
   "Programando.",
-  "Ruby Atualmente praticando.",
+  "Excelente framework que eu pretendo usar sempre.",
+  `Sei usar qualquer um. Prefiro Mac ou Linux.`,
+  "Escrevo shell scripts para automatizar as coisas. Tenho planos de trocar por uma linguagem mais poderosa como Python ou Ruby.",
+  "Experiência casual com",
+  "C++, Node.js e Ruby",
   "Habilidades de Designer",
-  "Photoshop 10+ anos usando. (Eu fiz curso aos 13.)",
   "5 anos usando.",
   "2 anos usando.",
-  "Como utilizar um processo para chegar em boas soluções.",
-  "Realismo",
-  "Abordar a complexidade contemporânea de forma responsável.",
-  "Integralismo",
-  "Compreender que o produto é mais que a soma das partes.",
+  "Eu penso em soluções entendendo as pessoas envolvidas.",
+  "Eu penso 99 possibilidades, desenho 40 e programo 1.",
   "E também",
-  `Tenho noções de modelagem de negócios e empreendedorismo, eu estudei na faculdade.
-  Falo inglês desde os 16 anos, morei nos EUA 1 ano de intercâmbio.
+  `Tenho noções de modelagem de negócios e <b>empreendedorismo</b>, eu estudei na faculdade.
+  Falo <b>inglês</b> desde os 16 anos, morei nos EUA 1 ano de intercâmbio.
   Estranhamente nunca dei aula.
-  Trabalho bem em grupo e conduzo apresentações bem.
-  Me considero uma pessoa confiante e racional.
-  Trabalho na área porque eu gosto, e quero crescer como pessoa e profissional.`,
+  Trabalho bem em <b>grupo</b> e conduzo <b>apresentações</b> bem.
+  Me considero uma pessoa <b>confiante e racional</b>.
+  Trabalho na área porque eu <b>gosto</b>, e quero <b>crescer</b> como pessoa e profissional.`,
   "Eu acho o seguinte",
   "Desenvolvimento",
   "Fazer, construir é a essência de ser um desenvolvedor. Eu sou cuidadoso com meu software porque eu entendo que aquilo vai ser usado por alguém. A experiência da pessoa é o objetivo final e é isso que eu entrego.",
   "Você pode não testar seu software, mas seu usuário sempre vai.",
   "Eu procuro aprender os frameworks, práticas e linguagens do momento, com plena consciência que eles vão e vem. Também invisto na teoria, metodologia e nas coisas que ficam. Me motiva fazer coisas úteis pras pessoas e me diverte o processo de fazer.",
-  `Design é o processo de tirar uma idéia do abstrato e esquematizar a realização dela. É a etapa especial que é a base de um bom produto. Assim como no desenvolvimento, o design para mim é centrado nas pessoas. Por isso eu tenho afinidade com front end, por ser algo em contato direto
+  `Design é o processo de tirar uma idéia do abstrato e esquematizar a realização dela. É a etapa especial que é a base de um bom produto. Assim como no desenvolvimento, o design para mim é centrado nas pessoas. Por isso eu tenho afinidade com front-end, por ser algo em contato direto
   com o usuário que precisa ser bem construído. UI, Web e Interação são minhas principais ferramentas, mas eu também pratico UX e Gráfico. Na verdade, eles são interdependentes e se confundem. Meu pensamento tende pro diferente, pro inusitado, pro inesperado,
   pro engraçado.`,
   "Pessoas",
   "Eu acredito que é importante trabalhar com pessoas estimulantes. Passando pela faculdade eu trabalhei exclusivamente em grupos e tive experiências boas e ruins. Eu até liderei algumas vezes. No fim, eu gosto de fazer as pessoas sentirem bem, sejam os usuários ou colegas.",
   "Diversão",
   "Eu me divirto bastante trabalhando. Alguns hobbies são mangás, música e jogos. Jogos estiveram comigo desde sempre e eu me mantenho informado. Quem sabe eu não faço meu primeiro jogo no futuro?",
-  "Me manda um e-mail!",
+  "Me manda um email!",
   "Seu nome",
-  "Seu e-mail",
+  "Seu email",
   "Enviar",
   "Sr. Foogêncio Bar",
   "seunome@provedor.com",
@@ -339,24 +331,22 @@ const changeLanguage = Strings => {
     dev_li[0].querySelector("span").textContent = getNext()
     dev_li[1].querySelector("span").textContent = getNext()
     dev_li[2].querySelector("span").textContent = getNext()
+
+    dev_li[3].querySelector("b").textContent = getNext()
     dev_li[3].querySelector("span").textContent = getNext()
+
     dev_li[4].querySelector("span").textContent = getNext()
     dev_li[5].querySelector("span").textContent = getNext()
     dev_li[6].querySelector("span").textContent = getNext()
+
+    dev_li[7].querySelector("b").textContent = getNext()
     dev_li[7].querySelector("span").textContent = getNext()
-    dev_li[8].querySelector("b").textContent = getNext()
-    dev_li[8].querySelector("span").textContent = getNext()
-    dev_li[9].querySelector("span").textContent = getNext()
 
     des_h3.textContent = getNext()
     des_li[0].querySelector("span").textContent = getNext()
     des_li[1].querySelector("span").textContent = getNext()
     des_li[2].querySelector("span").textContent = getNext()
     des_li[3].querySelector("span").textContent = getNext()
-    des_li[4].querySelector("b").textContent = getNext()
-    des_li[4].querySelector("span").textContent = getNext()
-    des_li[5].querySelector("b").textContent = getNext()
-    des_li[5].querySelector("span").textContent = getNext()
 
     oth_h3.textContent = getNext()
     oth_li.innerHTML = getNext()
@@ -771,7 +761,7 @@ const portuguese_Home = () => {
 
   const changeToPortuguese = () => {
     $("html").setAttribute("lang", "pt")
-    pro.innerHTML = `Eu trabalho construindo sites e eu adoro.
+    pro.innerHTML = `Olá!<br>Eu trabalho construindo sites e eu adoro.
     O que me motiva é a utilidade do meu trabalho para as pessoas e meu apetite por tecnologia.
     Pode olhar e brincar com as minhas coisas.`
     window.addEventListener("scroll", () => cleanStyles(pro), { once: true })
