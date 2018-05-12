@@ -20,9 +20,9 @@ const english_aboutStrings = [
   "Nice you came by",
   "I'm",
   "This is what I do",
-  `I am a developer majored in design deeply interested in technology.
+  `I am a developer majored in design specialized in javaScript.
+    My strength is front-end: visual elements and building user interfaces, but I'm curious enough to look into back-end, or anything involving code, really.
     I like to learn everything and I'll teach myself anything.
-    An affinity is front-end: visual elements and building user interfaces, but I'm curious enough to look into back-end, or anything involving code, really.
     Ideation and people are what gives coding meaning, and for that, I'm glad to be a designer too.`,
   `As a developer, I strive to understand the internals giving functionality to a program.
     I enjoy taking my time to understand concepts and challenge myself to learn new languages for fun.
@@ -37,7 +37,7 @@ const english_aboutStrings = [
   "4 Years",
   "Programmin'.",
   "A great framework I look forward to using often.",
-  "I know how to use Linux and learning its principles made me a better developer. My preferred system is MacOS.",
+  "I know how to use Linux and learning its principles made me a better developer.",
   "I write scripts in Bash to automate things. Moving towards using Ruby more.",
   "Some experience with",
   "C++, Node.js and Ruby",
@@ -78,8 +78,8 @@ const portuguese_aboutStrings = [
   "pt",
   "Bom te ver por aqui",
   "Eu sou",
-  "Então, sobre o que eu faço",
-  `Eu sou um desenvolvedor com formação em design e me interesso por quase tudo dentro de tecnologia.
+  "Sobre o que eu faço",
+  `Eu sou um desenvolvedor com formação em design especializado em javaScript.
   Eu gosto muito de aprender qualquer coisa e aprendo tudo sozinho.
   Tenho afinidade com front-end: elementos visuais e construir interfaces, mas também me interesso muito pela lógica do software.`,
   `Como desenvolvedor, gosto de parte do mecanismo interno que dirige as funções do programa.
@@ -95,7 +95,7 @@ const portuguese_aboutStrings = [
   "4 anos",
   "Programando.",
   "Excelente framework que eu pretendo usar sempre.",
-  `Sei usar qualquer um. Prefiro Mac ou Linux.`,
+  `Aprender Linux me tornou um desenvolvedor melhor.`,
   "Escrevo shell scripts para automatizar as coisas. Tenho planos de trocar por uma linguagem mais poderosa como Python ou Ruby.",
   "Experiência casual com",
   "C++, Node.js e Ruby",
@@ -283,9 +283,22 @@ const cleanStyles = obj =>
 const changeOpacity = (obj, value) =>
   runTask_ObjectOrList(obj, o => (o.style.opacity = value))
 
-const changeLanguage = Strings => {
+const changeLanguage = strings => {
+  //"polyfill" for .values(), my waterfox doesn't support it
+  if (strings.values === undefined) {
+    strings.values = () => {
+      let poly = {}
+      poly.array = strings
+      poly.index = 0
+      poly.next = () => {
+        poly.index++
+        return { value: poly.array[poly.index - 1] }
+      }
+      return poly
+    }
+  }
+  let iterator = strings.values()
   let all = []
-  let iterator = Strings.values()
   const getNext = () => iterator.next().value
 
   let h_h1 = $(".about-header h1")
