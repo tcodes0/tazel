@@ -2,9 +2,11 @@
   "presets": [
     ["env", {
       "targets": {
-        "browsers": ["ie 8"]
+        "browsers": ["ie 9"]
       },
       "debug": false
-    }]
+    }],
+  "stage-2",
+  "react"
   ]
 }

@@ -2,7 +2,7 @@
   "name": "tazel-home",
   "version": "1.0.0",
   "description": "Thomazella's homepage",
-  "main": "./js/index.js",
+  "main": "./src/index.js",
   "scripts": {
     "build": "babel js -d public/js"
   },
@@ -12,12 +12,23 @@
   },
   "author": "Raphael Thomazella",
   "license": "SEE LICENSE IN LICENSE.TXT",
-  "dependencies": {},
+  "dependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-prettier": "^2.6.0",
     "gulp": "^3.9.1",
     "parcel": "^1.8.1",
