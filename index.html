@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,7 @@
   <link href="css/index.css" rel="stylesheet" media="screen">
   <title>Thomazella's homepage</title>
 </head>
+
 <body>
   <div class="guide" role="presentation"></div>
 
@@ -18,7 +20,7 @@
 
         <div class="thomazella-logo" aria-label="Thomazella's logo" role="img">
           <svg width="100%" height="75">
-            <image xlink:href="css/img/thomazella.svg" src="css/img/thomazella.png" width="100%" height="100%" aria-labelledby="professional-title"/>
+            <img src="css/img/thomazella.svg" onerror="this.src='css/img/thomazella.png'" width="100%" height="100%" aria-labelledby="professional-title" />
           </svg>
         </div>
 
@@ -26,7 +28,18 @@
 
         <div class="nav-fancy" role="navigation">
           <ul>
-            <li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="projects.html">Projects</a>
+            </li>
+            <li>
+              <a href="articles.html">Read</a>
+            </li>
+            <li>
+              <a href="about.html">About.me</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -37,22 +50,21 @@
         <button type="button" name="choose-english" class="active" title="Read in English">
           <span class="img-svg">
             <svg width="100%" height="30" role="presentation">
-              <image xlink:href="css/img/flag-america.svg" src="css/img/flag-america.png" width="100%" height="100%"/>
+              <img src="css/img/flag-america.svg" onerror="this.src='css/img/flag-america.png'" width="100%" height="100%" />
             </svg>
           </span>
         </button>
         <button type="button" name="choose-portuguese" title="Read in Portuguese">
           <span class="img-svg">
             <svg width="100%" height="30" role="presentation">
-              <image xlink:href="css/img/flag-brazil.svg" src="css/img/flag-brazil.png" width="100%" height="100%"/>
+              <img src="css/img/flag-brazil.svg" onerror="this.src='css/img/flag-brazil.png'" width="100%" height="100%" />
             </svg>
           </span>
         </button>
       </div>
-      <h2>Hi there!<br>
-        I work building websites and I love it.
-        I care about the people using my work and I strive to make it better.
-        This is my homepage, feel free to play with my stuff.
+      <h2>Hi there!
+        <br> I work building websites and I love it. I care about the people using my work and I strive to make it better. This
+        is my homepage, feel free to play with my stuff.
       </h2>
     </div>
 
@@ -60,35 +72,55 @@
 
       <div class="nav-footer" role="navigation">
         <ul>
-          <li><a href="index.html">Home</a></li><li><a href="projects.html">Projects<br class="linebreak-for-mobile-nav" role="presentation"></a></li><li><a href="articles.html">Read</a></li><li><a href="about.html">About.me</a></li>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="projects.html">Projects
+              <br class="linebreak-for-mobile-nav" role="presentation">
+            </a>
+          </li>
+          <li>
+            <a href="articles.html">Read</a>
+          </li>
+          <li>
+            <a href="about.html">About.me</a>
+          </li>
         </ul>
       </div>
 
       <ul class="social-media-links" aria-label="Social media links">
-        <li><a href="https://facebook.com/thomazell" title="Find Thomazella on facebook">
+        <li>
+          <a href="https://facebook.com/thomazell" title="Find Thomazella on facebook">
           <div class="img-svg">
             <svg width="100%" height="50" role="presentation">
-              <image xlink:href="css/img/facebook.svg" src="css/img/facebook.png" width="100%" height="100%"/>
+              <img src="css/img/facebook.svg" onerror="this.src='css/img/facebook.png'" width="100%" height="100%"/>
             </svg>
           </div>
-        </a></li>
-        <li><a href="https://github.com/Thomazella" title="Find Thomazella on github">
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Thomazella" title="Find Thomazella on github">
           <div class="img-svg">
             <svg width="100%" height="50" role="presentation">
-              <image xlink:href="css/img/github.svg" src="css/img/github.png" width="100%" height="100%"/>
+              <img src="css/img/github.svg" onerror="this.src='css/img/github.png'" width="100%" height="100%"/>
             </svg>
           </div>
-        </a></li>
-        <li><a href="https://www.linkedin.com/in/thomazella/" title="Find Thomazella on linkedIn">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/thomazella/" title="Find Thomazella on linkedIn">
           <div class="img-svg">
             <svg width="100%" height="50" role="presentation">
-              <image xlink:href="css/img/linkedin.svg" src="css/img/linkedin.png" width="100%" height="100%"/>
+              <img src="css/img/linkedin.svg" onerror="this.src='css/img/linkedin.png'" width="100%" height="100%"/>
             </svg>
           </div>
-        </a></li>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
   <script src="js/index.js"></script>
 </body>
+
 </html>
