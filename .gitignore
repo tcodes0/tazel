@@ -1,5 +1,4 @@
 node_modules/*
-.sass*
 *old
 .DS*
 css/normalize*
@@ -8,6 +7,8 @@ build/*
 temp/*
 misc/*
 test*
+dist/*
+*cache
 fk*
 *~
 *pdf
