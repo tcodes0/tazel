@@ -11,9 +11,9 @@ const m = $(".main");
 const transitionStandard = "1.15s ease-out";
 const transitionSmooth = "2.15s ease-in-out";
 const floatArticleEvent = new Event("floatarticle", { bubbles: true });
-let resizers = [];
+const resizers = [];
 let onLoaders = [];
-let floaters = [];
+const floaters = [];
 
 const english_aboutStrings = [
   "en",
@@ -144,7 +144,7 @@ document.addEventListener("readystatechange", () => {
 });
 
 const toggleGuide = () => {
-  let guide = $(".guide");
+  const guide = $(".guide");
   if (guide.style.display === "" || guide.style.display === "none") {
     guide.style.display = "block";
     if (window.innerHeight > document.body.offsetHeight) {
@@ -159,7 +159,7 @@ const toggleGuide = () => {
 // onLoaders.push(toggleGuide)
 
 const htmlHide = query => {
-  let e = $(query);
+  const e = $(query);
   if (e.attributes.hidden) e.removeAttribute("hidden");
   else {
     e.setAttribute("hidden", "");
@@ -168,9 +168,9 @@ const htmlHide = query => {
 };
 
 const whiteIcons = q => {
-  let icons = q ? [...$$(`${q} svg image`)] : [...$$("svg image")];
-  let xlink = "xlink:href";
-  let src = "src";
+  const icons = q ? [...$$(`${q} svg image`)] : [...$$("svg image")];
+  const xlink = "xlink:href";
+  const src = "src";
   icons.forEach(icon => {
     if (icon.attributes[xlink].value.match(/-white/)) {
       return;
@@ -188,9 +188,9 @@ const whiteIcons = q => {
 // onLoaders.push(whiteIcons)
 
 const blackIcons = q => {
-  let icons = q ? [...$$(`${q} svg image`)] : [...$$("svg image")];
-  let xlink = "xlink:href";
-  let src = "src";
+  const icons = q ? [...$$(`${q} svg image`)] : [...$$("svg image")];
+  const xlink = "xlink:href";
+  const src = "src";
   icons.forEach(icon => {
     if (!icon.attributes[xlink].value.match(/-white/)) {
       return;
@@ -215,7 +215,7 @@ const hide_HomeFooterNav = () => {
 onLoaders.push(hide_HomeFooterNav);
 
 const light_Colors = () => {
-  let color = "rgb(255,255,252)";
+  const color = "rgb(255,255,252)";
   $(".main").style.backgroundColor = color;
   $("body").style.color = "rgb(19,19,35)";
 };
@@ -230,29 +230,28 @@ const langSwitcher_AddClickHandler = () => {
     b.addEventListener("click", e => {
       // webkit sets e.target = img underneath, but we want the <button> 3 lvls up
       // gecko sets e.target to the <button>
-      let t =
+      const t =
         e.target.nodeName === "image"
           ? e.target.parentNode.parentNode.parentNode
           : e.target;
 
       if (t.classList.contains("active")) {
         return;
-      } else {
-        t.classList.add("active");
+      }
+      t.classList.add("active");
 
-        t.nextElementSibling
-          ? t.nextElementSibling.classList.remove("active")
-          : t.previousElementSibling.classList.remove("active");
+      t.nextElementSibling
+        ? t.nextElementSibling.classList.remove("active")
+        : t.previousElementSibling.classList.remove("active");
 
-        if (ThisPageIs(about)) {
-          document.documentElement.attributes.lang.value === "pt"
-            ? changeLanguage(english_aboutStrings)
-            : changeLanguage(portuguese_aboutStrings);
-        } else if (ThisPageIs(home)) {
-          document.documentElement.attributes.lang.value === "pt"
-            ? english_Home()
-            : portuguese_Home();
-        }
+      if (ThisPageIs(about)) {
+        document.documentElement.attributes.lang.value === "pt"
+          ? changeLanguage(english_aboutStrings)
+          : changeLanguage(portuguese_aboutStrings);
+      } else if (ThisPageIs(home)) {
+        document.documentElement.attributes.lang.value === "pt"
+          ? english_Home()
+          : portuguese_Home();
       }
     })
   );
@@ -284,10 +283,10 @@ const changeOpacity = (obj, value) =>
   runTask_ObjectOrList(obj, o => (o.style.opacity = value));
 
 const changeLanguage = strings => {
-  //"polyfill" for .values(), my waterfox doesn't support it
+  // "polyfill" for .values(), my waterfox doesn't support it
   if (strings.values === undefined) {
     strings.values = () => {
-      let poly = {};
+      const poly = {};
       poly.array = strings;
       poly.index = 0;
       poly.next = () => {
@@ -297,36 +296,36 @@ const changeLanguage = strings => {
       return poly;
     };
   }
-  let iterator = strings.values();
-  let all = [];
+  const iterator = strings.values();
+  const all = [];
   const getNext = () => iterator.next().value;
 
-  let h_h1 = $(".about-header h1");
-  let iAmCalled = $(".what-does-tazel-mean span");
+  const h_h1 = $(".about-header h1");
+  const iAmCalled = $(".what-does-tazel-mean span");
 
-  let who_h3 = $(".who-i-am h3");
-  let who_p = $$(".who-i-am p");
+  const who_h3 = $(".who-i-am h3");
+  const who_p = $$(".who-i-am p");
 
-  let strong = $(".what-i-do strong");
+  const strong = $(".what-i-do strong");
 
-  let dev_h3 = $(".dev-skills h3");
-  let dev_li = $$(".dev-skills li");
+  const dev_h3 = $(".dev-skills h3");
+  const dev_li = $$(".dev-skills li");
 
-  let des_h3 = $(".design-skills h3");
-  let des_li = $$(".design-skills li");
+  const des_h3 = $(".design-skills h3");
+  const des_li = $$(".design-skills li");
 
-  let oth_h3 = $(".other-skills h3");
-  let oth_li = $(".other-skills li");
+  const oth_h3 = $(".other-skills h3");
+  const oth_li = $(".other-skills li");
 
-  let opn_h2 = $(".opinions h2");
-  let opn_li = $$(".opinions li");
+  const opn_h2 = $(".opinions h2");
+  const opn_li = $$(".opinions li");
 
-  let form_h2 = $("fieldset h2");
-  let form_la = $$("fieldset label");
-  let form_in = $$("fieldset input");
-  let form_submit = $("#submit-button");
+  const form_h2 = $("fieldset h2");
+  const form_la = $$("fieldset label");
+  const form_in = $$("fieldset input");
+  const form_submit = $("#submit-button");
 
-  let thanks = $(".thanks-for-reading em");
+  const thanks = $(".thanks-for-reading em");
 
   const changeToEnglish = () => {
     $("html").setAttribute("lang", getNext());
@@ -419,7 +418,7 @@ const changeLanguage = strings => {
 };
 
 const english_Home = () => {
-  let pro = $("#professional-description h2");
+  const pro = $("#professional-description h2");
 
   const changeToEnglish = () => {
     $("html").setAttribute("lang", "en");
@@ -437,8 +436,8 @@ const english_Home = () => {
 const footer_OnBottom = () => {
   if (f.offsetHeight + f.offsetTop < window.innerHeight) {
     f.style.position = "relative";
-    f.style.bottom =
-      -1 * (window.innerHeight - f.offsetHeight - f.offsetTop) + "px";
+    f.style.bottom = `${-1 *
+      (window.innerHeight - f.offsetHeight - f.offsetTop)}px`;
     // m.style.minHeight = window.innerHeight + 'px'
   }
 };
@@ -452,7 +451,6 @@ const previewArticles_AddClickHandler = () => {
   const handler = e => {
     e.preventDefault();
     if ($(".added-by-js")) {
-      return;
     } else {
       floatingArticle_Inserter(e);
       previewArticles_LinkDisabler();
@@ -493,20 +491,20 @@ const previewArticles_LinkDisabler = () => {
 
 const floatingArticle_Inserter = e => {
   // if the hashChecker() called this, e will be a string
-  let triggeredByClick = typeof e === "object";
+  const triggeredByClick = typeof e === "object";
   // get the link that was clicked or URL hash navigated to and figure what article to show
-  let targetHash = triggeredByClick
+  const targetHash = triggeredByClick
     ? findALinkParent(e.target).attributes.href.value
     : e;
-  let el = $(targetHash);
-  //see BUG below
-  let tail = document.createElement("div");
+  const el = $(targetHash);
+  // see BUG below
+  const tail = document.createElement("div");
 
   const headPrepender = e => {
-    let head = document.createElement("div");
+    const head = document.createElement("div");
     head.classList.add("empty-transparency");
-    head.style.height = el.dataset.top + "px";
-    head.style.top = -1 * Number.parseInt(el.dataset.top) + "px";
+    head.style.height = `${el.dataset.top}px`;
+    head.style.top = `${-1 * Number.parseInt(el.dataset.top)}px`;
     el.prepend(head);
     head.addEventListener("click", floatingArticle_Destroyer, { once: true });
     head.addEventListener("touchend", floatingArticle_Destroyer, {
@@ -516,14 +514,14 @@ const floatingArticle_Inserter = e => {
   const tailAppender = e => {
     el.appendChild(tail);
     tail.classList.add("empty-transparency");
-    tail.style.top = el.offsetHeight + "px";
+    tail.style.top = `${el.offsetHeight}px`;
     tail.addEventListener("click", floatingArticle_Destroyer, { once: true });
     tail.addEventListener("touchend", floatingArticle_Destroyer, {
       once: true
     });
   };
   const unsetProgressCursor = () => (document.body.style.cursor = "auto");
-  //setting this too early causes scroll that interferes with the floating transition
+  // setting this too early causes scroll that interferes with the floating transition
   const setURLHash = () =>
     window.location.hash !== targetHash
       ? (window.location.hash = targetHash)
@@ -536,7 +534,7 @@ const floatingArticle_Inserter = e => {
   // in case of a direct navigation to the article, no transition
   el.style.transition = triggeredByClick ? `transform ${transitionSmooth}` : "";
   // move article underneath viewport
-  el.style.top = window.innerHeight + window.scrollY + "px";
+  el.style.top = `${window.innerHeight + window.scrollY}px`;
   el.classList.remove("hide");
   // hide nonsensical link if js works
   el.querySelector('.container-backlinks a.back[href="#header"]').classList.add(
@@ -544,9 +542,9 @@ const floatingArticle_Inserter = e => {
   );
 
   // BUG: Safari needs this line outside 'load' handler below
-  tail.style.top = el.offsetHeight + "px";
+  tail.style.top = `${el.offsetHeight}px`;
 
-  //article specific functions listen to this
+  // article specific functions listen to this
   el.dispatchEvent(floatArticleEvent);
 
   // the point where the article begins
@@ -559,7 +557,7 @@ const floatingArticle_Inserter = e => {
   if (document.readyState == "complete") {
     tailAppender();
   } else {
-    //if done earlier it will have wrong height
+    // if done earlier it will have wrong height
     window.addEventListener("load", tailAppender, { once: true });
   }
 
@@ -577,7 +575,7 @@ const floatingArticle_Inserter = e => {
     setURLHash();
   }
 
-  //events to close the floating article
+  // events to close the floating article
   el.querySelector("a.close").addEventListener(
     "click",
     floatingArticle_Destroyer,
@@ -596,17 +594,16 @@ const floatingArticle_Inserter = e => {
 };
 
 const positionFixed_Apply = e => {
-  let mchildren = [...m.children].filter(child => {
-    return (
+  const mchildren = [...m.children].filter(
+    child =>
       child.attributes.id.value !== "reads" &&
       child.attributes.id.value !== "projects"
-    );
-  });
-  let el = $(".added-by-js");
+  );
+  const el = $(".added-by-js");
   // rev to start from bottom, bc elements tend to collapse upwards
   mchildren.reverse();
   mchildren.forEach(child => {
-    child.style.top = child.offsetTop - Number.parseInt(el.dataset.top) + "px";
+    child.style.top = `${child.offsetTop - Number.parseInt(el.dataset.top)}px`;
     child.style.position = "fixed";
   });
 };
@@ -619,7 +616,7 @@ const positionFixed_Remove = () => {
 const floatingArticle_Destroyer = () => {
   // avoids a flick caused by smooth scrolling when article is destroyed
   const avoidScrollBehaviorSmooth = () => {
-    let sb = getComputedStyle(document.body).scrollBehavior;
+    const sb = getComputedStyle(document.body).scrollBehavior;
 
     if (!sb) return;
 
@@ -627,7 +624,7 @@ const floatingArticle_Destroyer = () => {
       document.body.style.scrollBehavior = "auto";
     }
   };
-  let el = $(".added-by-js");
+  const el = $(".added-by-js");
 
   el.style.transition = `opacity ${transitionStandard}`;
   changeOpacity(el, 0);
@@ -659,7 +656,7 @@ const scrollHandler = e => {
   if (e.deltaY < 0) {
     return;
   }
-  let el = $(".added-by-js");
+  const el = $(".added-by-js");
   if (
     window.scrollY >=
     el.offsetHeight + Number.parseInt(el.dataset.top) - 120
@@ -671,18 +668,17 @@ const scrollHandler = e => {
 const keyHandler = e => {
   // console.log(`${e.code} - ${e.keyCode}`);
   if (
-    e.keyCode !== 32 && //space
+    e.keyCode !== 32 && // space
     // e.keyCode !== 33 && //pgup
-    e.keyCode !== 34 && //pgdown
+    e.keyCode !== 34 && // pgdown
     // e.keyCode !== 38 && //uparrow
-    e.keyCode !== 27 && //esc
+    e.keyCode !== 27 && // esc
     e.keyCode !== 40
   ) {
-    //downarrow
+    // downarrow
     return;
-  } else {
-    e.keyCode === 27 ? floatingArticle_Destroyer() : scrollHandler(e);
   }
+  e.keyCode === 27 ? floatingArticle_Destroyer() : scrollHandler(e);
 };
 
 const previewArticles_LinkEnabler = () => {
@@ -705,9 +701,9 @@ const backToTop_LinkReplacer = () => {
   if (ThisPageIsNot(articles) && ThisPageIsNot(projects)) {
     return;
   }
-  let xl = "xlink:href";
-  let source = $('a.close[href="#header"]');
-  let clone = $('.container-backlinks a.back[href="index.html"]').cloneNode(
+  const xl = "xlink:href";
+  const source = $('a.close[href="#header"]');
+  const clone = $('.container-backlinks a.back[href="index.html"]').cloneNode(
     true
   );
   clone.querySelector("span").textContent = "Close this";
@@ -735,7 +731,7 @@ const hideReadsAndProjects = () => {
 };
 
 const hideAllReadsButLast = () => {
-  let reads = [...$$(".read")];
+  const reads = [...$$(".read")];
   reads.pop();
   reads.forEach(r => r.classList.add("hide"));
 };
@@ -771,14 +767,14 @@ const nununuIconColorSwapper = e => {
     return;
   }
 
-  let targets = [...$$("#nununu a.close .img-svg")];
+  const targets = [...$$("#nununu a.close .img-svg")];
   targets.push(...$$("#nununu a.back .img-svg"));
   targets.forEach(t => (t.style.backgroundColor = "#ffbc0f"));
 };
 floaters.push(nununuIconColorSwapper);
 
 const portuguese_Home = () => {
-  let pro = $("#professional-description h2");
+  const pro = $("#professional-description h2");
 
   const changeToPortuguese = () => {
     $("html").setAttribute("lang", "pt");
@@ -793,3 +789,8 @@ const portuguese_Home = () => {
   pro.style.transition = `opacity ${transitionStandard}`;
   pro.style.opacity = 0;
 };
+
+const HideReadsOnLoad = () => {
+  document.querySelectorAll(".read").forEach(r => r.classList.add("hide"));
+};
+onLoaders.push(HideReadsOnLoad);
