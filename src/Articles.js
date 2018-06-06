@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Read from "./pages/Read";
+import Articles from "./pages/Articles";
 
-ReactDOM.render(<Read/>, document.querySelector("#root"));
+ReactDOM.render(<Articles/>, document.querySelector("#root"));

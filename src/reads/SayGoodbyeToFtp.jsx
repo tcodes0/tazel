@@ -1,4 +1,18 @@
 import React from "react";
+import Backlinks from "../components/Backlinks";
+import CloseLink from "../components/CloseLink";
+import screen_google from "./SayGoodbyeToFtp/screen_google.png";
+import screen_ssh from "./SayGoodbyeToFtp/screen_ssh.png";
+import screen_prompt from "./SayGoodbyeToFtp/screen_prompt.png";
+import screen_keyfinish from "./SayGoodbyeToFtp/screen_keyfinish.png";
+import screen_sshicon from "./SayGoodbyeToFtp/screen_sshicon.png";
+import screen_import from "./SayGoodbyeToFtp/screen_import.png";
+import screen_importbutton from "./SayGoodbyeToFtp/screen_importbutton.png";
+import screen_manage from "./SayGoodbyeToFtp/screen_manage.png";
+import screen_genkeyform from "./SayGoodbyeToFtp/screen_genkeyform.png";
+import screen_download from "./SayGoodbyeToFtp/screen_download.png";
+import screen_hosthome from "./SayGoodbyeToFtp/screen_hosthome.png";
+import screen_test from "./SayGoodbyeToFtp/screen_test.png";
 
 const SayGoodbyeToFtp = props => (
   <div
@@ -13,19 +27,7 @@ const SayGoodbyeToFtp = props => (
         <span className="span-date" role="note">
           March 2017, by Thomazella
         </span>
-        <a className="close" href="#header" title="back to preview browsing">
-          <div className="img-svg">
-            <svg width="100%" height="13" role="presentation">
-              <image
-                xlinkHref="../src/img/x.svg"
-                src="../src/img/x.png"
-                width="100%"
-                height="100%"
-                role="presentation"
-              />
-            </svg>
-          </div>
-        </a>
+        <CloseLink />
         <h1 className="heading1">Say goodbye to FTP</h1>
       </div>
       <div className="read-text" role="main">
@@ -207,8 +209,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-google.png"
-              alt="search the web for instructions"
+              src={screen_google}
+              alt=""
             />
           </div>
           <p>
@@ -282,8 +284,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-ssh.png"
-              alt="terminal output showing ssh is installed"
+              src={screen_ssh}
+              alt=""
             />
           </div>
           <p>This means a SSH program is available and working. Good.</p>
@@ -327,8 +329,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-prompt.png"
-              alt="terminal output showing log in succeeded"
+              src={screen_prompt}
+              alt=""
             />
           </div>
           <em>Notice the prompt changed?</em>
@@ -425,8 +427,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot portrait"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-keyfinish.png"
-              alt="terminal output showing ssh key creation succeeded"
+              src={screen_keyfinish}
+              alt=""
             />
           </div>
           <p>
@@ -441,8 +443,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot portrait"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-sshicon.png"
-              alt="ssh icon on cpanel"
+              src={screen_sshicon}
+              alt=""
             />
           </div>
           <em>Import key option.</em>
@@ -450,8 +452,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot portrait"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-import.png"
-              alt="import key button on cpanel"
+              src={screen_import}
+              alt=""
             />
           </div>
           <p>
@@ -471,8 +473,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot portrait"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-importbutton.png"
-              alt="click import after pasting"
+              src={screen_importbutton}
+              alt=""
             />
           </div>
           <p>After uploading we need to authorize the key.</p>
@@ -481,8 +483,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-manage.png"
-              alt="manage key icon"
+              src={screen_manage}
+              alt=""
             />
           </div>
           <em>Click on authorize.</em>
@@ -497,8 +499,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot portrait"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-genkeyform.png"
-              alt="fields of a form to generate a ssh key"
+              src={screen_genkeyform}
+              alt=""
             />
           </div>
           <p>You should now have a pair of keys.</p>
@@ -510,8 +512,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot portrait"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-download.png"
-              alt="ssh key in plain text and download button"
+              src={screen_download}
+              alt=""
             />
           </div>
           <p>
@@ -684,8 +686,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-hosthome.png"
-              alt="ftp program showing home path on webhost"
+              src={screen_hosthome}
+              alt=""
             />
           </div>
           <em>Or you can SSH into the host and type:</em>
@@ -755,8 +757,8 @@ const SayGoodbyeToFtp = props => (
             <img
               className="screenshot portrait"
               aria-label="screenshot"
-              src="../src/img/reads/say-goodbye-to-ftp/screen-test.png"
-              alt="ftp program showing test upload succeeded"
+              src={screen_test}
+              alt=""
             />
           </div>
           <h3>Time for a site upload</h3>
@@ -956,57 +958,8 @@ const SayGoodbyeToFtp = props => (
           </p>
           <em>That's my first post, I hope it's useful!</em>
         </p>
-        <div className="container-backlinks">
-          <a href="#header" className="back" title="back to top">
-            <div className="img-svg">
-              <svg width="100%" height="14" role="presentation">
-                <image
-                  xlinkHref="../src/img/arrow-up.svg"
-                  src="../src/img/arrow-up.png"
-                  width="100%"
-                  height="100%"
-                  role="presentation"
-                />
-              </svg>
-            </div>
-            <span>Back to top</span>
-          </a>
-          <a href="#reads" className="back" title="read again">
-            <div className="img-svg">
-              <svg width="100%" height="12" role="presentation">
-                <image
-                  xlinkHref="../src/img/arrow-twist.svg"
-                  src="../src/img/arrow-twist.png"
-                  width="100%"
-                  height="100%"
-                  role="presentation"
-                />
-              </svg>
-            </div>
-            <span>Read again</span>
-          </a>
-          <a href="index.html" className="back" title="back home">
-            <div className="img-svg">
-              <svg width="100%" height="12" role="presentation">
-                <image
-                  xlinkHref="../src/img/arrow-left.svg"
-                  src="../src/img/arrow-left.png"
-                  width="100%"
-                  height="100%"
-                  role="presentation"
-                />
-              </svg>
-            </div>
-            <span>Back Home</span>
-          </a>
-          <a className="back">
-            <em>
-              keep scrolling or click
-              <br />below to close
-            </em>
-          </a>
-        </div>
       </div>
+      <Backlinks />
       <hr />
     </div>
   </div>

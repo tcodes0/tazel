@@ -1,5 +1,6 @@
 import React from "react";
 import ReadFtp from "../reads/SayGoodbyeToFtp";
+import ReadPwned from "../reads/Pwned";
 
 const Reads = props => (
   <div
@@ -10,6 +11,7 @@ const Reads = props => (
   >
     <div className="container-nontileable" role="presentation">
       <ReadFtp />
+      <ReadPwned />
     </div>
   </div>
 );
