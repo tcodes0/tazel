@@ -1,12 +1,12 @@
 import React from "react";
 import Backlinks from "../components/Backlinks";
 import CloseLink from "../components/CloseLink";
+import ImgContained from "../components/ImgContained";
 import assinatura from "./andrea/assinatura.png";
 import bird from "./andrea/bird.jpg";
 import footer from "./andrea/footer.jpg";
 import logo from "./andrea/logo.png";
 import sky from "./andrea/sky.jpg";
-import ImgContained from "../components/ImgContained";
 
 const Andrea = props => (
   <div
