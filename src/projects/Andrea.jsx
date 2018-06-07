@@ -5,7 +5,7 @@ import ImgContained from "../components/ImgContained";
 import assinatura from "./andrea/assinatura.png";
 import bird from "./andrea/bird.jpg";
 import footer from "./andrea/footer.jpg";
-import logo from "./andrea/logo.png";
+import logo from "./andrea/logo2.png";
 import sky from "./andrea/sky.jpg";
 
 const Andrea = props => (
