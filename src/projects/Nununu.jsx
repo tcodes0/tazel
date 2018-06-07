@@ -99,8 +99,14 @@ const Nununu = props => (
           light and sound effects. Sensors and LEDs were wired into an Arduino
           board, and audio hardware used was a 4 channel interface. Nununu
           featured four soundscapes with different moods and interactions. I
-          produced a document of the whole process, which you can download, if
-          you’re into that type of thing.
+          produced a document of the whole process, which you can{" "}
+          <a
+            style={{ color: "white" }}
+            href="https://drive.google.com/open?id=1e_Gsdf3ky5hncVHw4XGvaeJjSSOwBP2o"
+          >
+            download
+          </a>
+          , if you’re into that type of thing.
         </p>
         <p>I also worked on branding the project:</p>
         <ImgContained src={logo} alt="Nununu brand logo dark" />
