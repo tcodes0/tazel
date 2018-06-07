@@ -11,10 +11,7 @@ const Footer = props => (
           <a href="index.html">Home</a>
         </li>
         <li>
-          <a href="projects.html">
-            Projects
-            <br className="linebreak-for-mobile-nav" role="presentation" />
-          </a>
+          <a href="projects.html">Projects</a>
         </li>
         <li>
           <a href="articles.html">Read</a>
@@ -32,15 +29,12 @@ const Footer = props => (
           title="Find Thomazella on facebook"
         >
           <div className="img-svg">
-            <svg width="100%" height="50" role="presentation">
-              <img
-                src={facebookLogo}
-                onError="this.src='css/img/facebook.png'"
-                width="100%"
-                height="100%"
-                alt="facebook logo"
-              />
-            </svg>
+            <img
+              src={facebookLogo}
+              width="100%"
+              height="50"
+              alt="facebook logo"
+            />
           </div>
         </a>
       </li>
@@ -50,15 +44,12 @@ const Footer = props => (
           title="Find Thomazella on github"
         >
           <div className="img-svg">
-            <svg width="100%" height="50" role="presentation">
-              <img
-                src={githubLogo}
-                onError="this.src='css/img/github.png'"
-                width="100%"
-                height="100%"
-                alt="github logo"
-              />
-            </svg>
+            <img
+              src={githubLogo}
+              width="100%"
+              height="50"
+              alt="github logo"
+            />
           </div>
         </a>
       </li>
@@ -68,15 +59,12 @@ const Footer = props => (
           title="Find Thomazella on linkedIn"
         >
           <div className="img-svg">
-            <svg width="100%" height="50" role="presentation">
-              <img
-                src={linkedinLogo}
-                onError="this.src='css/img/linkedin.png'"
-                width="100%"
-                height="100%"
-                alt="linkedin logo"
-              />
-            </svg>
+            <img
+              src={linkedinLogo}
+              width="100%"
+              height="50"
+              alt="linkedin logo"
+            />
           </div>
         </a>
       </li>

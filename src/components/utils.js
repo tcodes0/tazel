@@ -790,7 +790,12 @@ const portuguese_Home = () => {
   pro.style.opacity = 0;
 };
 
-const HideReadsOnLoad = () => {
-  document.querySelectorAll(".read").forEach(r => r.classList.add("hide"));
+const HideContentOnLoad = () => {
+  if (ThisPageIs(articles)) {
+    document.querySelectorAll(".read").forEach(r => r.classList.add("hide"));
+  }
+  if (ThisPageIs(projects)) {
+    document.querySelectorAll(".project").forEach(r => r.classList.add("hide"));
+  }
 };
-onLoaders.push(HideReadsOnLoad);
+onLoaders.push(HideContentOnLoad);

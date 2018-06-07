@@ -5,7 +5,9 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "yarn parcel public/index.html",
-    "build": "yarn parcel build public/index.html"
+    "build": "yarn parcel build public/index.html",
+    "lint": "eslint src test",
+    "clean": "yarn rimraf dist"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,7 @@
     "gulp": "^3.9.1",
     "node-sass": "^4.9.0",
     "parcel": "^1.8.1",
+    "rimraf": "^2.6.2",
     "prettier": "^1.13.4"
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import facebookLogo from "../img/facebook.svg";
 import githubLogo from "../img/github.svg";
 import linkedinLogo from "../img/linkedin.svg";
+import ImgSvg from "./ImgSvg";
 
 const FooterHome = props => (
   <div className="footer-home" role="contentinfo" {...props}>
@@ -31,17 +32,7 @@ const FooterHome = props => (
           href="https://facebook.com/thomazell"
           title="Find Thomazella on facebook"
         >
-          <div className="img-svg">
-            <svg width="100%" height="50" role="presentation">
-              <img
-                src={facebookLogo}
-                onError="this.src='css/img/facebook.png'"
-                width="100%"
-                height="100%"
-                alt="facebook logo"
-              />
-            </svg>
-          </div>
+          <ImgSvg height="50" src={facebookLogo} alt="facebook logo" />
         </a>
       </li>
       <li>
@@ -49,17 +40,7 @@ const FooterHome = props => (
           href="https://github.com/Thomazella"
           title="Find Thomazella on github"
         >
-          <div className="img-svg">
-            <svg width="100%" height="50" role="presentation">
-              <img
-                src={githubLogo}
-                onError="this.src='css/img/github.png'"
-                width="100%"
-                height="100%"
-                alt="github logo"
-              />
-            </svg>
-          </div>
+          <ImgSvg height="50" src={githubLogo} alt="github logo" />
         </a>
       </li>
       <li>
@@ -67,17 +48,7 @@ const FooterHome = props => (
           href="https://www.linkedin.com/in/thomazella/"
           title="Find Thomazella on linkedIn"
         >
-          <div className="img-svg">
-            <svg width="100%" height="50" role="presentation">
-              <img
-                src={linkedinLogo}
-                onError="this.src='css/img/linkedin.png'"
-                width="100%"
-                height="100%"
-                alt="linkedin logo"
-              />
-            </svg>
-          </div>
+          <ImgSvg height="50" src={linkedinLogo} alt="linkedin logo" />
         </a>
       </li>
     </ul>

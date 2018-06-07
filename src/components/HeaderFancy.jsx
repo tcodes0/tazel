@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../img/thomazella.svg";
+import ImgSvg from "./ImgSvg";
 
 const HeaderFancy = props => (
   <div {...props} className="header-fancy" role="banner" id="header">
@@ -9,16 +10,11 @@ const HeaderFancy = props => (
         aria-label="Thomazella's logo"
         role="img"
       >
-        <svg width="100%" height="75">
-          <img
-            src={logo}
-            onError="this.src='css/img/thomazella.png'"
-            width="100%"
-            height="100%"
-            aria-labelledby="professional-title"
-            alt="Thomazella written in custom typography."
-          />
-        </svg>
+        <ImgSvg
+          src={logo}
+          height="75"
+          alt="Thomazella written in custom typography."
+        />
       </div>
 
       <h1 id="professional-title" aria-describedby="professional-description">
