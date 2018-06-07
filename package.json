@@ -4,7 +4,7 @@
   "description": "Thomazella's homepage",
   "main": "./src/index.js",
   "scripts": {
-    "start": "yarn parcel public/index.html --out-dir build",
+    "start": "yarn parcel public/index.html --out-dir build --no-cache",
     "build": "yarn clean && yarn parcel build public/index.html --public-url ./ --out-dir build",
     "lint": "eslint src test",
     "next": "rimraf ../next-tazel-home/build && cp -RHi build ../next-tazel-home/",
@@ -20,6 +20,7 @@
   "dependencies": {
     "fallback": "^1.0.1",
     "react": "^16.4.0",
+    "react-router-dom": "^4.3.1",
     "react-dom": "^16.4.0"
   },
   "devDependencies": {

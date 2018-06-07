@@ -1,6 +1,6 @@
 import React from "react";
 import PageWrapper from "../components/PageWrapper";
-import Navigation from "../components/Navigation";
+import Header from "../components/Header";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Footer from "../components/Footer";
 import EmailMe from "../components/EmailMe";
@@ -9,7 +9,7 @@ import AboutText from "../components/AboutText";
 
 export default props => (
   <PageWrapper {...props}>
-    <Navigation {...props} />
+    <Header {...props} />
     <LanguageSwitcher />
     <AboutText />
     <EmailMe />

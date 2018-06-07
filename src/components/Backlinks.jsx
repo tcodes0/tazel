@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import arrowUp from "../img/arrow-up.svg";
 import arrowTwist from "../img/arrow-twist.svg";
 import arrowLeft from "../img/arrow-left.svg";
@@ -17,12 +18,12 @@ const Backlinks = props => (
       </div>
       <span>Read again</span>
     </a>
-    <a href="index.html" className="back" title="back home">
+    <Link to="/" className="back" title="back home">
       <div className="img-svg">
         <img src={arrowLeft} width="100%" height="12" alt="" />
       </div>
       <span>Back Home</span>
-    </a>
+    </Link>
     <a className="back">
       <em>
         keep scrolling or click

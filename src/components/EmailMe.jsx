@@ -9,7 +9,7 @@ const EmailMe = props => (
     {...props}
   >
     <form
-      action="email-handler.php"
+      action="../scripts/email-handler.php"
       method="post"
       name="Send Thomazella an email"
       aria-labelledby="lgn"

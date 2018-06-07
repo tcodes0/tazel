@@ -1,13 +1,13 @@
 import React from "react";
 import HeaderFancy from "../components/HeaderFancy";
 import ProfessionalDescription from "../components/ProfessionalDescription";
-import FooterHome from "../components/FooterHome";
+import Footer from "../components/Footer";
 import PageWrapper from "../components/PageWrapper";
 
 export default props => (
   <PageWrapper>
     <HeaderFancy {...props} />
     <ProfessionalDescription {...props} />
-    <FooterHome {...props} />
+    <Footer className="footer-home" {...props} />
   </PageWrapper>
 );

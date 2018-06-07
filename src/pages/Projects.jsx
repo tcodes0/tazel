@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "../components/Navigation";
+import Header from "../components/Header";
 import ProjectPreviews from "../components/ProjectPreviews";
 import Projects from "../components/Projects";
 import Footer from "../components/Footer";
@@ -7,7 +7,7 @@ import PageWrapper from "../components/PageWrapper";
 
 export default props => (
   <PageWrapper>
-    <Navigation {...props} />
+    <Header {...props} />
     <ProjectPreviews {...props} />
     <Projects {...props} />
     <Footer {...props} />

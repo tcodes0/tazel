@@ -1,23 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = props => (
-  <div role="banner" id="header" className="header" {...props}>
-    <div className="nav" role="navigation">
-      <ul>
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="projects.html">Projects</a>
-        </li>
-        <li>
-          <a href="articles.html">Read</a>
-        </li>
-        <li>
-          <a href="about.html">About.me</a>
-        </li>
-      </ul>
-    </div>
+  <div className="nav" role="navigation" {...props}>
+    <ul>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="projects">Projects</Link>
+      </li>
+      <li>
+        <Link to="articles">Read</Link>
+      </li>
+      <li>
+        <Link to="about">About.me</Link>
+      </li>
+    </ul>
   </div>
 );
 

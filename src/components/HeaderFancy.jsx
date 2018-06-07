@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../img/thomazella.svg";
 import ImgSvg from "./ImgSvg";
+import Navigation from "./Navigation";
 
 const HeaderFancy = props => (
   <div {...props} className="header-fancy" role="banner" id="header">
@@ -21,22 +22,7 @@ const HeaderFancy = props => (
         Designer + JavaScript_Developer
       </h1>
 
-      <div className="nav-fancy" role="navigation">
-        <ul>
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>
-            <a href="projects.html">Projects</a>
-          </li>
-          <li>
-            <a href="articles.html">Read</a>
-          </li>
-          <li>
-            <a href="about.html">About.me</a>
-          </li>
-        </ul>
-      </div>
+      <Navigation className="nav-fancy" />
     </div>
   </div>
 );
