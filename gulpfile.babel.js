@@ -135,27 +135,3 @@ export const pngToJpeg = () => {
 export const optimizeImgs = gulp.parallel(lossy_png, lossy_jpeg, copyOthers)
 export const build = gulp.parallel(scripts, optimizeImgs)
 export default build
-
-/*
- * You can also declare named functions and export them as tasks
- */
-// export function styles() {
-//   return gulp.src(paths.styles.src)
-//     .pipe(less())
-//     .pipe(purgeCSS())
-//     // pass in options to the stream
-//     .pipe(rename({
-//       basename: 'main',
-//       suffix: '.min'
-//     }))
-//     .pipe(gulp.dest(paths.styles.dest))
-// }
-
- /*
-  * You could even use `export as` to rename exported tasks
-  */
-// function watchFiles() {
-//   gulp.watch(paths.scripts.src, scripts)
-//   gulp.watch(paths.styles.src, styles)
-// }
-// export { watchFiles as watch
