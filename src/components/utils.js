@@ -7,7 +7,7 @@ const about = "About Thomazella";
 const $ = q => document.querySelector(q);
 const $$ = q => document.querySelectorAll(q);
 const f = $(".footer") || $(".footer-home");
-const m = $(".main");
+// const m = $(".main");
 const transitionStandard = "1.15s ease-out";
 const transitionSmooth = "2.15s ease-in-out";
 const floatArticleEvent = new Event("floatarticle", { bubbles: true });
@@ -434,6 +434,9 @@ const english_Home = () => {
 };
 
 const footer_OnBottom = () => {
+  if (!f) {
+    return;
+  }
   if (f.offsetHeight + f.offsetTop < window.innerHeight) {
     f.style.position = "relative";
     f.style.bottom = `${-1 *
@@ -447,13 +450,13 @@ onLoaders.push(footer_OnBottom);
 const findALinkParent = x =>
   x.nodeName === "A" ? x : findALinkParent(x.parentNode);
 
-const previewArticles_AddClickHandler = () => {
+const previewArticlesAddClickHandler = () => {
   const handler = e => {
     e.preventDefault();
     if ($(".added-by-js")) {
     } else {
       floatingArticle_Inserter(e);
-      previewArticles_LinkDisabler();
+      previewArticlesLinkDisabler();
     }
   };
   const hooker = query => {
@@ -471,9 +474,9 @@ const previewArticles_AddClickHandler = () => {
     hooker(".project-preview a");
   }
 };
-onLoaders.push(previewArticles_AddClickHandler);
+onLoaders.push(previewArticlesAddClickHandler);
 
-const previewArticles_LinkDisabler = () => {
+const previewArticlesLinkDisabler = () => {
   const hooker = query => {
     [...$$(query)]
       .filter(link => !link.classList.contains("other-site"))
@@ -499,6 +502,7 @@ const floatingArticle_Inserter = e => {
   const el = $(targetHash);
   // see BUG below
   const tail = document.createElement("div");
+  const m = document.querySelector("#root");
 
   const headPrepender = e => {
     const head = document.createElement("div");
@@ -636,7 +640,7 @@ const floatingArticle_Destroyer = () => {
       el.classList.add("hide");
       el.removeAttribute("style");
       $$(".empty-transparency").forEach(transp => el.removeChild(transp));
-      previewArticles_LinkEnabler();
+      previewArticlesLinkEnabler();
       avoidScrollBehaviorSmooth();
       positionFixed_Remove();
       // avoid flicks by cancelling some scrolling
@@ -681,7 +685,7 @@ const keyHandler = e => {
   e.keyCode === 27 ? floatingArticle_Destroyer() : scrollHandler(e);
 };
 
-const previewArticles_LinkEnabler = () => {
+const previewArticlesLinkEnabler = () => {
   const hooker = query => {
     [...$$(query)]
       .filter(link => !link.classList.contains("other-site"))
@@ -790,12 +794,4 @@ const portuguese_Home = () => {
   pro.style.opacity = 0;
 };
 
-const HideContentOnLoad = () => {
-  if (ThisPageIs(articles)) {
-    document.querySelectorAll(".read").forEach(r => r.classList.add("hide"));
-  }
-  if (ThisPageIs(projects)) {
-    document.querySelectorAll(".project").forEach(r => r.classList.add("hide"));
-  }
-};
-onLoaders.push(HideContentOnLoad);
+export default onLoaders;

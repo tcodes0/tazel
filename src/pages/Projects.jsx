@@ -4,12 +4,26 @@ import ProjectPreviews from "../components/ProjectPreviews";
 import Projects from "../components/Projects";
 import Footer from "../components/Footer";
 import PageWrapper from "../components/PageWrapper";
+import onLoaders from "../components/utils";
 
-export default props => (
-  <PageWrapper>
-    <Header {...props} />
-    <ProjectPreviews {...props} />
-    <Projects {...props} />
-    <Footer {...props} />
-  </PageWrapper>
-);
+class ProjectsPage extends React.Component {
+  componentDidMount() {
+    document.title = "Thomazella's projects";
+    onLoaders.forEach(onLoader => {
+      onLoader();
+    });
+  }
+
+  render() {
+    return (
+      <PageWrapper>
+        <Header {...this.props} />
+        <ProjectPreviews {...this.props} />
+        <Projects {...this.props} />
+        <Footer {...this.props} />
+      </PageWrapper>
+    );
+  }
+}
+
+export default ProjectsPage;

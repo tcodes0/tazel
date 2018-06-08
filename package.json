@@ -20,8 +20,9 @@
   "dependencies": {
     "fallback": "^1.0.1",
     "react": "^16.4.0",
-    "react-router-dom": "^4.3.1",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

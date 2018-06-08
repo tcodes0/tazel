@@ -4,7 +4,7 @@ import flagAmerica from "../img/flag-america.svg";
 import ImgSvg from "./ImgSvg";
 
 const LanguageSwitcher = props => (
-  <div className="language-switch hide" role="menu" {...props}>
+  <div className="language-switch" role="menu" {...props}>
     <button
       type="button"
       name="choose-english"

@@ -6,14 +6,28 @@ import Footer from "../components/Footer";
 import EmailMe from "../components/EmailMe";
 import ThanksAbout from "../components/ThanksAbout";
 import AboutText from "../components/AboutText";
+import onLoaders from "../components/utils";
 
-export default props => (
-  <PageWrapper {...props}>
-    <Header {...props} />
-    <LanguageSwitcher />
-    <AboutText />
-    <EmailMe />
-    <ThanksAbout />
-    <Footer {...props} />
-  </PageWrapper>
-);
+class About extends React.Component {
+  componentDidMount() {
+    document.title = "About Thomazella";
+    onLoaders.forEach(onLoader => {
+      onLoader();
+    });
+  }
+
+  render() {
+    return (
+      <PageWrapper {...this.props}>
+        <Header {...this.props} />
+        <LanguageSwitcher />
+        <AboutText />
+        <EmailMe />
+        <ThanksAbout />
+        <Footer {...this.props} />
+      </PageWrapper>
+    );
+  }
+}
+
+export default About;

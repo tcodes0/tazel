@@ -6,10 +6,11 @@ import Andrea from "../projects/Andrea";
 
 const Projects = props => (
   <div
+    {...props}
     id="projects"
     role="region"
     aria-label="All projects Thomazella has worked on"
-    {...props}
+    className="hide"
   >
     <div className="container-nontileable" role="presentation">
       <NewTazel />
