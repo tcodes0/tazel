@@ -4,14 +4,14 @@ import ProjectPreviews from "../components/ProjectPreviews";
 import Projects from "../components/Projects";
 import Footer from "../components/Footer";
 import PageWrapper from "../components/PageWrapper";
-import onLoaders from "../components/utils";
+// import onLoaders from "../utils/index";
 
 class ProjectsPage extends React.Component {
   componentDidMount() {
     document.title = "Thomazella's projects";
-    onLoaders.forEach(onLoader => {
-      onLoader();
-    });
+    // onLoaders.forEach(onLoader => {
+    //   onLoader();
+    // });
   }
 
   render() {

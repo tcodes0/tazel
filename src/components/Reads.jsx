@@ -1,14 +1,14 @@
 import React from "react";
 import ReadFtp from "../reads/SayGoodbyeToFtp";
 import ReadPwned from "../reads/Pwned";
-import onLoaders from "../components/utils";
+// import onLoaders from "../utils/index";
 
 class Reads extends React.Component {
   componentDidMount() {
     document.title = "Thomazella's articles";
-    onLoaders.forEach(onLoader => {
-      onLoader();
-    });
+    // onLoaders.forEach(onLoader => {
+    //   onLoader();
+    // });
   }
 
   render() {

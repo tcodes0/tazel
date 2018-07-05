@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "homepage": "http://tazel.website",
   "scripts": {
-    "start": "yarn parcel public/index.html --out-dir build",
+    "start": "yarn parcel public/index.html --out-dir build --no-cache",
     "build": "yarn clean && yarn parcel build public/index.html --public-url ./ --out-dir build",
     "lint": "eslint src",
     "next": "rimraf ../next-tazel-home/build && cp -RHi build ../next-tazel-home/",

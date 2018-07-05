@@ -1,5 +1,4 @@
 import React from "react";
-import LanguageSwitcher from "./LanguageSwitcher";
 
 const ProfessionalDescription = props => (
   <div
@@ -8,7 +7,6 @@ const ProfessionalDescription = props => (
     aria-label="Quick description of Thomazella as a professional"
     {...props}
   >
-    <LanguageSwitcher />
     <h2>
       Hi there!
       <br /> I work building websites and I love it. I care about the people
