@@ -10,7 +10,7 @@ class Home extends React.Component {
   componentDidMount() {
     document.title = "Thomazella's homepage";
     onLoaders.forEach(onLoader => {
-      onLoader();
+      // onLoader();
     });
   }
 

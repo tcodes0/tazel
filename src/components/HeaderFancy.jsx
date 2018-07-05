@@ -3,7 +3,7 @@ import logo from "../img/thomazella.svg";
 import ImgSvg from "./ImgSvg";
 import Navigation from "./Navigation";
 
-const HeaderFancy = props => (
+const HeaderFancy = ({ staticContext, props }) => (
   <div {...props} className="header-fancy" role="banner" id="header">
     <div className="container" role="presentation">
       <div
