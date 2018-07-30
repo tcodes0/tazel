@@ -6,20 +6,11 @@ import ReadPwned from "../reads/Pwned";
 class Reads extends React.Component {
   componentDidMount() {
     document.title = "Thomazella's articles";
-    // onLoaders.forEach(onLoader => {
-    //   onLoader();
-    // });
   }
 
   render() {
     return (
-      <div
-        {...this.props}
-        id="reads"
-        role="region"
-        aria-label="All articles Thomazella wrote"
-        className="hide"
-      >
+      <div id="reads" role="region" aria-label="All articles Thomazella wrote">
         <div className="container-nontileable" role="presentation">
           <ReadFtp />
           <ReadPwned />

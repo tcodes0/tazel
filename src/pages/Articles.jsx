@@ -4,12 +4,23 @@ import ReadPreviews from "../components/ReadPreviews";
 import Reads from "../components/Reads";
 import Footer from "../components/Footer";
 import PageWrapper from "../components/PageWrapper";
+import { hideSelector } from "../utils/index";
 
-export default props => (
-  <PageWrapper>
-    <Header {...props} />
-    <ReadPreviews {...props} />
-    <Reads {...props} />
-    <Footer {...props} />
-  </PageWrapper>
-);
+class Articles extends React.Component {
+  componentDidMount() {
+    hideSelector(".read");
+  }
+
+  render() {
+    return (
+      <PageWrapper {...this.props}>
+        <Header {...this.props} />
+        <ReadPreviews {...this.props} />
+        <Reads {...this.props} />
+        <Footer {...this.props} />
+      </PageWrapper>
+    );
+  }
+}
+
+export default Articles;

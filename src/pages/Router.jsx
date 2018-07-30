@@ -5,8 +5,8 @@ import Home from "./Home";
 import Articles from "./Articles";
 import Projects from "./Projects";
 
-export default props => (
-  <BrowserRouter {...props}>
+export default () => (
+  <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />

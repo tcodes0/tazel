@@ -15,18 +15,13 @@ const toggleGuide = () => {
 };
 
 class Guide extends React.Component {
-  handleKey = e => {
+  keyDown = e => {
     console.log(e);
   };
 
   render() {
     return (
-      <div
-        className="guide"
-        role="presentation"
-        onKeyDown={this.handleKey}
-        {...this.props}
-      />
+      <div className="guide" role="presentation" onKeyDown={this.keyDown} />
     );
   }
 }

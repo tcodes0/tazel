@@ -4,7 +4,6 @@ const articles = "Thomazella's articles";
 const projects = "Thomazella's projects";
 export const $ = q => document.querySelector(q);
 export const $$ = q => document.querySelectorAll(q);
-// const m = $(".main");
 const transitionStandard = "1.15s ease-out";
 const transitionSmooth = "2.15s ease-in-out";
 const floatArticleEvent = new Event("floatarticle", { bubbles: true });
@@ -12,87 +11,15 @@ const resizers = [];
 let onLoaders = [];
 const floaters = [];
 
-// - - - - - - - - - All PAGES
-// - - - - - - - - - - - - - - -
-// window.addEventListener("resize", () => resizers.forEach(resizer => resizer()));
-// document.addEventListener("readystatechange", () => {
-//   if (document.readyState === "interactive") {
-//     onLoaders.forEach(onLoader => {
-//       onLoader();
-//     });
-//   }
-// });
-
-const htmlHide = query => {
-  const e = $(query);
-  if (e.attributes.hidden) e.removeAttribute("hidden");
-  else {
-    e.setAttribute("hidden", "");
-    e.style.display = "none";
-  }
+const runTask = (thing, fn) => {
+  if (thing.forEach) thing.forEach(obj => runTask(obj, fn));
+  fn(thing);
 };
 
-const whiteIcons = q => {
-  const icons = q ? [...$$(`${q} svg image`)] : [...$$("svg image")];
-  const xlink = "xlink:href";
-  const src = "src";
-  icons.forEach(icon => {
-    if (icon.attributes[xlink].value.match(/-white/)) {
-      return;
-    }
-    icon.setAttribute(
-      xlink,
-      icon.attributes[xlink].value.replace(".svg", "-white.svg")
-    );
-    icon.setAttribute(
-      src,
-      icon.attributes[src].value.replace(".png", "-white.png")
-    );
-  });
-};
-// onLoaders.push(whiteIcons)
-
-const blackIcons = q => {
-  const icons = q ? [...$$(`${q} svg image`)] : [...$$("svg image")];
-  const xlink = "xlink:href";
-  const src = "src";
-  icons.forEach(icon => {
-    if (!icon.attributes[xlink].value.match(/-white/)) {
-      return;
-    }
-    icon.setAttribute(
-      xlink,
-      icon.attributes[xlink].value.replace("-white.svg", ".svg")
-    );
-    icon.setAttribute(
-      src,
-      icon.attributes[src].value.replace("-white.png", ".png")
-    );
-  });
-};
-
-const light_Colors = () => {
-  const color = "rgb(255,255,252)";
-  $(".main").style.backgroundColor = color;
-  $("body").style.color = "rgb(19,19,35)";
-};
-// onLoaders.push(light_Colors)
-
-const runTask_ObjectOrList = (object, task) => {
-  if (object.forEach) {
-    object.forEach(obj => {
-      runTask_ObjectOrList(obj, task);
-    });
-  } else {
-    task(object);
-  }
-};
-
-const cleanStyles = obj =>
-  runTask_ObjectOrList(obj, o => o.removeAttribute("style"));
+const cleanStyles = obj => runTask(obj, o => o.removeAttribute("style"));
 
 const changeOpacity = (obj, value) =>
-  runTask_ObjectOrList(obj, o => (o.style.opacity = value));
+  runTask(obj, o => (o.style.opacity = value));
 
 const findALinkParent = x =>
   x.nodeName === "A" ? x : findALinkParent(x.parentNode);
@@ -373,13 +300,16 @@ const backToTop_LinkReplacer = () => {
   $(".container-backlinks").prepend(clone);
 };
 
-const hideReadsAndProjects = () => {
-  if (ThisPageIs(articles)) {
-    $$(".read").forEach(r => r.classList.add("hide"));
-  } else if (ThisPageIs(projects)) {
-    $$(".project").forEach(p => p.classList.add("hide"));
-  }
-};
+// const hideReadsAndProjects = () => {
+//   if (ThisPageIs(articles)) {
+//     $$(".read").forEach(r => r.classList.add("hide"));
+//   } else if (ThisPageIs(projects)) {
+//     $$(".project").forEach(p => p.classList.add("hide"));
+//   }
+// };
+
+export const hideSelector = selector =>
+  $$(selector).forEach(s => s.classList.add("hide"));
 
 const hideAllReadsButLast = () => {
   const reads = [...$$(".read")];

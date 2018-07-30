@@ -16,7 +16,6 @@ import screen_test from "./SayGoodbyeToFtp/screen_test.png";
 
 const SayGoodbyeToFtp = props => (
   <div
-    {...props}
     className="read"
     role="article"
     id="say-goodbye-to-ftp"

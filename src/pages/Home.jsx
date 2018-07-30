@@ -8,14 +8,11 @@ import { $, $$ } from "../utils/index";
 class Home extends React.Component {
   componentDidMount() {
     document.title = "Thomazella's homepage";
-    // onLoaders.forEach(onLoader => {
-    // onLoader();
-    // });
   }
 
   render() {
     return (
-      <PageWrapper>
+      <PageWrapper {...this.props}>
         <HeaderFancy {...this.props} />
         <ProfessionalDescription {...this.props} />
         <Footer className="footer-home" {...this.props} />
