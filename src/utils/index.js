@@ -300,39 +300,8 @@ const backToTop_LinkReplacer = () => {
   $(".container-backlinks").prepend(clone);
 };
 
-// const hideReadsAndProjects = () => {
-//   if (ThisPageIs(articles)) {
-//     $$(".read").forEach(r => r.classList.add("hide"));
-//   } else if (ThisPageIs(projects)) {
-//     $$(".project").forEach(p => p.classList.add("hide"));
-//   }
-// };
-
 export const hideSelector = selector =>
   $$(selector).forEach(s => s.classList.add("hide"));
-
-const hideAllReadsButLast = () => {
-  const reads = [...$$(".read")];
-  reads.pop();
-  reads.forEach(r => r.classList.add("hide"));
-};
-// onLoaders.push(hideAllReadsButLast)
-// IDEA: project separator glitches when main changes size. rework i
-
-const hashChecker = () => {
-  if (
-    window.location.hash === "#header" ||
-    window.location.hash === "#reads" ||
-    window.location.hash === "#projects" ||
-    !window.location.hash
-  ) {
-    return;
-  }
-
-  // window.scrollTo(0,0)
-  floatingArticle_Inserter(window.location.hash);
-};
-onLoaders = [hashChecker, ...onLoaders];
 
 const projectsFloatEventHooker = () => {
   if (ThisPageIs(projects)) {
@@ -342,16 +311,5 @@ const projectsFloatEventHooker = () => {
   }
 };
 onLoaders = [projectsFloatEventHooker, ...onLoaders];
-
-const nununuIconColorSwapper = e => {
-  if (e.target.attributes.id.value !== "nununu") {
-    return;
-  }
-
-  const targets = [...$$("#nununu a.close .img-svg")];
-  targets.push(...$$("#nununu a.back .img-svg"));
-  targets.forEach(t => (t.style.backgroundColor = "#ffbc0f"));
-};
-floaters.push(nununuIconColorSwapper);
 
 export default onLoaders;
