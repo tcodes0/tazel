@@ -24,31 +24,46 @@ const changeOpacity = (obj, value) =>
 const findALinkParent = x =>
   x.nodeName === "A" ? x : findALinkParent(x.parentNode);
 
-const previewArticlesAddClickHandler = () => {
+// const previewArticlesAddClickHandler = () => {
+//   const handler = e => {
+//     e.preventDefault();
+//     if ($(".added-by-js")) {
+//     } else {
+//       floatingArticle_Inserter(e);
+//       previewArticlesLinkDisabler();
+//     }
+//   };
+//   const hooker = query => {
+//     [...$$(query)]
+//       .filter(link => !link.classList.contains("other-site"))
+//       .forEach(link => {
+//         // console.log(link);
+//         link.addEventListener("click", handler);
+//       });
+//   };
+//   if (ThisPageIs(articles)) {
+//     hooker(".read-preview a");
+//   }
+//   if (ThisPageIs(projects)) {
+//     hooker(".project-preview a");
+//   }
+// };
+
+export const addFloatingHandlerToLink = selector => {
   const handler = e => {
-    e.preventDefault();
-    if ($(".added-by-js")) {
-    } else {
+    if (!$(".added-by-js")) {
+      e.preventDefault();
       floatingArticle_Inserter(e);
       previewArticlesLinkDisabler();
     }
   };
-  const hooker = query => {
-    [...$$(query)]
-      .filter(link => !link.classList.contains("other-site"))
-      .forEach(link => {
-        // console.log(link);
-        link.addEventListener("click", handler);
-      });
-  };
-  if (ThisPageIs(articles)) {
-    hooker(".read-preview a");
-  }
-  if (ThisPageIs(projects)) {
-    hooker(".project-preview a");
-  }
+
+  [...$$(selector)]
+    .filter(link => !link.classList.contains("other-site"))
+    .forEach(link => link.addEventListener("click", handler));
+  // hooker(".read-preview a");
+  // hooker(".project-preview a");
 };
-onLoaders.push(previewArticlesAddClickHandler);
 
 const previewArticlesLinkDisabler = () => {
   const hooker = query => {
