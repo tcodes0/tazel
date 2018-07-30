@@ -24,63 +24,6 @@ const changeOpacity = (obj, value) =>
 const findALinkParent = x =>
   x.nodeName === "A" ? x : findALinkParent(x.parentNode);
 
-// const previewArticlesAddClickHandler = () => {
-//   const handler = e => {
-//     e.preventDefault();
-//     if ($(".added-by-js")) {
-//     } else {
-//       floatingArticle_Inserter(e);
-//       previewArticlesLinkDisabler();
-//     }
-//   };
-//   const hooker = query => {
-//     [...$$(query)]
-//       .filter(link => !link.classList.contains("other-site"))
-//       .forEach(link => {
-//         // console.log(link);
-//         link.addEventListener("click", handler);
-//       });
-//   };
-//   if (ThisPageIs(articles)) {
-//     hooker(".read-preview a");
-//   }
-//   if (ThisPageIs(projects)) {
-//     hooker(".project-preview a");
-//   }
-// };
-
-export const addFloatingHandlerToLink = selector => {
-  const handler = e => {
-    if (!$(".added-by-js")) {
-      e.preventDefault();
-      floatingArticle_Inserter(e);
-      previewArticlesLinkDisabler();
-    }
-  };
-
-  [...$$(selector)]
-    .filter(link => !link.classList.contains("other-site"))
-    .forEach(link => link.addEventListener("click", handler));
-  // hooker(".read-preview a");
-  // hooker(".project-preview a");
-};
-
-const previewArticlesLinkDisabler = () => {
-  const hooker = query => {
-    [...$$(query)]
-      .filter(link => !link.classList.contains("other-site"))
-      .forEach(link => {
-        link.classList.add("disabled");
-      });
-  };
-  if (ThisPageIs(articles)) {
-    hooker(".read-preview a");
-  }
-  if (ThisPageIs(projects)) {
-    hooker(".project-preview a");
-  }
-};
-
 const floatingArticle_Inserter = e => {
   // if the hashChecker() called this, e will be a string
   const triggeredByClick = typeof e === "object";
@@ -186,6 +129,26 @@ const floatingArticle_Inserter = e => {
   window.addEventListener("scroll", scrollHandler, { passive: true });
   window.addEventListener("keydown", keyHandler);
   // IDEA: scroll bar is taking 15px on the right making the page move when article shows up
+};
+
+const applyOnInternalLinks = (selector, fn) => {
+  const internals = [...$$(selector)].filter(
+    link => !link.classList.contains("other-site")
+  );
+  return fn ? internals.forEach(fn) : internals;
+};
+
+export const addFloatingHandlerToLink = selector => {
+  const handler = e => {
+    if ($(".added-by-js")) return;
+    e.preventDefault();
+    floatingArticle_Inserter(e);
+    applyOnInternalLinks(selector, link => link.classList.add("disabled"));
+  };
+
+  applyOnInternalLinks(selector, link =>
+    link.addEventListener("click", handler)
+  );
 };
 
 const positionFixed_Apply = e => {
