@@ -5,7 +5,6 @@ const ProfessionalDescription = props => (
     role="region"
     id="professional-description"
     aria-label="Quick description of Thomazella as a professional"
-    {...props}
   >
     <h2>
       Hi there!

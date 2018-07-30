@@ -3,8 +3,7 @@ import HeaderFancy from "../components/HeaderFancy";
 import ProfessionalDescription from "../components/ProfessionalDescription";
 import Footer from "../components/Footer";
 import PageWrapper from "../components/PageWrapper";
-
-// import onLoaders from "../utils/index";
+import { $, $$ } from "../utils/index";
 
 class Home extends React.Component {
   componentDidMount() {
