@@ -4,14 +4,12 @@ import ProjectPreviews from "../components/ProjectPreviews";
 import Projects from "../components/Projects";
 import Footer from "../components/Footer";
 import PageWrapper from "../components/PageWrapper";
-// import onLoaders from "../utils/index";
+import { hideSelector } from "../utils/index";
 
-class ProjectsPage extends React.Component {
+class Portfolio extends React.Component {
   componentDidMount() {
     document.title = "Thomazella's projects";
-    // onLoaders.forEach(onLoader => {
-    //   onLoader();
-    // });
+    hideSelector(".project");
   }
 
   render() {
@@ -26,4 +24,4 @@ class ProjectsPage extends React.Component {
   }
 }
 
-export default ProjectsPage;
+export default Portfolio;

@@ -10,7 +10,6 @@ const Projects = props => (
     id="projects"
     role="region"
     aria-label="All projects Thomazella has worked on"
-    className="hide"
   >
     <div className="container-nontileable" role="presentation">
       <NewTazel />

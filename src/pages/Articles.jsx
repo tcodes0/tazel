@@ -8,6 +8,7 @@ import { hideSelector } from "../utils/index";
 
 class Articles extends React.Component {
   componentDidMount() {
+    document.title = "Thomazella's articles";
     hideSelector(".read");
   }
 
