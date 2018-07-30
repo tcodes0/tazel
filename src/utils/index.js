@@ -151,22 +151,28 @@ export const addFloatingHandlerToLink = selector => {
   );
 };
 
-const positionFixed_Apply = e => {
+const positionFixed_Apply = () => {
+  const m = $("#main");
+  const el = $(".added-by-js");
+
   const mchildren = [...m.children].filter(
     child =>
-      child.attributes.id.value !== "reads" &&
-      child.attributes.id.value !== "projects"
+      child.attributes.id === undefined ||
+      (child.attributes.id.value !== "reads" &&
+        child.attributes.id.value !== "projects")
   );
-  const el = $(".added-by-js");
+
   // rev to start from bottom, bc elements tend to collapse upwards
   mchildren.reverse();
   mchildren.forEach(child => {
-    child.style.top = `${child.offsetTop - Number.parseInt(el.dataset.top)}px`;
-    child.style.position = "fixed";
+    const c = child;
+    c.style.top = `${c.offsetTop - Number.parseInt(el.dataset.top, 10)}px`;
+    c.style.position = "fixed";
   });
 };
 
 const positionFixed_Remove = () => {
+  const m = $("#main");
   [...m.children].forEach(child => child.removeAttribute("style"));
   resizers.forEach(resizer => resizer());
 };
