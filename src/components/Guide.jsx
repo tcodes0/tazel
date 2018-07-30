@@ -1,28 +1,35 @@
 import React from "react";
+import { $ } from "../utils/index";
 
 const toggleGuide = () => {
-  const guide = $(".guide");
-  if (guide.style.display === "" || guide.style.display === "none") {
-    guide.style.display = "block";
-    if (window.innerHeight > document.body.offsetHeight) {
-      guide.style.height = `${window.innerHeight}px`;
-    } else {
-      guide.style.height = `${document.body.offsetHeight}px`;
-    }
+  const { style } = $(".guide");
+
+  if (style.display === "" || style.display === "none") {
+    style.display = "block";
+    style.height =
+      window.innerHeight > document.body.offsetHeight
+        ? `${window.innerHeight}px`
+        : `${document.body.offsetHeight}px`;
   } else {
-    guide.style.display = "none";
+    style.display = "none";
   }
 };
 
 class Guide extends React.Component {
+  componentDidMount() {
+    document.addEventListener("keydown", this.keyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.keyDown);
+  }
+
   keyDown = e => {
-    console.log(e);
+    if (e.key === "Escape") toggleGuide();
   };
 
   render() {
-    return (
-      <div className="guide" role="presentation" onKeyDown={this.keyDown} />
-    );
+    return <div className="guide" role="presentation" />;
   }
 }
 

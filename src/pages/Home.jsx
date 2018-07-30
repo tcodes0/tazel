@@ -13,9 +13,9 @@ class Home extends React.Component {
   render() {
     return (
       <PageWrapper {...this.props}>
-        <HeaderFancy {...this.props} />
-        <ProfessionalDescription {...this.props} />
-        <Footer className="footer-home" {...this.props} />
+        <HeaderFancy />
+        <ProfessionalDescription />
+        <Footer className="footer-home" />
       </PageWrapper>
     );
   }

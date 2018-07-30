@@ -113,7 +113,9 @@ const floatingArticle_Inserter = e => {
       once: true
     });
   };
-  const unsetProgressCursor = () => (document.body.style.cursor = "auto");
+  const unsetProgressCursor = () => {
+    document.body.style.cursor = "auto";
+  };
   // setting this too early causes scroll that interferes with the floating transition
   const setURLHash = () =>
     window.location.hash !== targetHash

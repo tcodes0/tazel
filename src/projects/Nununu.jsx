@@ -13,9 +13,12 @@ import ImgContained from "../components/ImgContained";
 import { $$ } from "../utils/index";
 
 const colorLinks = (color = "#ffbc0f") => {
-  const targets = [...$$("#nununu a.close .img-svg")];
-  targets.push(...$$("#nununu a.back .img-svg"));
-  targets.forEach(t => (t.style.backgroundColor = color));
+  [...$$("#nununu a.close .img-svg"), ...$$("#nununu a.back .img-svg")].forEach(
+    t => {
+      const el = t;
+      el.style.backgroundColor = color;
+    }
+  );
 };
 
 class Nununu extends React.Component {
