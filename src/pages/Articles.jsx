@@ -15,10 +15,10 @@ class Articles extends React.Component {
   render() {
     return (
       <PageWrapper {...this.props}>
-        <Header {...this.props} />
-        <ReadPreviews {...this.props} />
-        <Reads {...this.props} />
-        <Footer {...this.props} />
+        <Header />
+        <ReadPreviews />
+        <Reads />
+        <Footer />
       </PageWrapper>
     );
   }

@@ -14,11 +14,11 @@ class Portfolio extends React.Component {
 
   render() {
     return (
-      <PageWrapper>
-        <Header {...this.props} />
-        <ProjectPreviews {...this.props} />
-        <Projects {...this.props} />
-        <Footer {...this.props} />
+      <PageWrapper {...this.props}>
+        <Header />
+        <ProjectPreviews />
+        <Projects />
+        <Footer />
       </PageWrapper>
     );
   }
