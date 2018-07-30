@@ -23,21 +23,6 @@ const floaters = [];
 //   }
 // });
 
-const toggleGuide = () => {
-  const guide = $(".guide");
-  if (guide.style.display === "" || guide.style.display === "none") {
-    guide.style.display = "block";
-    if (window.innerHeight > document.body.offsetHeight) {
-      guide.style.height = `${window.innerHeight}px`;
-    } else {
-      guide.style.height = `${document.body.offsetHeight}px`;
-    }
-  } else {
-    guide.style.display = "none";
-  }
-};
-// onLoaders.push(toggleGuide)
-
 const htmlHide = query => {
   const e = $(query);
   if (e.attributes.hidden) e.removeAttribute("hidden");
