@@ -16,15 +16,16 @@ const runTask = (thing, fn) => {
   fn(thing);
 };
 
-const cleanStyles = obj => runTask(obj, o => o.removeAttribute("style"));
-
 const changeOpacity = (obj, value) =>
-  runTask(obj, o => (o.style.opacity = value));
+  runTask(obj, element => {
+    const a = element;
+    a.style.opacity = value;
+  });
 
 const findALinkParent = x =>
   x.nodeName === "A" ? x : findALinkParent(x.parentNode);
 
-const floatingArticle_Inserter = e => {
+const floatingArticleInserter = e => {
   // if the hashChecker() called this, e will be a string
   const triggeredByClick = typeof e === "object";
   // get the link that was clicked or URL hash navigated to and figure what article to show
@@ -36,23 +37,23 @@ const floatingArticle_Inserter = e => {
   const tail = document.createElement("div");
   const m = document.querySelector("#root");
 
-  const headPrepender = e => {
+  const headPrepender = () => {
     const head = document.createElement("div");
     head.classList.add("empty-transparency");
     head.style.height = `${el.dataset.top}px`;
-    head.style.top = `${-1 * Number.parseInt(el.dataset.top)}px`;
+    head.style.top = `${-1 * Number.parseInt(el.dataset.top, 10)}px`;
     el.prepend(head);
-    head.addEventListener("click", floatingArticle_Destroyer, { once: true });
-    head.addEventListener("touchend", floatingArticle_Destroyer, {
+    head.addEventListener("click", floatingArticleDestroy, { once: true });
+    head.addEventListener("touchend", floatingArticleDestroy, {
       once: true
     });
   };
-  const tailAppender = e => {
+  const tailAppender = () => {
     el.appendChild(tail);
     tail.classList.add("empty-transparency");
     tail.style.top = `${el.offsetHeight}px`;
-    tail.addEventListener("click", floatingArticle_Destroyer, { once: true });
-    tail.addEventListener("touchend", floatingArticle_Destroyer, {
+    tail.addEventListener("click", floatingArticleDestroy, { once: true });
+    tail.addEventListener("touchend", floatingArticleDestroy, {
       once: true
     });
   };
@@ -60,10 +61,9 @@ const floatingArticle_Inserter = e => {
     document.body.style.cursor = "auto";
   };
   // setting this too early causes scroll that interferes with the floating transition
-  const setURLHash = () =>
-    window.location.hash !== targetHash
-      ? (window.location.hash = targetHash)
-      : undefined;
+  const setURLHash = () => {
+    if (window.location.hash !== targetHash) window.location.hash = targetHash;
+  };
 
   // set cursor for feedback something is gonna happen
   document.body.style.cursor = "progress";
@@ -92,12 +92,9 @@ const floatingArticle_Inserter = e => {
   // .main scrolls away with the article and the body's bg color looks like a glitch
   document.body.style.backgroundColor = getComputedStyle(m).backgroundColor;
 
-  if (document.readyState == "complete") {
-    tailAppender();
-  } else {
-    // if done earlier it will have wrong height
-    window.addEventListener("load", tailAppender, { once: true });
-  }
+  // if done earlier it will have wrong height
+  if (document.readyState === "complete") tailAppender();
+  else window.addEventListener("load", tailAppender, { once: true });
 
   if (triggeredByClick) {
     // will run after transition and wrap it up
@@ -106,7 +103,7 @@ const floatingArticle_Inserter = e => {
     el.addEventListener("transitionend", unsetProgressCursor, { once: true });
     el.addEventListener("transitionend", setURLHash, { once: true });
   } else {
-    // no transiton, no problem
+    // if no transiton, do immediately
     applyPositionFixed();
     headPrepender();
     unsetProgressCursor();
@@ -116,14 +113,15 @@ const floatingArticle_Inserter = e => {
   // events to close the floating article
   el.querySelector("a.close").addEventListener(
     "click",
-    floatingArticle_Destroyer,
+    floatingArticleDestroy,
     { once: true }
   );
   el.querySelector("a.close").addEventListener(
     "touchend",
-    floatingArticle_Destroyer,
+    floatingArticleDestroy,
     { once: true }
   );
+
   window.addEventListener("scroll", scrollHandler, { passive: true });
   window.addEventListener("keydown", keyHandler);
 };
@@ -139,7 +137,7 @@ export const addFloatingHandlerToLink = selector => {
   const handler = e => {
     if ($(".added-by-js")) return;
     e.preventDefault();
-    floatingArticle_Inserter(e);
+    floatingArticleInserter(e);
     applyOnInternalLinks(selector, link => link.classList.add("disabled"));
   };
 
@@ -168,7 +166,7 @@ const applyPositionFixed = () => {
   });
 };
 
-const positionFixed_Remove = () => {
+const positionFixedRemove = () => {
   const m = $("#main");
   [...m.children].forEach(child => child.removeAttribute("style"));
   resizers.forEach(resizer => resizer());
@@ -176,8 +174,6 @@ const positionFixed_Remove = () => {
 
 const scrollHandler = e => {
   // ignore scroll up, but firefox only, I think
-  console.log(1);
-
   if (e.deltaY < 0) return;
   const el = $(".added-by-js");
 
@@ -186,7 +182,7 @@ const scrollHandler = e => {
     window.scrollY >=
       el.offsetHeight + Number.parseInt(el.dataset.top, 10) - 120
   ) {
-    floatingArticle_Destroyer();
+    floatingArticleDestroy();
   }
 };
 
@@ -203,10 +199,10 @@ const keyHandler = e => {
     // downarrow
     return;
   }
-  e.keyCode === 27 ? floatingArticle_Destroyer() : scrollHandler(e);
+  e.keyCode === 27 ? floatingArticleDestroy() : scrollHandler(e);
 };
 
-const floatingArticle_Destroyer = () => {
+const floatingArticleDestroy = () => {
   // avoids a flick caused by smooth scrolling when article is destroyed
   const avoidScrollBehaviorSmooth = () => {
     const sb = getComputedStyle(document.body).scrollBehavior;
@@ -226,7 +222,7 @@ const floatingArticle_Destroyer = () => {
       $$(".empty-transparency").forEach(transp => el.removeChild(transp));
       previewArticlesLinkEnabler();
       avoidScrollBehaviorSmooth();
-      positionFixed_Remove();
+      positionFixedRemove();
       // avoid flicks by cancelling some scrolling
       window.scroll(0, Number.parseInt(el.dataset.top));
       // cleanup js css
@@ -272,8 +268,8 @@ const backToTop_LinkReplacer = () => {
   clone.querySelector("svg > *").attributes.src.value = source.querySelector(
     "svg > *"
   ).attributes.src.value;
-  clone.addEventListener("click", floatingArticle_Destroyer, { once: true });
-  clone.addEventListener("touchstart", floatingArticle_Destroyer, {
+  clone.addEventListener("click", floatingArticleDestroy, { once: true });
+  clone.addEventListener("touchstart", floatingArticleDestroy, {
     once: true
   });
   $('.container-backlinks a.back[href="#header"]').classList.add("hide");

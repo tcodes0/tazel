@@ -4,6 +4,7 @@ import ReadPreviews from "../components/ReadPreviews";
 import Reads from "../components/Reads";
 import Footer from "../components/Footer";
 import PageWrapper from "../components/PageWrapper";
+import FloatingContainer from "../components/FloatingContainer";
 import { hideSelector } from "../utils/index";
 
 class Articles extends React.Component {
@@ -15,10 +16,12 @@ class Articles extends React.Component {
   render() {
     return (
       <PageWrapper {...this.props}>
-        <Header />
-        <ReadPreviews />
-        <Reads />
-        <Footer />
+        <FloatingContainer>
+          <Header />
+          <ReadPreviews />
+          <Reads />
+          <Footer />
+        </FloatingContainer>
       </PageWrapper>
     );
   }
