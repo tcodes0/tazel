@@ -3,12 +3,11 @@ import ImgSvg from "../components/ImgSvg";
 import logo from "../img/thomazella.svg";
 import js30 from "../projects/javascript30/logo.svg";
 import nununuWhite from "../projects/nununu/logo-white.png";
-import { addFloatingHandlerToLink } from "../utils/index";
 
 class ProjectPreviews extends React.Component {
   componentDidMount() {
     // reafactor: add componentDidUnmount and clean the listeners
-    addFloatingHandlerToLink(".project-preview a");
+    // addFloatingHandlerToLink(".project-preview a");
   }
 
   render() {

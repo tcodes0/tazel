@@ -1,10 +1,9 @@
 import React from "react";
-import { addFloatingHandlerToLink } from "../utils/index";
 
 class ReadPreviews extends React.Component {
   componentDidMount() {
     // reafactor: add componentDidUnmount and clean the listeners
-    addFloatingHandlerToLink(".read-preview a");
+    // addFloatingHandlerToLink(".read-preview a");
   }
 
   render() {

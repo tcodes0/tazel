@@ -1,5 +1,5 @@
 import React from "react";
-import { $, $$, addFloatingHandlerToLink } from "../utils/index";
+import { $, $$ } from "../utils/index";
 
 const transitionStandard = "1.15s ease-out";
 const transitionSmooth = "2.15s ease-in-out";
@@ -18,111 +18,6 @@ const changeOpacity = (obj, value) =>
 
 const findALinkParent = x =>
   x.nodeName === "A" ? x : findALinkParent(x.parentNode);
-
-const applyPositionFixed = () => {
-  const m = $("#main");
-  const el = $(".added-by-js");
-
-  const mchildren = [...m.children].filter(
-    child =>
-      child.attributes.id === undefined ||
-      (child.attributes.id.value !== "reads" &&
-        child.attributes.id.value !== "projects")
-  );
-
-  // reverse to start from bottom, because elements tend to collapse upwards
-  mchildren.reverse();
-  mchildren.forEach(child => {
-    const c = child;
-    c.style.top = `${c.offsetTop - Number.parseInt(el.dataset.top, 10)}px`;
-    c.style.position = "fixed";
-  });
-};
-
-const positionFixedRemove = () => {
-  const m = $("#main");
-  [...m.children].forEach(child => child.removeAttribute("style"));
-  resizers.forEach(resizer => resizer());
-};
-
-const scrollHandler = e => {
-  // ignore scroll up, but firefox only, I think
-  if (e.deltaY < 0) return;
-  const el = $(".added-by-js");
-
-  if (
-    el &&
-    window.scrollY >=
-      el.offsetHeight + Number.parseInt(el.dataset.top, 10) - 120
-  ) {
-    floatingArticleDestroy();
-  }
-};
-
-const keyHandler = e => {
-  // console.log(`${e.code} - ${e.keyCode}`);
-  if (
-    e.keyCode !== 32 && // space
-    // e.keyCode !== 33 && //pgup
-    e.keyCode !== 34 && // pgdown
-    // e.keyCode !== 38 && //uparrow
-    e.keyCode !== 27 && // esc
-    e.keyCode !== 40
-  ) {
-    // downarrow
-    return;
-  }
-  e.keyCode === 27 ? floatingArticleDestroy() : scrollHandler(e);
-};
-
-const floatingArticleDestroy = () => {
-  // avoids a flick caused by smooth scrolling when article is destroyed
-  const avoidScrollBehaviorSmooth = () => {
-    const sb = getComputedStyle(document.body).scrollBehavior;
-    if (!sb) return;
-    if (sb !== "auto") document.body.style.scrollBehavior = "auto";
-  };
-
-  const el = $(".added-by-js");
-  el.style.transition = `opacity ${transitionStandard}`;
-  changeOpacity(el, 0);
-  el.addEventListener(
-    "transitionend",
-    () => {
-      el.classList.remove("added-by-js");
-      el.classList.add("hide");
-      el.removeAttribute("style");
-      $$(".empty-transparency").forEach(transp => el.removeChild(transp));
-      previewArticlesLinkEnabler();
-      avoidScrollBehaviorSmooth();
-      positionFixedRemove();
-      // avoid flicks by cancelling some scrolling
-      window.scroll(0, Number.parseInt(el.dataset.top, 10));
-      // cleanup js css
-      document.body.removeAttribute("style");
-    },
-    { once: true }
-  );
-
-  window.removeEventListener("scroll", scrollHandler);
-  window.removeEventListener("keydown", keyHandler);
-};
-
-const previewArticlesLinkEnabler = () => {
-  const hooker = query => {
-    [...$$(query)]
-      .filter(link => !link.classList.contains("other-site"))
-      .forEach(link => {
-        link.classList.remove("disabled");
-      });
-  };
-  if (ThisPageIs(articles)) {
-    hooker(".read-preview a");
-  }
-  if (ThisPageIs(projects)) {
-    hooker(".project-preview a");
-  }
-};
 
 const floatingArticleInserter = e => {
   // if the hashChecker() called this, e will be a string
@@ -225,9 +120,134 @@ const floatingArticleInserter = e => {
   window.addEventListener("keydown", keyHandler);
 };
 
+const applyOnInternalLinks = (selector, fn) => {
+  const internals = [...$$(selector)].filter(
+    link => !link.classList.contains("other-site")
+  );
+  return fn ? internals.forEach(fn) : internals;
+};
+
+const addFloatingHandlerToLink = selector => {
+  const handler = e => {
+    if ($(".added-by-js")) return;
+    e.preventDefault();
+    floatingArticleInserter(e);
+    applyOnInternalLinks(selector, link => link.classList.add("disabled"));
+  };
+
+  applyOnInternalLinks(selector, link =>
+    link.addEventListener("click", handler)
+  );
+};
+
+const applyPositionFixed = () => {
+  const m = $("#main");
+  const el = $(".added-by-js");
+
+  const mchildren = [...m.children].filter(
+    child =>
+      child.attributes.id === undefined ||
+      (child.attributes.id.value !== "reads" &&
+        child.attributes.id.value !== "projects")
+  );
+
+  // reverse to start from bottom, because elements tend to collapse upwards
+  mchildren.reverse();
+  mchildren.forEach(child => {
+    const c = child;
+    c.style.top = `${c.offsetTop - Number.parseInt(el.dataset.top, 10)}px`;
+    c.style.position = "fixed";
+  });
+};
+
+const positionFixedRemove = () => {
+  const m = $("#main");
+  [...m.children].forEach(child => child.removeAttribute("style"));
+  resizers.forEach(resizer => resizer());
+};
+
+const scrollHandler = e => {
+  // ignore scroll up, but firefox only, I think
+  if (e.deltaY < 0) return;
+  const el = $(".added-by-js");
+
+  if (
+    el &&
+    window.scrollY >=
+      el.offsetHeight + Number.parseInt(el.dataset.top, 10) - 120
+  ) {
+    floatingArticleDestroy();
+  }
+};
+
+const keyHandler = e => {
+  // console.log(`${e.code} - ${e.keyCode}`);
+  if (
+    e.keyCode !== 32 && // space
+    // e.keyCode !== 33 && //pgup
+    e.keyCode !== 34 && // pgdown
+    // e.keyCode !== 38 && //uparrow
+    e.keyCode !== 27 && // esc
+    e.keyCode !== 40
+  ) {
+    // downarrow
+    return;
+  }
+  e.keyCode === 27 ? floatingArticleDestroy() : scrollHandler(e);
+};
+
+const floatingArticleDestroy = () => {
+  // avoids a flick caused by smooth scrolling when article is destroyed
+  const avoidScrollBehaviorSmooth = () => {
+    const sb = getComputedStyle(document.body).scrollBehavior;
+    if (!sb) return;
+    if (sb !== "auto") document.body.style.scrollBehavior = "auto";
+  };
+
+  const el = $(".added-by-js");
+  el.style.transition = `opacity ${transitionStandard}`;
+  changeOpacity(el, 0);
+  el.addEventListener(
+    "transitionend",
+    () => {
+      el.classList.remove("added-by-js");
+      el.classList.add("hide");
+      el.removeAttribute("style");
+      $$(".empty-transparency").forEach(transp => el.removeChild(transp));
+      previewArticlesLinkEnabler();
+      avoidScrollBehaviorSmooth();
+      positionFixedRemove();
+      // avoid flicks by cancelling some scrolling
+      window.scroll(0, Number.parseInt(el.dataset.top));
+      // cleanup js css
+      document.body.removeAttribute("style");
+    },
+    { once: true }
+  );
+
+  window.removeEventListener("scroll", scrollHandler);
+  window.removeEventListener("keydown", keyHandler);
+};
+
+const previewArticlesLinkEnabler = () => {
+  const hooker = query => {
+    [...$$(query)]
+      .filter(link => !link.classList.contains("other-site"))
+      .forEach(link => {
+        link.classList.remove("disabled");
+      });
+  };
+  if (ThisPageIs(articles)) {
+    hooker(".read-preview a");
+  }
+  if (ThisPageIs(projects)) {
+    hooker(".project-preview a");
+  }
+};
+
 class FloatingContainer extends React.Component {
   componentDidMount() {
-    console.log(77);
+    addFloatingHandlerToLink(".read-preview a");
   }
 
   render() {
