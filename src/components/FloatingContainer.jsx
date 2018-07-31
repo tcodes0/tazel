@@ -247,13 +247,11 @@ const previewArticlesLinkEnabler = () => {
 
 class FloatingContainer extends React.Component {
   componentDidMount() {
-    addFloatingHandlerToLink(".read-preview a");
+    addFloatingHandlerToLink(`.${this.props.selector}-preview a`);
   }
 
   render() {
-    return (
-      <React.Fragment {...this.props}>{this.props.children}</React.Fragment>
-    );
+    return <React.Fragment>{this.props.children}</React.Fragment>;
   }
 }
 

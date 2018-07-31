@@ -16,7 +16,7 @@ class Articles extends React.Component {
   render() {
     return (
       <PageWrapper {...this.props}>
-        <FloatingContainer>
+        <FloatingContainer selector="read">
           <Header />
           <ReadPreviews />
           <Reads />

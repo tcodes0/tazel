@@ -4,6 +4,7 @@ import ProjectPreviews from "../components/ProjectPreviews";
 import Projects from "../components/Projects";
 import Footer from "../components/Footer";
 import PageWrapper from "../components/PageWrapper";
+import FloatingContainer from "../components/FloatingContainer";
 import { hideSelector } from "../utils/index";
 
 class Portfolio extends React.Component {
@@ -15,10 +16,12 @@ class Portfolio extends React.Component {
   render() {
     return (
       <PageWrapper {...this.props}>
-        <Header />
-        <ProjectPreviews />
-        <Projects />
-        <Footer />
+        <FloatingContainer selector="project">
+          <Header />
+          <ProjectPreviews />
+          <Projects />
+          <Footer />
+        </FloatingContainer>
       </PageWrapper>
     );
   }
