@@ -12,14 +12,56 @@ const runTask = (thing, fn) => {
 
 const changeOpacity = (obj, value) =>
   runTask(obj, element => {
-    const a = element;
+    const a = element
     a.style.opacity = value;
   });
 
 const findALinkParent = x =>
   x.nodeName === "A" ? x : findALinkParent(x.parentNode);
 
-const floatingArticleInserter = e => {
+const floatingElementDestroy = () => {
+  // avoids a flick caused by smooth scrolling when article is destroyed
+  const avoidScrollBehaviorSmooth = () => {
+    const sb = getComputedStyle(document.body).scrollBehavior;
+    if (!sb) return;
+    if (sb !== "auto") document.body.style.scrollBehavior = "auto";
+  };
+  const enableDisabledLinks = () => {
+    [...$$("a.disabled")].forEach(link => {
+      link.classList.remove("disabled");
+    });
+  };
+  const positionFixedRemove = () => {
+    const m = $("#main");
+    [...m.children].forEach(child => child.removeAttribute("style"));
+  };
+  const el = $(".added-by-js");
+
+  el.style.transition = `opacity ${transitionStandard}`;
+  changeOpacity(el, 0);
+  el.addEventListener(
+    "transitionend",
+    () => {
+      el.classList.remove("added-by-js");
+      el.classList.add("hide");
+      el.removeAttribute("style");
+      $$(".empty-transparency").forEach(transp => el.removeChild(transp));
+      enableDisabledLinks();
+      avoidScrollBehaviorSmooth();
+      positionFixedRemove();
+      // avoid flicks by cancelling some scrolling
+      window.scroll(0, Number.parseInt(el.dataset.top, 10));
+      // cleanup js css
+      document.body.removeAttribute("style");
+    },
+    { once: true }
+  );
+
+  window.removeEventListener("scroll", scrollHandler);
+  window.removeEventListener("keydown", keyHandler);
+};
+
+const floatingElementInsert = e => {
   // if the hashChecker() called this, e will be a string
   const triggeredByClick = typeof e === "object";
   // get the link that was clicked or URL hash navigated to and figure what article to show
@@ -29,7 +71,7 @@ const floatingArticleInserter = e => {
   const el = $(targetHash);
   // see BUG below
   const tail = document.createElement("div");
-  const m = document.querySelector("#root");
+  const m = document.querySelector("#main");
 
   const headPrepender = () => {
     const head = document.createElement("div");
@@ -37,8 +79,8 @@ const floatingArticleInserter = e => {
     head.style.height = `${el.dataset.top}px`;
     head.style.top = `${-1 * Number.parseInt(el.dataset.top, 10)}px`;
     el.prepend(head);
-    head.addEventListener("click", floatingArticleDestroy, { once: true });
-    head.addEventListener("touchend", floatingArticleDestroy, {
+    head.addEventListener("click", floatingElementDestroy, { once: true });
+    head.addEventListener("touchend", floatingElementDestroy, {
       once: true
     });
   };
@@ -46,8 +88,8 @@ const floatingArticleInserter = e => {
     el.appendChild(tail);
     tail.classList.add("empty-transparency");
     tail.style.top = `${el.offsetHeight}px`;
-    tail.addEventListener("click", floatingArticleDestroy, { once: true });
-    tail.addEventListener("touchend", floatingArticleDestroy, {
+    tail.addEventListener("click", floatingElementDestroy, { once: true });
+    tail.addEventListener("touchend", floatingElementDestroy, {
       once: true
     });
   };
@@ -92,13 +134,13 @@ const floatingArticleInserter = e => {
 
   if (triggeredByClick) {
     // will run after transition and wrap it up
-    el.addEventListener("transitionend", applyPositionFixed, { once: true });
+    el.addEventListener("transitionend", positionFixedApply, { once: true });
     el.addEventListener("transitionend", headPrepender, { once: true });
     el.addEventListener("transitionend", unsetProgressCursor, { once: true });
     el.addEventListener("transitionend", setURLHash, { once: true });
   } else {
     // if no transiton, do immediately
-    applyPositionFixed();
+    positionFixedApply();
     headPrepender();
     unsetProgressCursor();
     setURLHash();
@@ -107,12 +149,12 @@ const floatingArticleInserter = e => {
   // events to close the floating article
   el.querySelector("a.close").addEventListener(
     "click",
-    floatingArticleDestroy,
+    floatingElementDestroy,
     { once: true }
   );
   el.querySelector("a.close").addEventListener(
     "touchend",
-    floatingArticleDestroy,
+    floatingElementDestroy,
     { once: true }
   );
 
@@ -127,11 +169,11 @@ const applyOnInternalLinks = (selector, fn) => {
   return fn ? internals.forEach(fn) : internals;
 };
 
-const addFloatingHandlerToLink = selector => {
+const addFloatingHandler = selector => {
   const handler = e => {
     if ($(".added-by-js")) return;
     e.preventDefault();
-    floatingArticleInserter(e);
+    floatingElementInsert(e);
     applyOnInternalLinks(selector, link => link.classList.add("disabled"));
   };
 
@@ -140,7 +182,7 @@ const addFloatingHandlerToLink = selector => {
   );
 };
 
-const applyPositionFixed = () => {
+const positionFixedApply = () => {
   const m = $("#main");
   const el = $(".added-by-js");
 
@@ -160,12 +202,6 @@ const applyPositionFixed = () => {
   });
 };
 
-const positionFixedRemove = () => {
-  const m = $("#main");
-  [...m.children].forEach(child => child.removeAttribute("style"));
-  resizers.forEach(resizer => resizer());
-};
-
 const scrollHandler = e => {
   // ignore scroll up, but firefox only, I think
   if (e.deltaY < 0) return;
@@ -175,79 +211,26 @@ const scrollHandler = e => {
     el &&
     window.scrollY >=
       el.offsetHeight + Number.parseInt(el.dataset.top, 10) - 120
-  ) {
-    floatingArticleDestroy();
-  }
+  )
+    floatingElementDestroy();
 };
 
 const keyHandler = e => {
-  // console.log(`${e.code} - ${e.keyCode}`);
   if (
-    e.keyCode !== 32 && // space
-    // e.keyCode !== 33 && //pgup
-    e.keyCode !== 34 && // pgdown
-    // e.keyCode !== 38 && //uparrow
-    e.keyCode !== 27 && // esc
-    e.keyCode !== 40
-  ) {
-    // downarrow
+    e.key !== " " &&
+    e.key !== "PageDown" &&
+    e.key !== "Escape" &&
+    e.key !== "ArrowDown"
+  )
     return;
-  }
-  e.keyCode === 27 ? floatingArticleDestroy() : scrollHandler(e);
-};
 
-const floatingArticleDestroy = () => {
-  // avoids a flick caused by smooth scrolling when article is destroyed
-  const avoidScrollBehaviorSmooth = () => {
-    const sb = getComputedStyle(document.body).scrollBehavior;
-    if (!sb) return;
-    if (sb !== "auto") document.body.style.scrollBehavior = "auto";
-  };
-
-  const el = $(".added-by-js");
-  el.style.transition = `opacity ${transitionStandard}`;
-  changeOpacity(el, 0);
-  el.addEventListener(
-    "transitionend",
-    () => {
-      el.classList.remove("added-by-js");
-      el.classList.add("hide");
-      el.removeAttribute("style");
-      $$(".empty-transparency").forEach(transp => el.removeChild(transp));
-      previewArticlesLinkEnabler();
-      avoidScrollBehaviorSmooth();
-      positionFixedRemove();
-      // avoid flicks by cancelling some scrolling
-      window.scroll(0, Number.parseInt(el.dataset.top));
-      // cleanup js css
-      document.body.removeAttribute("style");
-    },
-    { once: true }
-  );
-
-  window.removeEventListener("scroll", scrollHandler);
-  window.removeEventListener("keydown", keyHandler);
-};
-
-const previewArticlesLinkEnabler = () => {
-  const hooker = query => {
-    [...$$(query)]
-      .filter(link => !link.classList.contains("other-site"))
-      .forEach(link => {
-        link.classList.remove("disabled");
-      });
-  };
-  if (ThisPageIs(articles)) {
-    hooker(".read-preview a");
-  }
-  if (ThisPageIs(projects)) {
-    hooker(".project-preview a");
-  }
+  if (e.key === "Escape") floatingElementDestroy();
+  else scrollHandler(e);
 };
 
 class FloatingContainer extends React.Component {
   componentDidMount() {
-    addFloatingHandlerToLink(`.${this.props.selector}-preview a`);
+    addFloatingHandler(`.${this.props.selector}-preview a`);
   }
 
   render() {
